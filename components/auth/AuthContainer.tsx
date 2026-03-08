@@ -84,4 +84,3 @@ export default function AuthContainer({ initialMode, useAuthRoute }: AuthContain
     </div>
   );
 }
-

@@ -419,7 +419,7 @@ export default function RouteBuilder({
             {placesWithStop.length === 1 ? "Your Selected Location" : "Your Optimized Route"}
           </h1>
           <p className="font-cinzel text-white/80 text-lg">
-            {placesWithStop.length === 1 
+            {placesWithStop.length === 1
               ? "View your selected location on the map and add more places if you'd like."
               : "Review and adjust your trip route. Drag to reorder stops."}
           </p>
@@ -516,7 +516,7 @@ export default function RouteBuilder({
                   </button>
                 </div>
               )}
-              
+
               {isLoadingLocation && (
                 <div className="mb-4 p-3 bg-[#8b6f47] rounded-lg text-center">
                   <p className="font-cinzel text-white text-sm">
@@ -711,7 +711,7 @@ export default function RouteBuilder({
                   Yalla! Let's Go
                 </button>
               )}
-              
+
               <button
                 onClick={handleSave}
                 disabled={placesWithStop.length < 1}

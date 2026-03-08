@@ -73,9 +73,7 @@ export function optimizeRouteFromLocation(
     lat: p.lat,
     lng: p.lng,
   }));
-  
+
   const startPlaceIndex = findNearestPoint(startLocation, placesCoordinates);
   return nearestNeighborRoute(places, startPlaceIndex);
 }
-
-

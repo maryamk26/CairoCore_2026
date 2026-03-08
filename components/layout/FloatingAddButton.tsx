@@ -12,9 +12,8 @@ export default function FloatingAddButton() {
     return null;
   }
 
-  if (pathname?.startsWith("/sign-in") || pathname?.startsWith("/sign-up") || pathname?.startsWith("/auth") || pathname === "/about" || pathname === "/search" || pathname === "/planner") {
-    return null;
-  }
+  const hidePaths = ["/sign-in", "/sign-up", "/auth", "/about", "/search", "/planner"];
+  if (hidePaths.some((p) => pathname?.startsWith(p) || pathname === p)) return null;
 
   return (
     <Link

@@ -1,0 +1,5405 @@
+[
+  {
+    "place_id": "place_001",
+    "type": "place_to_visit",
+    "user_id": "system",
+    "name": "Cairo Festival City Mall",
+    "description": "A premier shopping and entertainment destination with a spectacular dancing fountain.",
+    "images": [
+      "https://images.unsplash.com/photo-1519567281727-81416eaf0027?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1555529771-835f59fc5efe?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1507671295325-a13ea4b8c0ba?q=80&w=1600&auto=format&fit=crop"
+    ],
+    "category": "mall",
+    "tags": [
+      "shopping",
+      "entertainment",
+      "modern",
+      "dining"
+    ],
+    "vibe": "modern",
+    "address": "Ring Road, New Cairo",
+    "city": "Cairo",
+    "working_hours": "10:00 AM - 12:00 AM",
+    "entry_fee": "Free",
+    "camera_fee": "Free",
+    "kids_friendly": true,
+    "elderly_friendly": true,
+    "pets_friendly": false,
+    "best_time": "Evening",
+    "latitude": 30.0272,
+    "longitude": 31.4057
+  },
+  {
+    "place_id": "place_002",
+    "type": "place_to_visit",
+    "user_id": "system",
+    "name": "Mall of Arabia",
+    "description": "One of Egypt's largest malls featuring diverse stores, an indoor park, and IKEA.",
+    "images": [
+      "https://images.unsplash.com/photo-1519567281727-81416eaf0027?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1555529771-835f59fc5efe?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1507671295325-a13ea4b8c0ba?q=80&w=1600&auto=format&fit=crop"
+    ],
+    "category": "mall",
+    "tags": [
+      "shopping",
+      "entertainment",
+      "modern"
+    ],
+    "vibe": "modern",
+    "address": "Juhayna Square, 6th of October",
+    "city": "Giza",
+    "working_hours": "10:00 AM - 12:00 AM",
+    "entry_fee": "Free",
+    "camera_fee": "Free",
+    "kids_friendly": true,
+    "elderly_friendly": true,
+    "pets_friendly": false,
+    "best_time": "Weekdays",
+    "latitude": 30.0076,
+    "longitude": 30.9734
+  },
+  {
+    "place_id": "place_003",
+    "type": "place_to_visit",
+    "user_id": "system",
+    "name": "Mall of Egypt",
+    "description": "Famous for 'Ski Egypt', a massive indoor ski resort, alongside high-end shopping.",
+    "images": [
+      "https://images.unsplash.com/photo-1519567281727-81416eaf0027?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1555529771-835f59fc5efe?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1507671295325-a13ea4b8c0ba?q=80&w=1600&auto=format&fit=crop"
+    ],
+    "category": "mall",
+    "tags": [
+      "shopping",
+      "ski",
+      "indoor",
+      "entertainment"
+    ],
+    "vibe": "modern",
+    "address": "Al Wahat Road, 6th of October",
+    "city": "Giza",
+    "working_hours": "10:00 AM - 12:00 AM",
+    "entry_fee": "Free",
+    "camera_fee": "Free",
+    "kids_friendly": true,
+    "elderly_friendly": true,
+    "pets_friendly": false,
+    "best_time": "Anytime",
+    "latitude": 29.9701,
+    "longitude": 30.984
+  },
+  {
+    "place_id": "place_004",
+    "type": "place_to_visit",
+    "user_id": "system",
+    "name": "Citystars Mall",
+    "description": "An iconic shopping complex in Nasr City featuring hundreds of brands and a massive cinema.",
+    "images": [
+      "https://images.unsplash.com/photo-1519567281727-81416eaf0027?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1555529771-835f59fc5efe?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1507671295325-a13ea4b8c0ba?q=80&w=1600&auto=format&fit=crop"
+    ],
+    "category": "mall",
+    "tags": [
+      "shopping",
+      "cinema",
+      "indoor"
+    ],
+    "vibe": "modern",
+    "address": "Omar Ibn El Khattab, Nasr City",
+    "city": "Cairo",
+    "working_hours": "10:00 AM - 12:00 AM",
+    "entry_fee": "Free",
+    "camera_fee": "Free",
+    "kids_friendly": true,
+    "elderly_friendly": true,
+    "pets_friendly": false,
+    "best_time": "Weekdays",
+    "latitude": 30.0726,
+    "longitude": 31.3456
+  },
+  {
+    "place_id": "place_005",
+    "type": "place_to_visit",
+    "user_id": "system",
+    "name": "Almaza City Centre",
+    "description": "A sleek, modern shopping center conveniently located near the airport.",
+    "images": [
+      "https://images.unsplash.com/photo-1519567281727-81416eaf0027?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1555529771-835f59fc5efe?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1507671295325-a13ea4b8c0ba?q=80&w=1600&auto=format&fit=crop"
+    ],
+    "category": "mall",
+    "tags": [
+      "shopping",
+      "dining",
+      "modern"
+    ],
+    "vibe": "modern",
+    "address": "Sheraton Al Matar, Heliopolis",
+    "city": "Cairo",
+    "working_hours": "10:00 AM - 12:00 AM",
+    "entry_fee": "Free",
+    "camera_fee": "Free",
+    "kids_friendly": true,
+    "elderly_friendly": true,
+    "pets_friendly": false,
+    "best_time": "Afternoon",
+    "latitude": 30.0881,
+    "longitude": 31.3524
+  },
+  {
+    "place_id": "place_006",
+    "type": "place_to_visit",
+    "user_id": "system",
+    "name": "Arkan Plaza",
+    "description": "An upscale open-air lifestyle center with premium dining and boutique shopping.",
+    "images": [
+      "https://images.unsplash.com/photo-1519567281727-81416eaf0027?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1555529771-835f59fc5efe?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1507671295325-a13ea4b8c0ba?q=80&w=1600&auto=format&fit=crop"
+    ],
+    "category": "mall",
+    "tags": [
+      "shopping",
+      "outdoors",
+      "dining"
+    ],
+    "vibe": "modern",
+    "address": "26th of July Corridor",
+    "city": "Sheikh Zayed",
+    "working_hours": "10:00 AM - 1:00 AM",
+    "entry_fee": "Free",
+    "camera_fee": "Free",
+    "kids_friendly": true,
+    "elderly_friendly": true,
+    "pets_friendly": true,
+    "best_time": "Night",
+    "latitude": 30.0385,
+    "longitude": 30.9881
+  },
+  {
+    "place_id": "place_007",
+    "type": "place_to_visit",
+    "user_id": "system",
+    "name": "Galleria40",
+    "description": "A luxury lifestyle destination offering high-end dining, art galleries, and fashion.",
+    "images": [
+      "https://images.unsplash.com/photo-1519567281727-81416eaf0027?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1555529771-835f59fc5efe?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1507671295325-a13ea4b8c0ba?q=80&w=1600&auto=format&fit=crop"
+    ],
+    "category": "mall",
+    "tags": [
+      "shopping",
+      "luxury",
+      "dining"
+    ],
+    "vibe": "modern",
+    "address": "26th of July Corridor",
+    "city": "Sheikh Zayed",
+    "working_hours": "10:00 AM - 1:00 AM",
+    "entry_fee": "Free",
+    "camera_fee": "Free",
+    "kids_friendly": true,
+    "elderly_friendly": true,
+    "pets_friendly": false,
+    "best_time": "Night",
+    "latitude": 30.0345,
+    "longitude": 30.9801
+  },
+  {
+    "place_id": "place_008",
+    "type": "place_to_visit",
+    "user_id": "system",
+    "name": "Capital Promenade",
+    "description": "A vibrant outdoor promenade packed with trendy eateries and shisha lounges.",
+    "images": [
+      "https://images.unsplash.com/photo-1519567281727-81416eaf0027?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1555529771-835f59fc5efe?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1507671295325-a13ea4b8c0ba?q=80&w=1600&auto=format&fit=crop"
+    ],
+    "category": "mall",
+    "tags": [
+      "outdoors",
+      "dining",
+      "cafes"
+    ],
+    "vibe": "modern",
+    "address": "26th of July Corridor",
+    "city": "Sheikh Zayed",
+    "working_hours": "10:00 AM - 2:00 AM",
+    "entry_fee": "Free",
+    "camera_fee": "Free",
+    "kids_friendly": true,
+    "elderly_friendly": true,
+    "pets_friendly": true,
+    "best_time": "Evening",
+    "latitude": 30.0396,
+    "longitude": 30.9902
+  },
+  {
+    "place_id": "place_009",
+    "type": "place_to_visit",
+    "user_id": "system",
+    "name": "Walk of Cairo (WOC)",
+    "description": "An expansive open-air retail and entertainment walk featuring a museum of illusions and zipline.",
+    "images": [
+      "https://images.unsplash.com/photo-1519567281727-81416eaf0027?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1555529771-835f59fc5efe?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1507671295325-a13ea4b8c0ba?q=80&w=1600&auto=format&fit=crop"
+    ],
+    "category": "mall",
+    "tags": [
+      "outdoors",
+      "adventure",
+      "shopping"
+    ],
+    "vibe": "modern",
+    "address": "Cairo-Alex Desert Road",
+    "city": "Sheikh Zayed",
+    "working_hours": "10:00 AM - 12:00 AM",
+    "entry_fee": "Free",
+    "camera_fee": "Free",
+    "kids_friendly": true,
+    "elderly_friendly": true,
+    "pets_friendly": true,
+    "best_time": "Sunset",
+    "latitude": 30.0631,
+    "longitude": 30.9856
+  },
+  {
+    "place_id": "place_010",
+    "type": "place_to_visit",
+    "user_id": "system",
+    "name": "Point 90 Mall",
+    "description": "A popular hangout spot right across from the American University in Cairo.",
+    "images": [
+      "https://images.unsplash.com/photo-1519567281727-81416eaf0027?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1555529771-835f59fc5efe?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1507671295325-a13ea4b8c0ba?q=80&w=1600&auto=format&fit=crop"
+    ],
+    "category": "mall",
+    "tags": [
+      "cinema",
+      "youth",
+      "shopping"
+    ],
+    "vibe": "modern",
+    "address": "In front of AUC, New Cairo",
+    "city": "Cairo",
+    "working_hours": "10:00 AM - 12:00 AM",
+    "entry_fee": "Free",
+    "camera_fee": "Free",
+    "kids_friendly": true,
+    "elderly_friendly": true,
+    "pets_friendly": false,
+    "best_time": "Evening",
+    "latitude": 30.0175,
+    "longitude": 31.4984
+  },
+  {
+    "place_id": "place_011",
+    "type": "place_to_visit",
+    "user_id": "system",
+    "name": "Downtown Katameya",
+    "description": "A lively strip mall with diverse dining options and outdoor seating.",
+    "images": [
+      "https://images.unsplash.com/photo-1519567281727-81416eaf0027?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1555529771-835f59fc5efe?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1507671295325-a13ea4b8c0ba?q=80&w=1600&auto=format&fit=crop"
+    ],
+    "category": "mall",
+    "tags": [
+      "dining",
+      "outdoors",
+      "cafes"
+    ],
+    "vibe": "modern",
+    "address": "Road 90, New Cairo",
+    "city": "Cairo",
+    "working_hours": "10:00 AM - 1:00 AM",
+    "entry_fee": "Free",
+    "camera_fee": "Free",
+    "kids_friendly": true,
+    "elderly_friendly": true,
+    "pets_friendly": true,
+    "best_time": "Night",
+    "latitude": 30.0163,
+    "longitude": 31.4284
+  },
+  {
+    "place_id": "place_012",
+    "type": "place_to_visit",
+    "user_id": "system",
+    "name": "Waterway 1",
+    "description": "A premium commercial strip with upscale restaurants and beautiful water features.",
+    "images": [
+      "https://images.unsplash.com/photo-1519567281727-81416eaf0027?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1555529771-835f59fc5efe?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1507671295325-a13ea4b8c0ba?q=80&w=1600&auto=format&fit=crop"
+    ],
+    "category": "mall",
+    "tags": [
+      "luxury",
+      "dining",
+      "outdoors"
+    ],
+    "vibe": "modern",
+    "address": "Waterway, New Cairo",
+    "city": "Cairo",
+    "working_hours": "8:00 AM - 1:00 AM",
+    "entry_fee": "Free",
+    "camera_fee": "Free",
+    "kids_friendly": true,
+    "elderly_friendly": true,
+    "pets_friendly": true,
+    "best_time": "Evening",
+    "latitude": 30.0382,
+    "longitude": 31.4589
+  },
+  {
+    "place_id": "place_013",
+    "type": "place_to_visit",
+    "user_id": "system",
+    "name": "5A by The Waterway",
+    "description": "A grand, high-end lifestyle destination featuring international luxury brands.",
+    "images": [
+      "https://images.unsplash.com/photo-1519567281727-81416eaf0027?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1555529771-835f59fc5efe?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1507671295325-a13ea4b8c0ba?q=80&w=1600&auto=format&fit=crop"
+    ],
+    "category": "mall",
+    "tags": [
+      "luxury",
+      "shopping",
+      "dining"
+    ],
+    "vibe": "modern",
+    "address": "Ring Road, New Cairo",
+    "city": "Cairo",
+    "working_hours": "10:00 AM - 1:00 AM",
+    "entry_fee": "Free",
+    "camera_fee": "Free",
+    "kids_friendly": true,
+    "elderly_friendly": true,
+    "pets_friendly": false,
+    "best_time": "Night",
+    "latitude": 30.0305,
+    "longitude": 31.4223
+  },
+  {
+    "place_id": "place_014",
+    "type": "place_to_visit",
+    "user_id": "system",
+    "name": "Garden 8",
+    "description": "A trendy open-air complex known for its lush aesthetics and chic dining spots.",
+    "images": [
+      "https://images.unsplash.com/photo-1519567281727-81416eaf0027?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1555529771-835f59fc5efe?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1507671295325-a13ea4b8c0ba?q=80&w=1600&auto=format&fit=crop"
+    ],
+    "category": "mall",
+    "tags": [
+      "dining",
+      "outdoors",
+      "chic"
+    ],
+    "vibe": "modern",
+    "address": "New Cairo",
+    "city": "Cairo",
+    "working_hours": "10:00 AM - 1:00 AM",
+    "entry_fee": "Free",
+    "camera_fee": "Free",
+    "kids_friendly": true,
+    "elderly_friendly": true,
+    "pets_friendly": false,
+    "best_time": "Evening",
+    "latitude": 30.0456,
+    "longitude": 31.4682
+  },
+  {
+    "place_id": "place_015",
+    "type": "place_to_visit",
+    "user_id": "system",
+    "name": "O1 Mall",
+    "description": "A boutique commercial center housing artisanal cafes and unique eateries.",
+    "images": [
+      "https://images.unsplash.com/photo-1519567281727-81416eaf0027?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1555529771-835f59fc5efe?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1507671295325-a13ea4b8c0ba?q=80&w=1600&auto=format&fit=crop"
+    ],
+    "category": "mall",
+    "tags": [
+      "boutique",
+      "dining",
+      "cafes"
+    ],
+    "vibe": "modern",
+    "address": "Mohamed Naguib Axis, New Cairo",
+    "city": "Cairo",
+    "working_hours": "9:00 AM - 12:00 AM",
+    "entry_fee": "Free",
+    "camera_fee": "Free",
+    "kids_friendly": true,
+    "elderly_friendly": true,
+    "pets_friendly": false,
+    "best_time": "Morning",
+    "latitude": 30.0321,
+    "longitude": 31.4452
+  },
+  {
+    "place_id": "place_016",
+    "type": "place_to_visit",
+    "user_id": "system",
+    "name": "The Yard",
+    "description": "A relaxed, community-focused mall complex in El Rehab.",
+    "images": [
+      "https://images.unsplash.com/photo-1519567281727-81416eaf0027?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1555529771-835f59fc5efe?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1507671295325-a13ea4b8c0ba?q=80&w=1600&auto=format&fit=crop"
+    ],
+    "category": "mall",
+    "tags": [
+      "family",
+      "dining",
+      "shopping"
+    ],
+    "vibe": "modern",
+    "address": "Sadat Axis, Al Rehab",
+    "city": "Cairo",
+    "working_hours": "10:00 AM - 12:00 AM",
+    "entry_fee": "Free",
+    "camera_fee": "Free",
+    "kids_friendly": true,
+    "elderly_friendly": true,
+    "pets_friendly": true,
+    "best_time": "Afternoon",
+    "latitude": 30.0612,
+    "longitude": 31.4879
+  },
+  {
+    "place_id": "place_017",
+    "type": "place_to_visit",
+    "user_id": "system",
+    "name": "Tivoli Dome",
+    "description": "A well-known food court and café hub popular with families and friends.",
+    "images": [
+      "https://images.unsplash.com/photo-1519567281727-81416eaf0027?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1555529771-835f59fc5efe?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1507671295325-a13ea4b8c0ba?q=80&w=1600&auto=format&fit=crop"
+    ],
+    "category": "mall",
+    "tags": [
+      "dining",
+      "outdoors",
+      "family"
+    ],
+    "vibe": "modern",
+    "address": "Heliopolis",
+    "city": "Cairo",
+    "working_hours": "10:00 AM - 2:00 AM",
+    "entry_fee": "Free",
+    "camera_fee": "Free",
+    "kids_friendly": true,
+    "elderly_friendly": true,
+    "pets_friendly": true,
+    "best_time": "Night",
+    "latitude": 30.0911,
+    "longitude": 31.3324
+  },
+  {
+    "place_id": "place_018",
+    "type": "place_to_visit",
+    "user_id": "system",
+    "name": "Americana Plaza",
+    "description": "An entertainment complex containing an IMAX theater and varied casual dining.",
+    "images": [
+      "https://images.unsplash.com/photo-1519567281727-81416eaf0027?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1555529771-835f59fc5efe?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1507671295325-a13ea4b8c0ba?q=80&w=1600&auto=format&fit=crop"
+    ],
+    "category": "mall",
+    "tags": [
+      "cinema",
+      "dining",
+      "family"
+    ],
+    "vibe": "modern",
+    "address": "Sheikh Zayed",
+    "city": "Sheikh Zayed",
+    "working_hours": "10:00 AM - 1:00 AM",
+    "entry_fee": "Free",
+    "camera_fee": "Free",
+    "kids_friendly": true,
+    "elderly_friendly": true,
+    "pets_friendly": false,
+    "best_time": "Evening",
+    "latitude": 30.0041,
+    "longitude": 30.9856
+  },
+  {
+    "place_id": "place_019",
+    "type": "place_to_visit",
+    "user_id": "system",
+    "name": "Majarrah",
+    "description": "A sophisticated open-air dining and retail complex with beautiful modern architecture.",
+    "images": [
+      "https://images.unsplash.com/photo-1519567281727-81416eaf0027?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1555529771-835f59fc5efe?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1507671295325-a13ea4b8c0ba?q=80&w=1600&auto=format&fit=crop"
+    ],
+    "category": "mall",
+    "tags": [
+      "dining",
+      "architecture",
+      "chic"
+    ],
+    "vibe": "modern",
+    "address": "Sheikh Zayed",
+    "city": "Sheikh Zayed",
+    "working_hours": "9:00 AM - 1:00 AM",
+    "entry_fee": "Free",
+    "camera_fee": "Free",
+    "kids_friendly": true,
+    "elderly_friendly": true,
+    "pets_friendly": false,
+    "best_time": "Evening",
+    "latitude": 30.0432,
+    "longitude": 30.9892
+  },
+  {
+    "place_id": "place_020",
+    "type": "place_to_visit",
+    "user_id": "system",
+    "name": "The First Mall",
+    "description": "A luxurious indoor mall attached to the Four Seasons Hotel overlooking the Nile.",
+    "images": [
+      "https://images.unsplash.com/photo-1519567281727-81416eaf0027?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1555529771-835f59fc5efe?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1507671295325-a13ea4b8c0ba?q=80&w=1600&auto=format&fit=crop"
+    ],
+    "category": "mall",
+    "tags": [
+      "luxury",
+      "indoor",
+      "shopping"
+    ],
+    "vibe": "modern",
+    "address": "35 Giza St",
+    "city": "Giza",
+    "working_hours": "10:00 AM - 10:00 PM",
+    "entry_fee": "Free",
+    "camera_fee": "Free",
+    "kids_friendly": true,
+    "elderly_friendly": true,
+    "pets_friendly": false,
+    "best_time": "Afternoon",
+    "latitude": 30.0305,
+    "longitude": 31.2227
+  },
+  {
+    "place_id": "place_021",
+    "type": "place_to_visit",
+    "user_id": "system",
+    "name": "Pyramids of Giza and Sphinx",
+    "description": "The last surviving wonder of the ancient world. Majestic and timeless.",
+    "images": [
+      "https://images.unsplash.com/photo-1539650116574-8efeb43e2750?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1600521605612-426b3cfc7949?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1553554160-50280eb45a72?q=80&w=1600&auto=format&fit=crop"
+    ],
+    "category": "pyramids",
+    "tags": [
+      "historical",
+      "ancient",
+      "tourist"
+    ],
+    "vibe": "ancient",
+    "address": "Al Haram",
+    "city": "Giza",
+    "working_hours": "8:00 AM - 5:00 PM",
+    "entry_fee": "540 EGP",
+    "camera_fee": "300 EGP",
+    "kids_friendly": true,
+    "elderly_friendly": false,
+    "pets_friendly": false,
+    "best_time": "Winter mornings",
+    "latitude": 29.9792,
+    "longitude": 31.1342
+  },
+  {
+    "place_id": "place_022",
+    "type": "place_to_visit",
+    "user_id": "system",
+    "name": "Saqqara Step Pyramid",
+    "description": "The earliest colossal stone building in Egypt, built for King Djoser.",
+    "images": [
+      "https://images.unsplash.com/photo-1539650116574-8efeb43e2750?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1600521605612-426b3cfc7949?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1553554160-50280eb45a72?q=80&w=1600&auto=format&fit=crop"
+    ],
+    "category": "pyramids",
+    "tags": [
+      "historical",
+      "ancient",
+      "tourist"
+    ],
+    "vibe": "ancient",
+    "address": "Saqqara",
+    "city": "Giza",
+    "working_hours": "8:00 AM - 5:00 PM",
+    "entry_fee": "300 EGP",
+    "camera_fee": "Free",
+    "kids_friendly": true,
+    "elderly_friendly": false,
+    "pets_friendly": false,
+    "best_time": "Morning",
+    "latitude": 29.8712,
+    "longitude": 31.2163
+  },
+  {
+    "place_id": "place_023",
+    "type": "place_to_visit",
+    "user_id": "system",
+    "name": "Dahshur Pyramids (Red & Bent)",
+    "description": "Home to the Bent Pyramid and the Red Pyramid, precursors to the Great Pyramid.",
+    "images": [
+      "https://images.unsplash.com/photo-1539650116574-8efeb43e2750?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1600521605612-426b3cfc7949?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1553554160-50280eb45a72?q=80&w=1600&auto=format&fit=crop"
+    ],
+    "category": "pyramids",
+    "tags": [
+      "historical",
+      "ancient",
+      "adventure"
+    ],
+    "vibe": "ancient",
+    "address": "Dahshur",
+    "city": "Giza",
+    "working_hours": "8:00 AM - 5:00 PM",
+    "entry_fee": "150 EGP",
+    "camera_fee": "Free",
+    "kids_friendly": true,
+    "elderly_friendly": false,
+    "pets_friendly": false,
+    "best_time": "Winter mornings",
+    "latitude": 29.8087,
+    "longitude": 31.2057
+  },
+  {
+    "place_id": "place_024",
+    "type": "place_to_visit",
+    "user_id": "system",
+    "name": "Memphis Open Air Museum",
+    "description": "The ancient capital of Egypt, featuring a colossal statue of Ramses II.",
+    "images": [
+      "https://images.unsplash.com/photo-1539650116574-8efeb43e2750?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1600521605612-426b3cfc7949?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1553554160-50280eb45a72?q=80&w=1600&auto=format&fit=crop"
+    ],
+    "category": "historical_site",
+    "tags": [
+      "historical",
+      "outdoors",
+      "tourist"
+    ],
+    "vibe": "ancient",
+    "address": "Mit Rahina",
+    "city": "Giza",
+    "working_hours": "8:00 AM - 5:00 PM",
+    "entry_fee": "100 EGP",
+    "camera_fee": "Free",
+    "kids_friendly": true,
+    "elderly_friendly": true,
+    "pets_friendly": false,
+    "best_time": "Morning",
+    "latitude": 29.851,
+    "longitude": 31.2543
+  },
+  {
+    "place_id": "place_025",
+    "type": "place_to_visit",
+    "user_id": "system",
+    "name": "Citadel of Saladin",
+    "description": "A medieval Islamic fortress offering panoramic views over Islamic Cairo.",
+    "images": [
+      "https://images.unsplash.com/photo-1539650116574-8efeb43e2750?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1600521605612-426b3cfc7949?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1553554160-50280eb45a72?q=80&w=1600&auto=format&fit=crop"
+    ],
+    "category": "citadel",
+    "tags": [
+      "historical",
+      "architecture",
+      "viewpoint"
+    ],
+    "vibe": "historical",
+    "address": "Al Abageyah",
+    "city": "Cairo",
+    "working_hours": "9:00 AM - 5:00 PM",
+    "entry_fee": "300 EGP",
+    "camera_fee": "Free",
+    "kids_friendly": true,
+    "elderly_friendly": false,
+    "pets_friendly": false,
+    "best_time": "Afternoon",
+    "latitude": 30.0296,
+    "longitude": 31.26
+  },
+  {
+    "place_id": "place_026",
+    "type": "place_to_visit",
+    "user_id": "system",
+    "name": "Bab Zuweila",
+    "description": "One of three remaining gates in the walls of the Old City of Cairo.",
+    "images": [
+      "https://images.unsplash.com/photo-1539650116574-8efeb43e2750?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1600521605612-426b3cfc7949?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1553554160-50280eb45a72?q=80&w=1600&auto=format&fit=crop"
+    ],
+    "category": "historical_site",
+    "tags": [
+      "historical",
+      "viewpoint",
+      "architecture"
+    ],
+    "vibe": "historical",
+    "address": "El-Darb El-Ahmar",
+    "city": "Cairo",
+    "working_hours": "9:00 AM - 5:00 PM",
+    "entry_fee": "40 EGP",
+    "camera_fee": "Free",
+    "kids_friendly": false,
+    "elderly_friendly": false,
+    "pets_friendly": false,
+    "best_time": "Sunset",
+    "latitude": 30.043,
+    "longitude": 31.2594
+  },
+  {
+    "place_id": "place_027",
+    "type": "place_to_visit",
+    "user_id": "system",
+    "name": "Bab al-Futuh",
+    "description": "The 'Gate of Conquest', a massive fortified gate marking the northern boundary of Fatimid Cairo.",
+    "images": [
+      "https://images.unsplash.com/photo-1539650116574-8efeb43e2750?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1600521605612-426b3cfc7949?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1553554160-50280eb45a72?q=80&w=1600&auto=format&fit=crop"
+    ],
+    "category": "historical_site",
+    "tags": [
+      "historical",
+      "architecture",
+      "tourist"
+    ],
+    "vibe": "historical",
+    "address": "Al-Muizz, El-Gamaleya",
+    "city": "Cairo",
+    "working_hours": "Open 24 hours",
+    "entry_fee": "Free",
+    "camera_fee": "Free",
+    "kids_friendly": true,
+    "elderly_friendly": true,
+    "pets_friendly": false,
+    "best_time": "Evening",
+    "latitude": 30.0543,
+    "longitude": 31.2631
+  },
+  {
+    "place_id": "place_028",
+    "type": "place_to_visit",
+    "user_id": "system",
+    "name": "City of the Dead",
+    "description": "An ancient Islamic necropolis that also serves as a living neighborhood.",
+    "images": [
+      "https://images.unsplash.com/photo-1539650116574-8efeb43e2750?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1600521605612-426b3cfc7949?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1553554160-50280eb45a72?q=80&w=1600&auto=format&fit=crop"
+    ],
+    "category": "historical_site",
+    "tags": [
+      "historical",
+      "architecture",
+      "cultural"
+    ],
+    "vibe": "historical",
+    "address": "El-Darb El-Ahmar",
+    "city": "Cairo",
+    "working_hours": "Daylight hours",
+    "entry_fee": "Free",
+    "camera_fee": "Free",
+    "kids_friendly": false,
+    "elderly_friendly": true,
+    "pets_friendly": false,
+    "best_time": "Morning",
+    "latitude": 30.0444,
+    "longitude": 31.2686
+  },
+  {
+    "place_id": "place_029",
+    "type": "place_to_visit",
+    "user_id": "system",
+    "name": "Ben Ezra Synagogue",
+    "description": "Historic synagogue in Old Cairo, believed to be where baby Moses was found.",
+    "images": [
+      "https://images.unsplash.com/photo-1539650116574-8efeb43e2750?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1600521605612-426b3cfc7949?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1553554160-50280eb45a72?q=80&w=1600&auto=format&fit=crop"
+    ],
+    "category": "historical_site",
+    "tags": [
+      "historical",
+      "religious",
+      "cultural"
+    ],
+    "vibe": "historical",
+    "address": "Old Cairo",
+    "city": "Cairo",
+    "working_hours": "8:00 AM - 4:00 PM",
+    "entry_fee": "Free",
+    "camera_fee": "Free",
+    "kids_friendly": true,
+    "elderly_friendly": true,
+    "pets_friendly": false,
+    "best_time": "Morning",
+    "latitude": 30.0061,
+    "longitude": 31.2305
+  },
+  {
+    "place_id": "place_030",
+    "type": "place_to_visit",
+    "user_id": "system",
+    "name": "Wekalet El Ghouri",
+    "description": "A beautifully preserved Mamluk marketplace housing cultural events and the famous Tannoura dance show.",
+    "images": [
+      "https://images.unsplash.com/photo-1539650116574-8efeb43e2750?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1600521605612-426b3cfc7949?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1553554160-50280eb45a72?q=80&w=1600&auto=format&fit=crop"
+    ],
+    "category": "historical_site",
+    "tags": [
+      "historical",
+      "cultural",
+      "performance"
+    ],
+    "vibe": "traditional",
+    "address": "Mohamed Abdo St, El-Darb El-Ahmar",
+    "city": "Cairo",
+    "working_hours": "10:00 AM - 10:00 PM",
+    "entry_fee": "50 EGP",
+    "camera_fee": "Free",
+    "kids_friendly": true,
+    "elderly_friendly": true,
+    "pets_friendly": false,
+    "best_time": "Evening",
+    "latitude": 30.0456,
+    "longitude": 31.2612
+  },
+  {
+    "place_id": "place_031",
+    "type": "place_to_visit",
+    "user_id": "system",
+    "name": "Beit El Suhaymi",
+    "description": "An exceptional example of an Ottoman-era merchant's courtyard house.",
+    "images": [
+      "https://images.unsplash.com/photo-1539650116574-8efeb43e2750?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1600521605612-426b3cfc7949?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1553554160-50280eb45a72?q=80&w=1600&auto=format&fit=crop"
+    ],
+    "category": "historical_site",
+    "tags": [
+      "historical",
+      "architecture",
+      "photography"
+    ],
+    "vibe": "historical",
+    "address": "Al-Darb Al-Asfar, Al-Gamaleya",
+    "city": "Cairo",
+    "working_hours": "9:00 AM - 5:00 PM",
+    "entry_fee": "60 EGP",
+    "camera_fee": "Free",
+    "kids_friendly": true,
+    "elderly_friendly": true,
+    "pets_friendly": false,
+    "best_time": "Morning",
+    "latitude": 30.0518,
+    "longitude": 31.2614
+  },
+  {
+    "place_id": "place_032",
+    "type": "place_to_visit",
+    "user_id": "system",
+    "name": "Qalawun Complex",
+    "description": "A massive complex comprising a hospital, madrasa, and an incredibly ornate mausoleum.",
+    "images": [
+      "https://images.unsplash.com/photo-1539650116574-8efeb43e2750?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1600521605612-426b3cfc7949?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1553554160-50280eb45a72?q=80&w=1600&auto=format&fit=crop"
+    ],
+    "category": "historical_site",
+    "tags": [
+      "historical",
+      "architecture",
+      "religious"
+    ],
+    "vibe": "historical",
+    "address": "Al-Muizz Street",
+    "city": "Cairo",
+    "working_hours": "9:00 AM - 5:00 PM",
+    "entry_fee": "100 EGP",
+    "camera_fee": "Free",
+    "kids_friendly": true,
+    "elderly_friendly": true,
+    "pets_friendly": false,
+    "best_time": "Morning",
+    "latitude": 30.0487,
+    "longitude": 31.2613
+  },
+  {
+    "place_id": "place_033",
+    "type": "place_to_visit",
+    "user_id": "system",
+    "name": "Nilometer",
+    "description": "An ancient structure on Rhoda Island used to measure the Nile's water level during floods.",
+    "images": [
+      "https://images.unsplash.com/photo-1539650116574-8efeb43e2750?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1600521605612-426b3cfc7949?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1553554160-50280eb45a72?q=80&w=1600&auto=format&fit=crop"
+    ],
+    "category": "historical_site",
+    "tags": [
+      "historical",
+      "architecture",
+      "nile"
+    ],
+    "vibe": "historical",
+    "address": "Rhoda Island",
+    "city": "Cairo",
+    "working_hours": "9:00 AM - 4:00 PM",
+    "entry_fee": "40 EGP",
+    "camera_fee": "Free",
+    "kids_friendly": true,
+    "elderly_friendly": true,
+    "pets_friendly": false,
+    "best_time": "Morning",
+    "latitude": 30.0076,
+    "longitude": 31.225
+  },
+  {
+    "place_id": "place_034",
+    "type": "place_to_visit",
+    "user_id": "system",
+    "name": "Wadi el Natrun Monasteries",
+    "description": "Ancient Coptic monasteries located in the desert valley outside Cairo/Giza boundaries.",
+    "images": [
+      "https://images.unsplash.com/photo-1539650116574-8efeb43e2750?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1600521605612-426b3cfc7949?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1553554160-50280eb45a72?q=80&w=1600&auto=format&fit=crop"
+    ],
+    "category": "historical_site",
+    "tags": [
+      "historical",
+      "religious",
+      "ancient"
+    ],
+    "vibe": "historical",
+    "address": "Desert Road",
+    "city": "Giza",
+    "working_hours": "8:00 AM - 5:00 PM",
+    "entry_fee": "Free",
+    "camera_fee": "Free",
+    "kids_friendly": false,
+    "elderly_friendly": false,
+    "pets_friendly": false,
+    "best_time": "Morning",
+    "latitude": 30.3421,
+    "longitude": 30.3156
+  },
+  {
+    "place_id": "place_035",
+    "type": "place_to_visit",
+    "user_id": "system",
+    "name": "Cairo Opera House",
+    "description": "Egypt's premier performing arts venue located in the cultural heart of Zamalek.",
+    "images": [
+      "https://images.unsplash.com/photo-1539650116574-8efeb43e2750?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1600521605612-426b3cfc7949?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1553554160-50280eb45a72?q=80&w=1600&auto=format&fit=crop"
+    ],
+    "category": "historical_site",
+    "tags": [
+      "cultural",
+      "art",
+      "performance"
+    ],
+    "vibe": "modern",
+    "address": "Gezira",
+    "city": "Cairo",
+    "working_hours": "Box office hours",
+    "entry_fee": "300 EGP",
+    "camera_fee": "Free",
+    "kids_friendly": true,
+    "elderly_friendly": true,
+    "pets_friendly": false,
+    "best_time": "Night",
+    "latitude": 30.0428,
+    "longitude": 31.2244
+  },
+  {
+    "place_id": "place_036",
+    "type": "place_to_visit",
+    "user_id": "system",
+    "name": "The Egyptian Museum",
+    "description": "The classic museum holding the world's most extensive collection of pharaonic antiquities.",
+    "images": [
+      "https://images.unsplash.com/photo-1539650116574-8efeb43e2750?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1600521605612-426b3cfc7949?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1553554160-50280eb45a72?q=80&w=1600&auto=format&fit=crop"
+    ],
+    "category": "museum",
+    "tags": [
+      "historical",
+      "ancient",
+      "tourist"
+    ],
+    "vibe": "historical",
+    "address": "Tahrir Square",
+    "city": "Cairo",
+    "working_hours": "9:00 AM - 5:00 PM",
+    "entry_fee": "450 EGP",
+    "camera_fee": "50 EGP",
+    "kids_friendly": true,
+    "elderly_friendly": true,
+    "pets_friendly": false,
+    "best_time": "Winter mornings",
+    "latitude": 30.0478,
+    "longitude": 31.2336
+  },
+  {
+    "place_id": "place_037",
+    "type": "place_to_visit",
+    "user_id": "system",
+    "name": "The Grand Egyptian Museum",
+    "description": "The breathtaking new museum overlooking the Giza pyramids.",
+    "images": [
+      "https://images.unsplash.com/photo-1539650116574-8efeb43e2750?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1600521605612-426b3cfc7949?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1553554160-50280eb45a72?q=80&w=1600&auto=format&fit=crop"
+    ],
+    "category": "museum",
+    "tags": [
+      "historical",
+      "ancient",
+      "modern"
+    ],
+    "vibe": "modern",
+    "address": "Cairo-Alexandria Desert Rd",
+    "city": "Giza",
+    "working_hours": "9:00 AM - 6:00 PM",
+    "entry_fee": "600 EGP",
+    "camera_fee": "Free",
+    "kids_friendly": true,
+    "elderly_friendly": true,
+    "pets_friendly": false,
+    "best_time": "Spring afternoons",
+    "latitude": 30.0081,
+    "longitude": 31.1322
+  },
+  {
+    "place_id": "place_038",
+    "type": "place_to_visit",
+    "user_id": "system",
+    "name": "National Museum of Egyptian Civilization",
+    "description": "Home to the spectacular Royal Mummies Hall.",
+    "images": [
+      "https://images.unsplash.com/photo-1539650116574-8efeb43e2750?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1600521605612-426b3cfc7949?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1553554160-50280eb45a72?q=80&w=1600&auto=format&fit=crop"
+    ],
+    "category": "museum",
+    "tags": [
+      "historical",
+      "cultural",
+      "modern"
+    ],
+    "vibe": "historical",
+    "address": "Ain Al Sira",
+    "city": "Cairo",
+    "working_hours": "9:00 AM - 5:00 PM",
+    "entry_fee": "500 EGP",
+    "camera_fee": "Free",
+    "kids_friendly": true,
+    "elderly_friendly": true,
+    "pets_friendly": false,
+    "best_time": "Anytime",
+    "latitude": 30.0089,
+    "longitude": 31.2483
+  },
+  {
+    "place_id": "place_039",
+    "type": "place_to_visit",
+    "user_id": "system",
+    "name": "Islamic Art Museum",
+    "description": "One of the greatest collections of Islamic art and artifacts in the world.",
+    "images": [
+      "https://images.unsplash.com/photo-1539650116574-8efeb43e2750?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1600521605612-426b3cfc7949?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1553554160-50280eb45a72?q=80&w=1600&auto=format&fit=crop"
+    ],
+    "category": "museum",
+    "tags": [
+      "historical",
+      "art",
+      "tourist"
+    ],
+    "vibe": "historical",
+    "address": "Port Said, El-Darb El-Ahmar",
+    "city": "Cairo",
+    "working_hours": "9:00 AM - 5:00 PM",
+    "entry_fee": "150 EGP",
+    "camera_fee": "50 EGP",
+    "kids_friendly": true,
+    "elderly_friendly": true,
+    "pets_friendly": false,
+    "best_time": "Morning",
+    "latitude": 30.0416,
+    "longitude": 31.2505
+  },
+  {
+    "place_id": "place_040",
+    "type": "place_to_visit",
+    "user_id": "system",
+    "name": "Coptic Museum",
+    "description": "Housing the largest collection of Egyptian Christian artifacts in the world.",
+    "images": [
+      "https://images.unsplash.com/photo-1539650116574-8efeb43e2750?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1600521605612-426b3cfc7949?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1553554160-50280eb45a72?q=80&w=1600&auto=format&fit=crop"
+    ],
+    "category": "museum",
+    "tags": [
+      "historical",
+      "art",
+      "religious"
+    ],
+    "vibe": "historical",
+    "address": "Old Cairo",
+    "city": "Cairo",
+    "working_hours": "9:00 AM - 5:00 PM",
+    "entry_fee": "100 EGP",
+    "camera_fee": "50 EGP",
+    "kids_friendly": true,
+    "elderly_friendly": true,
+    "pets_friendly": false,
+    "best_time": "Afternoon",
+    "latitude": 30.0064,
+    "longitude": 31.23
+  },
+  {
+    "place_id": "place_041",
+    "type": "place_to_visit",
+    "user_id": "system",
+    "name": "Mahmoud Khalil Museum",
+    "description": "Features a precious collection of European Impressionist paintings.",
+    "images": [
+      "https://images.unsplash.com/photo-1539650116574-8efeb43e2750?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1600521605612-426b3cfc7949?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1553554160-50280eb45a72?q=80&w=1600&auto=format&fit=crop"
+    ],
+    "category": "museum",
+    "tags": [
+      "art",
+      "cultural",
+      "traditional"
+    ],
+    "vibe": "historical",
+    "address": "Dokki",
+    "city": "Giza",
+    "working_hours": "10:00 AM - 4:00 PM",
+    "entry_fee": "50 EGP",
+    "camera_fee": "Free",
+    "kids_friendly": false,
+    "elderly_friendly": true,
+    "pets_friendly": false,
+    "best_time": "Morning",
+    "latitude": 30.0355,
+    "longitude": 31.2212
+  },
+  {
+    "place_id": "place_042",
+    "type": "place_to_visit",
+    "user_id": "system",
+    "name": "Gayer-Anderson Museum",
+    "description": "Two 16th-century houses joined together, showcasing distinct oriental architecture.",
+    "images": [
+      "https://images.unsplash.com/photo-1539650116574-8efeb43e2750?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1600521605612-426b3cfc7949?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1553554160-50280eb45a72?q=80&w=1600&auto=format&fit=crop"
+    ],
+    "category": "museum",
+    "tags": [
+      "historical",
+      "architecture",
+      "cultural"
+    ],
+    "vibe": "historical",
+    "address": "Sayyeda Zeinab",
+    "city": "Cairo",
+    "working_hours": "9:00 AM - 4:00 PM",
+    "entry_fee": "60 EGP",
+    "camera_fee": "50 EGP",
+    "kids_friendly": true,
+    "elderly_friendly": true,
+    "pets_friendly": false,
+    "best_time": "Winter afternoons",
+    "latitude": 30.0275,
+    "longitude": 31.2496
+  },
+  {
+    "place_id": "place_043",
+    "type": "place_to_visit",
+    "user_id": "system",
+    "name": "Royal Carriages Museum",
+    "description": "Exhibits beautifully preserved royal carriages used by the Muhammad Ali dynasty.",
+    "images": [
+      "https://images.unsplash.com/photo-1539650116574-8efeb43e2750?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1600521605612-426b3cfc7949?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1553554160-50280eb45a72?q=80&w=1600&auto=format&fit=crop"
+    ],
+    "category": "museum",
+    "tags": [
+      "historical",
+      "royal",
+      "cultural"
+    ],
+    "vibe": "historical",
+    "address": "Boulaq",
+    "city": "Cairo",
+    "working_hours": "9:00 AM - 1:00 PM",
+    "entry_fee": "100 EGP",
+    "camera_fee": "Free",
+    "kids_friendly": true,
+    "elderly_friendly": true,
+    "pets_friendly": false,
+    "best_time": "Evening",
+    "latitude": 30.0543,
+    "longitude": 31.2373
+  },
+  {
+    "place_id": "place_044",
+    "type": "place_to_visit",
+    "user_id": "system",
+    "name": "Agriculture Museum",
+    "description": "Offers an extensive look into Egypt's deep-rooted agricultural history.",
+    "images": [
+      "https://images.unsplash.com/photo-1539650116574-8efeb43e2750?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1600521605612-426b3cfc7949?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1553554160-50280eb45a72?q=80&w=1600&auto=format&fit=crop"
+    ],
+    "category": "museum",
+    "tags": [
+      "nature",
+      "historical",
+      "cultural"
+    ],
+    "vibe": "historical",
+    "address": "Dokki",
+    "city": "Giza",
+    "working_hours": "9:00 AM - 2:00 PM",
+    "entry_fee": "20 EGP",
+    "camera_fee": "Free",
+    "kids_friendly": true,
+    "elderly_friendly": true,
+    "pets_friendly": false,
+    "best_time": "Morning",
+    "latitude": 30.0371,
+    "longitude": 31.2064
+  },
+  {
+    "place_id": "place_045",
+    "type": "place_to_visit",
+    "user_id": "system",
+    "name": "Gezira Center for Modern Art",
+    "description": "Showcases an impressive array of 20th-century Egyptian fine art.",
+    "images": [
+      "https://images.unsplash.com/photo-1539650116574-8efeb43e2750?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1600521605612-426b3cfc7949?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1553554160-50280eb45a72?q=80&w=1600&auto=format&fit=crop"
+    ],
+    "category": "museum",
+    "tags": [
+      "art",
+      "cultural",
+      "modern"
+    ],
+    "vibe": "modern",
+    "address": "Zamalek",
+    "city": "Cairo",
+    "working_hours": "10:00 AM - 4:00 PM",
+    "entry_fee": "40 EGP",
+    "camera_fee": "Free",
+    "kids_friendly": false,
+    "elderly_friendly": true,
+    "pets_friendly": false,
+    "best_time": "Afternoon",
+    "latitude": 30.0433,
+    "longitude": 31.2231
+  },
+  {
+    "place_id": "place_046",
+    "type": "place_to_visit",
+    "user_id": "system",
+    "name": "Child Museum",
+    "description": "An interactive educational museum designed specifically to engage and educate children.",
+    "images": [
+      "https://images.unsplash.com/photo-1539650116574-8efeb43e2750?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1600521605612-426b3cfc7949?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1553554160-50280eb45a72?q=80&w=1600&auto=format&fit=crop"
+    ],
+    "category": "museum",
+    "tags": [
+      "educational",
+      "family",
+      "fun"
+    ],
+    "vibe": "modern",
+    "address": "Heliopolis",
+    "city": "Cairo",
+    "working_hours": "9:00 AM - 2:00 PM",
+    "entry_fee": "50 EGP",
+    "camera_fee": "Free",
+    "kids_friendly": true,
+    "elderly_friendly": true,
+    "pets_friendly": false,
+    "best_time": "Morning",
+    "latitude": 30.1032,
+    "longitude": 31.3321
+  },
+  {
+    "place_id": "place_047",
+    "type": "place_to_visit",
+    "user_id": "system",
+    "name": "Railway Museum",
+    "description": "Chronicles the history of Egypt's railway system, the second oldest in the world.",
+    "images": [
+      "https://images.unsplash.com/photo-1539650116574-8efeb43e2750?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1600521605612-426b3cfc7949?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1553554160-50280eb45a72?q=80&w=1600&auto=format&fit=crop"
+    ],
+    "category": "museum",
+    "tags": [
+      "historical",
+      "transportation"
+    ],
+    "vibe": "historical",
+    "address": "Ramses Station",
+    "city": "Cairo",
+    "working_hours": "9:00 AM - 2:00 PM",
+    "entry_fee": "20 EGP",
+    "camera_fee": "50 EGP",
+    "kids_friendly": true,
+    "elderly_friendly": true,
+    "pets_friendly": false,
+    "best_time": "Morning",
+    "latitude": 30.0631,
+    "longitude": 31.2483
+  },
+  {
+    "place_id": "place_048",
+    "type": "place_to_visit",
+    "user_id": "system",
+    "name": "Pharaonic Village",
+    "description": "A living museum that simulates daily life in ancient Egypt via boat tour.",
+    "images": [
+      "https://images.unsplash.com/photo-1539650116574-8efeb43e2750?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1600521605612-426b3cfc7949?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1553554160-50280eb45a72?q=80&w=1600&auto=format&fit=crop"
+    ],
+    "category": "museum",
+    "tags": [
+      "historical",
+      "educational",
+      "outdoors"
+    ],
+    "vibe": "ancient",
+    "address": "Al Bahr Al Aazam St",
+    "city": "Giza",
+    "working_hours": "9:00 AM - 5:00 PM",
+    "entry_fee": "300 EGP",
+    "camera_fee": "Free",
+    "kids_friendly": true,
+    "elderly_friendly": true,
+    "pets_friendly": false,
+    "best_time": "Spring afternoon",
+    "latitude": 30.0125,
+    "longitude": 31.2078
+  },
+  {
+    "place_id": "place_049",
+    "type": "place_to_visit",
+    "user_id": "system",
+    "name": "Mukhtar Museum",
+    "description": "Dedicated to the works of Mahmoud Mokhtar, Egypt's premier pioneer sculptor.",
+    "images": [
+      "https://images.unsplash.com/photo-1539650116574-8efeb43e2750?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1600521605612-426b3cfc7949?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1553554160-50280eb45a72?q=80&w=1600&auto=format&fit=crop"
+    ],
+    "category": "museum",
+    "tags": [
+      "art",
+      "cultural",
+      "sculpture"
+    ],
+    "vibe": "historical",
+    "address": "Tahrir Square, Gezira",
+    "city": "Cairo",
+    "working_hours": "9:00 AM - 4:00 PM",
+    "entry_fee": "30 EGP",
+    "camera_fee": "Free",
+    "kids_friendly": false,
+    "elderly_friendly": true,
+    "pets_friendly": false,
+    "best_time": "Morning",
+    "latitude": 30.041,
+    "longitude": 31.2215
+  },
+  {
+    "place_id": "place_050",
+    "type": "place_to_visit",
+    "user_id": "system",
+    "name": "Textile Museum",
+    "description": "A unique collection of textiles mapping Egypt's weaving history from ancient to modern times.",
+    "images": [
+      "https://images.unsplash.com/photo-1539650116574-8efeb43e2750?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1600521605612-426b3cfc7949?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1553554160-50280eb45a72?q=80&w=1600&auto=format&fit=crop"
+    ],
+    "category": "museum",
+    "tags": [
+      "historical",
+      "art",
+      "fashion"
+    ],
+    "vibe": "historical",
+    "address": "Al-Muizz Street",
+    "city": "Cairo",
+    "working_hours": "9:00 AM - 5:00 PM",
+    "entry_fee": "60 EGP",
+    "camera_fee": "50 EGP",
+    "kids_friendly": false,
+    "elderly_friendly": true,
+    "pets_friendly": false,
+    "best_time": "Afternoon",
+    "latitude": 30.0511,
+    "longitude": 31.2619
+  },
+  {
+    "place_id": "place_051",
+    "type": "place_to_visit",
+    "user_id": "system",
+    "name": "Mosque of Muhammad Ali",
+    "description": "An iconic Ottoman-style mosque situated at the highest point of the Citadel.",
+    "images": [
+      "https://images.unsplash.com/photo-1549216715-ddc1e7dff22d?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1588691888147-16ca9712a2a0?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1574169720165-4f362edcae69?q=80&w=1600&auto=format&fit=crop"
+    ],
+    "category": "mosque",
+    "tags": [
+      "historical",
+      "architecture",
+      "photography"
+    ],
+    "vibe": "historical",
+    "address": "Al Abageyah",
+    "city": "Cairo",
+    "working_hours": "9:00 AM - 5:00 PM",
+    "entry_fee": "300 EGP",
+    "camera_fee": "Free",
+    "kids_friendly": true,
+    "elderly_friendly": true,
+    "pets_friendly": false,
+    "best_time": "Evening",
+    "latitude": 30.0287,
+    "longitude": 31.2599
+  },
+  {
+    "place_id": "place_052",
+    "type": "place_to_visit",
+    "user_id": "system",
+    "name": "Al-Azhar Mosque",
+    "description": "One of the oldest and most important mosques and universities in the Islamic world.",
+    "images": [
+      "https://images.unsplash.com/photo-1549216715-ddc1e7dff22d?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1588691888147-16ca9712a2a0?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1574169720165-4f362edcae69?q=80&w=1600&auto=format&fit=crop"
+    ],
+    "category": "mosque",
+    "tags": [
+      "historical",
+      "religious",
+      "architecture"
+    ],
+    "vibe": "historical",
+    "address": "El-Darb El-Ahmar",
+    "city": "Cairo",
+    "working_hours": "Open 24 hours",
+    "entry_fee": "Free",
+    "camera_fee": "Free",
+    "kids_friendly": true,
+    "elderly_friendly": true,
+    "pets_friendly": false,
+    "best_time": "Morning",
+    "latitude": 30.0458,
+    "longitude": 31.2626
+  },
+  {
+    "place_id": "place_053",
+    "type": "place_to_visit",
+    "user_id": "system",
+    "name": "Mosque of Ibn Tulun",
+    "description": "The oldest mosque in Cairo surviving in its original form, famous for its spiral minaret.",
+    "images": [
+      "https://images.unsplash.com/photo-1549216715-ddc1e7dff22d?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1588691888147-16ca9712a2a0?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1574169720165-4f362edcae69?q=80&w=1600&auto=format&fit=crop"
+    ],
+    "category": "mosque",
+    "tags": [
+      "historical",
+      "architecture",
+      "viewpoint"
+    ],
+    "vibe": "historical",
+    "address": "Sayyeda Zeinab",
+    "city": "Cairo",
+    "working_hours": "9:00 AM - 4:00 PM",
+    "entry_fee": "Free",
+    "camera_fee": "Free",
+    "kids_friendly": true,
+    "elderly_friendly": true,
+    "pets_friendly": false,
+    "best_time": "Morning",
+    "latitude": 30.0287,
+    "longitude": 31.2495
+  },
+  {
+    "place_id": "place_054",
+    "type": "place_to_visit",
+    "user_id": "system",
+    "name": "Sultan Hassan Mosque",
+    "description": "A monumental Mamluk mosque considered a masterpiece of Islamic architecture.",
+    "images": [
+      "https://images.unsplash.com/photo-1549216715-ddc1e7dff22d?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1588691888147-16ca9712a2a0?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1574169720165-4f362edcae69?q=80&w=1600&auto=format&fit=crop"
+    ],
+    "category": "mosque",
+    "tags": [
+      "historical",
+      "architecture",
+      "photography"
+    ],
+    "vibe": "historical",
+    "address": "Maydan Salah al-Din",
+    "city": "Cairo",
+    "working_hours": "8:00 AM - 5:00 PM",
+    "entry_fee": "80 EGP",
+    "camera_fee": "Free",
+    "kids_friendly": true,
+    "elderly_friendly": true,
+    "pets_friendly": false,
+    "best_time": "Afternoon",
+    "latitude": 30.0321,
+    "longitude": 31.2568
+  },
+  {
+    "place_id": "place_055",
+    "type": "place_to_visit",
+    "user_id": "system",
+    "name": "Al-Rifa'i Mosque",
+    "description": "A grand 19th-century mosque housing royal tombs, located opposite Sultan Hassan.",
+    "images": [
+      "https://images.unsplash.com/photo-1549216715-ddc1e7dff22d?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1588691888147-16ca9712a2a0?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1574169720165-4f362edcae69?q=80&w=1600&auto=format&fit=crop"
+    ],
+    "category": "mosque",
+    "tags": [
+      "historical",
+      "royal",
+      "architecture"
+    ],
+    "vibe": "historical",
+    "address": "Maydan Salah al-Din",
+    "city": "Cairo",
+    "working_hours": "8:00 AM - 5:00 PM",
+    "entry_fee": "80 EGP",
+    "camera_fee": "Free",
+    "kids_friendly": true,
+    "elderly_friendly": true,
+    "pets_friendly": false,
+    "best_time": "Afternoon",
+    "latitude": 30.0321,
+    "longitude": 31.2575
+  },
+  {
+    "place_id": "place_056",
+    "type": "place_to_visit",
+    "user_id": "system",
+    "name": "Al-Hussein Mosque",
+    "description": "A highly revered mosque situated adjacent to the bustling Khan el-Khalili bazaar.",
+    "images": [
+      "https://images.unsplash.com/photo-1549216715-ddc1e7dff22d?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1588691888147-16ca9712a2a0?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1574169720165-4f362edcae69?q=80&w=1600&auto=format&fit=crop"
+    ],
+    "category": "mosque",
+    "tags": [
+      "historical",
+      "cultural",
+      "traditional"
+    ],
+    "vibe": "traditional",
+    "address": "El-Gamaleya",
+    "city": "Cairo",
+    "working_hours": "Open 24 hours",
+    "entry_fee": "Free",
+    "camera_fee": "Free",
+    "kids_friendly": true,
+    "elderly_friendly": true,
+    "pets_friendly": false,
+    "best_time": "Evening",
+    "latitude": 30.0482,
+    "longitude": 31.2625
+  },
+  {
+    "place_id": "place_057",
+    "type": "place_to_visit",
+    "user_id": "system",
+    "name": "Aqsunqur Mosque (Blue Mosque)",
+    "description": "Renowned for its beautiful blue Iznik tiles decorating the interior.",
+    "images": [
+      "https://images.unsplash.com/photo-1549216715-ddc1e7dff22d?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1588691888147-16ca9712a2a0?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1574169720165-4f362edcae69?q=80&w=1600&auto=format&fit=crop"
+    ],
+    "category": "mosque",
+    "tags": [
+      "historical",
+      "architecture",
+      "art"
+    ],
+    "vibe": "historical",
+    "address": "Bab al-Wazir Street",
+    "city": "Cairo",
+    "working_hours": "9:00 AM - 5:00 PM",
+    "entry_fee": "40 EGP",
+    "camera_fee": "Free",
+    "kids_friendly": true,
+    "elderly_friendly": true,
+    "pets_friendly": false,
+    "best_time": "Morning",
+    "latitude": 30.0361,
+    "longitude": 31.2605
+  },
+  {
+    "place_id": "place_058",
+    "type": "place_to_visit",
+    "user_id": "system",
+    "name": "Al-Hakim Mosque",
+    "description": "A massive Fatimid mosque with unique stone minarets and a vast courtyard.",
+    "images": [
+      "https://images.unsplash.com/photo-1549216715-ddc1e7dff22d?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1588691888147-16ca9712a2a0?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1574169720165-4f362edcae69?q=80&w=1600&auto=format&fit=crop"
+    ],
+    "category": "mosque",
+    "tags": [
+      "historical",
+      "architecture",
+      "peaceful"
+    ],
+    "vibe": "historical",
+    "address": "Al-Muizz Street",
+    "city": "Cairo",
+    "working_hours": "Open 24 hours",
+    "entry_fee": "Free",
+    "camera_fee": "Free",
+    "kids_friendly": true,
+    "elderly_friendly": true,
+    "pets_friendly": false,
+    "best_time": "Evening",
+    "latitude": 30.0548,
+    "longitude": 31.2635
+  },
+  {
+    "place_id": "place_059",
+    "type": "place_to_visit",
+    "user_id": "system",
+    "name": "Hanging Church",
+    "description": "One of the oldest churches in Egypt, built uniquely 'hanging' above a Roman fortress gate.",
+    "images": [
+      "https://images.unsplash.com/photo-1549216715-ddc1e7dff22d?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1588691888147-16ca9712a2a0?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1574169720165-4f362edcae69?q=80&w=1600&auto=format&fit=crop"
+    ],
+    "category": "church",
+    "tags": [
+      "historical",
+      "architecture",
+      "religious"
+    ],
+    "vibe": "historical",
+    "address": "Old Cairo",
+    "city": "Cairo",
+    "working_hours": "8:00 AM - 4:00 PM",
+    "entry_fee": "Free",
+    "camera_fee": "Free",
+    "kids_friendly": true,
+    "elderly_friendly": true,
+    "pets_friendly": false,
+    "best_time": "Morning",
+    "latitude": 30.0053,
+    "longitude": 31.2301
+  },
+  {
+    "place_id": "place_060",
+    "type": "place_to_visit",
+    "user_id": "system",
+    "name": "Saints Sergius and Bacchus Church (Abu Serga)",
+    "description": "Traditionally believed to have been built on the spot where the Holy Family rested.",
+    "images": [
+      "https://images.unsplash.com/photo-1549216715-ddc1e7dff22d?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1588691888147-16ca9712a2a0?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1574169720165-4f362edcae69?q=80&w=1600&auto=format&fit=crop"
+    ],
+    "category": "church",
+    "tags": [
+      "historical",
+      "religious",
+      "ancient"
+    ],
+    "vibe": "historical",
+    "address": "Old Cairo",
+    "city": "Cairo",
+    "working_hours": "8:00 AM - 4:00 PM",
+    "entry_fee": "Free",
+    "camera_fee": "Free",
+    "kids_friendly": true,
+    "elderly_friendly": true,
+    "pets_friendly": false,
+    "best_time": "Morning",
+    "latitude": 30.0058,
+    "longitude": 31.23
+  },
+  {
+    "place_id": "place_061",
+    "type": "place_to_visit",
+    "user_id": "system",
+    "name": "Cave Church (St. Simon the Tanner)",
+    "description": "A colossal, awe-inspiring church carved directly into the Mokattam mountains.",
+    "images": [
+      "https://images.unsplash.com/photo-1549216715-ddc1e7dff22d?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1588691888147-16ca9712a2a0?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1574169720165-4f362edcae69?q=80&w=1600&auto=format&fit=crop"
+    ],
+    "category": "church",
+    "tags": [
+      "historical",
+      "architecture",
+      "viewpoint"
+    ],
+    "vibe": "nature",
+    "address": "Mokattam",
+    "city": "Cairo",
+    "working_hours": "8:00 AM - 8:00 PM",
+    "entry_fee": "Free",
+    "camera_fee": "Free",
+    "kids_friendly": true,
+    "elderly_friendly": true,
+    "pets_friendly": false,
+    "best_time": "Afternoon",
+    "latitude": 30.0314,
+    "longitude": 31.2758
+  },
+  {
+    "place_id": "place_062",
+    "type": "place_to_visit",
+    "user_id": "system",
+    "name": "St. George's Church",
+    "description": "The only round church in Egypt, primarily serving the Greek Orthodox community.",
+    "images": [
+      "https://images.unsplash.com/photo-1549216715-ddc1e7dff22d?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1588691888147-16ca9712a2a0?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1574169720165-4f362edcae69?q=80&w=1600&auto=format&fit=crop"
+    ],
+    "category": "church",
+    "tags": [
+      "historical",
+      "architecture",
+      "religious"
+    ],
+    "vibe": "historical",
+    "address": "Old Cairo",
+    "city": "Cairo",
+    "working_hours": "9:00 AM - 4:00 PM",
+    "entry_fee": "Free",
+    "camera_fee": "Free",
+    "kids_friendly": true,
+    "elderly_friendly": true,
+    "pets_friendly": false,
+    "best_time": "Morning",
+    "latitude": 30.0069,
+    "longitude": 31.2305
+  },
+  {
+    "place_id": "place_063",
+    "type": "place_to_visit",
+    "user_id": "system",
+    "name": "Saint Virgin Mary's Coptic Orthodox Church (Zeitoun)",
+    "description": "Famous globally for the Marian apparitions reported here in 1968.",
+    "images": [
+      "https://images.unsplash.com/photo-1549216715-ddc1e7dff22d?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1588691888147-16ca9712a2a0?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1574169720165-4f362edcae69?q=80&w=1600&auto=format&fit=crop"
+    ],
+    "category": "church",
+    "tags": [
+      "historical",
+      "religious",
+      "community"
+    ],
+    "vibe": "historical",
+    "address": "Tumanbay St, Zeitoun",
+    "city": "Cairo",
+    "working_hours": "Open 24 hours",
+    "entry_fee": "Free",
+    "camera_fee": "Free",
+    "kids_friendly": true,
+    "elderly_friendly": true,
+    "pets_friendly": false,
+    "best_time": "Evening",
+    "latitude": 30.1035,
+    "longitude": 31.309
+  },
+  {
+    "place_id": "place_064",
+    "type": "place_to_visit",
+    "user_id": "system",
+    "name": "Baron Empain Palace",
+    "description": "A distinct Hindu temple-inspired mansion built by the founder of Heliopolis.",
+    "images": [
+      "https://images.unsplash.com/photo-1549216715-ddc1e7dff22d?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1588691888147-16ca9712a2a0?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1574169720165-4f362edcae69?q=80&w=1600&auto=format&fit=crop"
+    ],
+    "category": "palace",
+    "tags": [
+      "architecture",
+      "photography",
+      "historical"
+    ],
+    "vibe": "historical",
+    "address": "El-Orouba, Heliopolis",
+    "city": "Cairo",
+    "working_hours": "9:00 AM - 5:00 PM",
+    "entry_fee": "100 EGP",
+    "camera_fee": "50 EGP",
+    "kids_friendly": true,
+    "elderly_friendly": true,
+    "pets_friendly": false,
+    "best_time": "Sunset",
+    "latitude": 30.0869,
+    "longitude": 31.3259
+  },
+  {
+    "place_id": "place_065",
+    "type": "place_to_visit",
+    "user_id": "system",
+    "name": "Prince Mohamed Ali Palace (Manial)",
+    "description": "A breathtaking palace displaying a mix of Ottoman, Moorish, and Persian design.",
+    "images": [
+      "https://images.unsplash.com/photo-1549216715-ddc1e7dff22d?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1588691888147-16ca9712a2a0?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1574169720165-4f362edcae69?q=80&w=1600&auto=format&fit=crop"
+    ],
+    "category": "palace",
+    "tags": [
+      "palace",
+      "architecture",
+      "photography"
+    ],
+    "vibe": "historical",
+    "address": "1 Saray El Manial St",
+    "city": "Cairo",
+    "working_hours": "9:00 AM - 4:00 PM",
+    "entry_fee": "100 EGP",
+    "camera_fee": "50 EGP",
+    "kids_friendly": true,
+    "elderly_friendly": true,
+    "pets_friendly": false,
+    "best_time": "Morning",
+    "latitude": 30.0246,
+    "longitude": 31.2269
+  },
+  {
+    "place_id": "place_066",
+    "type": "place_to_visit",
+    "user_id": "system",
+    "name": "Al-Azhar Park",
+    "description": "A lush, hilltop oasis offering stunning panoramic views of historic Cairo.",
+    "images": [
+      "https://images.unsplash.com/photo-1500350410756-31802b545465?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1519331379826-f10be5486c6f?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1469474968028-56623f02e42e?q=80&w=1600&auto=format&fit=crop"
+    ],
+    "category": "park",
+    "tags": [
+      "nature",
+      "outdoors",
+      "romantic",
+      "viewpoint"
+    ],
+    "vibe": "nature",
+    "address": "Salah Salem St",
+    "city": "Cairo",
+    "working_hours": "9:00 AM - 10:00 PM",
+    "entry_fee": "30 EGP",
+    "camera_fee": "Free",
+    "kids_friendly": true,
+    "elderly_friendly": true,
+    "pets_friendly": false,
+    "best_time": "Sunset",
+    "latitude": 30.0407,
+    "longitude": 31.2629
+  },
+  {
+    "place_id": "place_067",
+    "type": "place_to_visit",
+    "user_id": "system",
+    "name": "Orman Botanical Garden",
+    "description": "One of the most famous botanical gardens in Egypt, featuring rare plant species.",
+    "images": [
+      "https://images.unsplash.com/photo-1500350410756-31802b545465?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1519331379826-f10be5486c6f?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1469474968028-56623f02e42e?q=80&w=1600&auto=format&fit=crop"
+    ],
+    "category": "park",
+    "tags": [
+      "nature",
+      "outdoors",
+      "photography"
+    ],
+    "vibe": "nature",
+    "address": "Giza St, Dokki",
+    "city": "Giza",
+    "working_hours": "9:00 AM - 4:00 PM",
+    "entry_fee": "10 EGP",
+    "camera_fee": "50 EGP",
+    "kids_friendly": true,
+    "elderly_friendly": true,
+    "pets_friendly": false,
+    "best_time": "Spring afternoons",
+    "latitude": 30.0278,
+    "longitude": 31.2133
+  },
+  {
+    "place_id": "place_068",
+    "type": "place_to_visit",
+    "user_id": "system",
+    "name": "Family Park",
+    "description": "A massive family-oriented park with vast green areas, rides, and a mini zoo.",
+    "images": [
+      "https://images.unsplash.com/photo-1500350410756-31802b545465?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1519331379826-f10be5486c6f?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1469474968028-56623f02e42e?q=80&w=1600&auto=format&fit=crop"
+    ],
+    "category": "park",
+    "tags": [
+      "nature",
+      "outdoors",
+      "family"
+    ],
+    "vibe": "nature",
+    "address": "Suez Road, New Cairo",
+    "city": "Cairo",
+    "working_hours": "9:00 AM - 11:00 PM",
+    "entry_fee": "70 EGP",
+    "camera_fee": "Free",
+    "kids_friendly": true,
+    "elderly_friendly": true,
+    "pets_friendly": false,
+    "best_time": "Weekends",
+    "latitude": 30.1084,
+    "longitude": 31.5126
+  },
+  {
+    "place_id": "place_069",
+    "type": "place_to_visit",
+    "user_id": "system",
+    "name": "Aquarium Grotto Garden",
+    "description": "A historic park in Zamalek featuring artificial caves and scenic walking paths.",
+    "images": [
+      "https://images.unsplash.com/photo-1500350410756-31802b545465?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1519331379826-f10be5486c6f?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1469474968028-56623f02e42e?q=80&w=1600&auto=format&fit=crop"
+    ],
+    "category": "park",
+    "tags": [
+      "nature",
+      "historical",
+      "photography"
+    ],
+    "vibe": "nature",
+    "address": "Al Gabalaya, Zamalek",
+    "city": "Cairo",
+    "working_hours": "9:00 AM - 5:00 PM",
+    "entry_fee": "20 EGP",
+    "camera_fee": "50 EGP",
+    "kids_friendly": true,
+    "elderly_friendly": true,
+    "pets_friendly": true,
+    "best_time": "Morning",
+    "latitude": 30.0573,
+    "longitude": 31.2163
+  },
+  {
+    "place_id": "place_070",
+    "type": "place_to_visit",
+    "user_id": "system",
+    "name": "Zed Park",
+    "description": "A premium entertainment complex with state-of-the-art rides and a winter wonderland.",
+    "images": [
+      "https://images.unsplash.com/photo-1533105079780-92b9be482077?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1473631706346-64cc12b509ef?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?q=80&w=1600&auto=format&fit=crop"
+    ],
+    "category": "amusement_park",
+    "tags": [
+      "modern",
+      "outdoors",
+      "fun"
+    ],
+    "vibe": "modern",
+    "address": "El Horreya St",
+    "city": "Sheikh Zayed",
+    "working_hours": "12:00 PM - 12:00 AM",
+    "entry_fee": "150 EGP",
+    "camera_fee": "Free",
+    "kids_friendly": true,
+    "elderly_friendly": true,
+    "pets_friendly": false,
+    "best_time": "Evening",
+    "latitude": 30.0381,
+    "longitude": 30.9856
+  },
+  {
+    "place_id": "place_071",
+    "type": "place_to_visit",
+    "user_id": "system",
+    "name": "Dream Park",
+    "description": "Egypt's largest and most iconic theme park with thrilling roller coasters.",
+    "images": [
+      "https://images.unsplash.com/photo-1533105079780-92b9be482077?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1473631706346-64cc12b509ef?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?q=80&w=1600&auto=format&fit=crop"
+    ],
+    "category": "amusement_park",
+    "tags": [
+      "fun",
+      "adventure",
+      "family",
+      "rides"
+    ],
+    "vibe": "adventure",
+    "address": "Al Wahat Road",
+    "city": "Giza",
+    "working_hours": "10:00 AM - 10:00 PM",
+    "entry_fee": "250 EGP",
+    "camera_fee": "Free",
+    "kids_friendly": true,
+    "elderly_friendly": false,
+    "pets_friendly": false,
+    "best_time": "Spring afternoon",
+    "latitude": 29.9676,
+    "longitude": 31.0564
+  },
+  {
+    "place_id": "place_072",
+    "type": "place_to_visit",
+    "user_id": "system",
+    "name": "Magic Planet",
+    "description": "A major indoor family entertainment center packed with arcade games and soft play.",
+    "images": [
+      "https://images.unsplash.com/photo-1533105079780-92b9be482077?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1473631706346-64cc12b509ef?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?q=80&w=1600&auto=format&fit=crop"
+    ],
+    "category": "amusement_park",
+    "tags": [
+      "fun",
+      "indoor",
+      "games"
+    ],
+    "vibe": "modern",
+    "address": "Mall of Egypt",
+    "city": "Giza",
+    "working_hours": "10:00 AM - 12:00 AM",
+    "entry_fee": "100 EGP",
+    "camera_fee": "Free",
+    "kids_friendly": true,
+    "elderly_friendly": true,
+    "pets_friendly": false,
+    "best_time": "Anytime",
+    "latitude": 29.9701,
+    "longitude": 30.984
+  },
+  {
+    "place_id": "place_073",
+    "type": "place_to_visit",
+    "user_id": "system",
+    "name": "Family Land",
+    "description": "A nostalgic indoor amusement park perfect for young children and teens.",
+    "images": [
+      "https://images.unsplash.com/photo-1533105079780-92b9be482077?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1473631706346-64cc12b509ef?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?q=80&w=1600&auto=format&fit=crop"
+    ],
+    "category": "amusement_park",
+    "tags": [
+      "fun",
+      "indoor",
+      "rides"
+    ],
+    "vibe": "adventure",
+    "address": "Maadi",
+    "city": "Cairo",
+    "working_hours": "11:00 AM - 11:00 PM",
+    "entry_fee": "100 EGP",
+    "camera_fee": "Free",
+    "kids_friendly": true,
+    "elderly_friendly": false,
+    "pets_friendly": false,
+    "best_time": "Evening",
+    "latitude": 29.9645,
+    "longitude": 31.2785
+  },
+  {
+    "place_id": "place_074",
+    "type": "place_to_visit",
+    "user_id": "system",
+    "name": "Aqua Park",
+    "description": "A classic water park offering wave pools, massive slides, and family fun.",
+    "images": [
+      "https://images.unsplash.com/photo-1533105079780-92b9be482077?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1473631706346-64cc12b509ef?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?q=80&w=1600&auto=format&fit=crop"
+    ],
+    "category": "amusement_park",
+    "tags": [
+      "fun",
+      "water",
+      "family"
+    ],
+    "vibe": "adventure",
+    "address": "Ismailia Desert Road",
+    "city": "Cairo",
+    "working_hours": "10:00 AM - 5:00 PM",
+    "entry_fee": "250 EGP",
+    "camera_fee": "Free",
+    "kids_friendly": true,
+    "elderly_friendly": false,
+    "pets_friendly": false,
+    "best_time": "Summer morning",
+    "latitude": 30.1332,
+    "longitude": 31.4398
+  },
+  {
+    "place_id": "place_075",
+    "type": "place_to_visit",
+    "user_id": "system",
+    "name": "Ski Egypt",
+    "description": "The first indoor ski resort in Africa, featuring snow parks and penguin encounters.",
+    "images": [
+      "https://images.unsplash.com/photo-1533105079780-92b9be482077?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1473631706346-64cc12b509ef?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?q=80&w=1600&auto=format&fit=crop"
+    ],
+    "category": "adventure",
+    "tags": [
+      "adventure",
+      "sports",
+      "indoor"
+    ],
+    "vibe": "adventure",
+    "address": "Mall of Egypt",
+    "city": "Giza",
+    "working_hours": "10:00 AM - 10:00 PM",
+    "entry_fee": "650 EGP",
+    "camera_fee": "Free",
+    "kids_friendly": true,
+    "elderly_friendly": false,
+    "pets_friendly": false,
+    "best_time": "Anytime",
+    "latitude": 29.9701,
+    "longitude": 30.984
+  },
+  {
+    "place_id": "place_076",
+    "type": "place_to_visit",
+    "user_id": "system",
+    "name": "Mario's High Ropes",
+    "description": "An exhilarating outdoor high ropes course set against the Mokattam cliffs.",
+    "images": [
+      "https://images.unsplash.com/photo-1533105079780-92b9be482077?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1473631706346-64cc12b509ef?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?q=80&w=1600&auto=format&fit=crop"
+    ],
+    "category": "adventure",
+    "tags": [
+      "outdoors",
+      "fun",
+      "sports"
+    ],
+    "vibe": "adventure",
+    "address": "Mokattam",
+    "city": "Cairo",
+    "working_hours": "9:00 AM - 7:00 PM",
+    "entry_fee": "350 EGP",
+    "camera_fee": "Free",
+    "kids_friendly": true,
+    "elderly_friendly": false,
+    "pets_friendly": false,
+    "best_time": "Afternoon",
+    "latitude": 30.0268,
+    "longitude": 31.2721
+  },
+  {
+    "place_id": "place_077",
+    "type": "place_to_visit",
+    "user_id": "system",
+    "name": "Autovrodrome Obour (Go Karting)",
+    "description": "A professional-level outdoor go-kart racing track for adrenaline seekers.",
+    "images": [
+      "https://images.unsplash.com/photo-1533105079780-92b9be482077?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1473631706346-64cc12b509ef?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?q=80&w=1600&auto=format&fit=crop"
+    ],
+    "category": "activity",
+    "tags": [
+      "fun",
+      "sports",
+      "racing"
+    ],
+    "vibe": "adventure",
+    "address": "Obour City",
+    "city": "Cairo",
+    "working_hours": "2:00 PM - 12:00 AM",
+    "entry_fee": "300 EGP",
+    "camera_fee": "Free",
+    "kids_friendly": true,
+    "elderly_friendly": false,
+    "pets_friendly": false,
+    "best_time": "Night",
+    "latitude": 30.1585,
+    "longitude": 31.4646
+  },
+  {
+    "place_id": "place_078",
+    "type": "place_to_visit",
+    "user_id": "system",
+    "name": "Noos Karting",
+    "description": "A highly popular go-karting circuit conveniently located in New Cairo.",
+    "images": [
+      "https://images.unsplash.com/photo-1533105079780-92b9be482077?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1473631706346-64cc12b509ef?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?q=80&w=1600&auto=format&fit=crop"
+    ],
+    "category": "activity",
+    "tags": [
+      "sports",
+      "racing",
+      "fun"
+    ],
+    "vibe": "adventure",
+    "address": "New Cairo",
+    "city": "Cairo",
+    "working_hours": "12:00 PM - 12:00 AM",
+    "entry_fee": "250 EGP",
+    "camera_fee": "Free",
+    "kids_friendly": true,
+    "elderly_friendly": false,
+    "pets_friendly": false,
+    "best_time": "Night",
+    "latitude": 30.0163,
+    "longitude": 31.4284
+  },
+  {
+    "place_id": "place_079",
+    "type": "place_to_visit",
+    "user_id": "system",
+    "name": "Fagnoon Art School",
+    "description": "A creative playground where families can paint, sculpt, bake, and ride donkeys.",
+    "images": [
+      "https://images.unsplash.com/photo-1500350410756-31802b545465?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1519331379826-f10be5486c6f?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1469474968028-56623f02e42e?q=80&w=1600&auto=format&fit=crop"
+    ],
+    "category": "activity",
+    "tags": [
+      "art",
+      "pottery",
+      "family"
+    ],
+    "vibe": "nature",
+    "address": "Saqqara Road",
+    "city": "Giza",
+    "working_hours": "9:00 AM - 6:00 PM",
+    "entry_fee": "100 EGP",
+    "camera_fee": "Free",
+    "kids_friendly": true,
+    "elderly_friendly": true,
+    "pets_friendly": false,
+    "best_time": "Morning",
+    "latitude": 29.9142,
+    "longitude": 31.1554
+  },
+  {
+    "place_id": "place_080",
+    "type": "place_to_visit",
+    "user_id": "system",
+    "name": "Il Pennello Ceramic Cafe",
+    "description": "A relaxing cafe where guests can paint their own unglazed ceramic pieces.",
+    "images": [
+      "https://images.unsplash.com/photo-1533105079780-92b9be482077?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1473631706346-64cc12b509ef?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?q=80&w=1600&auto=format&fit=crop"
+    ],
+    "category": "activity",
+    "tags": [
+      "art",
+      "pottery",
+      "cafe"
+    ],
+    "vibe": "modern",
+    "address": "Maadi",
+    "city": "Cairo",
+    "working_hours": "10:00 AM - 11:00 PM",
+    "entry_fee": "150 EGP",
+    "camera_fee": "Free",
+    "kids_friendly": true,
+    "elderly_friendly": true,
+    "pets_friendly": false,
+    "best_time": "Evening",
+    "latitude": 29.9613,
+    "longitude": 31.2687
+  },
+  {
+    "place_id": "place_081",
+    "type": "place_to_visit",
+    "user_id": "system",
+    "name": "Gravity Code",
+    "description": "Egypt's premier indoor trampoline park featuring dodgeball and free-jump zones.",
+    "images": [
+      "https://images.unsplash.com/photo-1533105079780-92b9be482077?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1473631706346-64cc12b509ef?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?q=80&w=1600&auto=format&fit=crop"
+    ],
+    "category": "activity",
+    "tags": [
+      "fun",
+      "indoor",
+      "sports"
+    ],
+    "vibe": "adventure",
+    "address": "Walk of Cairo",
+    "city": "Sheikh Zayed",
+    "working_hours": "10:00 AM - 11:00 PM",
+    "entry_fee": "400 EGP",
+    "camera_fee": "Free",
+    "kids_friendly": true,
+    "elderly_friendly": false,
+    "pets_friendly": false,
+    "best_time": "Afternoon",
+    "latitude": 30.0631,
+    "longitude": 30.9856
+  },
+  {
+    "place_id": "place_082",
+    "type": "place_to_visit",
+    "user_id": "system",
+    "name": "Escape Room Egypt",
+    "description": "Immersive narrative-driven puzzle rooms that require teamwork to 'escape'.",
+    "images": [
+      "https://images.unsplash.com/photo-1533105079780-92b9be482077?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1473631706346-64cc12b509ef?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?q=80&w=1600&auto=format&fit=crop"
+    ],
+    "category": "activity",
+    "tags": [
+      "fun",
+      "puzzle",
+      "friends"
+    ],
+    "vibe": "adventure",
+    "address": "Heliopolis",
+    "city": "Cairo",
+    "working_hours": "12:00 PM - 12:00 AM",
+    "entry_fee": "350 EGP",
+    "camera_fee": "Free",
+    "kids_friendly": false,
+    "elderly_friendly": false,
+    "pets_friendly": false,
+    "best_time": "Night",
+    "latitude": 30.0924,
+    "longitude": 31.3283
+  },
+  {
+    "place_id": "place_083",
+    "type": "place_to_visit",
+    "user_id": "system",
+    "name": "Wadi Degla Protectorate",
+    "description": "A stunning natural desert canyon ideal for hiking, running, and camping.",
+    "images": [
+      "https://images.unsplash.com/photo-1500350410756-31802b545465?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1519331379826-f10be5486c6f?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1469474968028-56623f02e42e?q=80&w=1600&auto=format&fit=crop"
+    ],
+    "category": "adventure",
+    "tags": [
+      "outdoors",
+      "hiking",
+      "sports"
+    ],
+    "vibe": "nature",
+    "address": "Maadi",
+    "city": "Cairo",
+    "working_hours": "8:00 AM - 5:00 PM",
+    "entry_fee": "10 EGP",
+    "camera_fee": "Free",
+    "kids_friendly": true,
+    "elderly_friendly": true,
+    "pets_friendly": false,
+    "best_time": "Winter mornings",
+    "latitude": 29.9602,
+    "longitude": 31.3283
+  },
+  {
+    "place_id": "place_084",
+    "type": "place_to_visit",
+    "user_id": "system",
+    "name": "Nile River Felucca Ride",
+    "description": "A peaceful sailboat ride on the Nile, avoiding the city noise.",
+    "images": [
+      "https://images.unsplash.com/photo-1533105079780-92b9be482077?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1473631706346-64cc12b509ef?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?q=80&w=1600&auto=format&fit=crop"
+    ],
+    "category": "activity",
+    "tags": [
+      "outdoors",
+      "romantic",
+      "nature"
+    ],
+    "vibe": "romantic",
+    "address": "Nile Corniche, Dokki",
+    "city": "Cairo",
+    "working_hours": "Open 24 hours",
+    "entry_fee": "200 EGP",
+    "camera_fee": "Free",
+    "kids_friendly": true,
+    "elderly_friendly": true,
+    "pets_friendly": true,
+    "best_time": "Sunset",
+    "latitude": 30.0444,
+    "longitude": 31.2357
+  },
+  {
+    "place_id": "place_085",
+    "type": "place_to_visit",
+    "user_id": "system",
+    "name": "Cairo Tower",
+    "description": "An iconic 187m tower featuring an observation deck and a revolving restaurant.",
+    "images": [
+      "https://images.unsplash.com/photo-1533105079780-92b9be482077?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1473631706346-64cc12b509ef?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?q=80&w=1600&auto=format&fit=crop"
+    ],
+    "category": "viewpoint",
+    "tags": [
+      "viewpoint",
+      "romantic",
+      "photography"
+    ],
+    "vibe": "modern",
+    "address": "Gezira, Zamalek",
+    "city": "Cairo",
+    "working_hours": "9:00 AM - 1:00 AM",
+    "entry_fee": "250 EGP",
+    "camera_fee": "Free",
+    "kids_friendly": true,
+    "elderly_friendly": true,
+    "pets_friendly": false,
+    "best_time": "Sunset",
+    "latitude": 30.0456,
+    "longitude": 31.2242
+  },
+  {
+    "place_id": "place_086",
+    "type": "place_to_visit",
+    "user_id": "system",
+    "name": "Khan el-Khalili",
+    "description": "A sprawling, atmospheric historic souk offering everything from jewelry to spices.",
+    "images": [
+      "https://images.unsplash.com/photo-1519567281727-81416eaf0027?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1555529771-835f59fc5efe?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1507671295325-a13ea4b8c0ba?q=80&w=1600&auto=format&fit=crop"
+    ],
+    "category": "market",
+    "tags": [
+      "walking",
+      "shopping",
+      "traditional"
+    ],
+    "vibe": "traditional",
+    "address": "El-Gamaleya",
+    "city": "Cairo",
+    "working_hours": "9:00 AM - 12:00 AM",
+    "entry_fee": "Free",
+    "camera_fee": "Free",
+    "kids_friendly": true,
+    "elderly_friendly": false,
+    "pets_friendly": false,
+    "best_time": "Evening",
+    "latitude": 30.0479,
+    "longitude": 31.2626
+  },
+  {
+    "place_id": "place_087",
+    "type": "place_to_visit",
+    "user_id": "system",
+    "name": "Al-Muizz Street",
+    "description": "One of the oldest streets in Cairo, possessing the greatest concentration of medieval architectural treasures in the Islamic world.",
+    "images": [
+      "https://images.unsplash.com/photo-1549216715-ddc1e7dff22d?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1588691888147-16ca9712a2a0?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1574169720165-4f362edcae69?q=80&w=1600&auto=format&fit=crop"
+    ],
+    "category": "famous_street",
+    "tags": [
+      "walking",
+      "traditional",
+      "architecture"
+    ],
+    "vibe": "historical",
+    "address": "Al-Muizz, El-Gamaleya",
+    "city": "Cairo",
+    "working_hours": "Open 24 hours",
+    "entry_fee": "Free",
+    "camera_fee": "Free",
+    "kids_friendly": true,
+    "elderly_friendly": true,
+    "pets_friendly": false,
+    "best_time": "Evening",
+    "latitude": 30.0494,
+    "longitude": 31.2612
+  },
+  {
+    "place_id": "place_088",
+    "type": "place_to_visit",
+    "user_id": "system",
+    "name": "Talaat Harb Street",
+    "description": "A dynamic street capturing the essence of Downtown Cairo's 'Paris on the Nile' era.",
+    "images": [
+      "https://images.unsplash.com/photo-1519567281727-81416eaf0027?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1555529771-835f59fc5efe?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1507671295325-a13ea4b8c0ba?q=80&w=1600&auto=format&fit=crop"
+    ],
+    "category": "famous_street",
+    "tags": [
+      "walking",
+      "shopping",
+      "urban"
+    ],
+    "vibe": "modern",
+    "address": "Downtown",
+    "city": "Cairo",
+    "working_hours": "Open 24 hours",
+    "entry_fee": "Free",
+    "camera_fee": "Free",
+    "kids_friendly": true,
+    "elderly_friendly": true,
+    "pets_friendly": false,
+    "best_time": "Night",
+    "latitude": 30.0475,
+    "longitude": 31.2393
+  },
+  {
+    "place_id": "place_089",
+    "type": "place_to_visit",
+    "user_id": "system",
+    "name": "Korba Square",
+    "description": "Famous for its unique Belgian-inspired architecture and an array of cafes.",
+    "images": [
+      "https://images.unsplash.com/photo-1549216715-ddc1e7dff22d?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1588691888147-16ca9712a2a0?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1574169720165-4f362edcae69?q=80&w=1600&auto=format&fit=crop"
+    ],
+    "category": "famous_street",
+    "tags": [
+      "walking",
+      "shopping",
+      "cafes"
+    ],
+    "vibe": "historical",
+    "address": "Heliopolis",
+    "city": "Cairo",
+    "working_hours": "Open 24 hours",
+    "entry_fee": "Free",
+    "camera_fee": "Free",
+    "kids_friendly": true,
+    "elderly_friendly": true,
+    "pets_friendly": true,
+    "best_time": "Evening",
+    "latitude": 30.0917,
+    "longitude": 31.3218
+  },
+  {
+    "place_id": "place_090",
+    "type": "place_to_visit",
+    "user_id": "system",
+    "name": "Street of the Tentmakers (Sharia Khayamiya)",
+    "description": "A covered market dating back to the Mamluk era, specialized in traditional Khayamiya textile appliques.",
+    "images": [
+      "https://images.unsplash.com/photo-1519567281727-81416eaf0027?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1555529771-835f59fc5efe?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1507671295325-a13ea4b8c0ba?q=80&w=1600&auto=format&fit=crop"
+    ],
+    "category": "market",
+    "tags": [
+      "shopping",
+      "art",
+      "crafts"
+    ],
+    "vibe": "traditional",
+    "address": "Fatimid Cairo",
+    "city": "Cairo",
+    "working_hours": "9:00 AM - 6:00 PM",
+    "entry_fee": "Free",
+    "camera_fee": "Free",
+    "kids_friendly": true,
+    "elderly_friendly": true,
+    "pets_friendly": false,
+    "best_time": "Morning",
+    "latitude": 30.0415,
+    "longitude": 31.2592
+  },
+  {
+    "place_id": "place_091",
+    "type": "place_to_visit",
+    "user_id": "system",
+    "name": "Souq Al Gomaa",
+    "description": "The Friday Market; a massive, chaotic flea market selling an eclectic mix of second-hand goods and antiques.",
+    "images": [
+      "https://images.unsplash.com/photo-1519567281727-81416eaf0027?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1555529771-835f59fc5efe?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1507671295325-a13ea4b8c0ba?q=80&w=1600&auto=format&fit=crop"
+    ],
+    "category": "market",
+    "tags": [
+      "market",
+      "thrift",
+      "shopping"
+    ],
+    "vibe": "traditional",
+    "address": "Sayeda Aisha",
+    "city": "Cairo",
+    "working_hours": "Friday Mornings",
+    "entry_fee": "Free",
+    "camera_fee": "Free",
+    "kids_friendly": false,
+    "elderly_friendly": false,
+    "pets_friendly": false,
+    "best_time": "Friday early morning",
+    "latitude": 30.0261,
+    "longitude": 31.2586
+  },
+  {
+    "place_id": "place_092",
+    "type": "place_to_visit",
+    "user_id": "system",
+    "name": "Zamalek Streets (26th of July)",
+    "description": "Leafy, upscale streets filled with art galleries, boutique shops, and trendy eateries.",
+    "images": [
+      "https://images.unsplash.com/photo-1519567281727-81416eaf0027?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1555529771-835f59fc5efe?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1507671295325-a13ea4b8c0ba?q=80&w=1600&auto=format&fit=crop"
+    ],
+    "category": "famous_street",
+    "tags": [
+      "walking",
+      "cafes",
+      "art"
+    ],
+    "vibe": "modern",
+    "address": "Zamalek",
+    "city": "Cairo",
+    "working_hours": "Open 24 hours",
+    "entry_fee": "Free",
+    "camera_fee": "Free",
+    "kids_friendly": true,
+    "elderly_friendly": true,
+    "pets_friendly": true,
+    "best_time": "Afternoon",
+    "latitude": 30.062,
+    "longitude": 31.2185
+  },
+  {
+    "place_id": "place_093",
+    "type": "place_to_visit",
+    "user_id": "system",
+    "name": "Zamalek Promenade",
+    "description": "A stunning pathway along the edge of the Nile, perfect for sunset strolls.",
+    "images": [
+      "https://images.unsplash.com/photo-1533105079780-92b9be482077?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1473631706346-64cc12b509ef?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?q=80&w=1600&auto=format&fit=crop"
+    ],
+    "category": "romantic_spot",
+    "tags": [
+      "outdoors",
+      "walking",
+      "modern"
+    ],
+    "vibe": "romantic",
+    "address": "Abu El Feda, Zamalek",
+    "city": "Cairo",
+    "working_hours": "Open 24 hours",
+    "entry_fee": "Free",
+    "camera_fee": "Free",
+    "kids_friendly": true,
+    "elderly_friendly": true,
+    "pets_friendly": true,
+    "best_time": "Evening",
+    "latitude": 30.0632,
+    "longitude": 31.2185
+  },
+  {
+    "place_id": "place_094",
+    "type": "place_to_visit",
+    "user_id": "system",
+    "name": "Road 90 (Teseen Street)",
+    "description": "The primary bustling artery of New Cairo, lined with corporate buildings, banks, and major dining hubs.",
+    "images": [
+      "https://images.unsplash.com/photo-1519567281727-81416eaf0027?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1555529771-835f59fc5efe?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1507671295325-a13ea4b8c0ba?q=80&w=1600&auto=format&fit=crop"
+    ],
+    "category": "famous_street",
+    "tags": [
+      "urban",
+      "driving",
+      "modern"
+    ],
+    "vibe": "modern",
+    "address": "New Cairo",
+    "city": "Cairo",
+    "working_hours": "Open 24 hours",
+    "entry_fee": "Free",
+    "camera_fee": "Free",
+    "kids_friendly": true,
+    "elderly_friendly": true,
+    "pets_friendly": false,
+    "best_time": "Night",
+    "latitude": 30.021,
+    "longitude": 31.455
+  },
+  {
+    "place_id": "place_095",
+    "type": "place_to_visit",
+    "user_id": "system",
+    "name": "El Horreya Street",
+    "description": "A prominent street in Heliopolis known for excellent eateries and historic villas.",
+    "images": [
+      "https://images.unsplash.com/photo-1519567281727-81416eaf0027?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1555529771-835f59fc5efe?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1507671295325-a13ea4b8c0ba?q=80&w=1600&auto=format&fit=crop"
+    ],
+    "category": "famous_street",
+    "tags": [
+      "walking",
+      "dining",
+      "urban"
+    ],
+    "vibe": "modern",
+    "address": "Heliopolis",
+    "city": "Cairo",
+    "working_hours": "Open 24 hours",
+    "entry_fee": "Free",
+    "camera_fee": "Free",
+    "kids_friendly": true,
+    "elderly_friendly": true,
+    "pets_friendly": false,
+    "best_time": "Evening",
+    "latitude": 30.0889,
+    "longitude": 31.3283
+  },
+  {
+    "place_id": "place_096",
+    "type": "restaurant",
+    "user_id": "system",
+    "name": "Sachi",
+    "description": "An award-winning upscale restaurant serving exquisite Mediterranean and Asian fusion.",
+    "images": [
+      "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1414235077428-338988692392?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?q=80&w=1600&auto=format&fit=crop"
+    ],
+    "category": "restaurant",
+    "tags": [
+      "fine-dining",
+      "fusion",
+      "dinner"
+    ],
+    "vibe": "modern",
+    "address": "Heliopolis",
+    "city": "Cairo",
+    "working_hours": "1:00 PM - 1:00 AM",
+    "entry_fee": "Free",
+    "camera_fee": "Free",
+    "kids_friendly": false,
+    "elderly_friendly": true,
+    "pets_friendly": false,
+    "best_time": "Dinner",
+    "latitude": 30.0911,
+    "longitude": 31.3283
+  },
+  {
+    "place_id": "place_097",
+    "type": "restaurant",
+    "user_id": "system",
+    "name": "Kazoku",
+    "description": "Highly acclaimed contemporary Japanese dining experience with elegant minimalist decor.",
+    "images": [
+      "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1414235077428-338988692392?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?q=80&w=1600&auto=format&fit=crop"
+    ],
+    "category": "restaurant",
+    "tags": [
+      "japanese",
+      "fine-dining",
+      "dinner"
+    ],
+    "vibe": "modern",
+    "address": "Swan Lake Compound, New Cairo",
+    "city": "Cairo",
+    "working_hours": "1:00 PM - 1:00 AM",
+    "entry_fee": "Free",
+    "camera_fee": "Free",
+    "kids_friendly": false,
+    "elderly_friendly": true,
+    "pets_friendly": false,
+    "best_time": "Dinner",
+    "latitude": 30.0125,
+    "longitude": 31.4284
+  },
+  {
+    "place_id": "place_098",
+    "type": "restaurant",
+    "user_id": "system",
+    "name": "Pier 88",
+    "description": "A glamorous rooftop dining venue overlooking the Nile, known for vibrant nightlife.",
+    "images": [
+      "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1414235077428-338988692392?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?q=80&w=1600&auto=format&fit=crop"
+    ],
+    "category": "restaurant",
+    "tags": [
+      "nile-view",
+      "italian",
+      "nightlife"
+    ],
+    "vibe": "modern",
+    "address": "Zamalek",
+    "city": "Cairo",
+    "working_hours": "2:00 PM - 2:00 AM",
+    "entry_fee": "Free",
+    "camera_fee": "Free",
+    "kids_friendly": false,
+    "elderly_friendly": true,
+    "pets_friendly": false,
+    "best_time": "Night",
+    "latitude": 30.062,
+    "longitude": 31.2185
+  },
+  {
+    "place_id": "place_099",
+    "type": "restaurant",
+    "user_id": "system",
+    "name": "Lexie's",
+    "description": "A trendy Mediterranean and Italian eatery famous for homemade pasta.",
+    "images": [
+      "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1414235077428-338988692392?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?q=80&w=1600&auto=format&fit=crop"
+    ],
+    "category": "restaurant",
+    "tags": [
+      "italian",
+      "dining",
+      "lunch"
+    ],
+    "vibe": "modern",
+    "address": "Downtown Katameya, New Cairo",
+    "city": "Cairo",
+    "working_hours": "12:00 PM - 12:00 AM",
+    "entry_fee": "Free",
+    "camera_fee": "Free",
+    "kids_friendly": true,
+    "elderly_friendly": true,
+    "pets_friendly": false,
+    "best_time": "Dinner",
+    "latitude": 30.0163,
+    "longitude": 31.4284
+  },
+  {
+    "place_id": "place_100",
+    "type": "restaurant",
+    "user_id": "system",
+    "name": "Crimson Bar & Grill",
+    "description": "Offering magnificent panoramic views of the Nile alongside premium grilled dishes.",
+    "images": [
+      "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1414235077428-338988692392?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?q=80&w=1600&auto=format&fit=crop"
+    ],
+    "category": "restaurant",
+    "tags": [
+      "grill",
+      "nile-view",
+      "upscale"
+    ],
+    "vibe": "modern",
+    "address": "Zamalek",
+    "city": "Cairo",
+    "working_hours": "12:00 PM - 1:00 AM",
+    "entry_fee": "Free",
+    "camera_fee": "Free",
+    "kids_friendly": false,
+    "elderly_friendly": true,
+    "pets_friendly": false,
+    "best_time": "Sunset",
+    "latitude": 30.0632,
+    "longitude": 31.2185
+  },
+  {
+    "place_id": "place_101",
+    "type": "restaurant",
+    "user_id": "system",
+    "name": "Izakaya",
+    "description": "A chic, atmospheric venue serving brilliant Japanese-Peruvian Nikkei cuisine.",
+    "images": [
+      "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1414235077428-338988692392?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?q=80&w=1600&auto=format&fit=crop"
+    ],
+    "category": "restaurant",
+    "tags": [
+      "japanese",
+      "peruvian",
+      "fusion"
+    ],
+    "vibe": "modern",
+    "address": "Palm Hills, Sheikh Zayed",
+    "city": "Sheikh Zayed",
+    "working_hours": "1:00 PM - 1:00 AM",
+    "entry_fee": "Free",
+    "camera_fee": "Free",
+    "kids_friendly": false,
+    "elderly_friendly": true,
+    "pets_friendly": false,
+    "best_time": "Dinner",
+    "latitude": 30.0051,
+    "longitude": 30.9856
+  },
+  {
+    "place_id": "place_102",
+    "type": "restaurant",
+    "user_id": "system",
+    "name": "Reif Kushiyaki",
+    "description": "An edgy Japanese street food concept focusing on skewers and ramen.",
+    "images": [
+      "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1414235077428-338988692392?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?q=80&w=1600&auto=format&fit=crop"
+    ],
+    "category": "restaurant",
+    "tags": [
+      "japanese",
+      "street-food",
+      "chic"
+    ],
+    "vibe": "modern",
+    "address": "5A by the Waterway, New Cairo",
+    "city": "Cairo",
+    "working_hours": "1:00 PM - 12:00 AM",
+    "entry_fee": "Free",
+    "camera_fee": "Free",
+    "kids_friendly": true,
+    "elderly_friendly": true,
+    "pets_friendly": false,
+    "best_time": "Dinner",
+    "latitude": 30.0305,
+    "longitude": 31.4223
+  },
+  {
+    "place_id": "place_103",
+    "type": "restaurant",
+    "user_id": "system",
+    "name": "Khufu's",
+    "description": "Spectacular fine dining right at the footsteps of the majestic Giza Pyramids.",
+    "images": [
+      "https://images.unsplash.com/photo-1549216715-ddc1e7dff22d?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1588691888147-16ca9712a2a0?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1574169720165-4f362edcae69?q=80&w=1600&auto=format&fit=crop"
+    ],
+    "category": "restaurant",
+    "tags": [
+      "pyramids-view",
+      "fine-dining",
+      "egyptian"
+    ],
+    "vibe": "historical",
+    "address": "Giza Plateau",
+    "city": "Giza",
+    "working_hours": "12:00 PM - 11:00 PM",
+    "entry_fee": "Free",
+    "camera_fee": "Free",
+    "kids_friendly": true,
+    "elderly_friendly": true,
+    "pets_friendly": false,
+    "best_time": "Sunset",
+    "latitude": 29.9792,
+    "longitude": 31.1342
+  },
+  {
+    "place_id": "place_104",
+    "type": "restaurant",
+    "user_id": "system",
+    "name": "9 Pyramids Lounge",
+    "description": "Enjoy traditional bedouin-style seating and breakfast with the best pyramids view.",
+    "images": [
+      "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1414235077428-338988692392?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?q=80&w=1600&auto=format&fit=crop"
+    ],
+    "category": "restaurant",
+    "tags": [
+      "pyramids-view",
+      "breakfast",
+      "outdoors"
+    ],
+    "vibe": "traditional",
+    "address": "Giza Plateau",
+    "city": "Giza",
+    "working_hours": "9:00 AM - 5:00 PM",
+    "entry_fee": "Pyramids Ticket Required",
+    "camera_fee": "Free",
+    "kids_friendly": true,
+    "elderly_friendly": true,
+    "pets_friendly": true,
+    "best_time": "Morning",
+    "latitude": 29.9752,
+    "longitude": 31.1302
+  },
+  {
+    "place_id": "place_105",
+    "type": "restaurant",
+    "user_id": "system",
+    "name": "Andrea El Mariouteya",
+    "description": "A legendary establishment famous for its charcoal-grilled chicken and oriental meze.",
+    "images": [
+      "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1414235077428-338988692392?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?q=80&w=1600&auto=format&fit=crop"
+    ],
+    "category": "restaurant",
+    "tags": [
+      "egyptian",
+      "grill",
+      "family"
+    ],
+    "vibe": "traditional",
+    "address": "New Giza",
+    "city": "Giza",
+    "working_hours": "1:00 PM - 12:00 AM",
+    "entry_fee": "Free",
+    "camera_fee": "Free",
+    "kids_friendly": true,
+    "elderly_friendly": true,
+    "pets_friendly": false,
+    "best_time": "Lunch",
+    "latitude": 30.0152,
+    "longitude": 30.9752
+  },
+  {
+    "place_id": "place_106",
+    "type": "restaurant",
+    "user_id": "system",
+    "name": "Zooba",
+    "description": "Elevated, colorful Egyptian street food served in a vibrant, modern setting.",
+    "images": [
+      "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1414235077428-338988692392?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?q=80&w=1600&auto=format&fit=crop"
+    ],
+    "category": "restaurant",
+    "tags": [
+      "street-food",
+      "egyptian",
+      "casual"
+    ],
+    "vibe": "traditional",
+    "address": "Zamalek",
+    "city": "Cairo",
+    "working_hours": "9:00 AM - 1:00 AM",
+    "entry_fee": "Free",
+    "camera_fee": "Free",
+    "kids_friendly": true,
+    "elderly_friendly": true,
+    "pets_friendly": false,
+    "best_time": "Lunch",
+    "latitude": 30.061,
+    "longitude": 31.218
+  },
+  {
+    "place_id": "place_107",
+    "type": "restaurant",
+    "user_id": "system",
+    "name": "Abu El Sid",
+    "description": "Authentic, atmospheric Egyptian dining offering classics like Molokheya and Stuffed Pigeon.",
+    "images": [
+      "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1414235077428-338988692392?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?q=80&w=1600&auto=format&fit=crop"
+    ],
+    "category": "restaurant",
+    "tags": [
+      "egyptian",
+      "authentic",
+      "dinner"
+    ],
+    "vibe": "traditional",
+    "address": "Zamalek",
+    "city": "Cairo",
+    "working_hours": "12:00 PM - 1:00 AM",
+    "entry_fee": "Free",
+    "camera_fee": "Free",
+    "kids_friendly": true,
+    "elderly_friendly": true,
+    "pets_friendly": false,
+    "best_time": "Dinner",
+    "latitude": 30.0615,
+    "longitude": 31.219
+  },
+  {
+    "place_id": "place_108",
+    "type": "restaurant",
+    "user_id": "system",
+    "name": "Sobhy Kaber",
+    "description": "A legendary authentic Egyptian grill known for bustling crowds and incredible meats.",
+    "images": [
+      "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1414235077428-338988692392?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?q=80&w=1600&auto=format&fit=crop"
+    ],
+    "category": "restaurant",
+    "tags": [
+      "grill",
+      "authentic",
+      "crowded"
+    ],
+    "vibe": "traditional",
+    "address": "Shoubra",
+    "city": "Cairo",
+    "working_hours": "1:00 PM - 3:00 AM",
+    "entry_fee": "Free",
+    "camera_fee": "Free",
+    "kids_friendly": true,
+    "elderly_friendly": true,
+    "pets_friendly": false,
+    "best_time": "Night",
+    "latitude": 30.0815,
+    "longitude": 31.2482
+  },
+  {
+    "place_id": "place_109",
+    "type": "restaurant",
+    "user_id": "system",
+    "name": "Koshary Abou Tarek",
+    "description": "The most famous Koshary restaurant in Egypt, a multi-story temple to the national dish.",
+    "images": [
+      "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1414235077428-338988692392?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?q=80&w=1600&auto=format&fit=crop"
+    ],
+    "category": "restaurant",
+    "tags": [
+      "street-food",
+      "koshary",
+      "iconic"
+    ],
+    "vibe": "traditional",
+    "address": "Downtown",
+    "city": "Cairo",
+    "working_hours": "9:00 AM - 12:00 AM",
+    "entry_fee": "Free",
+    "camera_fee": "Free",
+    "kids_friendly": true,
+    "elderly_friendly": true,
+    "pets_friendly": false,
+    "best_time": "Lunch",
+    "latitude": 30.0485,
+    "longitude": 31.2382
+  },
+  {
+    "place_id": "place_110",
+    "type": "restaurant",
+    "user_id": "system",
+    "name": "Le Pacha 1901 (Carlo's)",
+    "description": "A stylish boat housing multiple restaurants; Carlo's offers excellent international and Egyptian dishes.",
+    "images": [
+      "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1414235077428-338988692392?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?q=80&w=1600&auto=format&fit=crop"
+    ],
+    "category": "restaurant",
+    "tags": [
+      "nile-view",
+      "boat",
+      "international"
+    ],
+    "vibe": "modern",
+    "address": "Zamalek",
+    "city": "Cairo",
+    "working_hours": "1:00 PM - 2:00 AM",
+    "entry_fee": "Free",
+    "camera_fee": "Free",
+    "kids_friendly": true,
+    "elderly_friendly": true,
+    "pets_friendly": false,
+    "best_time": "Dinner",
+    "latitude": 30.0556,
+    "longitude": 31.2222
+  },
+  {
+    "place_id": "place_111",
+    "type": "restaurant",
+    "user_id": "system",
+    "name": "Taboula",
+    "description": "A cozy underground Lebanese restaurant offering mouthwatering mezes and grills.",
+    "images": [
+      "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1414235077428-338988692392?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?q=80&w=1600&auto=format&fit=crop"
+    ],
+    "category": "restaurant",
+    "tags": [
+      "lebanese",
+      "cozy",
+      "meze"
+    ],
+    "vibe": "traditional",
+    "address": "Garden City",
+    "city": "Cairo",
+    "working_hours": "12:00 PM - 1:00 AM",
+    "entry_fee": "Free",
+    "camera_fee": "Free",
+    "kids_friendly": true,
+    "elderly_friendly": true,
+    "pets_friendly": false,
+    "best_time": "Dinner",
+    "latitude": 30.041,
+    "longitude": 31.2315
+  },
+  {
+    "place_id": "place_112",
+    "type": "restaurant",
+    "user_id": "system",
+    "name": "Crave",
+    "description": "A reliable casual dining favorite famous for its chocolate fondant and comfort food.",
+    "images": [
+      "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1414235077428-338988692392?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?q=80&w=1600&auto=format&fit=crop"
+    ],
+    "category": "restaurant",
+    "tags": [
+      "casual",
+      "comfort-food",
+      "family"
+    ],
+    "vibe": "modern",
+    "address": "Arkan Plaza, Sheikh Zayed",
+    "city": "Sheikh Zayed",
+    "working_hours": "11:00 AM - 12:00 AM",
+    "entry_fee": "Free",
+    "camera_fee": "Free",
+    "kids_friendly": true,
+    "elderly_friendly": true,
+    "pets_friendly": false,
+    "best_time": "Lunch",
+    "latitude": 30.0385,
+    "longitude": 30.9881
+  },
+  {
+    "place_id": "place_113",
+    "type": "restaurant",
+    "user_id": "system",
+    "name": "Mo Bistro",
+    "description": "A chic bistro serving excellent international cuisine and signature steaks.",
+    "images": [
+      "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1414235077428-338988692392?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?q=80&w=1600&auto=format&fit=crop"
+    ],
+    "category": "restaurant",
+    "tags": [
+      "bistro",
+      "steak",
+      "chic"
+    ],
+    "vibe": "modern",
+    "address": "Mohandeseen",
+    "city": "Giza",
+    "working_hours": "10:00 AM - 1:00 AM",
+    "entry_fee": "Free",
+    "camera_fee": "Free",
+    "kids_friendly": true,
+    "elderly_friendly": true,
+    "pets_friendly": false,
+    "best_time": "Dinner",
+    "latitude": 30.0726,
+    "longitude": 31.3456
+  },
+  {
+    "place_id": "place_114",
+    "type": "restaurant",
+    "user_id": "system",
+    "name": "The Lemon Tree & Co",
+    "description": "An elegant, breezy restaurant known for its Mediterranean menu and sophisticated crowd.",
+    "images": [
+      "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1414235077428-338988692392?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?q=80&w=1600&auto=format&fit=crop"
+    ],
+    "category": "restaurant",
+    "tags": [
+      "mediterranean",
+      "chic",
+      "alfresco"
+    ],
+    "vibe": "modern",
+    "address": "Katameya Heights, New Cairo",
+    "city": "Cairo",
+    "working_hours": "2:00 PM - 1:00 AM",
+    "entry_fee": "Free",
+    "camera_fee": "Free",
+    "kids_friendly": false,
+    "elderly_friendly": true,
+    "pets_friendly": false,
+    "best_time": "Sunset",
+    "latitude": 30.0125,
+    "longitude": 31.4284
+  },
+  {
+    "place_id": "place_115",
+    "type": "restaurant",
+    "user_id": "system",
+    "name": "Ovolo",
+    "description": "A warm and inviting modern Italian restaurant specializing in artisanal pizza and pasta.",
+    "images": [
+      "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1414235077428-338988692392?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?q=80&w=1600&auto=format&fit=crop"
+    ],
+    "category": "restaurant",
+    "tags": [
+      "italian",
+      "pizza",
+      "family"
+    ],
+    "vibe": "modern",
+    "address": "Waterway, New Cairo",
+    "city": "Cairo",
+    "working_hours": "1:00 PM - 12:00 AM",
+    "entry_fee": "Free",
+    "camera_fee": "Free",
+    "kids_friendly": true,
+    "elderly_friendly": true,
+    "pets_friendly": false,
+    "best_time": "Dinner",
+    "latitude": 30.0382,
+    "longitude": 31.4589
+  },
+  {
+    "place_id": "place_116",
+    "type": "restaurant",
+    "user_id": "system",
+    "name": "Gigi Burger Bar",
+    "description": "A trendy gourmet burger joint popular among the youth.",
+    "images": [
+      "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1414235077428-338988692392?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?q=80&w=1600&auto=format&fit=crop"
+    ],
+    "category": "restaurant",
+    "tags": [
+      "burger",
+      "casual",
+      "youth"
+    ],
+    "vibe": "modern",
+    "address": "Arkan Plaza, Sheikh Zayed",
+    "city": "Sheikh Zayed",
+    "working_hours": "12:00 PM - 1:00 AM",
+    "entry_fee": "Free",
+    "camera_fee": "Free",
+    "kids_friendly": true,
+    "elderly_friendly": true,
+    "pets_friendly": false,
+    "best_time": "Lunch",
+    "latitude": 30.0385,
+    "longitude": 30.9881
+  },
+  {
+    "place_id": "place_117",
+    "type": "restaurant",
+    "user_id": "system",
+    "name": "Lucille's",
+    "description": "An American diner famous for serving what many consider the best burger in Cairo.",
+    "images": [
+      "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1414235077428-338988692392?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?q=80&w=1600&auto=format&fit=crop"
+    ],
+    "category": "restaurant",
+    "tags": [
+      "american",
+      "burger",
+      "breakfast"
+    ],
+    "vibe": "traditional",
+    "address": "Maadi",
+    "city": "Cairo",
+    "working_hours": "8:00 AM - 12:00 AM",
+    "entry_fee": "Free",
+    "camera_fee": "Free",
+    "kids_friendly": true,
+    "elderly_friendly": true,
+    "pets_friendly": false,
+    "best_time": "Lunch",
+    "latitude": 29.961,
+    "longitude": 31.268
+  },
+  {
+    "place_id": "place_118",
+    "type": "restaurant",
+    "user_id": "system",
+    "name": "Villa Caracas",
+    "description": "Beautiful Lebanese dining set in a stunning, airy environment.",
+    "images": [
+      "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1414235077428-338988692392?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?q=80&w=1600&auto=format&fit=crop"
+    ],
+    "category": "restaurant",
+    "tags": [
+      "lebanese",
+      "elegant",
+      "meze"
+    ],
+    "vibe": "modern",
+    "address": "O1 Mall, New Cairo",
+    "city": "Cairo",
+    "working_hours": "10:00 AM - 1:00 AM",
+    "entry_fee": "Free",
+    "camera_fee": "Free",
+    "kids_friendly": true,
+    "elderly_friendly": true,
+    "pets_friendly": false,
+    "best_time": "Dinner",
+    "latitude": 30.0321,
+    "longitude": 31.4452
+  },
+  {
+    "place_id": "place_119",
+    "type": "restaurant",
+    "user_id": "system",
+    "name": "Eatery",
+    "description": "A multi-kitchen concept offering amazing worldly dishes and cooking classes.",
+    "images": [
+      "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1414235077428-338988692392?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?q=80&w=1600&auto=format&fit=crop"
+    ],
+    "category": "restaurant",
+    "tags": [
+      "international",
+      "modern",
+      "casual"
+    ],
+    "vibe": "modern",
+    "address": "Cairo Festival City",
+    "city": "Cairo",
+    "working_hours": "10:00 AM - 12:00 AM",
+    "entry_fee": "Free",
+    "camera_fee": "Free",
+    "kids_friendly": true,
+    "elderly_friendly": true,
+    "pets_friendly": false,
+    "best_time": "Lunch",
+    "latitude": 30.0272,
+    "longitude": 31.4057
+  },
+  {
+    "place_id": "place_120",
+    "type": "restaurant",
+    "user_id": "system",
+    "name": "Beeja",
+    "description": "A brilliant Nile-side spot offering a mix of modern Egyptian and international plates.",
+    "images": [
+      "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1414235077428-338988692392?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?q=80&w=1600&auto=format&fit=crop"
+    ],
+    "category": "restaurant",
+    "tags": [
+      "nile-view",
+      "egyptian",
+      "modern"
+    ],
+    "vibe": "modern",
+    "address": "Biota, Zamalek",
+    "city": "Cairo",
+    "working_hours": "12:00 PM - 1:00 AM",
+    "entry_fee": "Free",
+    "camera_fee": "Free",
+    "kids_friendly": true,
+    "elderly_friendly": true,
+    "pets_friendly": false,
+    "best_time": "Sunset",
+    "latitude": 30.063,
+    "longitude": 31.2185
+  },
+  {
+    "place_id": "place_121",
+    "type": "restaurant",
+    "user_id": "system",
+    "name": "Battaw",
+    "description": "Offers farm-to-table authentic Egyptian flavors with a healthy twist.",
+    "images": [
+      "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1414235077428-338988692392?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?q=80&w=1600&auto=format&fit=crop"
+    ],
+    "category": "restaurant",
+    "tags": [
+      "egyptian",
+      "healthy",
+      "farm-to-table"
+    ],
+    "vibe": "traditional",
+    "address": "Heliopolis",
+    "city": "Cairo",
+    "working_hours": "10:00 AM - 12:00 AM",
+    "entry_fee": "Free",
+    "camera_fee": "Free",
+    "kids_friendly": true,
+    "elderly_friendly": true,
+    "pets_friendly": false,
+    "best_time": "Lunch",
+    "latitude": 30.0889,
+    "longitude": 31.3283
+  },
+  {
+    "place_id": "place_122",
+    "type": "restaurant",
+    "user_id": "system",
+    "name": "L'Auberge Lounge",
+    "description": "A classy and historical spot, keeping the mid-century Cairo charm alive.",
+    "images": [
+      "https://images.unsplash.com/photo-1549216715-ddc1e7dff22d?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1588691888147-16ca9712a2a0?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1574169720165-4f362edcae69?q=80&w=1600&auto=format&fit=crop"
+    ],
+    "category": "restaurant",
+    "tags": [
+      "historical",
+      "classic",
+      "lounge"
+    ],
+    "vibe": "historical",
+    "address": "Downtown",
+    "city": "Cairo",
+    "working_hours": "12:00 PM - 1:00 AM",
+    "entry_fee": "Free",
+    "camera_fee": "Free",
+    "kids_friendly": false,
+    "elderly_friendly": true,
+    "pets_friendly": false,
+    "best_time": "Evening",
+    "latitude": 30.0475,
+    "longitude": 31.2393
+  },
+  {
+    "place_id": "place_123",
+    "type": "restaurant",
+    "user_id": "system",
+    "name": "Estro",
+    "description": "An authentic Sicilian rooftop restaurant with incredible views of Maadi.",
+    "images": [
+      "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1414235077428-338988692392?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?q=80&w=1600&auto=format&fit=crop"
+    ],
+    "category": "restaurant",
+    "tags": [
+      "italian",
+      "rooftop",
+      "sunset"
+    ],
+    "vibe": "modern",
+    "address": "Maadi",
+    "city": "Cairo",
+    "working_hours": "1:00 PM - 12:00 AM",
+    "entry_fee": "Free",
+    "camera_fee": "Free",
+    "kids_friendly": false,
+    "elderly_friendly": true,
+    "pets_friendly": false,
+    "best_time": "Sunset",
+    "latitude": 29.9613,
+    "longitude": 31.2687
+  },
+  {
+    "place_id": "place_124",
+    "type": "restaurant",
+    "user_id": "system",
+    "name": "Desoke",
+    "description": "A famous beloved local spot serving the best Macaroni Bechamel and liver sandwiches.",
+    "images": [
+      "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1414235077428-338988692392?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?q=80&w=1600&auto=format&fit=crop"
+    ],
+    "category": "restaurant",
+    "tags": [
+      "street-food",
+      "authentic",
+      "cheap-eats"
+    ],
+    "vibe": "traditional",
+    "address": "Dokki",
+    "city": "Giza",
+    "working_hours": "12:00 PM - 3:00 AM",
+    "entry_fee": "Free",
+    "camera_fee": "Free",
+    "kids_friendly": true,
+    "elderly_friendly": true,
+    "pets_friendly": false,
+    "best_time": "Night",
+    "latitude": 30.061,
+    "longitude": 31.218
+  },
+  {
+    "place_id": "place_125",
+    "type": "restaurant",
+    "user_id": "system",
+    "name": "The Tap",
+    "description": "A massive pub/restaurant known for fantastic wings, burgers, and live rock bands.",
+    "images": [
+      "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1414235077428-338988692392?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?q=80&w=1600&auto=format&fit=crop"
+    ],
+    "category": "restaurant",
+    "tags": [
+      "pub",
+      "wings",
+      "live-music"
+    ],
+    "vibe": "adventure",
+    "address": "Maadi",
+    "city": "Cairo",
+    "working_hours": "4:00 PM - 2:00 AM",
+    "entry_fee": "Free",
+    "camera_fee": "Free",
+    "kids_friendly": false,
+    "elderly_friendly": false,
+    "pets_friendly": false,
+    "best_time": "Night",
+    "latitude": 29.961,
+    "longitude": 31.268
+  },
+  {
+    "place_id": "place_126",
+    "type": "restaurant",
+    "user_id": "system",
+    "name": "Bosco",
+    "description": "A warm rustic Italian restaurant specializing in wood-fired pizzas.",
+    "images": [
+      "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1414235077428-338988692392?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?q=80&w=1600&auto=format&fit=crop"
+    ],
+    "category": "restaurant",
+    "tags": [
+      "italian",
+      "pizza",
+      "cozy"
+    ],
+    "vibe": "traditional",
+    "address": "Capital Promenade, Sheikh Zayed",
+    "city": "Sheikh Zayed",
+    "working_hours": "12:00 PM - 12:00 AM",
+    "entry_fee": "Free",
+    "camera_fee": "Free",
+    "kids_friendly": true,
+    "elderly_friendly": true,
+    "pets_friendly": false,
+    "best_time": "Dinner",
+    "latitude": 30.0385,
+    "longitude": 30.9881
+  },
+  {
+    "place_id": "place_127",
+    "type": "restaurant",
+    "user_id": "system",
+    "name": "Gaby's",
+    "description": "A bright, airy venue serving excellent Mediterranean and international crowd-pleasers.",
+    "images": [
+      "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1414235077428-338988692392?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?q=80&w=1600&auto=format&fit=crop"
+    ],
+    "category": "restaurant",
+    "tags": [
+      "casual",
+      "international",
+      "mall"
+    ],
+    "vibe": "modern",
+    "address": "Citystars, Nasr City",
+    "city": "Cairo",
+    "working_hours": "10:00 AM - 12:00 AM",
+    "entry_fee": "Free",
+    "camera_fee": "Free",
+    "kids_friendly": true,
+    "elderly_friendly": true,
+    "pets_friendly": false,
+    "best_time": "Lunch",
+    "latitude": 30.0726,
+    "longitude": 31.3456
+  },
+  {
+    "place_id": "place_128",
+    "type": "restaurant",
+    "user_id": "system",
+    "name": "The Smokery",
+    "description": "A sophisticated dining destination focusing on premium salmon and sushi.",
+    "images": [
+      "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1414235077428-338988692392?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?q=80&w=1600&auto=format&fit=crop"
+    ],
+    "category": "restaurant",
+    "tags": [
+      "sushi",
+      "salmon",
+      "elegant"
+    ],
+    "vibe": "modern",
+    "address": "Katameya Heights, New Cairo",
+    "city": "Cairo",
+    "working_hours": "1:00 PM - 1:00 AM",
+    "entry_fee": "Free",
+    "camera_fee": "Free",
+    "kids_friendly": false,
+    "elderly_friendly": true,
+    "pets_friendly": false,
+    "best_time": "Dinner",
+    "latitude": 30.0125,
+    "longitude": 31.4284
+  },
+  {
+    "place_id": "place_129",
+    "type": "restaurant",
+    "user_id": "system",
+    "name": "Shinko",
+    "description": "A trendy modern Asian street food bar.",
+    "images": [
+      "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1414235077428-338988692392?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?q=80&w=1600&auto=format&fit=crop"
+    ],
+    "category": "restaurant",
+    "tags": [
+      "asian",
+      "street-food",
+      "cocktails"
+    ],
+    "vibe": "modern",
+    "address": "5A by the Waterway, New Cairo",
+    "city": "Cairo",
+    "working_hours": "2:00 PM - 1:00 AM",
+    "entry_fee": "Free",
+    "camera_fee": "Free",
+    "kids_friendly": false,
+    "elderly_friendly": true,
+    "pets_friendly": false,
+    "best_time": "Night",
+    "latitude": 30.0305,
+    "longitude": 31.4223
+  },
+  {
+    "place_id": "place_130",
+    "type": "restaurant",
+    "user_id": "system",
+    "name": "Sachi By The Sea (Pop-up/Seasonal equivalents)",
+    "description": "Though famous in the north coast, their Cairo branches maintain the Mediterranean excellence.",
+    "images": [
+      "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1414235077428-338988692392?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?q=80&w=1600&auto=format&fit=crop"
+    ],
+    "category": "restaurant",
+    "tags": [
+      "fine-dining",
+      "mediterranean",
+      "chic"
+    ],
+    "vibe": "modern",
+    "address": "Park St, Sheikh Zayed",
+    "city": "Sheikh Zayed",
+    "working_hours": "1:00 PM - 1:00 AM",
+    "entry_fee": "Free",
+    "camera_fee": "Free",
+    "kids_friendly": false,
+    "elderly_friendly": true,
+    "pets_friendly": false,
+    "best_time": "Dinner",
+    "latitude": 30.0381,
+    "longitude": 30.9856
+  },
+  {
+    "place_id": "place_131",
+    "type": "restaurant",
+    "user_id": "system",
+    "name": "Mince",
+    "description": "A brilliant Egyptian burger chain offering modern, creative burger concepts.",
+    "images": [
+      "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1414235077428-338988692392?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?q=80&w=1600&auto=format&fit=crop"
+    ],
+    "category": "restaurant",
+    "tags": [
+      "burger",
+      "casual",
+      "youth"
+    ],
+    "vibe": "modern",
+    "address": "Zamalek",
+    "city": "Cairo",
+    "working_hours": "11:00 AM - 1:00 AM",
+    "entry_fee": "Free",
+    "camera_fee": "Free",
+    "kids_friendly": true,
+    "elderly_friendly": true,
+    "pets_friendly": false,
+    "best_time": "Lunch",
+    "latitude": 30.062,
+    "longitude": 31.2185
+  },
+  {
+    "place_id": "place_132",
+    "type": "restaurant",
+    "user_id": "system",
+    "name": "Donuteria",
+    "description": "Specialty donuts that went viral for their creative flavors and fillings.",
+    "images": [
+      "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1414235077428-338988692392?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?q=80&w=1600&auto=format&fit=crop"
+    ],
+    "category": "restaurant",
+    "tags": [
+      "dessert",
+      "sweet",
+      "viral"
+    ],
+    "vibe": "modern",
+    "address": "New Cairo",
+    "city": "Cairo",
+    "working_hours": "10:00 AM - 11:00 PM",
+    "entry_fee": "Free",
+    "camera_fee": "Free",
+    "kids_friendly": true,
+    "elderly_friendly": true,
+    "pets_friendly": false,
+    "best_time": "Afternoon",
+    "latitude": 30.0163,
+    "longitude": 31.4284
+  },
+  {
+    "place_id": "place_133",
+    "type": "restaurant",
+    "user_id": "system",
+    "name": "Dara's Ice Cream",
+    "description": "The most famous artisanal ice cream parlor in Egypt, with constantly queued branches.",
+    "images": [
+      "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1414235077428-338988692392?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?q=80&w=1600&auto=format&fit=crop"
+    ],
+    "category": "restaurant",
+    "tags": [
+      "dessert",
+      "ice-cream",
+      "viral"
+    ],
+    "vibe": "modern",
+    "address": "Zamalek",
+    "city": "Cairo",
+    "working_hours": "11:00 AM - 1:00 AM",
+    "entry_fee": "Free",
+    "camera_fee": "Free",
+    "kids_friendly": true,
+    "elderly_friendly": true,
+    "pets_friendly": true,
+    "best_time": "Evening",
+    "latitude": 30.062,
+    "longitude": 31.2185
+  },
+  {
+    "place_id": "place_134",
+    "type": "restaurant",
+    "user_id": "system",
+    "name": "Nola Cupcakes",
+    "description": "Egypt's pioneering premium cupcake brand with delightful seasonal sweets.",
+    "images": [
+      "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1414235077428-338988692392?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?q=80&w=1600&auto=format&fit=crop"
+    ],
+    "category": "restaurant",
+    "tags": [
+      "dessert",
+      "cupcakes",
+      "sweet"
+    ],
+    "vibe": "modern",
+    "address": "Sheikh Zayed",
+    "city": "Sheikh Zayed",
+    "working_hours": "10:00 AM - 12:00 AM",
+    "entry_fee": "Free",
+    "camera_fee": "Free",
+    "kids_friendly": true,
+    "elderly_friendly": true,
+    "pets_friendly": false,
+    "best_time": "Afternoon",
+    "latitude": 30.0385,
+    "longitude": 30.9881
+  },
+  {
+    "place_id": "place_135",
+    "type": "restaurant",
+    "user_id": "system",
+    "name": "Chicken Fil-A (Local)",
+    "description": "A viral local fried chicken joint famous for massive sandwiches and sauces.",
+    "images": [
+      "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1414235077428-338988692392?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?q=80&w=1600&auto=format&fit=crop"
+    ],
+    "category": "restaurant",
+    "tags": [
+      "fried-chicken",
+      "fast-food",
+      "viral"
+    ],
+    "vibe": "modern",
+    "address": "Nasr City",
+    "city": "Cairo",
+    "working_hours": "12:00 PM - 2:00 AM",
+    "entry_fee": "Free",
+    "camera_fee": "Free",
+    "kids_friendly": true,
+    "elderly_friendly": true,
+    "pets_friendly": false,
+    "best_time": "Night",
+    "latitude": 30.0889,
+    "longitude": 31.3283
+  },
+  {
+    "place_id": "place_136",
+    "type": "restaurant",
+    "user_id": "system",
+    "name": "Ovio",
+    "description": "An elegant European eatery famous for its artisan bread and excellent breakfast.",
+    "images": [
+      "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1414235077428-338988692392?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?q=80&w=1600&auto=format&fit=crop"
+    ],
+    "category": "restaurant",
+    "tags": [
+      "european",
+      "breakfast",
+      "bakery"
+    ],
+    "vibe": "modern",
+    "address": "Maadi",
+    "city": "Cairo",
+    "working_hours": "8:00 AM - 12:00 AM",
+    "entry_fee": "Free",
+    "camera_fee": "Free",
+    "kids_friendly": true,
+    "elderly_friendly": true,
+    "pets_friendly": false,
+    "best_time": "Morning",
+    "latitude": 30.0175,
+    "longitude": 31.4984
+  },
+  {
+    "place_id": "place_137",
+    "type": "restaurant",
+    "user_id": "system",
+    "name": "Paul",
+    "description": "The classic French bakery and restaurant chain, always a reliable choice.",
+    "images": [
+      "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1414235077428-338988692392?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?q=80&w=1600&auto=format&fit=crop"
+    ],
+    "category": "restaurant",
+    "tags": [
+      "french",
+      "bakery",
+      "breakfast"
+    ],
+    "vibe": "traditional",
+    "address": "Citystars, Nasr City",
+    "city": "Cairo",
+    "working_hours": "9:00 AM - 12:00 AM",
+    "entry_fee": "Free",
+    "camera_fee": "Free",
+    "kids_friendly": true,
+    "elderly_friendly": true,
+    "pets_friendly": false,
+    "best_time": "Morning",
+    "latitude": 30.0726,
+    "longitude": 31.3456
+  },
+  {
+    "place_id": "place_138",
+    "type": "restaurant",
+    "user_id": "system",
+    "name": "Felfela",
+    "description": "A rustic, incredibly famous Downtown spot for authentic Egyptian vegetarian and meat dishes.",
+    "images": [
+      "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1414235077428-338988692392?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?q=80&w=1600&auto=format&fit=crop"
+    ],
+    "category": "restaurant",
+    "tags": [
+      "egyptian",
+      "classic",
+      "tourist"
+    ],
+    "vibe": "traditional",
+    "address": "Downtown",
+    "city": "Cairo",
+    "working_hours": "9:00 AM - 12:00 AM",
+    "entry_fee": "Free",
+    "camera_fee": "Free",
+    "kids_friendly": true,
+    "elderly_friendly": true,
+    "pets_friendly": false,
+    "best_time": "Lunch",
+    "latitude": 30.0475,
+    "longitude": 31.2393
+  },
+  {
+    "place_id": "place_139",
+    "type": "restaurant",
+    "user_id": "system",
+    "name": "Kabo",
+    "description": "A viral hidden gem for incredible stuffed fiteer (Egyptian pastry).",
+    "images": [
+      "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1414235077428-338988692392?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?q=80&w=1600&auto=format&fit=crop"
+    ],
+    "category": "restaurant",
+    "tags": [
+      "fiteer",
+      "street-food",
+      "authentic"
+    ],
+    "vibe": "traditional",
+    "address": "Imbaba",
+    "city": "Giza",
+    "working_hours": "12:00 PM - 2:00 AM",
+    "entry_fee": "Free",
+    "camera_fee": "Free",
+    "kids_friendly": true,
+    "elderly_friendly": true,
+    "pets_friendly": false,
+    "best_time": "Night",
+    "latitude": 30.0556,
+    "longitude": 31.2222
+  },
+  {
+    "place_id": "place_140",
+    "type": "restaurant",
+    "user_id": "system",
+    "name": "Macucina",
+    "description": "A cozy Italian hidden gem famous for their massive, bubbling cheese wheel pasta.",
+    "images": [
+      "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1414235077428-338988692392?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?q=80&w=1600&auto=format&fit=crop"
+    ],
+    "category": "restaurant",
+    "tags": [
+      "italian",
+      "pasta",
+      "cozy"
+    ],
+    "vibe": "traditional",
+    "address": "New Cairo",
+    "city": "Cairo",
+    "working_hours": "1:00 PM - 11:00 PM",
+    "entry_fee": "Free",
+    "camera_fee": "Free",
+    "kids_friendly": true,
+    "elderly_friendly": true,
+    "pets_friendly": false,
+    "best_time": "Dinner",
+    "latitude": 30.0382,
+    "longitude": 31.4589
+  },
+  {
+    "place_id": "place_141",
+    "type": "coffee_shop",
+    "user_id": "system",
+    "name": "Brown Nose Coffee",
+    "description": "A trendy specialty coffee roaster serving meticulous pourovers and excellent flat whites.",
+    "images": [
+      "https://images.unsplash.com/photo-1497935586351-b67a49e012bf?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1445116572660-236099ec97a0?q=80&w=1600&auto=format&fit=crop"
+    ],
+    "category": "coffee_shop",
+    "tags": [
+      "specialty-coffee",
+      "roaster",
+      "trendy"
+    ],
+    "vibe": "modern",
+    "address": "5A by the Waterway, New Cairo",
+    "city": "Cairo",
+    "working_hours": "8:00 AM - 12:00 AM",
+    "entry_fee": "Free",
+    "camera_fee": "Free",
+    "kids_friendly": true,
+    "elderly_friendly": true,
+    "pets_friendly": true,
+    "best_time": "Morning",
+    "latitude": 30.0305,
+    "longitude": 31.4223
+  },
+  {
+    "place_id": "place_142",
+    "type": "coffee_shop",
+    "user_id": "system",
+    "name": "Espresso Lab",
+    "description": "A sophisticated coffee shop known for its precise brewing methods and sleek industrial design.",
+    "images": [
+      "https://images.unsplash.com/photo-1497935586351-b67a49e012bf?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1445116572660-236099ec97a0?q=80&w=1600&auto=format&fit=crop"
+    ],
+    "category": "coffee_shop",
+    "tags": [
+      "specialty-coffee",
+      "study",
+      "work"
+    ],
+    "vibe": "modern",
+    "address": "Point 90 Mall, New Cairo",
+    "city": "Cairo",
+    "working_hours": "8:00 AM - 12:00 AM",
+    "entry_fee": "Free",
+    "camera_fee": "Free",
+    "kids_friendly": true,
+    "elderly_friendly": true,
+    "pets_friendly": false,
+    "best_time": "Afternoon",
+    "latitude": 30.0272,
+    "longitude": 31.4057
+  },
+  {
+    "place_id": "place_143",
+    "type": "coffee_shop",
+    "user_id": "system",
+    "name": "Holm Cafe",
+    "description": "A beautifully designed, minimalist cafe with a calming atmosphere, perfect for reading.",
+    "images": [
+      "https://images.unsplash.com/photo-1497935586351-b67a49e012bf?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1445116572660-236099ec97a0?q=80&w=1600&auto=format&fit=crop"
+    ],
+    "category": "coffee_shop",
+    "tags": [
+      "minimalist",
+      "quiet",
+      "pastries"
+    ],
+    "vibe": "modern",
+    "address": "Zamalek",
+    "city": "Cairo",
+    "working_hours": "8:00 AM - 11:00 PM",
+    "entry_fee": "Free",
+    "camera_fee": "Free",
+    "kids_friendly": true,
+    "elderly_friendly": true,
+    "pets_friendly": true,
+    "best_time": "Morning",
+    "latitude": 30.062,
+    "longitude": 31.2185
+  },
+  {
+    "place_id": "place_144",
+    "type": "coffee_shop",
+    "user_id": "system",
+    "name": "Seven Fortunes",
+    "description": "A robust local roaster acting as a staple for specialty coffee lovers in Sheikh Zayed.",
+    "images": [
+      "https://images.unsplash.com/photo-1497935586351-b67a49e012bf?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1445116572660-236099ec97a0?q=80&w=1600&auto=format&fit=crop"
+    ],
+    "category": "coffee_shop",
+    "tags": [
+      "roaster",
+      "social",
+      "outdoors"
+    ],
+    "vibe": "modern",
+    "address": "Arkan Plaza, Sheikh Zayed",
+    "city": "Sheikh Zayed",
+    "working_hours": "7:00 AM - 1:00 AM",
+    "entry_fee": "Free",
+    "camera_fee": "Free",
+    "kids_friendly": true,
+    "elderly_friendly": true,
+    "pets_friendly": true,
+    "best_time": "Evening",
+    "latitude": 30.0385,
+    "longitude": 30.9881
+  },
+  {
+    "place_id": "place_145",
+    "type": "coffee_shop",
+    "user_id": "system",
+    "name": "30 North",
+    "description": "A premium coffee house pairing excellent single-origin brews with delicious food.",
+    "images": [
+      "https://images.unsplash.com/photo-1497935586351-b67a49e012bf?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1445116572660-236099ec97a0?q=80&w=1600&auto=format&fit=crop"
+    ],
+    "category": "coffee_shop",
+    "tags": [
+      "specialty-coffee",
+      "breakfast",
+      "chic"
+    ],
+    "vibe": "modern",
+    "address": "Galleria40, Sheikh Zayed",
+    "city": "Sheikh Zayed",
+    "working_hours": "8:00 AM - 12:00 AM",
+    "entry_fee": "Free",
+    "camera_fee": "Free",
+    "kids_friendly": true,
+    "elderly_friendly": true,
+    "pets_friendly": false,
+    "best_time": "Morning",
+    "latitude": 30.0345,
+    "longitude": 30.9801
+  },
+  {
+    "place_id": "place_146",
+    "type": "coffee_shop",
+    "user_id": "system",
+    "name": "Vasko",
+    "description": "A high-end, stylish cafe known for flawless lattes and a polished clientele.",
+    "images": [
+      "https://images.unsplash.com/photo-1497935586351-b67a49e012bf?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1445116572660-236099ec97a0?q=80&w=1600&auto=format&fit=crop"
+    ],
+    "category": "coffee_shop",
+    "tags": [
+      "luxury",
+      "coffee",
+      "chic"
+    ],
+    "vibe": "modern",
+    "address": "Garden 8, New Cairo",
+    "city": "Cairo",
+    "working_hours": "9:00 AM - 12:00 AM",
+    "entry_fee": "Free",
+    "camera_fee": "Free",
+    "kids_friendly": true,
+    "elderly_friendly": true,
+    "pets_friendly": false,
+    "best_time": "Evening",
+    "latitude": 30.0456,
+    "longitude": 31.4682
+  },
+  {
+    "place_id": "place_147",
+    "type": "coffee_shop",
+    "user_id": "system",
+    "name": "Carter's Coffee",
+    "description": "A vibrant, youth-centric coffee shop providing an excellent creative workspace.",
+    "images": [
+      "https://images.unsplash.com/photo-1497935586351-b67a49e012bf?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1445116572660-236099ec97a0?q=80&w=1600&auto=format&fit=crop"
+    ],
+    "category": "coffee_shop",
+    "tags": [
+      "workspace",
+      "youth",
+      "coffee"
+    ],
+    "vibe": "modern",
+    "address": "Downtown Katameya, New Cairo",
+    "city": "Cairo",
+    "working_hours": "8:00 AM - 1:00 AM",
+    "entry_fee": "Free",
+    "camera_fee": "Free",
+    "kids_friendly": true,
+    "elderly_friendly": true,
+    "pets_friendly": true,
+    "best_time": "Afternoon",
+    "latitude": 30.0163,
+    "longitude": 31.4284
+  },
+  {
+    "place_id": "place_148",
+    "type": "coffee_shop",
+    "user_id": "system",
+    "name": "Qahwa",
+    "description": "A trendy local chain serving great coffee alongside incredibly popular breakfast options.",
+    "images": [
+      "https://images.unsplash.com/photo-1497935586351-b67a49e012bf?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1445116572660-236099ec97a0?q=80&w=1600&auto=format&fit=crop"
+    ],
+    "category": "coffee_shop",
+    "tags": [
+      "breakfast",
+      "casual",
+      "social"
+    ],
+    "vibe": "modern",
+    "address": "Waterway, New Cairo",
+    "city": "Cairo",
+    "working_hours": "8:00 AM - 12:00 AM",
+    "entry_fee": "Free",
+    "camera_fee": "Free",
+    "kids_friendly": true,
+    "elderly_friendly": true,
+    "pets_friendly": false,
+    "best_time": "Morning",
+    "latitude": 30.0382,
+    "longitude": 31.4589
+  },
+  {
+    "place_id": "place_149",
+    "type": "coffee_shop",
+    "user_id": "system",
+    "name": "Beano's Cafe",
+    "description": "A classic, comforting Egyptian cafe chain perfect for studying or casual dates.",
+    "images": [
+      "https://images.unsplash.com/photo-1497935586351-b67a49e012bf?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1445116572660-236099ec97a0?q=80&w=1600&auto=format&fit=crop"
+    ],
+    "category": "coffee_shop",
+    "tags": [
+      "classic",
+      "study",
+      "cozy"
+    ],
+    "vibe": "traditional",
+    "address": "Zamalek",
+    "city": "Cairo",
+    "working_hours": "8:00 AM - 12:00 AM",
+    "entry_fee": "Free",
+    "camera_fee": "Free",
+    "kids_friendly": true,
+    "elderly_friendly": true,
+    "pets_friendly": false,
+    "best_time": "Afternoon",
+    "latitude": 30.062,
+    "longitude": 31.2185
+  },
+  {
+    "place_id": "place_150",
+    "type": "coffee_shop",
+    "user_id": "system",
+    "name": "Cilantro",
+    "description": "Egypt's pioneering homegrown coffeehouse, remaining a beloved staple everywhere.",
+    "images": [
+      "https://images.unsplash.com/photo-1497935586351-b67a49e012bf?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1445116572660-236099ec97a0?q=80&w=1600&auto=format&fit=crop"
+    ],
+    "category": "coffee_shop",
+    "tags": [
+      "chain",
+      "classic",
+      "social"
+    ],
+    "vibe": "traditional",
+    "address": "Downtown",
+    "city": "Cairo",
+    "working_hours": "8:00 AM - 12:00 AM",
+    "entry_fee": "Free",
+    "camera_fee": "Free",
+    "kids_friendly": true,
+    "elderly_friendly": true,
+    "pets_friendly": false,
+    "best_time": "Morning",
+    "latitude": 30.0475,
+    "longitude": 31.2393
+  },
+  {
+    "place_id": "place_151",
+    "type": "coffee_shop",
+    "user_id": "system",
+    "name": "TBS (The Bakery Shop)",
+    "description": "Primarily a bakery, but their fresh croissants paired with their drip coffee are legendary.",
+    "images": [
+      "https://images.unsplash.com/photo-1497935586351-b67a49e012bf?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1445116572660-236099ec97a0?q=80&w=1600&auto=format&fit=crop"
+    ],
+    "category": "coffee_shop",
+    "tags": [
+      "bakery",
+      "croissant",
+      "morning"
+    ],
+    "vibe": "modern",
+    "address": "Sheikh Zayed",
+    "city": "Sheikh Zayed",
+    "working_hours": "7:00 AM - 12:00 AM",
+    "entry_fee": "Free",
+    "camera_fee": "Free",
+    "kids_friendly": true,
+    "elderly_friendly": true,
+    "pets_friendly": false,
+    "best_time": "Morning",
+    "latitude": 30.0385,
+    "longitude": 30.9881
+  },
+  {
+    "place_id": "place_152",
+    "type": "coffee_shop",
+    "user_id": "system",
+    "name": "Bocca",
+    "description": "A chic cafe and eatery famous for their vibrant layout and great matcha.",
+    "images": [
+      "https://images.unsplash.com/photo-1497935586351-b67a49e012bf?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1445116572660-236099ec97a0?q=80&w=1600&auto=format&fit=crop"
+    ],
+    "category": "coffee_shop",
+    "tags": [
+      "chic",
+      "matcha",
+      "brunch"
+    ],
+    "vibe": "modern",
+    "address": "Capital Promenade, Sheikh Zayed",
+    "city": "Sheikh Zayed",
+    "working_hours": "9:00 AM - 12:00 AM",
+    "entry_fee": "Free",
+    "camera_fee": "Free",
+    "kids_friendly": true,
+    "elderly_friendly": true,
+    "pets_friendly": false,
+    "best_time": "Brunch",
+    "latitude": 30.0396,
+    "longitude": 30.9902
+  },
+  {
+    "place_id": "place_153",
+    "type": "coffee_shop",
+    "user_id": "system",
+    "name": "Costa Coffee",
+    "description": "The global chain offering reliable blends, frostinos, and comfortable seating.",
+    "images": [
+      "https://images.unsplash.com/photo-1497935586351-b67a49e012bf?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1445116572660-236099ec97a0?q=80&w=1600&auto=format&fit=crop"
+    ],
+    "category": "coffee_shop",
+    "tags": [
+      "chain",
+      "work",
+      "casual"
+    ],
+    "vibe": "modern",
+    "address": "Citystars, Nasr City",
+    "city": "Cairo",
+    "working_hours": "8:00 AM - 12:00 AM",
+    "entry_fee": "Free",
+    "camera_fee": "Free",
+    "kids_friendly": true,
+    "elderly_friendly": true,
+    "pets_friendly": false,
+    "best_time": "Afternoon",
+    "latitude": 30.0726,
+    "longitude": 31.3456
+  },
+  {
+    "place_id": "place_154",
+    "type": "coffee_shop",
+    "user_id": "system",
+    "name": "Starbucks",
+    "description": "The classic international giant for Frappuccinos and flavored lattes.",
+    "images": [
+      "https://images.unsplash.com/photo-1497935586351-b67a49e012bf?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1445116572660-236099ec97a0?q=80&w=1600&auto=format&fit=crop"
+    ],
+    "category": "coffee_shop",
+    "tags": [
+      "chain",
+      "social",
+      "frappuccino"
+    ],
+    "vibe": "modern",
+    "address": "Mall of Egypt, Giza",
+    "city": "Giza",
+    "working_hours": "9:00 AM - 12:00 AM",
+    "entry_fee": "Free",
+    "camera_fee": "Free",
+    "kids_friendly": true,
+    "elderly_friendly": true,
+    "pets_friendly": false,
+    "best_time": "Evening",
+    "latitude": 29.9701,
+    "longitude": 30.984
+  },
+  {
+    "place_id": "place_155",
+    "type": "coffee_shop",
+    "user_id": "system",
+    "name": "Dunkin'",
+    "description": "The go-to spot for an iced coffee and a fast, colorful donut.",
+    "images": [
+      "https://images.unsplash.com/photo-1497935586351-b67a49e012bf?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1445116572660-236099ec97a0?q=80&w=1600&auto=format&fit=crop"
+    ],
+    "category": "coffee_shop",
+    "tags": [
+      "donuts",
+      "fast",
+      "coffee"
+    ],
+    "vibe": "modern",
+    "address": "Heliopolis",
+    "city": "Cairo",
+    "working_hours": "7:00 AM - 12:00 AM",
+    "entry_fee": "Free",
+    "camera_fee": "Free",
+    "kids_friendly": true,
+    "elderly_friendly": true,
+    "pets_friendly": false,
+    "best_time": "Morning",
+    "latitude": 30.0917,
+    "longitude": 31.3218
+  },
+  {
+    "place_id": "place_156",
+    "type": "coffee_shop",
+    "user_id": "system",
+    "name": "Second Cup",
+    "description": "A comfortable Canadian chain with massive couches and great chilled drinks.",
+    "images": [
+      "https://images.unsplash.com/photo-1497935586351-b67a49e012bf?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1445116572660-236099ec97a0?q=80&w=1600&auto=format&fit=crop"
+    ],
+    "category": "coffee_shop",
+    "tags": [
+      "cozy",
+      "chain",
+      "study"
+    ],
+    "vibe": "modern",
+    "address": "Maadi",
+    "city": "Cairo",
+    "working_hours": "8:00 AM - 12:00 AM",
+    "entry_fee": "Free",
+    "camera_fee": "Free",
+    "kids_friendly": true,
+    "elderly_friendly": true,
+    "pets_friendly": false,
+    "best_time": "Afternoon",
+    "latitude": 30.0175,
+    "longitude": 31.4984
+  },
+  {
+    "place_id": "place_157",
+    "type": "coffee_shop",
+    "user_id": "system",
+    "name": "Eish & Malh",
+    "description": "A beautiful Downtown eatery and cafe offering great Italian coffee and jazz nights.",
+    "images": [
+      "https://images.unsplash.com/photo-1497935586351-b67a49e012bf?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1445116572660-236099ec97a0?q=80&w=1600&auto=format&fit=crop"
+    ],
+    "category": "coffee_shop",
+    "tags": [
+      "downtown",
+      "jazz",
+      "artisan"
+    ],
+    "vibe": "modern",
+    "address": "Downtown",
+    "city": "Cairo",
+    "working_hours": "10:00 AM - 12:00 AM",
+    "entry_fee": "Free",
+    "camera_fee": "Free",
+    "kids_friendly": true,
+    "elderly_friendly": true,
+    "pets_friendly": false,
+    "best_time": "Night",
+    "latitude": 30.0475,
+    "longitude": 31.2393
+  },
+  {
+    "place_id": "place_158",
+    "type": "coffee_shop",
+    "user_id": "system",
+    "name": "Cafe Greco",
+    "description": "Maadi's oldest and most authentic expat-friendly coffeehouse. A true classic.",
+    "images": [
+      "https://images.unsplash.com/photo-1497935586351-b67a49e012bf?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1445116572660-236099ec97a0?q=80&w=1600&auto=format&fit=crop"
+    ],
+    "category": "coffee_shop",
+    "tags": [
+      "classic",
+      "expats",
+      "maadi"
+    ],
+    "vibe": "traditional",
+    "address": "Road 9, Maadi",
+    "city": "Cairo",
+    "working_hours": "7:00 AM - 11:00 PM",
+    "entry_fee": "Free",
+    "camera_fee": "Free",
+    "kids_friendly": true,
+    "elderly_friendly": true,
+    "pets_friendly": true,
+    "best_time": "Morning",
+    "latitude": 29.961,
+    "longitude": 31.268
+  },
+  {
+    "place_id": "place_159",
+    "type": "coffee_shop",
+    "user_id": "system",
+    "name": "Groppi",
+    "description": "A legendary heritage cafe from Cairo's Belle Époque era. Historic and stunning.",
+    "images": [
+      "https://images.unsplash.com/photo-1549216715-ddc1e7dff22d?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1588691888147-16ca9712a2a0?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1574169720165-4f362edcae69?q=80&w=1600&auto=format&fit=crop"
+    ],
+    "category": "coffee_shop",
+    "tags": [
+      "heritage",
+      "pastries",
+      "classic"
+    ],
+    "vibe": "historical",
+    "address": "Talaat Harb Sq, Downtown",
+    "city": "Cairo",
+    "working_hours": "8:00 AM - 10:00 PM",
+    "entry_fee": "Free",
+    "camera_fee": "Free",
+    "kids_friendly": true,
+    "elderly_friendly": true,
+    "pets_friendly": false,
+    "best_time": "Morning",
+    "latitude": 30.0475,
+    "longitude": 31.2393
+  },
+  {
+    "place_id": "place_160",
+    "type": "coffee_shop",
+    "user_id": "system",
+    "name": "Cafe Riche",
+    "description": "One of Cairo's most famous historic cafes, formerly the hub for writers and revolutionaries.",
+    "images": [
+      "https://images.unsplash.com/photo-1549216715-ddc1e7dff22d?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1588691888147-16ca9712a2a0?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1574169720165-4f362edcae69?q=80&w=1600&auto=format&fit=crop"
+    ],
+    "category": "coffee_shop",
+    "tags": [
+      "literary",
+      "historic",
+      "culture"
+    ],
+    "vibe": "historical",
+    "address": "Talaat Harb, Downtown",
+    "city": "Cairo",
+    "working_hours": "10:00 AM - 11:00 PM",
+    "entry_fee": "Free",
+    "camera_fee": "Free",
+    "kids_friendly": false,
+    "elderly_friendly": true,
+    "pets_friendly": false,
+    "best_time": "Evening",
+    "latitude": 30.0475,
+    "longitude": 31.2393
+  },
+  {
+    "place_id": "place_161",
+    "type": "coffee_shop",
+    "user_id": "system",
+    "name": "El Fishawy",
+    "description": "The most famous 'Ahwa' (traditional cafe) in Egypt, open continuously since 1797.",
+    "images": [
+      "https://images.unsplash.com/photo-1497935586351-b67a49e012bf?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1445116572660-236099ec97a0?q=80&w=1600&auto=format&fit=crop"
+    ],
+    "category": "coffee_shop",
+    "tags": [
+      "ahwa",
+      "historic",
+      "shisha"
+    ],
+    "vibe": "traditional",
+    "address": "Khan el-Khalili",
+    "city": "Cairo",
+    "working_hours": "Open 24 hours",
+    "entry_fee": "Free",
+    "camera_fee": "Free",
+    "kids_friendly": false,
+    "elderly_friendly": true,
+    "pets_friendly": false,
+    "best_time": "Night",
+    "latitude": 30.0479,
+    "longitude": 31.2626
+  },
+  {
+    "place_id": "place_162",
+    "type": "coffee_shop",
+    "user_id": "system",
+    "name": "Naguib Mahfouz Cafe",
+    "description": "An upscale oriental cafe inside Khan El Khalili dedicated to the Nobel Laureate.",
+    "images": [
+      "https://images.unsplash.com/photo-1497935586351-b67a49e012bf?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1445116572660-236099ec97a0?q=80&w=1600&auto=format&fit=crop"
+    ],
+    "category": "coffee_shop",
+    "tags": [
+      "upscale",
+      "oriental",
+      "historic"
+    ],
+    "vibe": "traditional",
+    "address": "Khan el-Khalili",
+    "city": "Cairo",
+    "working_hours": "10:00 AM - 12:00 AM",
+    "entry_fee": "150 EGP Minimum Charge",
+    "camera_fee": "Free",
+    "kids_friendly": true,
+    "elderly_friendly": true,
+    "pets_friendly": false,
+    "best_time": "Afternoon",
+    "latitude": 30.0479,
+    "longitude": 31.2626
+  },
+  {
+    "place_id": "place_163",
+    "type": "coffee_shop",
+    "user_id": "system",
+    "name": "El Lord",
+    "description": "A traditional ahwa in Khan El Khalili known for its distinct Umm Kulthum theme.",
+    "images": [
+      "https://images.unsplash.com/photo-1497935586351-b67a49e012bf?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1445116572660-236099ec97a0?q=80&w=1600&auto=format&fit=crop"
+    ],
+    "category": "coffee_shop",
+    "tags": [
+      "ahwa",
+      "music",
+      "authentic"
+    ],
+    "vibe": "traditional",
+    "address": "Khan el-Khalili",
+    "city": "Cairo",
+    "working_hours": "10:00 AM - 2:00 AM",
+    "entry_fee": "Free",
+    "camera_fee": "Free",
+    "kids_friendly": false,
+    "elderly_friendly": true,
+    "pets_friendly": false,
+    "best_time": "Evening",
+    "latitude": 30.0479,
+    "longitude": 31.2626
+  },
+  {
+    "place_id": "place_164",
+    "type": "coffee_shop",
+    "user_id": "system",
+    "name": "Cova",
+    "description": "A trendy modern cafe serving excellent iced lattes and beautiful desserts.",
+    "images": [
+      "https://images.unsplash.com/photo-1497935586351-b67a49e012bf?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1445116572660-236099ec97a0?q=80&w=1600&auto=format&fit=crop"
+    ],
+    "category": "coffee_shop",
+    "tags": [
+      "dessert",
+      "chic",
+      "lattes"
+    ],
+    "vibe": "modern",
+    "address": "New Cairo",
+    "city": "Cairo",
+    "working_hours": "9:00 AM - 12:00 AM",
+    "entry_fee": "Free",
+    "camera_fee": "Free",
+    "kids_friendly": true,
+    "elderly_friendly": true,
+    "pets_friendly": false,
+    "best_time": "Night",
+    "latitude": 30.0163,
+    "longitude": 31.4284
+  },
+  {
+    "place_id": "place_165",
+    "type": "coffee_shop",
+    "user_id": "system",
+    "name": "Tree Trunk",
+    "description": "A lovely boho-chic cafe famous for its aesthetic interior and colorful lattes.",
+    "images": [
+      "https://images.unsplash.com/photo-1497935586351-b67a49e012bf?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1445116572660-236099ec97a0?q=80&w=1600&auto=format&fit=crop"
+    ],
+    "category": "coffee_shop",
+    "tags": [
+      "boho",
+      "aesthetic",
+      "brunch"
+    ],
+    "vibe": "nature",
+    "address": "Korba, Heliopolis",
+    "city": "Cairo",
+    "working_hours": "9:00 AM - 12:00 AM",
+    "entry_fee": "Free",
+    "camera_fee": "Free",
+    "kids_friendly": true,
+    "elderly_friendly": true,
+    "pets_friendly": true,
+    "best_time": "Brunch",
+    "latitude": 30.0889,
+    "longitude": 31.3283
+  },
+  {
+    "place_id": "place_166",
+    "type": "coffee_shop",
+    "user_id": "system",
+    "name": "Social Specialty Coffee",
+    "description": "A minimalist cafe perfect for coworking, offering top-tier roasted beans.",
+    "images": [
+      "https://images.unsplash.com/photo-1497935586351-b67a49e012bf?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1445116572660-236099ec97a0?q=80&w=1600&auto=format&fit=crop"
+    ],
+    "category": "coffee_shop",
+    "tags": [
+      "coworking",
+      "specialty",
+      "minimalist"
+    ],
+    "vibe": "modern",
+    "address": "Zamalek",
+    "city": "Cairo",
+    "working_hours": "8:00 AM - 11:00 PM",
+    "entry_fee": "Free",
+    "camera_fee": "Free",
+    "kids_friendly": true,
+    "elderly_friendly": true,
+    "pets_friendly": false,
+    "best_time": "Morning",
+    "latitude": 30.062,
+    "longitude": 31.2185
+  },
+  {
+    "place_id": "place_167",
+    "type": "coffee_shop",
+    "user_id": "system",
+    "name": "Falak",
+    "description": "An artsy, underground cultural cafe offering books, art exhibitions, and good coffee.",
+    "images": [
+      "https://images.unsplash.com/photo-1549216715-ddc1e7dff22d?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1588691888147-16ca9712a2a0?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1574169720165-4f362edcae69?q=80&w=1600&auto=format&fit=crop"
+    ],
+    "category": "coffee_shop",
+    "tags": [
+      "art",
+      "culture",
+      "indie"
+    ],
+    "vibe": "historical",
+    "address": "Garden City",
+    "city": "Cairo",
+    "working_hours": "10:00 AM - 10:00 PM",
+    "entry_fee": "Free",
+    "camera_fee": "Free",
+    "kids_friendly": true,
+    "elderly_friendly": true,
+    "pets_friendly": false,
+    "best_time": "Evening",
+    "latitude": 30.041,
+    "longitude": 31.2315
+  },
+  {
+    "place_id": "place_168",
+    "type": "coffee_shop",
+    "user_id": "system",
+    "name": "Sufi Cafe",
+    "description": "A deeply cozy, eclectic cultural cafe filled with old books, vintage furniture, and calm music.",
+    "images": [
+      "https://images.unsplash.com/photo-1497935586351-b67a49e012bf?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1445116572660-236099ec97a0?q=80&w=1600&auto=format&fit=crop"
+    ],
+    "category": "coffee_shop",
+    "tags": [
+      "cultural",
+      "books",
+      "cozy"
+    ],
+    "vibe": "traditional",
+    "address": "Zamalek",
+    "city": "Cairo",
+    "working_hours": "10:00 AM - 12:00 AM",
+    "entry_fee": "Free",
+    "camera_fee": "Free",
+    "kids_friendly": true,
+    "elderly_friendly": true,
+    "pets_friendly": false,
+    "best_time": "Evening",
+    "latitude": 30.062,
+    "longitude": 31.2185
+  },
+  {
+    "place_id": "place_169",
+    "type": "coffee_shop",
+    "user_id": "system",
+    "name": "Koffee Kulture",
+    "description": "A hidden gem in Arkan Plaza serving some of the best artisanal coffee in the city.",
+    "images": [
+      "https://images.unsplash.com/photo-1497935586351-b67a49e012bf?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1445116572660-236099ec97a0?q=80&w=1600&auto=format&fit=crop"
+    ],
+    "category": "coffee_shop",
+    "tags": [
+      "artisanal",
+      "chic",
+      "quiet"
+    ],
+    "vibe": "modern",
+    "address": "Arkan Plaza, Sheikh Zayed",
+    "city": "Sheikh Zayed",
+    "working_hours": "8:00 AM - 12:00 AM",
+    "entry_fee": "Free",
+    "camera_fee": "Free",
+    "kids_friendly": true,
+    "elderly_friendly": true,
+    "pets_friendly": true,
+    "best_time": "Morning",
+    "latitude": 30.0385,
+    "longitude": 30.9881
+  },
+  {
+    "place_id": "place_170",
+    "type": "coffee_shop",
+    "user_id": "system",
+    "name": "Bäxters",
+    "description": "A trendy specialty coffee house with European vibes and excellent pastries.",
+    "images": [
+      "https://images.unsplash.com/photo-1497935586351-b67a49e012bf?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1445116572660-236099ec97a0?q=80&w=1600&auto=format&fit=crop"
+    ],
+    "category": "coffee_shop",
+    "tags": [
+      "european",
+      "pastries",
+      "coffee"
+    ],
+    "vibe": "modern",
+    "address": "New Cairo",
+    "city": "Cairo",
+    "working_hours": "8:00 AM - 11:00 PM",
+    "entry_fee": "Free",
+    "camera_fee": "Free",
+    "kids_friendly": true,
+    "elderly_friendly": true,
+    "pets_friendly": false,
+    "best_time": "Morning",
+    "latitude": 30.0163,
+    "longitude": 31.4284
+  },
+  {
+    "place_id": "place_171",
+    "type": "coffee_shop",
+    "user_id": "system",
+    "name": "Lodge Roastery",
+    "description": "A rustic, wooden-themed coffee shop focusing on single-origin roasts.",
+    "images": [
+      "https://images.unsplash.com/photo-1497935586351-b67a49e012bf?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1445116572660-236099ec97a0?q=80&w=1600&auto=format&fit=crop"
+    ],
+    "category": "coffee_shop",
+    "tags": [
+      "rustic",
+      "roastery",
+      "quiet"
+    ],
+    "vibe": "nature",
+    "address": "Nasr City",
+    "city": "Cairo",
+    "working_hours": "9:00 AM - 12:00 AM",
+    "entry_fee": "Free",
+    "camera_fee": "Free",
+    "kids_friendly": true,
+    "elderly_friendly": true,
+    "pets_friendly": false,
+    "best_time": "Afternoon",
+    "latitude": 30.1032,
+    "longitude": 31.3321
+  },
+  {
+    "place_id": "place_172",
+    "type": "coffee_shop",
+    "user_id": "system",
+    "name": "Madinaty Golf Club Cafe",
+    "description": "An incredibly serene cafe overlooking the lush green golf course.",
+    "images": [
+      "https://images.unsplash.com/photo-1497935586351-b67a49e012bf?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1445116572660-236099ec97a0?q=80&w=1600&auto=format&fit=crop"
+    ],
+    "category": "coffee_shop",
+    "tags": [
+      "golf",
+      "view",
+      "serene"
+    ],
+    "vibe": "nature",
+    "address": "Madinaty",
+    "city": "Cairo",
+    "working_hours": "7:00 AM - 10:00 PM",
+    "entry_fee": "Free",
+    "camera_fee": "Free",
+    "kids_friendly": true,
+    "elderly_friendly": true,
+    "pets_friendly": false,
+    "best_time": "Morning",
+    "latitude": 30.0984,
+    "longitude": 31.6214
+  },
+  {
+    "place_id": "place_173",
+    "type": "coffee_shop",
+    "user_id": "system",
+    "name": "Square One",
+    "description": "A modern, bustling cafe in Maadi popular among freelancers and digital nomads.",
+    "images": [
+      "https://images.unsplash.com/photo-1497935586351-b67a49e012bf?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1445116572660-236099ec97a0?q=80&w=1600&auto=format&fit=crop"
+    ],
+    "category": "coffee_shop",
+    "tags": [
+      "nomad",
+      "work",
+      "coffee"
+    ],
+    "vibe": "modern",
+    "address": "Maadi",
+    "city": "Cairo",
+    "working_hours": "8:00 AM - 11:00 PM",
+    "entry_fee": "Free",
+    "camera_fee": "Free",
+    "kids_friendly": true,
+    "elderly_friendly": true,
+    "pets_friendly": false,
+    "best_time": "Morning",
+    "latitude": 29.961,
+    "longitude": 31.268
+  },
+  {
+    "place_id": "place_174",
+    "type": "coffee_shop",
+    "user_id": "system",
+    "name": "Il Mulino",
+    "description": "An Italian bakery and cafe delivering sensational authentic Italian pastries and espresso.",
+    "images": [
+      "https://images.unsplash.com/photo-1497935586351-b67a49e012bf?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1445116572660-236099ec97a0?q=80&w=1600&auto=format&fit=crop"
+    ],
+    "category": "coffee_shop",
+    "tags": [
+      "italian",
+      "bakery",
+      "espresso"
+    ],
+    "vibe": "traditional",
+    "address": "Heliopolis",
+    "city": "Cairo",
+    "working_hours": "8:00 AM - 12:00 AM",
+    "entry_fee": "Free",
+    "camera_fee": "Free",
+    "kids_friendly": true,
+    "elderly_friendly": true,
+    "pets_friendly": false,
+    "best_time": "Morning",
+    "latitude": 30.0889,
+    "longitude": 31.3283
+  },
+  {
+    "place_id": "place_175",
+    "type": "coffee_shop",
+    "user_id": "system",
+    "name": "Breadfast Coffe",
+    "description": "The physical cafe of the beloved delivery app, known for fresh bakes and strong coffee.",
+    "images": [
+      "https://images.unsplash.com/photo-1497935586351-b67a49e012bf?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1445116572660-236099ec97a0?q=80&w=1600&auto=format&fit=crop"
+    ],
+    "category": "coffee_shop",
+    "tags": [
+      "bakery",
+      "fast",
+      "coffee"
+    ],
+    "vibe": "modern",
+    "address": "New Cairo",
+    "city": "Cairo",
+    "working_hours": "7:00 AM - 12:00 AM",
+    "entry_fee": "Free",
+    "camera_fee": "Free",
+    "kids_friendly": true,
+    "elderly_friendly": true,
+    "pets_friendly": false,
+    "best_time": "Morning",
+    "latitude": 30.0125,
+    "longitude": 31.4284
+  },
+  {
+    "place_id": "place_176",
+    "type": "coffee_shop",
+    "user_id": "system",
+    "name": "Coffee & Chicks",
+    "description": "A quirky local place that pairs excellent specialty coffee with great sandwiches.",
+    "images": [
+      "https://images.unsplash.com/photo-1497935586351-b67a49e012bf?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1445116572660-236099ec97a0?q=80&w=1600&auto=format&fit=crop"
+    ],
+    "category": "coffee_shop",
+    "tags": [
+      "quirky",
+      "sandwiches",
+      "coffee"
+    ],
+    "vibe": "modern",
+    "address": "Zamalek",
+    "city": "Cairo",
+    "working_hours": "9:00 AM - 11:00 PM",
+    "entry_fee": "Free",
+    "camera_fee": "Free",
+    "kids_friendly": true,
+    "elderly_friendly": true,
+    "pets_friendly": false,
+    "best_time": "Lunch",
+    "latitude": 30.062,
+    "longitude": 31.2185
+  },
+  {
+    "place_id": "place_177",
+    "type": "coffee_shop",
+    "user_id": "system",
+    "name": "Granita",
+    "description": "Located within the All Saints Cathedral grounds, it's a hidden, serene, vintage-style cafe.",
+    "images": [
+      "https://images.unsplash.com/photo-1549216715-ddc1e7dff22d?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1588691888147-16ca9712a2a0?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1574169720165-4f362edcae69?q=80&w=1600&auto=format&fit=crop"
+    ],
+    "category": "coffee_shop",
+    "tags": [
+      "vintage",
+      "garden",
+      "serene"
+    ],
+    "vibe": "historical",
+    "address": "Zamalek",
+    "city": "Cairo",
+    "working_hours": "9:00 AM - 11:00 PM",
+    "entry_fee": "Free",
+    "camera_fee": "Free",
+    "kids_friendly": true,
+    "elderly_friendly": true,
+    "pets_friendly": false,
+    "best_time": "Morning",
+    "latitude": 30.062,
+    "longitude": 31.2185
+  },
+  {
+    "place_id": "place_178",
+    "type": "coffee_shop",
+    "user_id": "system",
+    "name": "Bouza Roll",
+    "description": "Famous for Thai ice cream rolls alongside quality coffee in a busy district.",
+    "images": [
+      "https://images.unsplash.com/photo-1497935586351-b67a49e012bf?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1445116572660-236099ec97a0?q=80&w=1600&auto=format&fit=crop"
+    ],
+    "category": "coffee_shop",
+    "tags": [
+      "ice-cream",
+      "youth",
+      "sweet"
+    ],
+    "vibe": "modern",
+    "address": "Korba",
+    "city": "Cairo",
+    "working_hours": "12:00 PM - 12:00 AM",
+    "entry_fee": "Free",
+    "camera_fee": "Free",
+    "kids_friendly": true,
+    "elderly_friendly": true,
+    "pets_friendly": false,
+    "best_time": "Night",
+    "latitude": 30.0917,
+    "longitude": 31.3218
+  },
+  {
+    "place_id": "place_179",
+    "type": "coffee_shop",
+    "user_id": "system",
+    "name": "El Qahwa Khan",
+    "description": "A very traditional, authentic spot replicating the old-world charm of Cairo's ahwas.",
+    "images": [
+      "https://images.unsplash.com/photo-1497935586351-b67a49e012bf?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1445116572660-236099ec97a0?q=80&w=1600&auto=format&fit=crop"
+    ],
+    "category": "coffee_shop",
+    "tags": [
+      "ahwa",
+      "shisha",
+      "authentic"
+    ],
+    "vibe": "traditional",
+    "address": "Heliopolis",
+    "city": "Cairo",
+    "working_hours": "10:00 AM - 2:00 AM",
+    "entry_fee": "Free",
+    "camera_fee": "Free",
+    "kids_friendly": false,
+    "elderly_friendly": true,
+    "pets_friendly": false,
+    "best_time": "Night",
+    "latitude": 30.0889,
+    "longitude": 31.3283
+  },
+  {
+    "place_id": "place_180",
+    "type": "coffee_shop",
+    "user_id": "system",
+    "name": "Starbucks Drive Thru (Waterway)",
+    "description": "One of the most popular drive-thru spots for a quick, midnight coffee run.",
+    "images": [
+      "https://images.unsplash.com/photo-1497935586351-b67a49e012bf?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1445116572660-236099ec97a0?q=80&w=1600&auto=format&fit=crop"
+    ],
+    "category": "coffee_shop",
+    "tags": [
+      "drive-thru",
+      "chain",
+      "fast"
+    ],
+    "vibe": "modern",
+    "address": "Waterway, New Cairo",
+    "city": "Cairo",
+    "working_hours": "24 Hours",
+    "entry_fee": "Free",
+    "camera_fee": "Free",
+    "kids_friendly": true,
+    "elderly_friendly": true,
+    "pets_friendly": false,
+    "best_time": "Night",
+    "latitude": 30.0382,
+    "longitude": 31.4589
+  }
+]

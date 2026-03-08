@@ -1,19 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 import { getTopRecommendations } from "@/utils/planner/recommendation";
-
-const STOP_CATEGORIES = ["catering.restaurant", "catering.cafe", "catering.coffee_shop"];
-
-function isRestaurantOrCafe(category: string | null): boolean {
-  if (!category || typeof category !== "string") return false;
-  const lower = category.toLowerCase();
-  return (
-    STOP_CATEGORIES.includes(category) ||
-    lower.includes("restaurant") ||
-    lower.includes("cafe") ||
-    lower.includes("coffee")
-  );
-}
+import { PlaceType } from "@prisma/client";
 
 function dbPlaceToInput(place: {
   id: string;
@@ -27,7 +15,12 @@ function dbPlaceToInput(place: {
   entranceFee: number | null;
   cameraFee: number | null;
   vibe: string | null;
+  images: string[];
+  kidsFriendly: boolean | null;
+  elderlyFriendly: boolean | null;
+  petsFriendly: boolean | null;
 }) {
+  const vibeArr = place.vibe ? [place.vibe] : [];
   return {
     id: place.id,
     name: place.name,
@@ -38,13 +31,13 @@ function dbPlaceToInput(place: {
     address: place.address ?? "",
     entranceFee: place.entranceFee,
     cameraFee: place.cameraFee,
-    vibe: place.vibe,
+    vibe: vibeArr,
     category: place.category ?? undefined,
-    images: [],
+    images: place.images ?? [],
     entryFees: place.entranceFee,
     cameraFees: place.cameraFee,
-    petsFriendly: false,
-    kidsFriendly: true,
+    petsFriendly: place.petsFriendly ?? false,
+    kidsFriendly: place.kidsFriendly ?? true,
   };
 }
 
@@ -61,6 +54,7 @@ export async function POST(request: NextRequest) {
     }
 
     const allPlaces = await prisma.place.findMany({
+      where: { type: PlaceType.place_to_visit },
       select: {
         id: true,
         name: true,
@@ -73,17 +67,20 @@ export async function POST(request: NextRequest) {
         entranceFee: true,
         cameraFee: true,
         vibe: true,
+        images: true,
+        kidsFriendly: true,
+        elderlyFriendly: true,
+        petsFriendly: true,
       },
     });
 
-    const places = allPlaces.filter((p) => !isRestaurantOrCafe(p.category));
-    const inputPlaces = places.map(dbPlaceToInput);
+    const inputPlaces = allPlaces.map(dbPlaceToInput);
     const recommendations = getTopRecommendations(inputPlaces, preferences, 24);
 
     return NextResponse.json({
       success: true,
       recommendations,
-      totalPlaces: places.length,
+      totalPlaces: allPlaces.length,
       matchedPlaces: recommendations.length,
     });
   } catch (error) {

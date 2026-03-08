@@ -141,3 +141,4 @@ export function getTopRecommendations(
       ...(place.category && { category: place.category }),
     }));
 }
+

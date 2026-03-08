@@ -12,7 +12,6 @@ export async function GET(request: NextRequest) {
             OR: [
               { name: { contains: q, mode: "insensitive" } },
               { description: { contains: q, mode: "insensitive" } },
-              { category: { contains: q, mode: "insensitive" } },
             ],
           }
         : undefined,
@@ -30,7 +29,7 @@ export async function GET(request: NextRequest) {
       places: places.map((p) => ({
         id: p.id,
         title: p.name,
-        subtitle: p.description?.slice(0, 80) ?? p.address ?? p.category ?? "",
+        subtitle: p.description?.slice(0, 80) ?? p.address ?? (p.category ?? ""),
         type: "place",
         category: p.category ?? "other",
       })),

@@ -1,10 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
-
-function vibeToArray(v: string | null): string[] {
-  if (!v?.trim()) return [];
-  return v.split(",").map((s) => s.trim());
-}
+import { PlaceType } from "@prisma/client";
 
 function toRecommendationShape(place: {
   id: string;
@@ -17,56 +13,45 @@ function toRecommendationShape(place: {
   entranceFee: number | null;
   cameraFee: number | null;
   vibe: string | null;
+  images: string[];
+  kidsFriendly: boolean | null;
+  petsFriendly: boolean | null;
 }) {
+  const vibeArr = place.vibe ? [place.vibe] : [];
   return {
     id: place.id,
     title: place.name,
     description: place.description ?? "",
-    images: [],
+    images: place.images ?? [],
     latitude: place.latitude,
     longitude: place.longitude,
     address: place.address ?? "",
-    vibe: vibeToArray(place.vibe),
+    vibe: vibeArr,
     entryFees: place.entranceFee,
     cameraFees: place.cameraFee,
-    petsFriendly: false,
-    kidsFriendly: true,
+    petsFriendly: place.petsFriendly ?? false,
+    kidsFriendly: place.kidsFriendly ?? true,
     matchScore: 0,
     matchReasons: [] as string[],
     ...(place.category && { category: place.category }),
   };
 }
 
-function isCoffeeShop(category: string | null): boolean {
-  if (!category || typeof category !== "string") return false;
-  const lower = category.toLowerCase();
-  return (
-    lower.includes("cafe") ||
-    lower.includes("coffee") ||
-    lower === "catering.cafe" ||
-    lower === "catering.coffee_shop"
-  );
-}
-
-function isRestaurant(category: string | null): boolean {
-  if (!category || typeof category !== "string") return false;
-  const lower = category.toLowerCase();
-  return lower.includes("restaurant") || lower === "catering.restaurant";
-}
-
 export async function GET(request: NextRequest) {
   try {
     const { searchParams } = new URL(request.url);
-    const type = searchParams.get("type");
+    const typeParam = searchParams.get("type");
 
-    if (type !== "coffee_shop" && type !== "restaurant") {
+    const placeType = typeParam === "coffee_shop" ? PlaceType.cafe : typeParam === "restaurant" ? PlaceType.restaurant : null;
+    if (!placeType) {
       return NextResponse.json(
         { error: "Invalid type. Use coffee_shop or restaurant" },
         { status: 400 }
       );
     }
 
-    const allPlaces = await prisma.place.findMany({
+    const places = await prisma.place.findMany({
+      where: { type: placeType },
       select: {
         id: true,
         name: true,
@@ -78,20 +63,19 @@ export async function GET(request: NextRequest) {
         entranceFee: true,
         cameraFee: true,
         vibe: true,
+        images: true,
+        kidsFriendly: true,
+        petsFriendly: true,
       },
+      orderBy: { name: "asc" },
     });
-
-    const matchFn = type === "coffee_shop" ? isCoffeeShop : isRestaurant;
-    const places = allPlaces
-      .filter((p) => matchFn(p.category))
-      .sort((a, b) => a.name.localeCompare(b.name));
 
     const recommendations = places.map(toRecommendationShape);
 
     return NextResponse.json({
       success: true,
       recommendations,
-      type,
+      type: typeParam,
     });
   } catch (error) {
     console.error("Error getting stop recommendations:", error);

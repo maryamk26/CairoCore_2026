@@ -32,11 +32,11 @@ export default function UserButton() {
     setIsOpen(false);
   };
 
-  const userInitials = user?.user_metadata?.first_name?.[0]?.toUpperCase() || 
-                       user?.email?.[0]?.toUpperCase() || 
+  const userInitials = user?.user_metadata?.first_name?.[0]?.toUpperCase() ||
+                       user?.email?.[0]?.toUpperCase() ||
                        "U";
-  const userName = user?.user_metadata?.first_name || 
-                   user?.email?.split("@")[0] || 
+  const userName = user?.user_metadata?.first_name ||
+                   user?.email?.split("@")[0] ||
                    "User";
 
   return (

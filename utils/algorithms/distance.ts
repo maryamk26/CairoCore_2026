@@ -67,7 +67,3 @@ export function findNearestPoint(
 
   return nearestIndex;
 }
-
-
-
-

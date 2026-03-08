@@ -14,7 +14,7 @@
     "db:migrate": "prisma migrate dev",
     "db:studio": "prisma studio",
     "db:seed": "tsx prisma/seed.ts",
-    "import:geoapify": "node scripts/import_places_geoapify.js"
+    "db:clear-places": "tsx scripts/clear-places.ts"
   },
   "repository": {
     "type": "git",

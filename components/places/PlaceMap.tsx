@@ -19,7 +19,7 @@ interface PlaceMapProps {
 
 function MapViewUpdater({ lat, lng, zoom }: { lat: number; lng: number; zoom?: number }) {
   const map = useMap();
-  
+
   useEffect(() => {
     map.setView([lat, lng], zoom || map.getZoom());
   }, [lat, lng, zoom, map]);
@@ -27,17 +27,17 @@ function MapViewUpdater({ lat, lng, zoom }: { lat: number; lng: number; zoom?: n
   return null;
 }
 
-export default function PlaceMap({ 
-  lat, 
-  lng, 
-  title, 
-  address, 
+export default function PlaceMap({
+  lat,
+  lng,
+  title,
+  address,
   height = "400px",
-  zoom = 15 
+  zoom = 15
 }: PlaceMapProps) {
   if (typeof window === "undefined") {
     return (
-      <div 
+      <div
         className="w-full bg-gray-200 flex items-center justify-center rounded-lg"
         style={{ height }}
       >
@@ -70,9 +70,5 @@ export default function PlaceMap({
     </div>
   );
 }
-
-
-
-
 
 

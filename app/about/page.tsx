@@ -7,7 +7,7 @@ export default function AboutPage() {
 
   return (
     <div className="min-h-screen">
-      <section 
+      <section
         className="relative min-h-screen flex items-center"
         style={{
           backgroundImage: 'url(/images/backgrounds/aboutbg.jpg)',
@@ -40,13 +40,13 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <div 
+      <div
         className={`fixed inset-0 z-50 flex items-center justify-center p-4 transition-all duration-300 ${
           showModal ? 'bg-black/50 backdrop-blur-sm' : 'bg-black/0 backdrop-blur-0 pointer-events-none'
         }`}
         onClick={() => setShowModal(false)}
       >
-        <div 
+        <div
           className={`bg-[#3d2f1f] backdrop-blur-md rounded-2xl shadow-xl border border-[#5d4e37]/50 p-8 md:p-12 max-w-2xl w-full max-h-[90vh] overflow-y-auto relative transition-all duration-300 ${
             showModal ? 'opacity-100 scale-100 translate-y-0' : 'opacity-0 scale-95 -translate-y-4 pointer-events-none'
           }`}
@@ -65,7 +65,7 @@ export default function AboutPage() {
             <h2 className="font-cinzel text-3xl md:text-4xl font-bold text-white mb-6">
               What We Do
             </h2>
-            
+
             <div className="space-y-6">
               <div>
                 <h3 className="font-cinzel text-xl font-semibold text-white mb-3">

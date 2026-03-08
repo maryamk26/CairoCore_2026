@@ -124,14 +124,14 @@ export default function LocationSelector({ onLocationSelect, currentLocation }: 
 
   const handleSearchResultSelect = (result: SearchResult) => {
     const [lng, lat] = result.center;
-    
+
     onLocationSelect({
       lat,
       lng,
       title: result.text,
       address: result.place_name,
     });
-    
+
     if (shouldSave) {
       saveLocation(result.text, result.place_name, lat, lng);
     }
@@ -282,7 +282,7 @@ export default function LocationSelector({ onLocationSelect, currentLocation }: 
               autoFocus
             />
           </div>
-          
+
           <label className="flex items-center gap-2 cursor-pointer">
             <input
               type="checkbox"
@@ -301,19 +301,19 @@ export default function LocationSelector({ onLocationSelect, currentLocation }: 
                 Searching...
               </p>
             )}
-            
+
             {!isSearching && searchQuery.length > 0 && searchQuery.length < 3 && (
               <p className="font-cinzel text-white/70 text-xs text-center py-4">
                 Type at least 3 characters to search
               </p>
             )}
-            
+
             {!isSearching && searchQuery.length >= 3 && searchResults.length === 0 && (
               <p className="font-cinzel text-white/70 text-xs text-center py-4">
                 No results found. Try a different search.
               </p>
             )}
-            
+
             {searchResults.map((result) => (
               <button
                 key={result.id}

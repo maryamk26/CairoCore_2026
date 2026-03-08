@@ -68,7 +68,7 @@ interface RouteMapProps {
 
 function MapBoundsUpdater({ places }: { places: Place[] }) {
   const map = useMap();
-  
+
   useEffect(() => {
     if (places.length > 0) {
       const bounds = L.latLngBounds(places.map((place) => [place.lat, place.lng] as [number, number]));
@@ -85,22 +85,22 @@ async function fetchRoute(places: Place[]): Promise<L.LatLng[][] | null> {
   try {
     const coordinates = places.map((place) => `${place.lng},${place.lat}`).join(";");
     const url = `https://router.project-osrm.org/route/v1/driving/${coordinates}?overview=full&geometries=geojson`;
-    
+
     const response = await fetch(url);
     if (!response.ok) {
       throw new Error(`OSRM API error: ${response.status}`);
     }
-    
+
     const data = await response.json();
-    
+
     if (data.code === "Ok" && data.routes && data.routes.length > 0) {
       const geometry = data.routes[0].geometry.coordinates;
-      const routePoints = geometry.map(([lng, lat]: [number, number]) => 
+      const routePoints = geometry.map(([lng, lat]: [number, number]) =>
         [lat, lng] as [number, number]
       );
       return [routePoints];
     }
-    
+
     return null;
   } catch {
     return null;
@@ -125,7 +125,7 @@ export default function RouteMap({ places, height = "500px" }: RouteMapProps) {
 
   if (typeof window === "undefined") {
     return (
-      <div 
+      <div
         className="w-full bg-gray-200 flex items-center justify-center rounded-lg"
         style={{ height }}
       >
@@ -136,7 +136,7 @@ export default function RouteMap({ places, height = "500px" }: RouteMapProps) {
 
   if (places.length === 0) {
     return (
-      <div 
+      <div
         className="w-full bg-gray-200 flex items-center justify-center rounded-lg"
         style={{ height }}
       >
@@ -208,4 +208,3 @@ export default function RouteMap({ places, height = "500px" }: RouteMapProps) {
     </div>
   );
 }
-

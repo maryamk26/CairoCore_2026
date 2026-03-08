@@ -19,13 +19,19 @@ export default function Home() {
   useEffect(() => {
     fetch("/api/places")
       .then((res) => res.json())
-      .then((data) => setPopularPlaces((data.places ?? []).slice(0, 8)))
+      .then((data) => setPopularPlaces((data.places ?? []).slice(0, 4)))
       .catch(() => setPopularPlaces([]));
+  }, []);
+
+  useEffect(() => {
+    if (typeof window !== "undefined" && window.location.hash === "#about") {
+      document.getElementById("about")?.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
   }, []);
 
   return (
     <div className="min-h-screen">
-      <section 
+      <section
         className="relative min-h-screen flex items-center"
         style={{
           backgroundImage: 'url(/images/backgrounds/home1.jpg)',
@@ -104,7 +110,7 @@ export default function Home() {
         <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-b from-transparent via-[#3a3428]/50 to-[#3a3428] pointer-events-none"></div>
       </section>
 
-      <section 
+      <section
         id="about"
         className="relative min-h-[600px] flex items-center scroll-mt-20"
         style={{
@@ -141,13 +147,13 @@ export default function Home() {
         </div>
       </section>
 
-      <div 
+      <div
         className={`fixed inset-0 z-50 flex items-center justify-center p-4 transition-all duration-300 ${
           showModal ? 'bg-black/50 backdrop-blur-sm' : 'bg-black/0 backdrop-blur-0 pointer-events-none'
         }`}
         onClick={() => setShowModal(false)}
       >
-        <div 
+        <div
           className={`bg-[#3d2f1f] backdrop-blur-md rounded-2xl shadow-xl border border-[#5d4e37]/50 p-8 md:p-12 max-w-2xl w-full max-h-[90vh] overflow-y-auto relative transition-all duration-300 ${
             showModal ? 'opacity-100 scale-100 translate-y-0' : 'opacity-0 scale-95 -translate-y-4 pointer-events-none'
           }`}
@@ -166,7 +172,7 @@ export default function Home() {
             <h2 className="font-cinzel text-3xl md:text-4xl font-bold text-white mb-6">
               What We Do
             </h2>
-            
+
             <div className="space-y-6">
               <div>
                 <h3 className="font-cinzel text-xl font-semibold text-white mb-3">

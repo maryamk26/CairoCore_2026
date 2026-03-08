@@ -58,7 +58,7 @@ export default function SignUpForm() {
   const handleSocialSignUp = async (provider: "google" | "apple" | "github") => {
     setIsLoading(true);
     setError("");
-    
+
     try {
       const supabase = createClient();
       const { error: signUpError } = await supabase.auth.signInWithOAuth({
@@ -132,7 +132,7 @@ export default function SignUpForm() {
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           required
-            className="w-full px-4 py-3 rounded-full border border-white/50 bg-white/20 backdrop-blur-sm text-[#3a3428] font-cinzel focus:outline-none focus:ring-2 focus:ring-white/50 focus:border-white/70 transition-all"
+          className="w-full px-4 py-3 rounded-full border border-white/50 bg-white/20 backdrop-blur-sm text-[#3a3428] font-cinzel focus:outline-none focus:ring-2 focus:ring-white/50 focus:border-white/70 transition-all"
           placeholder="Enter your email"
         />
       </div>
@@ -147,7 +147,7 @@ export default function SignUpForm() {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           required
-            className="w-full px-4 py-3 rounded-full border border-white/50 bg-white/20 backdrop-blur-sm text-[#3a3428] font-cinzel focus:outline-none focus:ring-2 focus:ring-white/50 focus:border-white/70 transition-all"
+          className="w-full px-4 py-3 rounded-full border border-white/50 bg-white/20 backdrop-blur-sm text-[#3a3428] font-cinzel focus:outline-none focus:ring-2 focus:ring-white/50 focus:border-white/70 transition-all"
           placeholder="Create a password"
         />
         <p className="mt-2 text-xs text-[#8b6f47] font-cinzel">
@@ -195,7 +195,6 @@ export default function SignUpForm() {
         </svg>
         Continue with Google
       </button>
-
     </div>
   );
 }

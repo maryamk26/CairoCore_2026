@@ -11,7 +11,7 @@ export default function AuthSwitch({ isSignIn, onSwitch }: AuthSwitchProps) {
       <div className="relative inline-flex bg-white/80 backdrop-blur-sm rounded-full p-1 border border-white/30 shadow-md">
         <div
           className="absolute top-1 bottom-1 rounded-full bg-[#5d4e37] transition-transform duration-300 ease-in-out"
-          style={{ 
+          style={{
             left: '4px',
             width: 'calc(50% - 8px)',
             transform: isSignIn ? 'translateX(0)' : 'translateX(100%)'

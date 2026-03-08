@@ -61,7 +61,7 @@ interface NavigationMapProps {
 
 function MapFollower({ userLocation }: { userLocation: [number, number] }) {
   const map = useMap();
-  
+
   useEffect(() => {
     map.setView(userLocation, 17, { animate: true });
   }, [userLocation, map]);

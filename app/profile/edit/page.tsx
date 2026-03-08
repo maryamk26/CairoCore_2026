@@ -169,7 +169,6 @@ export default function EditProfilePage() {
             </div>
           )}
 
-          {/* First name */}
           <div className="flex flex-col gap-1">
             <label htmlFor="firstName" className="text-sm font-medium text-gray-700">
               First name
@@ -183,7 +182,6 @@ export default function EditProfilePage() {
             />
           </div>
 
-          {/* Last name */}
           <div className="flex flex-col gap-1">
             <label htmlFor="lastName" className="text-sm font-medium text-gray-700">
               Last name
@@ -197,7 +195,6 @@ export default function EditProfilePage() {
             />
           </div>
 
-          {/* Username — default is email without domain; we never change email */}
           <div className="flex flex-col gap-1">
             <label htmlFor="username" className="text-sm font-medium text-gray-700">
               Username
@@ -212,7 +209,6 @@ export default function EditProfilePage() {
             />
           </div>
 
-          {/* Password — reveal New + Confirm (and Current) when "Change password" is clicked */}
           <div className="border-t border-gray-200 pt-6 space-y-4">
             {!showPasswordFields ? (
               <button
@@ -270,7 +266,6 @@ export default function EditProfilePage() {
             )}
           </div>
 
-          {/* Buttons */}
           <div className="flex items-center justify-center gap-4 pt-8">
             <button
               type="button"

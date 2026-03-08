@@ -8,6 +8,46 @@ datasource db {
   shadowDatabaseUrl = env("SHADOW_DATABASE_URL")
 }
 
+enum PlaceType {
+  place_to_visit
+  cafe
+  restaurant
+}
+
+enum PlaceCategory {
+  museum
+  historical_site
+  pyramids
+  mosque
+  church
+  palace
+  citadel
+  park
+  mall
+  amusement_park
+  activity
+  famous_street
+  market
+  viewpoint
+  romantic_spot
+  adventure
+  cafe
+  restaurant
+}
+
+enum PlaceVibe {
+  ancient
+  historical
+  traditional
+  modern
+  nature
+  outdoors
+  romantic
+  photography
+  adventure
+  shopping
+}
+
 model User {
   id        String   @id
   email     String   @unique
@@ -61,23 +101,29 @@ model SavedPlace {
 }
 
 model Place {
-  id            String   @id @default(uuid())
-  name          String
-  description   String?  @db.Text
-  category      String?
-  latitude      Float
-  longitude     Float
-  address       String?
-  openingHours  String?
-  entranceFee   Float?
-  cameraFee     Float?
-  vibe          String?
-  bestVisitTime String?
-  createdBy     String?
-  createdAt     DateTime @default(now())
+  id              String        @id @default(uuid())
+  type            PlaceType     @default(place_to_visit)
+  name            String
+  description     String?       @db.Text
+  category        PlaceCategory?
+  latitude        Float
+  longitude       Float
+  address         String?
+  city            String?
+  openingHours    String?
+  entranceFee     Float?
+  cameraFee       Float?
+  vibe            PlaceVibe?
+  bestVisitTime   String?
+  images          String[]      @default([])
+  kidsFriendly    Boolean?
+  elderlyFriendly Boolean?
+  petsFriendly    Boolean?
+  createdBy       String?
+  createdAt       DateTime      @default(now())
 
-  user        User?         @relation(fields: [createdBy], references: [id], onDelete: SetNull)
-  savedIn     SavedPlace[]
+  user    User?         @relation(fields: [createdBy], references: [id], onDelete: SetNull)
+  savedIn SavedPlace[]
 
   @@map("places")
 }

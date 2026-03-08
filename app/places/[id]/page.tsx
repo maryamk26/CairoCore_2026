@@ -253,10 +253,8 @@ export default function PlaceProfilePage({
               >
                 Reviews & Memories
               </h2>
-              <p
-                className="font-cinzel text-white/70 text-center py-8"
-              >
-                Reviews and memories will be displayed here
+              <p className="font-cinzel text-white/70 text-center py-8">
+                No reviews yet.
               </p>
             </div>
           </div>

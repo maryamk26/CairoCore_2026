@@ -152,7 +152,7 @@ export default function PlaceSelection({
                       {place.title}
                     </h3>
                   </div>
-                  
+
                   <p className="font-cinzel text-white/70 text-sm mb-3 line-clamp-2">
                     {place.description}
                   </p>
