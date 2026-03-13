@@ -17,7 +17,11 @@
       "modern",
       "dining"
     ],
-    "vibe": "modern",
+    "vibe": [
+      "modern",
+      "photography",
+      "shopping"
+    ],
     "address": "Ring Road, New Cairo",
     "city": "Cairo",
     "working_hours": "10:00 AM - 12:00 AM",
@@ -47,7 +51,12 @@
       "entertainment",
       "modern"
     ],
-    "vibe": "modern",
+    "vibe": [
+      "modern",
+      "nature",
+      "outdoors",
+      "shopping"
+    ],
     "address": "Juhayna Square, 6th of October",
     "city": "Giza",
     "working_hours": "10:00 AM - 12:00 AM",
@@ -78,7 +87,10 @@
       "indoor",
       "entertainment"
     ],
-    "vibe": "modern",
+    "vibe": [
+      "modern",
+      "shopping"
+    ],
     "address": "Al Wahat Road, 6th of October",
     "city": "Giza",
     "working_hours": "10:00 AM - 12:00 AM",
@@ -108,7 +120,10 @@
       "cinema",
       "indoor"
     ],
-    "vibe": "modern",
+    "vibe": [
+      "modern",
+      "shopping"
+    ],
     "address": "Omar Ibn El Khattab, Nasr City",
     "city": "Cairo",
     "working_hours": "10:00 AM - 12:00 AM",
@@ -138,7 +153,10 @@
       "dining",
       "modern"
     ],
-    "vibe": "modern",
+    "vibe": [
+      "modern",
+      "shopping"
+    ],
     "address": "Sheraton Al Matar, Heliopolis",
     "city": "Cairo",
     "working_hours": "10:00 AM - 12:00 AM",
@@ -168,7 +186,11 @@
       "outdoors",
       "dining"
     ],
-    "vibe": "modern",
+    "vibe": [
+      "modern",
+      "outdoors",
+      "shopping"
+    ],
     "address": "26th of July Corridor",
     "city": "Sheikh Zayed",
     "working_hours": "10:00 AM - 1:00 AM",
@@ -198,7 +220,10 @@
       "luxury",
       "dining"
     ],
-    "vibe": "modern",
+    "vibe": [
+      "modern",
+      "shopping"
+    ],
     "address": "26th of July Corridor",
     "city": "Sheikh Zayed",
     "working_hours": "10:00 AM - 1:00 AM",
@@ -228,7 +253,11 @@
       "dining",
       "cafes"
     ],
-    "vibe": "modern",
+    "vibe": [
+      "modern",
+      "outdoors",
+      "shopping"
+    ],
     "address": "26th of July Corridor",
     "city": "Sheikh Zayed",
     "working_hours": "10:00 AM - 2:00 AM",
@@ -258,7 +287,12 @@
       "adventure",
       "shopping"
     ],
-    "vibe": "modern",
+    "vibe": [
+      "modern",
+      "outdoors",
+      "adventure",
+      "shopping"
+    ],
     "address": "Cairo-Alex Desert Road",
     "city": "Sheikh Zayed",
     "working_hours": "10:00 AM - 12:00 AM",
@@ -288,7 +322,10 @@
       "youth",
       "shopping"
     ],
-    "vibe": "modern",
+    "vibe": [
+      "modern",
+      "shopping"
+    ],
     "address": "In front of AUC, New Cairo",
     "city": "Cairo",
     "working_hours": "10:00 AM - 12:00 AM",
@@ -318,7 +355,11 @@
       "outdoors",
       "cafes"
     ],
-    "vibe": "modern",
+    "vibe": [
+      "modern",
+      "outdoors",
+      "shopping"
+    ],
     "address": "Road 90, New Cairo",
     "city": "Cairo",
     "working_hours": "10:00 AM - 1:00 AM",
@@ -348,7 +389,12 @@
       "dining",
       "outdoors"
     ],
-    "vibe": "modern",
+    "vibe": [
+      "modern",
+      "outdoors",
+      "photography",
+      "shopping"
+    ],
     "address": "Waterway, New Cairo",
     "city": "Cairo",
     "working_hours": "8:00 AM - 1:00 AM",
@@ -378,7 +424,10 @@
       "shopping",
       "dining"
     ],
-    "vibe": "modern",
+    "vibe": [
+      "modern",
+      "shopping"
+    ],
     "address": "Ring Road, New Cairo",
     "city": "Cairo",
     "working_hours": "10:00 AM - 1:00 AM",
@@ -408,7 +457,13 @@
       "outdoors",
       "chic"
     ],
-    "vibe": "modern",
+    "vibe": [
+      "modern",
+      "nature",
+      "outdoors",
+      "photography",
+      "shopping"
+    ],
     "address": "New Cairo",
     "city": "Cairo",
     "working_hours": "10:00 AM - 1:00 AM",
@@ -438,7 +493,10 @@
       "dining",
       "cafes"
     ],
-    "vibe": "modern",
+    "vibe": [
+      "modern",
+      "shopping"
+    ],
     "address": "Mohamed Naguib Axis, New Cairo",
     "city": "Cairo",
     "working_hours": "9:00 AM - 12:00 AM",
@@ -468,7 +526,10 @@
       "dining",
       "shopping"
     ],
-    "vibe": "modern",
+    "vibe": [
+      "modern",
+      "shopping"
+    ],
     "address": "Sadat Axis, Al Rehab",
     "city": "Cairo",
     "working_hours": "10:00 AM - 12:00 AM",
@@ -498,7 +559,11 @@
       "outdoors",
       "family"
     ],
-    "vibe": "modern",
+    "vibe": [
+      "modern",
+      "outdoors",
+      "shopping"
+    ],
     "address": "Heliopolis",
     "city": "Cairo",
     "working_hours": "10:00 AM - 2:00 AM",
@@ -528,7 +593,10 @@
       "dining",
       "family"
     ],
-    "vibe": "modern",
+    "vibe": [
+      "modern",
+      "shopping"
+    ],
     "address": "Sheikh Zayed",
     "city": "Sheikh Zayed",
     "working_hours": "10:00 AM - 1:00 AM",
@@ -558,7 +626,11 @@
       "architecture",
       "chic"
     ],
-    "vibe": "modern",
+    "vibe": [
+      "modern",
+      "photography",
+      "shopping"
+    ],
     "address": "Sheikh Zayed",
     "city": "Sheikh Zayed",
     "working_hours": "9:00 AM - 1:00 AM",
@@ -588,7 +660,10 @@
       "indoor",
       "shopping"
     ],
-    "vibe": "modern",
+    "vibe": [
+      "modern",
+      "shopping"
+    ],
     "address": "35 Giza St",
     "city": "Giza",
     "working_hours": "10:00 AM - 10:00 PM",
@@ -618,7 +693,13 @@
       "ancient",
       "tourist"
     ],
-    "vibe": "ancient",
+    "vibe": [
+      "ancient",
+      "historical",
+      "outdoors",
+      "photography",
+      "adventure"
+    ],
     "address": "Al Haram",
     "city": "Giza",
     "working_hours": "8:00 AM - 5:00 PM",
@@ -648,7 +729,13 @@
       "ancient",
       "tourist"
     ],
-    "vibe": "ancient",
+    "vibe": [
+      "ancient",
+      "historical",
+      "outdoors",
+      "photography",
+      "adventure"
+    ],
     "address": "Saqqara",
     "city": "Giza",
     "working_hours": "8:00 AM - 5:00 PM",
@@ -678,7 +765,13 @@
       "ancient",
       "adventure"
     ],
-    "vibe": "ancient",
+    "vibe": [
+      "ancient",
+      "historical",
+      "outdoors",
+      "photography",
+      "adventure"
+    ],
     "address": "Dahshur",
     "city": "Giza",
     "working_hours": "8:00 AM - 5:00 PM",
@@ -708,7 +801,12 @@
       "outdoors",
       "tourist"
     ],
-    "vibe": "ancient",
+    "vibe": [
+      "ancient",
+      "historical",
+      "outdoors",
+      "photography"
+    ],
     "address": "Mit Rahina",
     "city": "Giza",
     "working_hours": "8:00 AM - 5:00 PM",
@@ -738,7 +836,11 @@
       "architecture",
       "viewpoint"
     ],
-    "vibe": "historical",
+    "vibe": [
+      "historical",
+      "outdoors",
+      "photography"
+    ],
     "address": "Al Abageyah",
     "city": "Cairo",
     "working_hours": "9:00 AM - 5:00 PM",
@@ -768,7 +870,10 @@
       "viewpoint",
       "architecture"
     ],
-    "vibe": "historical",
+    "vibe": [
+      "historical",
+      "photography"
+    ],
     "address": "El-Darb El-Ahmar",
     "city": "Cairo",
     "working_hours": "9:00 AM - 5:00 PM",
@@ -798,7 +903,9 @@
       "architecture",
       "tourist"
     ],
-    "vibe": "historical",
+    "vibe": [
+      "historical"
+    ],
     "address": "Al-Muizz, El-Gamaleya",
     "city": "Cairo",
     "working_hours": "Open 24 hours",
@@ -828,7 +935,9 @@
       "architecture",
       "cultural"
     ],
-    "vibe": "historical",
+    "vibe": [
+      "historical"
+    ],
     "address": "El-Darb El-Ahmar",
     "city": "Cairo",
     "working_hours": "Daylight hours",
@@ -858,7 +967,9 @@
       "religious",
       "cultural"
     ],
-    "vibe": "historical",
+    "vibe": [
+      "historical"
+    ],
     "address": "Old Cairo",
     "city": "Cairo",
     "working_hours": "8:00 AM - 4:00 PM",
@@ -888,7 +999,11 @@
       "cultural",
       "performance"
     ],
-    "vibe": "traditional",
+    "vibe": [
+      "traditional",
+      "historical",
+      "photography"
+    ],
     "address": "Mohamed Abdo St, El-Darb El-Ahmar",
     "city": "Cairo",
     "working_hours": "10:00 AM - 10:00 PM",
@@ -918,7 +1033,9 @@
       "architecture",
       "photography"
     ],
-    "vibe": "historical",
+    "vibe": [
+      "historical"
+    ],
     "address": "Al-Darb Al-Asfar, Al-Gamaleya",
     "city": "Cairo",
     "working_hours": "9:00 AM - 5:00 PM",
@@ -948,7 +1065,9 @@
       "architecture",
       "religious"
     ],
-    "vibe": "historical",
+    "vibe": [
+      "historical"
+    ],
     "address": "Al-Muizz Street",
     "city": "Cairo",
     "working_hours": "9:00 AM - 5:00 PM",
@@ -978,7 +1097,9 @@
       "architecture",
       "nile"
     ],
-    "vibe": "historical",
+    "vibe": [
+      "historical"
+    ],
     "address": "Rhoda Island",
     "city": "Cairo",
     "working_hours": "9:00 AM - 4:00 PM",
@@ -1008,7 +1129,9 @@
       "religious",
       "ancient"
     ],
-    "vibe": "historical",
+    "vibe": [
+      "historical"
+    ],
     "address": "Desert Road",
     "city": "Giza",
     "working_hours": "8:00 AM - 5:00 PM",
@@ -1038,7 +1161,10 @@
       "art",
       "performance"
     ],
-    "vibe": "modern",
+    "vibe": [
+      "modern",
+      "historical"
+    ],
     "address": "Gezira",
     "city": "Cairo",
     "working_hours": "Box office hours",
@@ -1068,7 +1194,10 @@
       "ancient",
       "tourist"
     ],
-    "vibe": "historical",
+    "vibe": [
+      "historical",
+      "photography"
+    ],
     "address": "Tahrir Square",
     "city": "Cairo",
     "working_hours": "9:00 AM - 5:00 PM",
@@ -1098,7 +1227,11 @@
       "ancient",
       "modern"
     ],
-    "vibe": "modern",
+    "vibe": [
+      "modern",
+      "historical",
+      "photography"
+    ],
     "address": "Cairo-Alexandria Desert Rd",
     "city": "Giza",
     "working_hours": "9:00 AM - 6:00 PM",
@@ -1128,7 +1261,11 @@
       "cultural",
       "modern"
     ],
-    "vibe": "historical",
+    "vibe": [
+      "historical",
+      "modern",
+      "photography"
+    ],
     "address": "Ain Al Sira",
     "city": "Cairo",
     "working_hours": "9:00 AM - 5:00 PM",
@@ -1158,7 +1295,10 @@
       "art",
       "tourist"
     ],
-    "vibe": "historical",
+    "vibe": [
+      "historical",
+      "photography"
+    ],
     "address": "Port Said, El-Darb El-Ahmar",
     "city": "Cairo",
     "working_hours": "9:00 AM - 5:00 PM",
@@ -1188,7 +1328,10 @@
       "art",
       "religious"
     ],
-    "vibe": "historical",
+    "vibe": [
+      "historical",
+      "photography"
+    ],
     "address": "Old Cairo",
     "city": "Cairo",
     "working_hours": "9:00 AM - 5:00 PM",
@@ -1218,7 +1361,11 @@
       "cultural",
       "traditional"
     ],
-    "vibe": "historical",
+    "vibe": [
+      "historical",
+      "traditional",
+      "photography"
+    ],
     "address": "Dokki",
     "city": "Giza",
     "working_hours": "10:00 AM - 4:00 PM",
@@ -1248,7 +1395,11 @@
       "architecture",
       "cultural"
     ],
-    "vibe": "historical",
+    "vibe": [
+      "historical",
+      "traditional",
+      "photography"
+    ],
     "address": "Sayyeda Zeinab",
     "city": "Cairo",
     "working_hours": "9:00 AM - 4:00 PM",
@@ -1278,7 +1429,10 @@
       "royal",
       "cultural"
     ],
-    "vibe": "historical",
+    "vibe": [
+      "historical",
+      "photography"
+    ],
     "address": "Boulaq",
     "city": "Cairo",
     "working_hours": "9:00 AM - 1:00 PM",
@@ -1308,7 +1462,12 @@
       "historical",
       "cultural"
     ],
-    "vibe": "historical",
+    "vibe": [
+      "historical",
+      "nature",
+      "outdoors",
+      "photography"
+    ],
     "address": "Dokki",
     "city": "Giza",
     "working_hours": "9:00 AM - 2:00 PM",
@@ -1338,7 +1497,11 @@
       "cultural",
       "modern"
     ],
-    "vibe": "modern",
+    "vibe": [
+      "modern",
+      "historical",
+      "photography"
+    ],
     "address": "Zamalek",
     "city": "Cairo",
     "working_hours": "10:00 AM - 4:00 PM",
@@ -1368,7 +1531,11 @@
       "family",
       "fun"
     ],
-    "vibe": "modern",
+    "vibe": [
+      "modern",
+      "historical",
+      "photography"
+    ],
     "address": "Heliopolis",
     "city": "Cairo",
     "working_hours": "9:00 AM - 2:00 PM",
@@ -1397,7 +1564,10 @@
       "historical",
       "transportation"
     ],
-    "vibe": "historical",
+    "vibe": [
+      "historical",
+      "photography"
+    ],
     "address": "Ramses Station",
     "city": "Cairo",
     "working_hours": "9:00 AM - 2:00 PM",
@@ -1427,7 +1597,12 @@
       "educational",
       "outdoors"
     ],
-    "vibe": "ancient",
+    "vibe": [
+      "ancient",
+      "historical",
+      "outdoors",
+      "photography"
+    ],
     "address": "Al Bahr Al Aazam St",
     "city": "Giza",
     "working_hours": "9:00 AM - 5:00 PM",
@@ -1457,7 +1632,10 @@
       "cultural",
       "sculpture"
     ],
-    "vibe": "historical",
+    "vibe": [
+      "historical",
+      "photography"
+    ],
     "address": "Tahrir Square, Gezira",
     "city": "Cairo",
     "working_hours": "9:00 AM - 4:00 PM",
@@ -1487,7 +1665,11 @@
       "art",
       "fashion"
     ],
-    "vibe": "historical",
+    "vibe": [
+      "historical",
+      "modern",
+      "photography"
+    ],
     "address": "Al-Muizz Street",
     "city": "Cairo",
     "working_hours": "9:00 AM - 5:00 PM",
@@ -1517,7 +1699,9 @@
       "architecture",
       "photography"
     ],
-    "vibe": "historical",
+    "vibe": [
+      "historical"
+    ],
     "address": "Al Abageyah",
     "city": "Cairo",
     "working_hours": "9:00 AM - 5:00 PM",
@@ -1547,7 +1731,9 @@
       "religious",
       "architecture"
     ],
-    "vibe": "historical",
+    "vibe": [
+      "historical"
+    ],
     "address": "El-Darb El-Ahmar",
     "city": "Cairo",
     "working_hours": "Open 24 hours",
@@ -1577,7 +1763,10 @@
       "architecture",
       "viewpoint"
     ],
-    "vibe": "historical",
+    "vibe": [
+      "historical",
+      "photography"
+    ],
     "address": "Sayyeda Zeinab",
     "city": "Cairo",
     "working_hours": "9:00 AM - 4:00 PM",
@@ -1607,7 +1796,9 @@
       "architecture",
       "photography"
     ],
-    "vibe": "historical",
+    "vibe": [
+      "historical"
+    ],
     "address": "Maydan Salah al-Din",
     "city": "Cairo",
     "working_hours": "8:00 AM - 5:00 PM",
@@ -1637,7 +1828,9 @@
       "royal",
       "architecture"
     ],
-    "vibe": "historical",
+    "vibe": [
+      "historical"
+    ],
     "address": "Maydan Salah al-Din",
     "city": "Cairo",
     "working_hours": "8:00 AM - 5:00 PM",
@@ -1667,7 +1860,11 @@
       "cultural",
       "traditional"
     ],
-    "vibe": "traditional",
+    "vibe": [
+      "traditional",
+      "historical",
+      "shopping"
+    ],
     "address": "El-Gamaleya",
     "city": "Cairo",
     "working_hours": "Open 24 hours",
@@ -1697,7 +1894,10 @@
       "architecture",
       "art"
     ],
-    "vibe": "historical",
+    "vibe": [
+      "historical",
+      "photography"
+    ],
     "address": "Bab al-Wazir Street",
     "city": "Cairo",
     "working_hours": "9:00 AM - 5:00 PM",
@@ -1727,7 +1927,9 @@
       "architecture",
       "peaceful"
     ],
-    "vibe": "historical",
+    "vibe": [
+      "historical"
+    ],
     "address": "Al-Muizz Street",
     "city": "Cairo",
     "working_hours": "Open 24 hours",
@@ -1757,7 +1959,9 @@
       "architecture",
       "religious"
     ],
-    "vibe": "historical",
+    "vibe": [
+      "historical"
+    ],
     "address": "Old Cairo",
     "city": "Cairo",
     "working_hours": "8:00 AM - 4:00 PM",
@@ -1787,7 +1991,10 @@
       "religious",
       "ancient"
     ],
-    "vibe": "historical",
+    "vibe": [
+      "historical",
+      "traditional"
+    ],
     "address": "Old Cairo",
     "city": "Cairo",
     "working_hours": "8:00 AM - 4:00 PM",
@@ -1817,7 +2024,11 @@
       "architecture",
       "viewpoint"
     ],
-    "vibe": "nature",
+    "vibe": [
+      "nature",
+      "historical",
+      "photography"
+    ],
     "address": "Mokattam",
     "city": "Cairo",
     "working_hours": "8:00 AM - 8:00 PM",
@@ -1847,7 +2058,9 @@
       "architecture",
       "religious"
     ],
-    "vibe": "historical",
+    "vibe": [
+      "historical"
+    ],
     "address": "Old Cairo",
     "city": "Cairo",
     "working_hours": "9:00 AM - 4:00 PM",
@@ -1877,7 +2090,9 @@
       "religious",
       "community"
     ],
-    "vibe": "historical",
+    "vibe": [
+      "historical"
+    ],
     "address": "Tumanbay St, Zeitoun",
     "city": "Cairo",
     "working_hours": "Open 24 hours",
@@ -1907,7 +2122,10 @@
       "photography",
       "historical"
     ],
-    "vibe": "historical",
+    "vibe": [
+      "historical",
+      "photography"
+    ],
     "address": "El-Orouba, Heliopolis",
     "city": "Cairo",
     "working_hours": "9:00 AM - 5:00 PM",
@@ -1937,7 +2155,10 @@
       "architecture",
       "photography"
     ],
-    "vibe": "historical",
+    "vibe": [
+      "historical",
+      "photography"
+    ],
     "address": "1 Saray El Manial St",
     "city": "Cairo",
     "working_hours": "9:00 AM - 4:00 PM",
@@ -1968,7 +2189,13 @@
       "romantic",
       "viewpoint"
     ],
-    "vibe": "nature",
+    "vibe": [
+      "nature",
+      "historical",
+      "outdoors",
+      "romantic",
+      "photography"
+    ],
     "address": "Salah Salem St",
     "city": "Cairo",
     "working_hours": "9:00 AM - 10:00 PM",
@@ -1998,7 +2225,10 @@
       "outdoors",
       "photography"
     ],
-    "vibe": "nature",
+    "vibe": [
+      "nature",
+      "outdoors"
+    ],
     "address": "Giza St, Dokki",
     "city": "Giza",
     "working_hours": "9:00 AM - 4:00 PM",
@@ -2028,7 +2258,11 @@
       "outdoors",
       "family"
     ],
-    "vibe": "nature",
+    "vibe": [
+      "nature",
+      "outdoors",
+      "adventure"
+    ],
     "address": "Suez Road, New Cairo",
     "city": "Cairo",
     "working_hours": "9:00 AM - 11:00 PM",
@@ -2058,7 +2292,11 @@
       "historical",
       "photography"
     ],
-    "vibe": "nature",
+    "vibe": [
+      "nature",
+      "historical",
+      "outdoors"
+    ],
     "address": "Al Gabalaya, Zamalek",
     "city": "Cairo",
     "working_hours": "9:00 AM - 5:00 PM",
@@ -2088,7 +2326,12 @@
       "outdoors",
       "fun"
     ],
-    "vibe": "modern",
+    "vibe": [
+      "modern",
+      "nature",
+      "outdoors",
+      "adventure"
+    ],
     "address": "El Horreya St",
     "city": "Sheikh Zayed",
     "working_hours": "12:00 PM - 12:00 AM",
@@ -2119,7 +2362,11 @@
       "family",
       "rides"
     ],
-    "vibe": "adventure",
+    "vibe": [
+      "adventure",
+      "nature",
+      "outdoors"
+    ],
     "address": "Al Wahat Road",
     "city": "Giza",
     "working_hours": "10:00 AM - 10:00 PM",
@@ -2149,7 +2396,12 @@
       "indoor",
       "games"
     ],
-    "vibe": "modern",
+    "vibe": [
+      "modern",
+      "nature",
+      "outdoors",
+      "adventure"
+    ],
     "address": "Mall of Egypt",
     "city": "Giza",
     "working_hours": "10:00 AM - 12:00 AM",
@@ -2179,7 +2431,11 @@
       "indoor",
       "rides"
     ],
-    "vibe": "adventure",
+    "vibe": [
+      "adventure",
+      "nature",
+      "outdoors"
+    ],
     "address": "Maadi",
     "city": "Cairo",
     "working_hours": "11:00 AM - 11:00 PM",
@@ -2209,7 +2465,11 @@
       "water",
       "family"
     ],
-    "vibe": "adventure",
+    "vibe": [
+      "adventure",
+      "nature",
+      "outdoors"
+    ],
     "address": "Ismailia Desert Road",
     "city": "Cairo",
     "working_hours": "10:00 AM - 5:00 PM",
@@ -2239,7 +2499,11 @@
       "sports",
       "indoor"
     ],
-    "vibe": "adventure",
+    "vibe": [
+      "adventure",
+      "nature",
+      "outdoors"
+    ],
     "address": "Mall of Egypt",
     "city": "Giza",
     "working_hours": "10:00 AM - 10:00 PM",
@@ -2269,7 +2533,10 @@
       "fun",
       "sports"
     ],
-    "vibe": "adventure",
+    "vibe": [
+      "adventure",
+      "outdoors"
+    ],
     "address": "Mokattam",
     "city": "Cairo",
     "working_hours": "9:00 AM - 7:00 PM",
@@ -2299,7 +2566,10 @@
       "sports",
       "racing"
     ],
-    "vibe": "adventure",
+    "vibe": [
+      "adventure",
+      "outdoors"
+    ],
     "address": "Obour City",
     "city": "Cairo",
     "working_hours": "2:00 PM - 12:00 AM",
@@ -2329,7 +2599,10 @@
       "racing",
       "fun"
     ],
-    "vibe": "adventure",
+    "vibe": [
+      "adventure",
+      "modern"
+    ],
     "address": "New Cairo",
     "city": "Cairo",
     "working_hours": "12:00 PM - 12:00 AM",
@@ -2359,7 +2632,10 @@
       "pottery",
       "family"
     ],
-    "vibe": "nature",
+    "vibe": [
+      "nature",
+      "adventure"
+    ],
     "address": "Saqqara Road",
     "city": "Giza",
     "working_hours": "9:00 AM - 6:00 PM",
@@ -2389,7 +2665,10 @@
       "pottery",
       "cafe"
     ],
-    "vibe": "modern",
+    "vibe": [
+      "modern",
+      "adventure"
+    ],
     "address": "Maadi",
     "city": "Cairo",
     "working_hours": "10:00 AM - 11:00 PM",
@@ -2419,7 +2698,11 @@
       "indoor",
       "sports"
     ],
-    "vibe": "adventure",
+    "vibe": [
+      "adventure",
+      "nature",
+      "outdoors"
+    ],
     "address": "Walk of Cairo",
     "city": "Sheikh Zayed",
     "working_hours": "10:00 AM - 11:00 PM",
@@ -2449,7 +2732,9 @@
       "puzzle",
       "friends"
     ],
-    "vibe": "adventure",
+    "vibe": [
+      "adventure"
+    ],
     "address": "Heliopolis",
     "city": "Cairo",
     "working_hours": "12:00 PM - 12:00 AM",
@@ -2479,7 +2764,12 @@
       "hiking",
       "sports"
     ],
-    "vibe": "nature",
+    "vibe": [
+      "nature",
+      "outdoors",
+      "photography",
+      "adventure"
+    ],
     "address": "Maadi",
     "city": "Cairo",
     "working_hours": "8:00 AM - 5:00 PM",
@@ -2509,7 +2799,12 @@
       "romantic",
       "nature"
     ],
-    "vibe": "romantic",
+    "vibe": [
+      "romantic",
+      "nature",
+      "outdoors",
+      "adventure"
+    ],
     "address": "Nile Corniche, Dokki",
     "city": "Cairo",
     "working_hours": "Open 24 hours",
@@ -2539,7 +2834,11 @@
       "romantic",
       "photography"
     ],
-    "vibe": "modern",
+    "vibe": [
+      "modern",
+      "romantic",
+      "photography"
+    ],
     "address": "Gezira, Zamalek",
     "city": "Cairo",
     "working_hours": "9:00 AM - 1:00 AM",
@@ -2569,7 +2868,12 @@
       "shopping",
       "traditional"
     ],
-    "vibe": "traditional",
+    "vibe": [
+      "traditional",
+      "historical",
+      "outdoors",
+      "shopping"
+    ],
     "address": "El-Gamaleya",
     "city": "Cairo",
     "working_hours": "9:00 AM - 12:00 AM",
@@ -2599,7 +2903,12 @@
       "traditional",
       "architecture"
     ],
-    "vibe": "historical",
+    "vibe": [
+      "historical",
+      "traditional",
+      "nature",
+      "outdoors"
+    ],
     "address": "Al-Muizz, El-Gamaleya",
     "city": "Cairo",
     "working_hours": "Open 24 hours",
@@ -2629,7 +2938,13 @@
       "shopping",
       "urban"
     ],
-    "vibe": "modern",
+    "vibe": [
+      "modern",
+      "traditional",
+      "nature",
+      "outdoors",
+      "shopping"
+    ],
     "address": "Downtown",
     "city": "Cairo",
     "working_hours": "Open 24 hours",
@@ -2659,7 +2974,13 @@
       "shopping",
       "cafes"
     ],
-    "vibe": "historical",
+    "vibe": [
+      "historical",
+      "traditional",
+      "nature",
+      "outdoors",
+      "shopping"
+    ],
     "address": "Heliopolis",
     "city": "Cairo",
     "working_hours": "Open 24 hours",
@@ -2689,7 +3010,12 @@
       "art",
       "crafts"
     ],
-    "vibe": "traditional",
+    "vibe": [
+      "traditional",
+      "nature",
+      "outdoors",
+      "shopping"
+    ],
     "address": "Fatimid Cairo",
     "city": "Cairo",
     "working_hours": "9:00 AM - 6:00 PM",
@@ -2719,7 +3045,11 @@
       "thrift",
       "shopping"
     ],
-    "vibe": "traditional",
+    "vibe": [
+      "traditional",
+      "outdoors",
+      "shopping"
+    ],
     "address": "Sayeda Aisha",
     "city": "Cairo",
     "working_hours": "Friday Mornings",
@@ -2749,7 +3079,12 @@
       "cafes",
       "art"
     ],
-    "vibe": "modern",
+    "vibe": [
+      "modern",
+      "nature",
+      "outdoors",
+      "shopping"
+    ],
     "address": "Zamalek",
     "city": "Cairo",
     "working_hours": "Open 24 hours",
@@ -2779,7 +3114,12 @@
       "walking",
       "modern"
     ],
-    "vibe": "romantic",
+    "vibe": [
+      "romantic",
+      "modern",
+      "outdoors",
+      "photography"
+    ],
     "address": "Abu El Feda, Zamalek",
     "city": "Cairo",
     "working_hours": "Open 24 hours",
@@ -2809,7 +3149,11 @@
       "driving",
       "modern"
     ],
-    "vibe": "modern",
+    "vibe": [
+      "modern",
+      "nature",
+      "outdoors"
+    ],
     "address": "New Cairo",
     "city": "Cairo",
     "working_hours": "Open 24 hours",
@@ -2839,7 +3183,13 @@
       "dining",
       "urban"
     ],
-    "vibe": "modern",
+    "vibe": [
+      "modern",
+      "historical",
+      "traditional",
+      "nature",
+      "outdoors"
+    ],
     "address": "Heliopolis",
     "city": "Cairo",
     "working_hours": "Open 24 hours",
@@ -2869,7 +3219,9 @@
       "fusion",
       "dinner"
     ],
-    "vibe": "modern",
+    "vibe": [
+      "modern"
+    ],
     "address": "Heliopolis",
     "city": "Cairo",
     "working_hours": "1:00 PM - 1:00 AM",
@@ -2899,7 +3251,10 @@
       "fine-dining",
       "dinner"
     ],
-    "vibe": "modern",
+    "vibe": [
+      "modern",
+      "romantic"
+    ],
     "address": "Swan Lake Compound, New Cairo",
     "city": "Cairo",
     "working_hours": "1:00 PM - 1:00 AM",
@@ -2929,7 +3284,11 @@
       "italian",
       "nightlife"
     ],
-    "vibe": "modern",
+    "vibe": [
+      "modern",
+      "outdoors",
+      "photography"
+    ],
     "address": "Zamalek",
     "city": "Cairo",
     "working_hours": "2:00 PM - 2:00 AM",
@@ -2959,7 +3318,9 @@
       "dining",
       "lunch"
     ],
-    "vibe": "modern",
+    "vibe": [
+      "modern"
+    ],
     "address": "Downtown Katameya, New Cairo",
     "city": "Cairo",
     "working_hours": "12:00 PM - 12:00 AM",
@@ -2989,7 +3350,10 @@
       "nile-view",
       "upscale"
     ],
-    "vibe": "modern",
+    "vibe": [
+      "modern",
+      "photography"
+    ],
     "address": "Zamalek",
     "city": "Cairo",
     "working_hours": "12:00 PM - 1:00 AM",
@@ -3019,7 +3383,9 @@
       "peruvian",
       "fusion"
     ],
-    "vibe": "modern",
+    "vibe": [
+      "modern"
+    ],
     "address": "Palm Hills, Sheikh Zayed",
     "city": "Sheikh Zayed",
     "working_hours": "1:00 PM - 1:00 AM",
@@ -3049,7 +3415,11 @@
       "street-food",
       "chic"
     ],
-    "vibe": "modern",
+    "vibe": [
+      "modern",
+      "nature",
+      "outdoors"
+    ],
     "address": "5A by the Waterway, New Cairo",
     "city": "Cairo",
     "working_hours": "1:00 PM - 12:00 AM",
@@ -3079,7 +3449,11 @@
       "fine-dining",
       "egyptian"
     ],
-    "vibe": "historical",
+    "vibe": [
+      "historical",
+      "modern",
+      "photography"
+    ],
     "address": "Giza Plateau",
     "city": "Giza",
     "working_hours": "12:00 PM - 11:00 PM",
@@ -3109,7 +3483,13 @@
       "breakfast",
       "outdoors"
     ],
-    "vibe": "traditional",
+    "vibe": [
+      "traditional",
+      "ancient",
+      "historical",
+      "outdoors",
+      "photography"
+    ],
     "address": "Giza Plateau",
     "city": "Giza",
     "working_hours": "9:00 AM - 5:00 PM",
@@ -3139,7 +3519,9 @@
       "grill",
       "family"
     ],
-    "vibe": "traditional",
+    "vibe": [
+      "modern"
+    ],
     "address": "New Giza",
     "city": "Giza",
     "working_hours": "1:00 PM - 12:00 AM",
@@ -3169,7 +3551,11 @@
       "egyptian",
       "casual"
     ],
-    "vibe": "traditional",
+    "vibe": [
+      "modern",
+      "nature",
+      "outdoors"
+    ],
     "address": "Zamalek",
     "city": "Cairo",
     "working_hours": "9:00 AM - 1:00 AM",
@@ -3199,7 +3585,9 @@
       "authentic",
       "dinner"
     ],
-    "vibe": "traditional",
+    "vibe": [
+      "traditional"
+    ],
     "address": "Zamalek",
     "city": "Cairo",
     "working_hours": "12:00 PM - 1:00 AM",
@@ -3229,7 +3617,9 @@
       "authentic",
       "crowded"
     ],
-    "vibe": "traditional",
+    "vibe": [
+      "traditional"
+    ],
     "address": "Shoubra",
     "city": "Cairo",
     "working_hours": "1:00 PM - 3:00 AM",
@@ -3259,7 +3649,11 @@
       "koshary",
       "iconic"
     ],
-    "vibe": "traditional",
+    "vibe": [
+      "traditional",
+      "nature",
+      "outdoors"
+    ],
     "address": "Downtown",
     "city": "Cairo",
     "working_hours": "9:00 AM - 12:00 AM",
@@ -3289,7 +3683,10 @@
       "boat",
       "international"
     ],
-    "vibe": "modern",
+    "vibe": [
+      "modern",
+      "photography"
+    ],
     "address": "Zamalek",
     "city": "Cairo",
     "working_hours": "1:00 PM - 2:00 AM",
@@ -3319,7 +3716,9 @@
       "cozy",
       "meze"
     ],
-    "vibe": "traditional",
+    "vibe": [
+      "traditional"
+    ],
     "address": "Garden City",
     "city": "Cairo",
     "working_hours": "12:00 PM - 1:00 AM",
@@ -3349,7 +3748,9 @@
       "comfort-food",
       "family"
     ],
-    "vibe": "modern",
+    "vibe": [
+      "modern"
+    ],
     "address": "Arkan Plaza, Sheikh Zayed",
     "city": "Sheikh Zayed",
     "working_hours": "11:00 AM - 12:00 AM",
@@ -3379,7 +3780,9 @@
       "steak",
       "chic"
     ],
-    "vibe": "modern",
+    "vibe": [
+      "modern"
+    ],
     "address": "Mohandeseen",
     "city": "Giza",
     "working_hours": "10:00 AM - 1:00 AM",
@@ -3409,7 +3812,12 @@
       "chic",
       "alfresco"
     ],
-    "vibe": "modern",
+    "vibe": [
+      "modern",
+      "nature",
+      "outdoors",
+      "romantic"
+    ],
     "address": "Katameya Heights, New Cairo",
     "city": "Cairo",
     "working_hours": "2:00 PM - 1:00 AM",
@@ -3439,7 +3847,9 @@
       "pizza",
       "family"
     ],
-    "vibe": "modern",
+    "vibe": [
+      "modern"
+    ],
     "address": "Waterway, New Cairo",
     "city": "Cairo",
     "working_hours": "1:00 PM - 12:00 AM",
@@ -3469,7 +3879,9 @@
       "casual",
       "youth"
     ],
-    "vibe": "modern",
+    "vibe": [
+      "modern"
+    ],
     "address": "Arkan Plaza, Sheikh Zayed",
     "city": "Sheikh Zayed",
     "working_hours": "12:00 PM - 1:00 AM",
@@ -3499,7 +3911,9 @@
       "burger",
       "breakfast"
     ],
-    "vibe": "traditional",
+    "vibe": [
+      "traditional"
+    ],
     "address": "Maadi",
     "city": "Cairo",
     "working_hours": "8:00 AM - 12:00 AM",
@@ -3529,7 +3943,10 @@
       "elegant",
       "meze"
     ],
-    "vibe": "modern",
+    "vibe": [
+      "modern",
+      "photography"
+    ],
     "address": "O1 Mall, New Cairo",
     "city": "Cairo",
     "working_hours": "10:00 AM - 1:00 AM",
@@ -3559,7 +3976,9 @@
       "modern",
       "casual"
     ],
-    "vibe": "modern",
+    "vibe": [
+      "modern"
+    ],
     "address": "Cairo Festival City",
     "city": "Cairo",
     "working_hours": "10:00 AM - 12:00 AM",
@@ -3589,7 +4008,10 @@
       "egyptian",
       "modern"
     ],
-    "vibe": "modern",
+    "vibe": [
+      "modern",
+      "photography"
+    ],
     "address": "Biota, Zamalek",
     "city": "Cairo",
     "working_hours": "12:00 PM - 1:00 AM",
@@ -3619,7 +4041,11 @@
       "healthy",
       "farm-to-table"
     ],
-    "vibe": "traditional",
+    "vibe": [
+      "traditional",
+      "nature",
+      "outdoors"
+    ],
     "address": "Heliopolis",
     "city": "Cairo",
     "working_hours": "10:00 AM - 12:00 AM",
@@ -3649,7 +4075,9 @@
       "classic",
       "lounge"
     ],
-    "vibe": "historical",
+    "vibe": [
+      "historical"
+    ],
     "address": "Downtown",
     "city": "Cairo",
     "working_hours": "12:00 PM - 1:00 AM",
@@ -3679,7 +4107,13 @@
       "rooftop",
       "sunset"
     ],
-    "vibe": "modern",
+    "vibe": [
+      "modern",
+      "traditional",
+      "outdoors",
+      "romantic",
+      "photography"
+    ],
     "address": "Maadi",
     "city": "Cairo",
     "working_hours": "1:00 PM - 12:00 AM",
@@ -3709,7 +4143,11 @@
       "authentic",
       "cheap-eats"
     ],
-    "vibe": "traditional",
+    "vibe": [
+      "traditional",
+      "nature",
+      "outdoors"
+    ],
     "address": "Dokki",
     "city": "Giza",
     "working_hours": "12:00 PM - 3:00 AM",
@@ -3739,7 +4177,9 @@
       "wings",
       "live-music"
     ],
-    "vibe": "adventure",
+    "vibe": [
+      "adventure"
+    ],
     "address": "Maadi",
     "city": "Cairo",
     "working_hours": "4:00 PM - 2:00 AM",
@@ -3769,7 +4209,9 @@
       "pizza",
       "cozy"
     ],
-    "vibe": "traditional",
+    "vibe": [
+      "traditional"
+    ],
     "address": "Capital Promenade, Sheikh Zayed",
     "city": "Sheikh Zayed",
     "working_hours": "12:00 PM - 12:00 AM",
@@ -3799,7 +4241,9 @@
       "international",
       "mall"
     ],
-    "vibe": "modern",
+    "vibe": [
+      "modern"
+    ],
     "address": "Citystars, Nasr City",
     "city": "Cairo",
     "working_hours": "10:00 AM - 12:00 AM",
@@ -3829,7 +4273,9 @@
       "salmon",
       "elegant"
     ],
-    "vibe": "modern",
+    "vibe": [
+      "modern"
+    ],
     "address": "Katameya Heights, New Cairo",
     "city": "Cairo",
     "working_hours": "1:00 PM - 1:00 AM",
@@ -3859,7 +4305,11 @@
       "street-food",
       "cocktails"
     ],
-    "vibe": "modern",
+    "vibe": [
+      "modern",
+      "nature",
+      "outdoors"
+    ],
     "address": "5A by the Waterway, New Cairo",
     "city": "Cairo",
     "working_hours": "2:00 PM - 1:00 AM",
@@ -3889,7 +4339,9 @@
       "mediterranean",
       "chic"
     ],
-    "vibe": "modern",
+    "vibe": [
+      "modern"
+    ],
     "address": "Park St, Sheikh Zayed",
     "city": "Sheikh Zayed",
     "working_hours": "1:00 PM - 1:00 AM",
@@ -3919,7 +4371,9 @@
       "casual",
       "youth"
     ],
-    "vibe": "modern",
+    "vibe": [
+      "modern"
+    ],
     "address": "Zamalek",
     "city": "Cairo",
     "working_hours": "11:00 AM - 1:00 AM",
@@ -3949,7 +4403,9 @@
       "sweet",
       "viral"
     ],
-    "vibe": "modern",
+    "vibe": [
+      "modern"
+    ],
     "address": "New Cairo",
     "city": "Cairo",
     "working_hours": "10:00 AM - 11:00 PM",
@@ -3979,7 +4435,9 @@
       "ice-cream",
       "viral"
     ],
-    "vibe": "modern",
+    "vibe": [
+      "modern"
+    ],
     "address": "Zamalek",
     "city": "Cairo",
     "working_hours": "11:00 AM - 1:00 AM",
@@ -4009,7 +4467,9 @@
       "cupcakes",
       "sweet"
     ],
-    "vibe": "modern",
+    "vibe": [
+      "modern"
+    ],
     "address": "Sheikh Zayed",
     "city": "Sheikh Zayed",
     "working_hours": "10:00 AM - 12:00 AM",
@@ -4039,7 +4499,9 @@
       "fast-food",
       "viral"
     ],
-    "vibe": "modern",
+    "vibe": [
+      "modern"
+    ],
     "address": "Nasr City",
     "city": "Cairo",
     "working_hours": "12:00 PM - 2:00 AM",
@@ -4069,7 +4531,10 @@
       "breakfast",
       "bakery"
     ],
-    "vibe": "modern",
+    "vibe": [
+      "modern",
+      "romantic"
+    ],
     "address": "Maadi",
     "city": "Cairo",
     "working_hours": "8:00 AM - 12:00 AM",
@@ -4099,7 +4564,9 @@
       "bakery",
       "breakfast"
     ],
-    "vibe": "traditional",
+    "vibe": [
+      "traditional"
+    ],
     "address": "Citystars, Nasr City",
     "city": "Cairo",
     "working_hours": "9:00 AM - 12:00 AM",
@@ -4129,7 +4596,9 @@
       "classic",
       "tourist"
     ],
-    "vibe": "traditional",
+    "vibe": [
+      "traditional"
+    ],
     "address": "Downtown",
     "city": "Cairo",
     "working_hours": "9:00 AM - 12:00 AM",
@@ -4159,7 +4628,11 @@
       "street-food",
       "authentic"
     ],
-    "vibe": "traditional",
+    "vibe": [
+      "traditional",
+      "nature",
+      "outdoors"
+    ],
     "address": "Imbaba",
     "city": "Giza",
     "working_hours": "12:00 PM - 2:00 AM",
@@ -4189,7 +4662,9 @@
       "pasta",
       "cozy"
     ],
-    "vibe": "traditional",
+    "vibe": [
+      "traditional"
+    ],
     "address": "New Cairo",
     "city": "Cairo",
     "working_hours": "1:00 PM - 11:00 PM",
@@ -4219,7 +4694,10 @@
       "roaster",
       "trendy"
     ],
-    "vibe": "modern",
+    "vibe": [
+      "modern",
+      "shopping"
+    ],
     "address": "5A by the Waterway, New Cairo",
     "city": "Cairo",
     "working_hours": "8:00 AM - 12:00 AM",
@@ -4249,7 +4727,10 @@
       "study",
       "work"
     ],
-    "vibe": "modern",
+    "vibe": [
+      "modern",
+      "shopping"
+    ],
     "address": "Point 90 Mall, New Cairo",
     "city": "Cairo",
     "working_hours": "8:00 AM - 12:00 AM",
@@ -4279,7 +4760,11 @@
       "quiet",
       "pastries"
     ],
-    "vibe": "modern",
+    "vibe": [
+      "modern",
+      "photography",
+      "shopping"
+    ],
     "address": "Zamalek",
     "city": "Cairo",
     "working_hours": "8:00 AM - 11:00 PM",
@@ -4309,7 +4794,11 @@
       "social",
       "outdoors"
     ],
-    "vibe": "modern",
+    "vibe": [
+      "modern",
+      "outdoors",
+      "shopping"
+    ],
     "address": "Arkan Plaza, Sheikh Zayed",
     "city": "Sheikh Zayed",
     "working_hours": "7:00 AM - 1:00 AM",
@@ -4339,7 +4828,10 @@
       "breakfast",
       "chic"
     ],
-    "vibe": "modern",
+    "vibe": [
+      "modern",
+      "shopping"
+    ],
     "address": "Galleria40, Sheikh Zayed",
     "city": "Sheikh Zayed",
     "working_hours": "8:00 AM - 12:00 AM",
@@ -4369,7 +4861,10 @@
       "coffee",
       "chic"
     ],
-    "vibe": "modern",
+    "vibe": [
+      "modern",
+      "shopping"
+    ],
     "address": "Garden 8, New Cairo",
     "city": "Cairo",
     "working_hours": "9:00 AM - 12:00 AM",
@@ -4399,7 +4894,10 @@
       "youth",
       "coffee"
     ],
-    "vibe": "modern",
+    "vibe": [
+      "modern",
+      "shopping"
+    ],
     "address": "Downtown Katameya, New Cairo",
     "city": "Cairo",
     "working_hours": "8:00 AM - 1:00 AM",
@@ -4429,7 +4927,10 @@
       "casual",
       "social"
     ],
-    "vibe": "modern",
+    "vibe": [
+      "modern",
+      "shopping"
+    ],
     "address": "Waterway, New Cairo",
     "city": "Cairo",
     "working_hours": "8:00 AM - 12:00 AM",
@@ -4459,7 +4960,11 @@
       "study",
       "cozy"
     ],
-    "vibe": "traditional",
+    "vibe": [
+      "traditional",
+      "romantic",
+      "shopping"
+    ],
     "address": "Zamalek",
     "city": "Cairo",
     "working_hours": "8:00 AM - 12:00 AM",
@@ -4489,7 +4994,10 @@
       "classic",
       "social"
     ],
-    "vibe": "traditional",
+    "vibe": [
+      "traditional",
+      "shopping"
+    ],
     "address": "Downtown",
     "city": "Cairo",
     "working_hours": "8:00 AM - 12:00 AM",
@@ -4519,7 +5027,10 @@
       "croissant",
       "morning"
     ],
-    "vibe": "modern",
+    "vibe": [
+      "modern",
+      "shopping"
+    ],
     "address": "Sheikh Zayed",
     "city": "Sheikh Zayed",
     "working_hours": "7:00 AM - 12:00 AM",
@@ -4549,7 +5060,10 @@
       "matcha",
       "brunch"
     ],
-    "vibe": "modern",
+    "vibe": [
+      "modern",
+      "shopping"
+    ],
     "address": "Capital Promenade, Sheikh Zayed",
     "city": "Sheikh Zayed",
     "working_hours": "9:00 AM - 12:00 AM",
@@ -4579,7 +5093,10 @@
       "work",
       "casual"
     ],
-    "vibe": "modern",
+    "vibe": [
+      "modern",
+      "shopping"
+    ],
     "address": "Citystars, Nasr City",
     "city": "Cairo",
     "working_hours": "8:00 AM - 12:00 AM",
@@ -4609,7 +5126,10 @@
       "social",
       "frappuccino"
     ],
-    "vibe": "modern",
+    "vibe": [
+      "modern",
+      "shopping"
+    ],
     "address": "Mall of Egypt, Giza",
     "city": "Giza",
     "working_hours": "9:00 AM - 12:00 AM",
@@ -4639,7 +5159,10 @@
       "fast",
       "coffee"
     ],
-    "vibe": "modern",
+    "vibe": [
+      "modern",
+      "shopping"
+    ],
     "address": "Heliopolis",
     "city": "Cairo",
     "working_hours": "7:00 AM - 12:00 AM",
@@ -4669,7 +5192,10 @@
       "chain",
       "study"
     ],
-    "vibe": "modern",
+    "vibe": [
+      "modern",
+      "shopping"
+    ],
     "address": "Maadi",
     "city": "Cairo",
     "working_hours": "8:00 AM - 12:00 AM",
@@ -4699,7 +5225,11 @@
       "jazz",
       "artisan"
     ],
-    "vibe": "modern",
+    "vibe": [
+      "modern",
+      "photography",
+      "shopping"
+    ],
     "address": "Downtown",
     "city": "Cairo",
     "working_hours": "10:00 AM - 12:00 AM",
@@ -4729,7 +5259,10 @@
       "expats",
       "maadi"
     ],
-    "vibe": "traditional",
+    "vibe": [
+      "traditional",
+      "shopping"
+    ],
     "address": "Road 9, Maadi",
     "city": "Cairo",
     "working_hours": "7:00 AM - 11:00 PM",
@@ -4759,7 +5292,11 @@
       "pastries",
       "classic"
     ],
-    "vibe": "historical",
+    "vibe": [
+      "historical",
+      "photography",
+      "shopping"
+    ],
     "address": "Talaat Harb Sq, Downtown",
     "city": "Cairo",
     "working_hours": "8:00 AM - 10:00 PM",
@@ -4789,7 +5326,10 @@
       "historic",
       "culture"
     ],
-    "vibe": "historical",
+    "vibe": [
+      "historical",
+      "shopping"
+    ],
     "address": "Talaat Harb, Downtown",
     "city": "Cairo",
     "working_hours": "10:00 AM - 11:00 PM",
@@ -4819,7 +5359,11 @@
       "historic",
       "shisha"
     ],
-    "vibe": "traditional",
+    "vibe": [
+      "traditional",
+      "historical",
+      "shopping"
+    ],
     "address": "Khan el-Khalili",
     "city": "Cairo",
     "working_hours": "Open 24 hours",
@@ -4849,7 +5393,11 @@
       "oriental",
       "historic"
     ],
-    "vibe": "traditional",
+    "vibe": [
+      "historical",
+      "modern",
+      "shopping"
+    ],
     "address": "Khan el-Khalili",
     "city": "Cairo",
     "working_hours": "10:00 AM - 12:00 AM",
@@ -4879,7 +5427,10 @@
       "music",
       "authentic"
     ],
-    "vibe": "traditional",
+    "vibe": [
+      "traditional",
+      "shopping"
+    ],
     "address": "Khan el-Khalili",
     "city": "Cairo",
     "working_hours": "10:00 AM - 2:00 AM",
@@ -4909,7 +5460,11 @@
       "chic",
       "lattes"
     ],
-    "vibe": "modern",
+    "vibe": [
+      "modern",
+      "photography",
+      "shopping"
+    ],
     "address": "New Cairo",
     "city": "Cairo",
     "working_hours": "9:00 AM - 12:00 AM",
@@ -4939,7 +5494,13 @@
       "aesthetic",
       "brunch"
     ],
-    "vibe": "nature",
+    "vibe": [
+      "nature",
+      "modern",
+      "outdoors",
+      "photography",
+      "shopping"
+    ],
     "address": "Korba, Heliopolis",
     "city": "Cairo",
     "working_hours": "9:00 AM - 12:00 AM",
@@ -4969,7 +5530,10 @@
       "specialty",
       "minimalist"
     ],
-    "vibe": "modern",
+    "vibe": [
+      "modern",
+      "shopping"
+    ],
     "address": "Zamalek",
     "city": "Cairo",
     "working_hours": "8:00 AM - 11:00 PM",
@@ -4999,7 +5563,10 @@
       "culture",
       "indie"
     ],
-    "vibe": "historical",
+    "vibe": [
+      "historical",
+      "shopping"
+    ],
     "address": "Garden City",
     "city": "Cairo",
     "working_hours": "10:00 AM - 10:00 PM",
@@ -5029,7 +5596,10 @@
       "books",
       "cozy"
     ],
-    "vibe": "traditional",
+    "vibe": [
+      "traditional",
+      "shopping"
+    ],
     "address": "Zamalek",
     "city": "Cairo",
     "working_hours": "10:00 AM - 12:00 AM",
@@ -5059,7 +5629,10 @@
       "chic",
       "quiet"
     ],
-    "vibe": "modern",
+    "vibe": [
+      "modern",
+      "shopping"
+    ],
     "address": "Arkan Plaza, Sheikh Zayed",
     "city": "Sheikh Zayed",
     "working_hours": "8:00 AM - 12:00 AM",
@@ -5089,7 +5662,10 @@
       "pastries",
       "coffee"
     ],
-    "vibe": "modern",
+    "vibe": [
+      "modern",
+      "shopping"
+    ],
     "address": "New Cairo",
     "city": "Cairo",
     "working_hours": "8:00 AM - 11:00 PM",
@@ -5119,7 +5695,10 @@
       "roastery",
       "quiet"
     ],
-    "vibe": "nature",
+    "vibe": [
+      "nature",
+      "shopping"
+    ],
     "address": "Nasr City",
     "city": "Cairo",
     "working_hours": "9:00 AM - 12:00 AM",
@@ -5149,7 +5728,12 @@
       "view",
       "serene"
     ],
-    "vibe": "nature",
+    "vibe": [
+      "nature",
+      "outdoors",
+      "photography",
+      "shopping"
+    ],
     "address": "Madinaty",
     "city": "Cairo",
     "working_hours": "7:00 AM - 10:00 PM",
@@ -5179,7 +5763,10 @@
       "work",
       "coffee"
     ],
-    "vibe": "modern",
+    "vibe": [
+      "modern",
+      "shopping"
+    ],
     "address": "Maadi",
     "city": "Cairo",
     "working_hours": "8:00 AM - 11:00 PM",
@@ -5209,7 +5796,10 @@
       "bakery",
       "espresso"
     ],
-    "vibe": "traditional",
+    "vibe": [
+      "traditional",
+      "shopping"
+    ],
     "address": "Heliopolis",
     "city": "Cairo",
     "working_hours": "8:00 AM - 12:00 AM",
@@ -5239,7 +5829,10 @@
       "fast",
       "coffee"
     ],
-    "vibe": "modern",
+    "vibe": [
+      "modern",
+      "shopping"
+    ],
     "address": "New Cairo",
     "city": "Cairo",
     "working_hours": "7:00 AM - 12:00 AM",
@@ -5269,7 +5862,10 @@
       "sandwiches",
       "coffee"
     ],
-    "vibe": "modern",
+    "vibe": [
+      "modern",
+      "shopping"
+    ],
     "address": "Zamalek",
     "city": "Cairo",
     "working_hours": "9:00 AM - 11:00 PM",
@@ -5299,7 +5895,12 @@
       "garden",
       "serene"
     ],
-    "vibe": "historical",
+    "vibe": [
+      "historical",
+      "nature",
+      "outdoors",
+      "shopping"
+    ],
     "address": "Zamalek",
     "city": "Cairo",
     "working_hours": "9:00 AM - 11:00 PM",
@@ -5329,7 +5930,10 @@
       "youth",
       "sweet"
     ],
-    "vibe": "modern",
+    "vibe": [
+      "modern",
+      "shopping"
+    ],
     "address": "Korba",
     "city": "Cairo",
     "working_hours": "12:00 PM - 12:00 AM",
@@ -5359,7 +5963,10 @@
       "shisha",
       "authentic"
     ],
-    "vibe": "traditional",
+    "vibe": [
+      "traditional",
+      "shopping"
+    ],
     "address": "Heliopolis",
     "city": "Cairo",
     "working_hours": "10:00 AM - 2:00 AM",
@@ -5389,7 +5996,10 @@
       "chain",
       "fast"
     ],
-    "vibe": "modern",
+    "vibe": [
+      "modern",
+      "shopping"
+    ],
     "address": "Waterway, New Cairo",
     "city": "Cairo",
     "working_hours": "24 Hours",
