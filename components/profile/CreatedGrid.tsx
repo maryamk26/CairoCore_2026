@@ -9,6 +9,7 @@ export interface PlaceItem {
   category: string | null;
   address: string | null;
   createdAt: string;
+  images?: string[];
 }
 
 interface CreatedGridProps {
@@ -25,42 +26,63 @@ function formatDate(dateStr: string) {
 }
 
 export default function CreatedGrid({ places }: CreatedGridProps) {
-  if (places.length === 0) {
-    return (
-      <div className="text-center py-16 text-gray-500">
-        <p className="font-medium">
-          No places yet
-        </p>
-        <p className="text-sm mt-1">Places you add will appear here.</p>
-      </div>
-    );
-  }
-
   return (
-    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 pt-6">
-      {places.map((place) => (
+    <div className="pt-6">
+      <div className="flex items-center justify-between mb-4">
+        <h2 className="text-sm font-medium text-[#5d4e37]">
+          Your places
+        </h2>
+        <Link
+          href="/create/place"
+          className="px-4 py-2 rounded-full bg-[#8b6f47] text-white text-sm font-medium hover:bg-[#5d4e37]"
+        >
+          Create place
+        </Link>
+      </div>
+
+      {places.length === 0 ? (
+        <div className="text-center py-16 text-[#5d4e37]/80">
+          <p className="font-medium">No places yet</p>
+          <p className="text-sm mt-1">Places you create will appear here.</p>
+        </div>
+      ) : (
+    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+      {places.map((place) => {
+        const image = place.images?.[0];
+        return (
         <Link
           key={place.id}
-          href={`/places/${place.id}`}
+          href={`/places/${place.id}?from=profile`}
           className="group rounded-2xl overflow-hidden bg-gray-100 hover:bg-gray-200 transition-colors"
         >
-          <div className="aspect-[3/4] relative bg-gray-200">
-            <div
-              className="absolute inset-0 bg-cover bg-center group-hover:scale-105 transition-transform duration-300"
-              style={{ backgroundImage: "url(/images/backgrounds/home1.jpg)" }}
-            />
+          <div className="aspect-[3/4] relative bg-gray-200 overflow-hidden">
+            {image ? (
+              <img
+                src={image}
+                alt=""
+                className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+              />
+            ) : (
+              <div
+                className="absolute inset-0 bg-cover bg-center group-hover:scale-105 transition-transform duration-300"
+                style={{ backgroundImage: "url(/images/backgrounds/home1.jpg)" }}
+              />
+            )}
             <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-60" />
           </div>
           <div className="p-3">
-            <h3 className="font-semibold text-gray-900 truncate">
+            <h3 className="font-semibold text-[#5d4e37] truncate">
               {place.name}
             </h3>
-            <p className="text-xs text-gray-500 mt-0.5">
+            <p className="text-xs text-[#5d4e37]/70 mt-0.5">
               {place.category ?? "Place"} · {formatDate(place.createdAt)}
             </p>
           </div>
         </Link>
-      ))}
+      );
+      })}
+    </div>
+      )}
     </div>
   );
 }

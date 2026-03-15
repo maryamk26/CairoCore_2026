@@ -1,51 +1,25 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { useSearchParams } from "next/navigation";
 import AccordionSurvey from "@/components/planner/AccordionSurvey";
 import { SurveyAnswers } from "@/lib/planner/survey";
+import {
+  loadState as loadPlannerState,
+  saveState as savePlannerState,
+  clearPlannerState,
+  placeToRecommendation,
+  type PlannerStage,
+  type PlaceLike,
+} from "@/lib/planner/plannerState";
 import PlaceSelection from "@/components/planner/PlaceSelection";
 import RouteBuilder from "@/components/planner/RouteBuilder";
 import StopSelection from "@/components/planner/StopSelection";
 import { PlaceRecommendation } from "@/utils/planner/recommendation";
 
-type Stage = "survey" | "selection" | "stop" | "route";
-
-const STORAGE_KEY = "planner-state";
-
-function loadState(): Partial<{
-  stage: Stage;
-  preferences: SurveyAnswers | null;
-  recommendations: PlaceRecommendation[];
-  selectedPlaces: PlaceRecommendation[];
-  stopRecommendations: PlaceRecommendation[];
-  selectedStop: PlaceRecommendation | null;
-}> {
-  if (typeof window === "undefined") return {};
-  try {
-    const raw = sessionStorage.getItem(STORAGE_KEY);
-    if (!raw) return {};
-    return JSON.parse(raw) as ReturnType<typeof loadState>;
-  } catch {
-    return {};
-  }
-}
-
-function saveState(state: {
-  stage: Stage;
-  preferences: SurveyAnswers | null;
-  recommendations: PlaceRecommendation[];
-  selectedPlaces: PlaceRecommendation[];
-  stopRecommendations: PlaceRecommendation[];
-  selectedStop: PlaceRecommendation | null;
-}) {
-  if (typeof window === "undefined") return;
-  try {
-    sessionStorage.setItem(STORAGE_KEY, JSON.stringify(state));
-  } catch {}
-}
-
 export default function PlannerPage() {
-  const [stage, setStage] = useState<Stage>("survey");
+  const searchParams = useSearchParams();
+  const [stage, setStage] = useState<PlannerStage>("survey");
   const [preferences, setPreferences] = useState<SurveyAnswers | null>(null);
   const [recommendations, setRecommendations] = useState<PlaceRecommendation[]>([]);
   const [selectedPlaces, setSelectedPlaces] = useState<PlaceRecommendation[]>([]);
@@ -54,9 +28,10 @@ export default function PlannerPage() {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [hasRestored, setHasRestored] = useState(false);
+  const [placeIdsLoaded, setPlaceIdsLoaded] = useState(false);
 
   useEffect(() => {
-    const saved = loadState();
+    const saved = loadPlannerState();
     if (saved.stage && saved.stage !== "survey") {
       setStage(saved.stage);
       if (saved.preferences != null) setPreferences(saved.preferences);
@@ -69,8 +44,31 @@ export default function PlannerPage() {
   }, []);
 
   useEffect(() => {
+    if (!hasRestored || placeIdsLoaded) return;
+    const placeIdsParam = searchParams.get("placeIds");
+    if (!placeIdsParam?.trim()) return;
+    const ids = placeIdsParam.split(",").map((s) => s.trim()).filter(Boolean);
+    if (ids.length === 0) return;
+    setPlaceIdsLoaded(true);
+    setIsLoading(true);
+    setError(null);
+    Promise.all(ids.map((id) => fetch(`/api/places/${id}`).then((r) => (r.ok ? r.json() : null))))
+      .then((results) => {
+        const places = results
+          .filter(Boolean)
+          .map((p: unknown) => placeToRecommendation(p as PlaceLike));
+        if (places.length > 0) {
+          setSelectedPlaces(places);
+          setStage("route");
+        }
+      })
+      .catch(() => setError("Failed to load places"))
+      .finally(() => setIsLoading(false));
+  }, [hasRestored, placeIdsLoaded, searchParams]);
+
+  useEffect(() => {
     if (!hasRestored) return;
-    saveState({
+    savePlannerState({
       stage,
       preferences,
       recommendations,
@@ -165,7 +163,7 @@ export default function PlannerPage() {
     setStopRecommendations([]);
     setSelectedStop(null);
     setError(null);
-    if (typeof window !== "undefined") sessionStorage.removeItem(STORAGE_KEY);
+    clearPlannerState();
   };
 
   if (isLoading) {

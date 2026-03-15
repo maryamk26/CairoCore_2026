@@ -10,19 +10,32 @@ export function useAuth() {
   const supabase = useMemo(() => createClient(), []);
 
   useEffect(() => {
+    let settled = false;
+    const markDone = () => {
+      if (!settled) {
+        settled = true;
+        setIsLoading(false);
+      }
+    };
+
     supabase.auth.getSession().then(({ data: { session } }) => {
       setUser(session?.user ?? null);
-      setIsLoading(false);
+      markDone();
+    }).catch(() => {
+      markDone();
     });
+
+    const timeout = window.setTimeout(markDone, 5000);
 
     const {
       data: { subscription },
     } = supabase.auth.onAuthStateChange((_event, session) => {
       setUser(session?.user ?? null);
-      setIsLoading(false);
+      markDone();
     });
 
     return () => {
+      clearTimeout(timeout);
       subscription.unsubscribe();
     };
   }, [supabase]);

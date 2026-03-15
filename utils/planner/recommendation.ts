@@ -18,6 +18,25 @@ export interface PlaceRecommendation {
   category?: string;
 }
 
+export interface PlaceForRecommendation {
+  id: string;
+  name?: string;
+  title?: string;
+  description?: string;
+  images?: string[];
+  latitude: number;
+  longitude: number;
+  address?: string;
+  vibe?: string | string[] | null;
+  entryFees?: number | null;
+  entranceFee?: number | null;
+  cameraFees?: number | null;
+  cameraFee?: number | null;
+  petsFriendly?: boolean | null;
+  kidsFriendly?: boolean | null;
+  category?: string | null;
+}
+
 function normalizeVibe(place: { vibe?: string | string[] | null }): string[] {
   const v = place.vibe;
   if (Array.isArray(v)) return v;
@@ -33,7 +52,7 @@ const WEIGHTS = {
 };
 
 export function calculatePlaceMatch(
-  place: any,
+  place: PlaceForRecommendation,
   preferences: SurveyAnswers
 ): { score: number; reasons: string[] } {
   let score = 0;
@@ -105,7 +124,7 @@ export function calculatePlaceMatch(
 const TOP_PLACES_LIMIT = 24;
 
 export function getTopRecommendations(
-  places: any[],
+  places: PlaceForRecommendation[],
   preferences: SurveyAnswers,
   limit?: number
 ): PlaceRecommendation[] {
@@ -125,7 +144,7 @@ export function getTopRecommendations(
     .slice(0, returnCount)
     .map((place) => ({
       id: place.id,
-      title: place.title ?? place.name,
+      title: place.title ?? place.name ?? "",
       description: place.description ?? "",
       images: place.images ?? [],
       latitude: place.latitude,

@@ -16,3 +16,13 @@ export async function getFoldersByUserId(userId: string) {
   });
 }
 
+export async function deleteFolder(folderId: string, userId: string) {
+  const folder = await prisma.folder.findFirst({
+    where: { id: folderId, userId },
+    select: { id: true },
+  });
+  if (!folder) return null;
+  await prisma.folder.delete({ where: { id: folderId } });
+  return { id: folderId };
+}
+

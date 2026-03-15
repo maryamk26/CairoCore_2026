@@ -130,7 +130,7 @@ export default function EditProfilePage() {
   if (authLoading || !user) {
     return (
       <div className="min-h-screen bg-[#fafafa] flex items-center justify-center">
-        <div className="animate-pulse text-gray-400">Loading...</div>
+        <div className="animate-pulse text-[#5d4e37]/70">Loading...</div>
       </div>
     );
   }
@@ -138,7 +138,7 @@ export default function EditProfilePage() {
   if (loading) {
     return (
       <div className="min-h-screen bg-[#fafafa] flex items-center justify-center">
-        <div className="animate-pulse text-gray-400">Loading profile...</div>
+        <div className="animate-pulse text-[#5d4e37]/70">Loading profile...</div>
       </div>
     );
   }
@@ -148,17 +148,17 @@ export default function EditProfilePage() {
       <div className="max-w-2xl mx-auto px-4 pt-24 pb-16">
         <Link
           href="/profile"
-          className="inline-flex items-center gap-1 text-gray-700 hover:text-gray-900 text-sm mb-8"
+          className="inline-flex items-center gap-1 text-[#5d4e37] hover:text-[#8b6f47] text-sm mb-8"
         >
           ← Back to profile
         </Link>
 
         <h1
-          className="text-2xl font-bold text-gray-900 mb-1"
+          className="text-2xl font-bold text-[#5d4e37] mb-1 font-cinzel"
         >
           Edit profile
         </h1>
-        <p className="text-gray-600 text-sm mb-8">
+        <p className="text-[#5d4e37]/80 text-sm mb-8">
           Keep your personal details private. Information you add here is visible to anyone who can view your profile.
         </p>
 
@@ -170,7 +170,7 @@ export default function EditProfilePage() {
           )}
 
           <div className="flex flex-col gap-1">
-            <label htmlFor="firstName" className="text-sm font-medium text-gray-700">
+            <label htmlFor="firstName" className="text-sm font-medium text-[#5d4e37]">
               First name
             </label>
             <input
@@ -178,12 +178,12 @@ export default function EditProfilePage() {
               type="text"
               value={form.firstName}
               onChange={(e) => setForm((p) => ({ ...p, firstName: e.target.value }))}
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg text-gray-900 focus:ring-2 focus:ring-gray-400 focus:border-gray-400"
+              className="w-full px-3 py-2 border border-[#5d4e37]/30 rounded-lg text-[#5d4e37] placeholder:text-[#5d4e37]/50 focus:ring-2 focus:ring-[#8b6f47] focus:border-[#8b6f47]"
             />
           </div>
 
           <div className="flex flex-col gap-1">
-            <label htmlFor="lastName" className="text-sm font-medium text-gray-700">
+            <label htmlFor="lastName" className="text-sm font-medium text-[#5d4e37]">
               Last name
             </label>
             <input
@@ -191,12 +191,12 @@ export default function EditProfilePage() {
               type="text"
               value={form.lastName}
               onChange={(e) => setForm((p) => ({ ...p, lastName: e.target.value }))}
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg text-gray-900 focus:ring-2 focus:ring-gray-400 focus:border-gray-400"
+              className="w-full px-3 py-2 border border-[#5d4e37]/30 rounded-lg text-[#5d4e37] placeholder:text-[#5d4e37]/50 focus:ring-2 focus:ring-[#8b6f47] focus:border-[#8b6f47]"
             />
           </div>
 
           <div className="flex flex-col gap-1">
-            <label htmlFor="username" className="text-sm font-medium text-gray-700">
+            <label htmlFor="username" className="text-sm font-medium text-[#5d4e37]">
               Username
             </label>
             <input
@@ -205,26 +205,26 @@ export default function EditProfilePage() {
               value={form.username}
               onChange={(e) => setForm((p) => ({ ...p, username: e.target.value.replace(/^@/, "") }))}
               placeholder={(user?.email || "").split("@")[0] || "Username"}
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg text-gray-900 focus:ring-2 focus:ring-gray-400 focus:border-gray-400"
+              className="w-full px-3 py-2 border border-[#5d4e37]/30 rounded-lg text-[#5d4e37] placeholder:text-[#5d4e37]/50 focus:ring-2 focus:ring-[#8b6f47] focus:border-[#8b6f47]"
             />
           </div>
 
-          <div className="border-t border-gray-200 pt-6 space-y-4">
+          <div className="border-t border-[#5d4e37]/20 pt-6 space-y-4">
             {!showPasswordFields ? (
               <button
                 type="button"
                 onClick={() => setShowPasswordFields(true)}
-                className="px-4 py-2 rounded-lg bg-gray-100 text-gray-800 hover:bg-gray-200 text-sm font-medium"
+                className="px-4 py-2 rounded-lg bg-[#5d4e37]/10 text-[#5d4e37] hover:bg-[#5d4e37]/20 text-sm font-medium"
               >
                 Change password
               </button>
             ) : (
               <>
-                <p className="text-xs text-gray-500">
+                <p className="text-xs text-[#5d4e37]/70">
                   After changing your password, we will send an email to your account address to confirm the change.
                 </p>
                 <div className="flex flex-col gap-1">
-                  <label htmlFor="currentPassword" className="text-sm font-medium text-gray-700">
+                  <label htmlFor="currentPassword" className="text-sm font-medium text-[#5d4e37]">
                     Current password
                   </label>
                   <input
@@ -233,11 +233,11 @@ export default function EditProfilePage() {
                     value={form.currentPassword}
                     onChange={(e) => setForm((p) => ({ ...p, currentPassword: e.target.value }))}
                     placeholder="••••••••"
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-gray-900 focus:ring-2 focus:ring-gray-400 focus:border-gray-400"
+                    className="w-full px-3 py-2 border border-[#5d4e37]/30 rounded-lg text-[#5d4e37] placeholder:text-[#5d4e37]/50 focus:ring-2 focus:ring-[#8b6f47] focus:border-[#8b6f47]"
                   />
                 </div>
                 <div className="flex flex-col gap-1">
-                  <label htmlFor="newPassword" className="text-sm font-medium text-gray-700">
+                  <label htmlFor="newPassword" className="text-sm font-medium text-[#5d4e37]">
                     New password
                   </label>
                   <input
@@ -246,11 +246,11 @@ export default function EditProfilePage() {
                     value={form.newPassword}
                     onChange={(e) => setForm((p) => ({ ...p, newPassword: e.target.value }))}
                     placeholder="••••••••"
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-gray-900 focus:ring-2 focus:ring-gray-400 focus:border-gray-400"
+                    className="w-full px-3 py-2 border border-[#5d4e37]/30 rounded-lg text-[#5d4e37] placeholder:text-[#5d4e37]/50 focus:ring-2 focus:ring-[#8b6f47] focus:border-[#8b6f47]"
                   />
                 </div>
                 <div className="flex flex-col gap-1">
-                  <label htmlFor="confirmPassword" className="text-sm font-medium text-gray-700">
+                  <label htmlFor="confirmPassword" className="text-sm font-medium text-[#5d4e37]">
                     Confirm new password
                   </label>
                   <input
@@ -259,7 +259,7 @@ export default function EditProfilePage() {
                     value={form.confirmPassword}
                     onChange={(e) => setForm((p) => ({ ...p, confirmPassword: e.target.value }))}
                     placeholder="••••••••"
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-gray-900 focus:ring-2 focus:ring-gray-400 focus:border-gray-400"
+                    className="w-full px-3 py-2 border border-[#5d4e37]/30 rounded-lg text-[#5d4e37] placeholder:text-[#5d4e37]/50 focus:ring-2 focus:ring-[#8b6f47] focus:border-[#8b6f47]"
                   />
                 </div>
               </>
@@ -270,14 +270,14 @@ export default function EditProfilePage() {
             <button
               type="button"
               onClick={handleReset}
-              className="px-6 py-2.5 rounded-lg bg-gray-200 text-gray-800 hover:bg-gray-300 font-medium"
+              className="px-6 py-2.5 rounded-lg bg-[#5d4e37]/10 text-[#5d4e37] hover:bg-[#5d4e37]/20 font-medium"
             >
               Reset
             </button>
             <button
               type="submit"
               disabled={saving}
-              className="px-6 py-2.5 rounded-lg bg-gray-700 text-white hover:bg-gray-800 font-medium disabled:opacity-50"
+              className="px-6 py-2.5 rounded-lg bg-[#8b6f47] text-white hover:bg-[#5d4e37] font-medium disabled:opacity-50"
             >
               {saving ? "Saving..." : "Save"}
             </button>

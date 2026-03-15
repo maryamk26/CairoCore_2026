@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 
 export interface FolderItem {
   id: string;
@@ -27,6 +28,7 @@ export default function SavedGrid({ folders, onFolderCreated }: SavedGridProps) 
   const [isCreating, setIsCreating] = useState(false);
   const [newName, setNewName] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const router = useRouter();
 
   const handleCreate = async () => {
     const name = newName.trim();
@@ -59,14 +61,14 @@ export default function SavedGrid({ folders, onFolderCreated }: SavedGridProps) 
   return (
     <div className="pt-6">
       <div className="flex items-center justify-between mb-4">
-        <h2 className="text-sm font-medium text-gray-700">
+        <h2 className="text-sm font-medium text-[#5d4e37]">
           Your boards
         </h2>
         {!isCreating && folders.length > 0 ? (
           <button
             type="button"
             onClick={() => setIsCreating(true)}
-            className="px-4 py-2 rounded-full bg-gray-900 text-white text-sm font-medium hover:bg-gray-800"
+            className="px-4 py-2 rounded-full bg-[#8b6f47] text-white text-sm font-medium hover:bg-[#5d4e37]"
           >
             Create board
           </button>
@@ -77,7 +79,7 @@ export default function SavedGrid({ folders, onFolderCreated }: SavedGridProps) 
               value={newName}
               onChange={(e) => setNewName(e.target.value)}
               placeholder="Board name"
-              className="px-3 py-1.5 border border-gray-300 rounded-lg text-sm w-40"
+              className="px-3 py-1.5 border border-[#5d4e37]/30 rounded-lg text-sm w-40 text-[#5d4e37] placeholder:text-[#5d4e37]/50 focus:ring-2 focus:ring-[#8b6f47] focus:border-[#8b6f47]"
               onKeyDown={(e) => e.key === "Enter" && handleCreate()}
               autoFocus
             />
@@ -85,14 +87,14 @@ export default function SavedGrid({ folders, onFolderCreated }: SavedGridProps) 
               type="button"
               onClick={handleCreate}
               disabled={!newName.trim() || isSubmitting}
-              className="px-3 py-1.5 rounded-lg bg-gray-900 text-white text-sm font-medium disabled:opacity-50"
+              className="px-3 py-1.5 rounded-lg bg-[#8b6f47] text-white text-sm font-medium hover:bg-[#5d4e37] disabled:opacity-50"
             >
               {isSubmitting ? "..." : "Create"}
             </button>
             <button
               type="button"
               onClick={() => { setIsCreating(false); setNewName(""); }}
-              className="text-sm text-gray-500 hover:text-gray-700"
+              className="text-sm text-[#5d4e37]/80 hover:text-[#5d4e37]"
             >
               Cancel
             </button>
@@ -105,6 +107,11 @@ export default function SavedGrid({ folders, onFolderCreated }: SavedGridProps) 
           <div
             key={folder.id}
             className="rounded-2xl overflow-hidden bg-gray-100 border border-gray-200 hover:border-gray-300 transition-colors cursor-pointer group"
+            onClick={() =>
+              router.push(
+                `/profile/boards/${folder.id}?name=${encodeURIComponent(folder.name)}`
+              )
+            }
           >
             <div className="aspect-[3/4] relative bg-gray-200">
               {folder.pinCount > 0 ? (
@@ -130,10 +137,10 @@ export default function SavedGrid({ folders, onFolderCreated }: SavedGridProps) 
               )}
             </div>
             <div className="p-3">
-              <h3 className="font-semibold text-gray-900 truncate">
+              <h3 className="font-semibold text-[#5d4e37] truncate">
                 {folder.name}
               </h3>
-              <p className="text-xs text-gray-500 mt-0.5">
+              <p className="text-xs text-[#5d4e37]/70 mt-0.5">
                 {folder.pinCount} {folder.pinCount === 1 ? "Pin" : "Pins"} · {formatDate(folder.createdAt)}
               </p>
             </div>
@@ -142,7 +149,7 @@ export default function SavedGrid({ folders, onFolderCreated }: SavedGridProps) 
       </div>
 
       {folders.length === 0 && !isCreating && (
-        <div className="text-center py-16 text-gray-500">
+        <div className="text-center py-16 text-[#5d4e37]/80">
           <p className="font-medium">
             No boards yet
           </p>
@@ -150,7 +157,7 @@ export default function SavedGrid({ folders, onFolderCreated }: SavedGridProps) 
           <button
             type="button"
             onClick={() => setIsCreating(true)}
-            className="mt-4 px-4 py-2 rounded-full bg-gray-900 text-white text-sm font-medium"
+            className="mt-4 px-4 py-2 rounded-full bg-[#8b6f47] text-white text-sm font-medium hover:bg-[#5d4e37]"
           >
             Create board
           </button>
