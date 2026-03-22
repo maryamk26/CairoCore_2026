@@ -1,8 +1,7 @@
 "use client";
 
 import { RefObject } from "react";
-
-type SearchType = "places" | "people";
+import type { SearchType } from "./types";
 
 interface SearchHeroProps {
   searchType: SearchType;
@@ -71,11 +70,7 @@ export default function SearchHero({
             }
             className="flex-1 bg-transparent outline-none text-[#3a3428] placeholder:text-[#8b6f47]/60 font-cinzel text-base md:text-lg"
           />
-          <button
-            type="button"
-            className="ml-4 p-2 text-[#5d4e37] hover:text-[#8b6f47] transition-colors"
-            aria-label="Search"
-          >
+          <span className="ml-4 p-2 text-[#5d4e37]" aria-hidden="true">
             <svg
               className="w-5 h-5 md:w-6 md:h-6"
               fill="none"
@@ -89,7 +84,7 @@ export default function SearchHero({
                 d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
               />
             </svg>
-          </button>
+          </span>
         </div>
       </div>
     </>

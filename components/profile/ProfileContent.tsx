@@ -1,14 +1,13 @@
 "use client";
 
 import { useState, useEffect, useCallback } from "react";
-import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { createClient } from "@/lib/supabase/client";
 import { useAuth } from "@/lib/hooks/useAuth";
-import ProfileHeader, { type ProfileData } from "./ProfileHeader";
-import ProfileSwitch from "./ProfileSwitch";
-import CreatedGrid, { type PlaceItem } from "./CreatedGrid";
-import SavedGrid, { type FolderItem } from "./SavedGrid";
+import { type PlaceItem } from "./CreatedGrid";
+import { type FolderItem } from "./SavedGrid";
+import ProfileView from "./ProfileView";
+import { type ProfileData } from "./types";
 
 const PROFILE_FETCH_TIMEOUT_MS = 10000;
 
@@ -20,14 +19,12 @@ export default function ProfileContent() {
   const [folders, setFolders] = useState<FolderItem[]>([]);
   const [loading, setLoading] = useState(true);
   const [fetchError, setFetchError] = useState<string | null>(null);
-  const [activeTab, setActiveTab] = useState<"created" | "saved">("created");
 
   const clearSessionAndRedirect = useCallback(async () => {
     await createClient().auth.signOut();
     router.replace("/auth");
   }, [router]);
 
-  /** Refetch folders only (e.g. after creating a new board) */
   const fetchFolders = useCallback(async () => {
     const res = await fetch("/api/profile/folders");
     if (res.status === 401) {
@@ -60,8 +57,10 @@ export default function ProfileContent() {
       .then((data) => {
         if (cancelled || !data?.profile) return;
         setProfile({
+          id: data.profile.id ?? "",
           name: data.profile.name ?? "",
           username: data.profile.username ?? "",
+          usernameRaw: data.profile.usernameRaw ?? "",
           followerCount: data.profile.followerCount ?? 0,
           followingCount: data.profile.followingCount ?? 0,
         });
@@ -134,47 +133,13 @@ export default function ProfileContent() {
   }
 
   return (
-    <div className="min-h-screen bg-[#fafafa]">
-      <div className="max-w-4xl mx-auto px-4 pt-24 pb-12">
-        <div className="mb-8">
-          <Link
-            href="/"
-            className="inline-flex items-center gap-1 text-[#5d4e37] hover:text-[#8b6f47] transition-colors"
-            aria-label="Back"
-          >
-            <span className="text-xl font-medium">←</span>
-            <span className="text-sm font-cinzel">
-              Back
-            </span>
-          </Link>
-        </div>
-
-        <div className="mt-6">
-          <ProfileHeader profile={profile} />
-        </div>
-
-        <div className="mt-10">
-          <ProfileSwitch activeTab={activeTab} onSwitch={setActiveTab} />
-        </div>
-
-        <div className="mt-8 relative min-h-[320px]">
-          <div
-            className={`absolute inset-0 transition-opacity duration-300 ease-in-out ${
-              activeTab === "created" ? "opacity-100 z-10" : "opacity-0 pointer-events-none"
-            }`}
-          >
-            <CreatedGrid places={places} />
-          </div>
-
-          <div
-            className={`absolute inset-0 transition-opacity duration-300 ease-in-out ${
-              activeTab === "saved" ? "opacity-100 z-10" : "opacity-0 pointer-events-none"
-            }`}
-          >
-            <SavedGrid folders={folders} onFolderCreated={fetchFolders} />
-          </div>
-        </div>
-      </div>
-    </div>
+    <ProfileView
+      profile={profile}
+      places={places}
+      folders={folders}
+      isOwnProfile
+      followsEndpoint="/api/profile/follows"
+      onFolderCreated={fetchFolders}
+    />
   );
 }

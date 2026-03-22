@@ -1,16 +1,13 @@
 "use client";
 
 import Link from "next/link";
-
-export interface ProfileData {
-  name: string;
-  username: string;
-  followerCount: number;
-  followingCount: number;
-}
+import { ProfileData } from "./types";
 
 interface ProfileHeaderProps {
   profile: ProfileData;
+  isOwnProfile?: boolean;
+  onFollowersClick?: () => void;
+  onFollowingClick?: () => void;
 }
 
 function ShareIcon() {
@@ -29,7 +26,12 @@ function PencilIcon() {
   );
 }
 
-export default function ProfileHeader({ profile }: ProfileHeaderProps) {
+export default function ProfileHeader({
+  profile,
+  isOwnProfile = false,
+  onFollowersClick,
+  onFollowingClick,
+}: ProfileHeaderProps) {
   return (
     <div className="flex flex-col items-center text-center">
       <div className="relative w-24 h-24 rounded-full overflow-hidden bg-gray-200 shrink-0 mb-4 flex items-center justify-center">
@@ -46,9 +48,23 @@ export default function ProfileHeader({ profile }: ProfileHeaderProps) {
         {profile.username}
       </p>
 
-      <p className="text-sm text-[#5d4e37]/70 mb-4">
-        {profile.followerCount} followers · {profile.followingCount} following
-      </p>
+      <div className="mb-4 flex items-center gap-3 text-sm text-[#5d4e37]/70">
+        <button
+          type="button"
+          onClick={onFollowersClick}
+          className="hover:text-[#5d4e37] transition-colors"
+        >
+          {profile.followerCount} followers
+        </button>
+        <span>·</span>
+        <button
+          type="button"
+          onClick={onFollowingClick}
+          className="hover:text-[#5d4e37] transition-colors"
+        >
+          {profile.followingCount} following
+        </button>
+      </div>
 
       <div className="flex items-center gap-3">
         <button
@@ -58,13 +74,15 @@ export default function ProfileHeader({ profile }: ProfileHeaderProps) {
           <ShareIcon />
           Share profile
         </button>
-        <Link
-          href="/profile/edit"
-          className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#5d4e37]/10 text-[#5d4e37] hover:bg-[#5d4e37]/20 transition-colors text-sm font-medium font-cinzel"
-        >
-          <PencilIcon />
-          Edit profile
-        </Link>
+        {isOwnProfile && (
+          <Link
+            href="/profile/edit"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#5d4e37]/10 text-[#5d4e37] hover:bg-[#5d4e37]/20 transition-colors text-sm font-medium font-cinzel"
+          >
+            <PencilIcon />
+            Edit profile
+          </Link>
+        )}
       </div>
     </div>
   );

@@ -57,8 +57,9 @@ model User {
 
   places     Place[]
   folders    Folder[]
-  following  Follow[]   @relation("Following")
-  followers  Follow[]   @relation("Followers")
+  following  Follow[]        @relation("Following")
+  followers  Follow[]        @relation("Followers")
+  feedbacks  PlaceFeedback[]
 
   @@map("users")
 }
@@ -124,8 +125,27 @@ model Place {
   createdBy       String?
   createdAt       DateTime      @default(now())
 
-  user    User?         @relation(fields: [createdBy], references: [id], onDelete: SetNull)
-  savedIn SavedPlace[]
+  user      User?           @relation(fields: [createdBy], references: [id], onDelete: SetNull)
+  savedIn   SavedPlace[]
+  feedbacks PlaceFeedback[]
 
   @@map("places")
+}
+
+model PlaceFeedback {
+  id        String   @id @default(uuid())
+  userId    String
+  placeId   String
+  rating    Int?
+  content   String?  @db.Text
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  user  User  @relation(fields: [userId], references: [id], onDelete: Cascade)
+  place Place @relation(fields: [placeId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, placeId])
+  @@index([placeId, createdAt])
+  @@index([userId, createdAt])
+  @@map("place_feedback")
 }

@@ -1,6 +1,7 @@
 "use client";
 
 import dynamic from "next/dynamic";
+import PlaceFeedbackSection from "@/components/places/PlaceFeedbackSection";
 
 const PlaceMap = dynamic(() => import("@/components/places/PlaceMap"), {
   ssr: false,
@@ -12,12 +13,18 @@ const PlaceMap = dynamic(() => import("@/components/places/PlaceMap"), {
 });
 
 interface PlaceDetailContentProps {
+  placeId: string;
   description: string;
   location: { address: string; lat: number; lng: number };
   vibe: string[];
 }
 
-export default function PlaceDetailContent({ description, location, vibe }: PlaceDetailContentProps) {
+export default function PlaceDetailContent({
+  placeId,
+  description,
+  location,
+  vibe,
+}: PlaceDetailContentProps) {
   return (
     <div className="lg:col-span-2 space-y-8">
       <div className="bg-[#5d4e37] rounded-lg p-6 md:p-8">
@@ -68,7 +75,7 @@ export default function PlaceDetailContent({ description, location, vibe }: Plac
 
       <div className="bg-[#5d4e37] rounded-lg p-6 md:p-8">
         <h2 className="font-cinzel text-2xl md:text-3xl font-bold text-white mb-6">Reviews & Memories</h2>
-        <p className="font-cinzel text-white/70 text-center py-8">No reviews yet.</p>
+        <PlaceFeedbackSection placeId={placeId} />
       </div>
     </div>
   );

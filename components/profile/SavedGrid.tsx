@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { formatRelativeMonth } from "./formatRelativeMonth";
 
 export interface FolderItem {
   id: string;
@@ -13,18 +14,16 @@ export interface FolderItem {
 interface SavedGridProps {
   folders: FolderItem[];
   onFolderCreated?: () => void;
+  isOwnProfile?: boolean;
+  ownerLabel?: string;
 }
 
-function formatDate(dateStr: string) {
-  const d = new Date(dateStr);
-  const now = new Date();
-  const months = Math.floor((now.getTime() - d.getTime()) / (30 * 24 * 60 * 60 * 1000));
-  if (months < 1) return "Just now";
-  if (months === 1) return "1mo";
-  return `${months}mo`;
-}
-
-export default function SavedGrid({ folders, onFolderCreated }: SavedGridProps) {
+export default function SavedGrid({
+  folders,
+  onFolderCreated,
+  isOwnProfile = false,
+  ownerLabel = "Your",
+}: SavedGridProps) {
   const [isCreating, setIsCreating] = useState(false);
   const [newName, setNewName] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -62,9 +61,9 @@ export default function SavedGrid({ folders, onFolderCreated }: SavedGridProps) 
     <div className="pt-6">
       <div className="flex items-center justify-between mb-4">
         <h2 className="text-sm font-medium text-[#5d4e37]">
-          Your boards
+          {ownerLabel} boards
         </h2>
-        {!isCreating && folders.length > 0 ? (
+        {isOwnProfile && !isCreating && folders.length > 0 ? (
           <button
             type="button"
             onClick={() => setIsCreating(true)}
@@ -72,7 +71,7 @@ export default function SavedGrid({ folders, onFolderCreated }: SavedGridProps) 
           >
             Create board
           </button>
-        ) : isCreating ? (
+        ) : isOwnProfile && isCreating ? (
           <div className="flex items-center gap-2">
             <input
               type="text"
@@ -141,7 +140,7 @@ export default function SavedGrid({ folders, onFolderCreated }: SavedGridProps) 
                 {folder.name}
               </h3>
               <p className="text-xs text-[#5d4e37]/70 mt-0.5">
-                {folder.pinCount} {folder.pinCount === 1 ? "Pin" : "Pins"} · {formatDate(folder.createdAt)}
+                {folder.pinCount} {folder.pinCount === 1 ? "Pin" : "Pins"} · {formatRelativeMonth(folder.createdAt)}
               </p>
             </div>
           </div>
@@ -153,14 +152,20 @@ export default function SavedGrid({ folders, onFolderCreated }: SavedGridProps) 
           <p className="font-medium">
             No boards yet
           </p>
-          <p className="text-sm mt-1">Create a board to save places you like.</p>
-          <button
-            type="button"
-            onClick={() => setIsCreating(true)}
-            className="mt-4 px-4 py-2 rounded-full bg-[#8b6f47] text-white text-sm font-medium hover:bg-[#5d4e37]"
-          >
-            Create board
-          </button>
+          <p className="text-sm mt-1">
+            {isOwnProfile
+              ? "Create a board to save places you like."
+              : "This user has not created any boards yet."}
+          </p>
+          {isOwnProfile && (
+            <button
+              type="button"
+              onClick={() => setIsCreating(true)}
+              className="mt-4 px-4 py-2 rounded-full bg-[#8b6f47] text-white text-sm font-medium hover:bg-[#5d4e37]"
+            >
+              Create board
+            </button>
+          )}
         </div>
       )}
     </div>

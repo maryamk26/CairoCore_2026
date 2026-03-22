@@ -5,7 +5,17 @@ import { usePathname } from "next/navigation";
 import { useState, useRef, useEffect } from "react";
 import { useAuth } from "@/lib/hooks/useAuth";
 
-export default function FloatingAddButton() {
+const HIDDEN_PATH_PREFIXES = [
+  "/sign-in",
+  "/sign-up",
+  "/auth",
+  "/about",
+  "/search",
+  "/planner",
+  "/create",
+];
+
+function FloatingAddButtonContent() {
   const pathname = usePathname();
   const { isSignedIn, isLoading, userId } = useAuth();
   const [open, setOpen] = useState(false);
@@ -25,9 +35,6 @@ export default function FloatingAddButton() {
   if (isLoading || !isSignedIn || !userId) {
     return null;
   }
-
-  const hidePaths = ["/sign-in", "/sign-up", "/auth", "/about", "/search", "/planner", "/create"];
-  if (hidePaths.some((p) => pathname?.startsWith(p) || pathname === p)) return null;
 
   return (
     <div className="fixed bottom-8 right-8 z-50" ref={menuRef}>
@@ -81,4 +88,18 @@ export default function FloatingAddButton() {
       </button>
     </div>
   );
+}
+
+export default function FloatingAddButton() {
+  const pathname = usePathname();
+
+  if (
+    HIDDEN_PATH_PREFIXES.some(
+      (pathPrefix) => pathname?.startsWith(pathPrefix) || pathname === pathPrefix
+    )
+  ) {
+    return null;
+  }
+
+  return <FloatingAddButtonContent />;
 }

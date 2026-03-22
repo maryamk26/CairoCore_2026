@@ -134,6 +134,7 @@ export default function PlaceProfilePage({ params }: { params: Promise<{ id: str
       <section className="container mx-auto px-4 py-12">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           <PlaceDetailContent
+            placeId={place.id}
             description={place.description}
             location={place.location}
             vibe={place.vibe}
@@ -149,6 +150,7 @@ export default function PlaceProfilePage({ params }: { params: Promise<{ id: str
             bestTimeToVisit={place.bestTimeToVisit?.timeOfDay ?? null}
           />
         </div>
+
       </section>
 
       {showDeleteConfirm && (

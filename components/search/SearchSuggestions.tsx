@@ -2,16 +2,7 @@
 
 import { RefObject } from "react";
 import { getCategoryIcon } from "@/components/icons/categoryIcons";
-
-export type Suggestion = {
-  id: string;
-  title: string;
-  subtitle: string;
-  type: "place" | "person";
-  category?: string;
-};
-
-type SearchType = "places" | "people";
+import type { SearchType, Suggestion } from "./types";
 
 interface SearchSuggestionsProps {
   suggestionsRef: RefObject<HTMLDivElement | null>;
@@ -21,7 +12,6 @@ interface SearchSuggestionsProps {
   searchQuery: string;
   suggestions: Suggestion[];
   onSuggestionClick: (s: Suggestion) => void;
-  emptyMessage?: React.ReactNode;
 }
 
 export default function SearchSuggestions({
@@ -32,7 +22,6 @@ export default function SearchSuggestions({
   searchQuery,
   suggestions,
   onSuggestionClick,
-  emptyMessage,
 }: SearchSuggestionsProps) {
   if (!show) return null;
 
@@ -51,7 +40,7 @@ export default function SearchSuggestions({
           scrollbarColor: "#8b6f47 #e8ddd4",
         }}
       >
-        {loading && searchType === "places" ? (
+        {loading ? (
           <div className="px-6 py-4 text-[#8b6f47] font-cinzel text-center">Loading...</div>
         ) : suggestions.length > 0 ? (
           suggestions.map((suggestion) => {
@@ -95,15 +84,13 @@ export default function SearchSuggestions({
           })
         ) : (
           <div className="px-6 py-4 text-center">
-            {emptyMessage ?? (
-              <p className="font-cinzel text-[#8b6f47]">
-                {searchQuery.trim()
-                  ? `No ${typeLabel} found for "${searchQuery}"`
-                  : searchType === "people"
-                    ? "People search coming soon."
-                    : "No places in database yet."}
-              </p>
-            )}
+            <p className="font-cinzel text-[#8b6f47]">
+              {searchQuery.trim()
+                ? `No ${typeLabel} found for "${searchQuery}"`
+                : searchType === "people"
+                  ? "Search for people by name or username."
+                  : "No places in database yet."}
+            </p>
           </div>
         )}
       </div>

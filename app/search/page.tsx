@@ -3,24 +3,25 @@
 import { useState, useEffect, useRef } from "react";
 import { useRouter } from "next/navigation";
 import SearchHero from "@/components/search/SearchHero";
-import SearchSuggestions, { type Suggestion } from "@/components/search/SearchSuggestions";
+import SearchSuggestions from "@/components/search/SearchSuggestions";
 import PopularSearches from "@/components/search/PopularSearches";
-
-type SearchType = "places" | "people";
+import type { SearchType, Suggestion } from "@/components/search/types";
 
 export default function SearchPage() {
   const [searchQuery, setSearchQuery] = useState("");
   const [searchType, setSearchType] = useState<SearchType>("places");
   const [showSuggestions, setShowSuggestions] = useState(false);
   const [places, setPlaces] = useState<Suggestion[]>([]);
-  const [loading, setLoading] = useState(true);
+  const [people, setPeople] = useState<Suggestion[]>([]);
+  const [placesLoading, setPlacesLoading] = useState(true);
+  const [peopleLoading, setPeopleLoading] = useState(false);
   const router = useRouter();
   const searchInputRef = useRef<HTMLInputElement>(null);
   const suggestionsRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     let cancelled = false;
-    setLoading(true);
+    setPlacesLoading(true);
     fetch("/api/places")
       .then((res) => res.json())
       .then((data) => {
@@ -30,21 +31,66 @@ export default function SearchPage() {
         if (!cancelled) setPlaces([]);
       })
       .finally(() => {
-        if (!cancelled) setLoading(false);
+        if (!cancelled) setPlacesLoading(false);
       });
     return () => { cancelled = true; };
   }, []);
 
-  const people: Suggestion[] = [];
+  useEffect(() => {
+    if (searchType !== "people") return;
+
+    const query = searchQuery.trim();
+    if (!query) {
+      setPeople([]);
+      setPeopleLoading(false);
+      return;
+    }
+
+    const controller = new AbortController();
+    const timeoutId = window.setTimeout(() => {
+      setPeopleLoading(true);
+      fetch(`/api/users/search?q=${encodeURIComponent(query)}`, {
+        signal: controller.signal,
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          setPeople(
+            (data.users ?? []).map(
+              (user: { id: string; name: string; username: string }) =>
+                ({
+                  id: user.id,
+                  title: user.name,
+                  subtitle: user.username,
+                  type: "person",
+                }) satisfies Suggestion
+            )
+          );
+        })
+        .catch((error) => {
+          if (error?.name === "AbortError") return;
+          setPeople([]);
+        })
+        .finally(() => {
+          setPeopleLoading(false);
+        });
+    }, 150);
+
+    return () => {
+      controller.abort();
+      window.clearTimeout(timeoutId);
+    };
+  }, [searchQuery, searchType]);
+
   const allSuggestions = searchType === "places" ? places : people;
   const filteredSuggestions =
-    searchQuery.trim() === ""
+    searchType === "people" || searchQuery.trim() === ""
       ? allSuggestions
       : allSuggestions.filter(
           (s) =>
             s.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
             s.subtitle.toLowerCase().includes(searchQuery.toLowerCase())
         );
+  const loading = searchType === "places" ? placesLoading : peopleLoading;
 
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
@@ -65,6 +111,9 @@ export default function SearchPage() {
     setSearchQuery(suggestion.title);
     setShowSuggestions(false);
     if (suggestion.type === "place") router.push(`/places/${suggestion.id}`);
+    if (suggestion.type === "person") {
+      router.push(`/users/${suggestion.subtitle.replace(/^@/, "")}`);
+    }
   };
 
   const handleSearchTypeChange = (type: SearchType) => {

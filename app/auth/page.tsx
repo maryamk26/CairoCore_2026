@@ -32,15 +32,6 @@ export default async function AuthPage({
       </div>
 
       <AuthContainer initialMode={mode} useAuthRoute />
-
-      <p className="mt-8 text-center">
-        <Link
-          href="/clear-session"
-          className="text-sm text-[#5d4e37]/80 hover:text-[#5d4e37] underline"
-        >
-          Stuck? Clear session and try again
-        </Link>
-      </p>
     </div>
   );
 }

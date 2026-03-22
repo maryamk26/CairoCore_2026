@@ -5,22 +5,20 @@ import { usePathname } from "next/navigation";
 import { useAuth } from "@/lib/hooks/useAuth";
 import UserButton from "@/components/auth/UserButton";
 
-export default function Header() {
+function HeaderContent() {
   const pathname = usePathname();
   const { isSignedIn, isLoading, userId } = useAuth();
   const authenticated = !isLoading && (isSignedIn || !!userId);
 
-  const handleAboutClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+  const scrollToSection = (
+    event: React.MouseEvent<HTMLAnchorElement>,
+    sectionId: string
+  ) => {
     if (pathname === "/") {
-      e.preventDefault();
-      document.getElementById("about")?.scrollIntoView({ behavior: "smooth", block: "start" });
-    }
-  };
-
-  const handlePlacesClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    if (pathname === "/") {
-      e.preventDefault();
-      document.getElementById("places")?.scrollIntoView({ behavior: "smooth", block: "start" });
+      event.preventDefault();
+      document
+        .getElementById(sectionId)
+        ?.scrollIntoView({ behavior: "smooth", block: "start" });
     }
   };
 
@@ -28,13 +26,22 @@ export default function Header() {
     return null;
   }
 
-  const textNavLinks = [
-    { href: "/", label: "Home" },
-    ...(authenticated ? [{ href: "/planner", label: "Planner" }] : [{ href: "/#places", label: "Places" }]),
-    { href: "/#about", label: "About Us" },
-  ];
+  const textNavLinks = authenticated
+    ? [
+        { href: "/", label: "Home" },
+        { href: "/planner", label: "Planner" },
+        { href: "/profile", label: "Profile" },
+      ]
+    : [
+        { href: "/", label: "Home" },
+        { href: "/#places", label: "Places" },
+        { href: "/#about", label: "About Us" },
+      ];
 
-  const isLight = pathname === "/" || pathname === "/search" || pathname === "/planner";
+  const isLight =
+    pathname === "/search" ||
+    pathname === "/planner" ||
+    (pathname === "/" && !authenticated);
   const linkCls = "font-cinzel text-base md:text-lg font-normal transition-colors hover:underline " +
     (isLight ? "text-white hover:text-white/80" : "text-[#5d4e37] hover:text-[#8b6f47]");
   const iconCls = "p-1 transition-colors " + (isLight ? "text-white hover:text-white/80" : "text-[#5d4e37] hover:text-[#8b6f47]");
@@ -53,12 +60,34 @@ export default function Header() {
           <nav className="flex items-center gap-8">
             {textNavLinks.map((link) => {
               if (link.href === "/#about") {
-                return <Link key={link.href} href={link.href} onClick={handleAboutClick} className={linkCls}>{link.label}</Link>;
+                return (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    onClick={(event) => scrollToSection(event, "about")}
+                    className={linkCls}
+                  >
+                    {link.label}
+                  </Link>
+                );
               }
               if (link.href === "/#places") {
-                return <Link key={link.href} href={link.href} onClick={handlePlacesClick} className={linkCls}>{link.label}</Link>;
+                return (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    onClick={(event) => scrollToSection(event, "places")}
+                    className={linkCls}
+                  >
+                    {link.label}
+                  </Link>
+                );
               }
-              return <Link key={link.href} href={link.href} className={linkCls}>{link.label}</Link>;
+              return (
+                <Link key={link.href} href={link.href} className={linkCls}>
+                  {link.label}
+                </Link>
+              );
             })}
           </nav>
 
@@ -81,4 +110,18 @@ export default function Header() {
       </div>
     </header>
   );
+}
+
+export default function Header() {
+  const pathname = usePathname();
+
+  if (
+    pathname?.startsWith("/sign-in") ||
+    pathname?.startsWith("/sign-up") ||
+    pathname?.startsWith("/auth")
+  ) {
+    return null;
+  }
+
+  return <HeaderContent />;
 }

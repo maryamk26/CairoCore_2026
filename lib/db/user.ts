@@ -1,5 +1,85 @@
 import { prisma } from "@/lib/prisma";
 
+type BasicUserRecord = {
+  id: string;
+  email: string;
+  name: string | null;
+  username: string | null;
+};
+
+type CountedUserRecord = BasicUserRecord & {
+  _count: {
+    followers: number;
+    following: number;
+  };
+};
+
+type SerializedProfile = {
+  id: string;
+  email: string;
+  name: string;
+  username: string;
+  usernameRaw: string;
+  followerCount: number;
+  followingCount: number;
+};
+
+type SerializedProfileListItem = {
+  id: string;
+  name: string;
+  username: string;
+  usernameRaw: string;
+};
+
+type SerializedProfilePlace = {
+  id: string;
+  name: string;
+  description: string | null;
+  category: string | null;
+  address: string | null;
+  createdAt: Date;
+  images: string[];
+};
+
+function normalizeUsername(value: string) {
+  return value.trim().replace(/^@+/, "").toLowerCase();
+}
+
+function getDisplayName(user: BasicUserRecord) {
+  return user.name?.trim() || user.email.split("@")[0] || "User";
+}
+
+function getUsernameParts(user: BasicUserRecord) {
+  const rawUsername = normalizeUsername(user.username || user.email.split("@")[0] || "user");
+  return {
+    usernameRaw: rawUsername,
+    username: `@${rawUsername}`,
+  };
+}
+
+function serializeProfile(user: CountedUserRecord): SerializedProfile {
+  const { username, usernameRaw } = getUsernameParts(user);
+  return {
+    id: user.id,
+    email: user.email,
+    name: getDisplayName(user),
+    username,
+    usernameRaw,
+    followerCount: user._count.followers,
+    followingCount: user._count.following,
+  };
+}
+
+function serializeProfileListItem(user: BasicUserRecord): SerializedProfileListItem {
+  const { username, usernameRaw } = getUsernameParts(user);
+  return {
+    id: user.id,
+    name: getDisplayName(user),
+    username,
+    usernameRaw,
+  };
+}
+
 export async function upsertUser(
   supabaseId: string,
   email: string,
@@ -67,7 +147,7 @@ export async function updateUserProfile(userId: string, data: UpdateProfileData)
   });
 }
 
-export async function getProfile(userId: string) {
+async function getProfile(userId: string) {
   const user = await prisma.user.findUnique({
     where: { id: userId },
     select: {
@@ -84,10 +164,168 @@ export async function getProfile(userId: string) {
     },
   });
   if (!user) return null;
-  const { _count, ...rest } = user;
+  return serializeProfile(user);
+}
+
+export async function ensureProfile(userId: string, email?: string | null) {
+  let profile = await getProfile(userId);
+  if (profile) return profile;
+
+  const trimmedEmail = email?.trim() || "";
+  if (!trimmedEmail) {
+    throw new Error("Email required");
+  }
+
+  await upsertUser(userId, trimmedEmail);
+  profile = await getProfile(userId);
+
+  if (!profile) {
+    throw new Error("Profile not found");
+  }
+
+  return profile;
+}
+
+export async function getProfileByUsername(username: string) {
+  const normalizedUsername = normalizeUsername(username);
+  if (!normalizedUsername) return null;
+
+  const user = await prisma.user.findFirst({
+    where: {
+      username: {
+        equals: normalizedUsername,
+        mode: "insensitive",
+      },
+    },
+    select: {
+      id: true,
+      email: true,
+      name: true,
+      username: true,
+      _count: {
+        select: {
+          followers: true,
+          following: true,
+        },
+      },
+    },
+  });
+
+  if (!user) return null;
+  return serializeProfile(user);
+}
+
+export async function getFollowLists(userId: string) {
+  const [followersRows, followingRows] = await Promise.all([
+    prisma.follow.findMany({
+      where: { followingId: userId },
+      select: {
+        follower: {
+          select: {
+            id: true,
+            email: true,
+            name: true,
+            username: true,
+          },
+        },
+      },
+    }),
+    prisma.follow.findMany({
+      where: { followerId: userId },
+      select: {
+        following: {
+          select: {
+            id: true,
+            email: true,
+            name: true,
+            username: true,
+          },
+        },
+      },
+    }),
+  ]);
+
+  const alphabetical = (a: SerializedProfileListItem, b: SerializedProfileListItem) =>
+    a.name.localeCompare(b.name) || a.usernameRaw.localeCompare(b.usernameRaw);
+
   return {
-    ...rest,
-    followerCount: _count.followers,
-    followingCount: _count.following,
+    followers: followersRows
+      .map((row) => serializeProfileListItem(row.follower))
+      .sort(alphabetical),
+    following: followingRows
+      .map((row) => serializeProfileListItem(row.following))
+      .sort(alphabetical),
   };
+}
+
+export async function searchProfiles(query: string, limit = 10) {
+  const trimmedQuery = query.trim();
+  if (!trimmedQuery) return [];
+
+  const normalizedQuery = normalizeUsername(trimmedQuery);
+  const users = await prisma.user.findMany({
+    where: {
+      OR: [
+        { name: { contains: trimmedQuery, mode: "insensitive" } },
+        { username: { contains: normalizedQuery, mode: "insensitive" } },
+        { email: { contains: trimmedQuery, mode: "insensitive" } },
+      ],
+    },
+    select: {
+      id: true,
+      email: true,
+      name: true,
+      username: true,
+    },
+    take: limit,
+  });
+
+  const scoredUsers = users
+    .map((user) => {
+      const name = getDisplayName(user).toLowerCase();
+      const usernameRaw = getUsernameParts(user).usernameRaw.toLowerCase();
+      const email = user.email.toLowerCase();
+      const rawQuery = trimmedQuery.toLowerCase();
+
+      let score = 0;
+      if (usernameRaw.startsWith(normalizedQuery)) score += 5;
+      if (name.startsWith(rawQuery)) score += 4;
+      if (usernameRaw.includes(normalizedQuery)) score += 3;
+      if (name.includes(rawQuery)) score += 2;
+      if (email.includes(rawQuery)) score += 1;
+
+      return { user: serializeProfileListItem(user), score };
+    })
+    .sort((a, b) => {
+      if (b.score !== a.score) return b.score - a.score;
+      return a.user.name.localeCompare(b.user.name);
+    });
+
+  return scoredUsers.map((entry) => entry.user);
+}
+
+export async function listCreatedPlacesByUserId(userId: string): Promise<SerializedProfilePlace[]> {
+  const places = await prisma.place.findMany({
+    where: { createdBy: userId },
+    orderBy: { createdAt: "desc" },
+    select: {
+      id: true,
+      name: true,
+      description: true,
+      category: true,
+      address: true,
+      createdAt: true,
+      images: true,
+    },
+  });
+
+  return places.map((place) => ({
+    id: place.id,
+    name: place.name,
+    description: place.description,
+    category: place.category,
+    address: place.address,
+    createdAt: place.createdAt,
+    images: place.images ?? [],
+  }));
 }

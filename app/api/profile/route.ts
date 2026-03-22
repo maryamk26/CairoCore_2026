@@ -1,61 +1,32 @@
 import { NextRequest, NextResponse } from "next/server";
-import { createClient } from "@/lib/supabase/server";
-import { getProfile, upsertUser, updateUserProfile } from "@/lib/db/user";
+import { getSessionUser } from "@/lib/supabase/server";
+import { ensureProfile, updateUserProfile } from "@/lib/db/user";
 
 export async function GET() {
   try {
-    const supabase = await createClient();
-    const {
-      data: { user },
-      error,
-    } = await supabase.auth.getUser();
-
-    if (error || !user) {
+    const user = await getSessionUser();
+    if (!user) {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
 
-    let profile = await getProfile(user.id);
-    if (!profile) {
-      const email = user.email?.trim() || "";
-      if (!email) {
-        return NextResponse.json(
-          { error: "Email required" },
-          { status: 400 }
-        );
-      }
-      await upsertUser(user.id, email);
-      profile = await getProfile(user.id);
-    }
-    if (!profile) {
-      return NextResponse.json(
-        { error: "Profile not found" },
-        { status: 404 }
-      );
-    }
-
-    const name =
-      profile.name ||
-      user.user_metadata?.full_name ||
-      user.user_metadata?.first_name ||
-      user.user_metadata?.name ||
-      user.email?.split("@")[0] ||
-      "User";
-    const username =
-      profile.username ||
-      user.user_metadata?.user_name ||
-      user.user_metadata?.username ||
-      user.email?.split("@")[0] ||
-      "";
+    const profile = await ensureProfile(user.id, user.email);
 
     return NextResponse.json({
       id: profile.id,
       email: profile.email,
-      name,
-      username: username ? (username.startsWith("@") ? username : `@${username}`) : `@${profile.email?.split("@")[0] || "user"}`,
+      name: profile.name,
+      username: profile.username,
+      usernameRaw: profile.usernameRaw,
       followerCount: profile.followerCount,
       followingCount: profile.followingCount,
     });
   } catch (err) {
+    if (err instanceof Error && err.message === "Email required") {
+      return NextResponse.json({ error: err.message }, { status: 400 });
+    }
+    if (err instanceof Error && err.message === "Profile not found") {
+      return NextResponse.json({ error: err.message }, { status: 404 });
+    }
     console.error("Profile fetch failed:", err);
     return NextResponse.json(
       { error: "Failed to fetch profile" },
@@ -66,13 +37,8 @@ export async function GET() {
 
 export async function PATCH(request: NextRequest) {
   try {
-    const supabase = await createClient();
-    const {
-      data: { user },
-      error,
-    } = await supabase.auth.getUser();
-
-    if (error || !user) {
+    const user = await getSessionUser();
+    if (!user) {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
 
