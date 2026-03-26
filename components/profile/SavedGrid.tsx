@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { formatRelativeMonth } from "./formatRelativeMonth";
+import { formatRelativeDate } from "./formatRelativeDate";
 
 export interface FolderItem {
   id: string;
@@ -140,7 +140,7 @@ export default function SavedGrid({
                 {folder.name}
               </h3>
               <p className="text-xs text-[#5d4e37]/70 mt-0.5">
-                {folder.pinCount} {folder.pinCount === 1 ? "Pin" : "Pins"} · {formatRelativeMonth(folder.createdAt)}
+                {folder.pinCount} {folder.pinCount === 1 ? "Pin" : "Pins"} · {formatRelativeDate(folder.createdAt)}
               </p>
             </div>
           </div>

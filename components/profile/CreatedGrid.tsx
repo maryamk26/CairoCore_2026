@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { formatRelativeMonth } from "./formatRelativeMonth";
+import { formatRelativeDate } from "./formatRelativeDate";
 
 export interface PlaceItem {
   id: string;
@@ -78,7 +78,7 @@ export default function CreatedGrid({
                 <div className="p-3">
                   <h3 className="truncate font-semibold text-[#5d4e37]">{place.name}</h3>
                   <p className="mt-0.5 text-xs text-[#5d4e37]/70">
-                    {place.category ?? "Place"} · {formatRelativeMonth(place.createdAt)}
+                    {place.category ?? "Place"} · {formatRelativeDate(place.createdAt)}
                   </p>
                 </div>
               </Link>

@@ -214,11 +214,11 @@ async function getSocialFeedItems(followingIds: string[], limit: number, cursor:
       take: fetchTake,
       select: {
         id: true,
-        createdAt: true,
         folderId: true,
         folder: {
           select: {
             name: true,
+            createdAt: true,
             user: {
               select: {
                 id: true,
@@ -319,7 +319,7 @@ async function getSocialFeedItems(followingIds: string[], limit: number, cursor:
   const savedItems: FeedItem[] = savedRows.map((row) => ({
     id: row.id,
     type: "place_saved",
-    createdAt: row.createdAt.toISOString(),
+    createdAt: row.folder.createdAt.toISOString(),
     actor: serializeActor(row.folder.user),
     place: serializePlace(row.place),
     metadata: {

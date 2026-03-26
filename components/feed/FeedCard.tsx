@@ -26,6 +26,19 @@ function HeaderAvatar({ label }: { label: string }) {
   );
 }
 
+function getActivityLabel(item: FeedItem) {
+  switch (item.type) {
+    case "place_created":
+      return "Created a place";
+    case "place_saved":
+      return `Created board ${item.metadata.boardName}`;
+    case "place_feedback":
+      return "Shared a review";
+    case "suggested_place":
+      return item.metadata.reason;
+  }
+}
+
 export default function FeedCard({ item }: { item: FeedItem }) {
   const creator = item.place.creator;
   const activityActor = item.actor ?? creator;
@@ -33,6 +46,7 @@ export default function FeedCard({ item }: { item: FeedItem }) {
   const activityProfile = activityActor ? `/users/${activityActor.usernameRaw}` : null;
   const creatorName = creator?.name ?? "CairoCore";
   const reviewCount = item.place.feedbackCount;
+  const activityLabel = getActivityLabel(item);
 
   return (
     <article className="overflow-hidden rounded-[24px] border border-[#e6e0d8] bg-white shadow-sm">
@@ -50,7 +64,9 @@ export default function FeedCard({ item }: { item: FeedItem }) {
             ) : (
               <p className="truncate font-cinzel text-base font-semibold text-[#2f2b25]">{activityName}</p>
             )}
-            <p className="truncate text-sm text-[#7b7268]">{item.place.name}</p>
+            <p className="truncate text-sm text-[#7b7268]">
+              {activityLabel} · {item.place.name}
+            </p>
           </div>
         </div>
         <div className="text-right">
