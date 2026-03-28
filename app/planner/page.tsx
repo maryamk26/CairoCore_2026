@@ -1,7 +1,8 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { useSearchParams } from "next/navigation";
+import type { Dispatch, SetStateAction } from "react";
+import { useRouter, useSearchParams } from "next/navigation";
 import AccordionSurvey from "@/components/planner/AccordionSurvey";
 import { SurveyAnswers } from "@/lib/planner/survey";
 import {
@@ -17,8 +18,35 @@ import RouteBuilder from "@/components/planner/RouteBuilder";
 import StopSelection from "@/components/planner/StopSelection";
 import { PlaceRecommendation } from "@/utils/planner/recommendation";
 
+type SavedRoutePayload = {
+  route?: {
+    id: string;
+  };
+  places?: PlaceLike[];
+};
+
+function resetPlannerFlow(
+  setPreferences: Dispatch<SetStateAction<SurveyAnswers | null>>,
+  setRecommendations: Dispatch<SetStateAction<PlaceRecommendation[]>>,
+  setSelectedPlaces: Dispatch<SetStateAction<PlaceRecommendation[]>>,
+  setStopRecommendations: Dispatch<SetStateAction<PlaceRecommendation[]>>,
+  setSelectedStop: Dispatch<SetStateAction<PlaceRecommendation | null>>,
+  setError: Dispatch<SetStateAction<string | null>>
+) {
+  setPreferences(null);
+  setRecommendations([]);
+  setSelectedPlaces([]);
+  setStopRecommendations([]);
+  setSelectedStop(null);
+  setError(null);
+}
+
 export default function PlannerPage() {
+  const router = useRouter();
   const searchParams = useSearchParams();
+  const placeIdsParam = searchParams.get("placeIds")?.trim() ?? "";
+  const savedRouteIdParam = searchParams.get("savedRouteId")?.trim() ?? "";
+  const isDirectPlaceRoute = placeIdsParam.length > 0 || savedRouteIdParam.length > 0;
   const [stage, setStage] = useState<PlannerStage>("survey");
   const [preferences, setPreferences] = useState<SurveyAnswers | null>(null);
   const [recommendations, setRecommendations] = useState<PlaceRecommendation[]>([]);
@@ -31,6 +59,12 @@ export default function PlannerPage() {
   const [placeIdsLoaded, setPlaceIdsLoaded] = useState(false);
 
   useEffect(() => {
+    if (isDirectPlaceRoute) {
+      clearPlannerState();
+      setHasRestored(true);
+      return;
+    }
+
     const saved = loadPlannerState();
     if (saved.stage && saved.stage !== "survey") {
       setStage(saved.stage);
@@ -41,30 +75,69 @@ export default function PlannerPage() {
       if (saved.selectedStop != null) setSelectedStop(saved.selectedStop);
     }
     setHasRestored(true);
-  }, []);
+  }, [isDirectPlaceRoute]);
 
   useEffect(() => {
-    if (!hasRestored || placeIdsLoaded) return;
-    const placeIdsParam = searchParams.get("placeIds");
-    if (!placeIdsParam?.trim()) return;
-    const ids = placeIdsParam.split(",").map((s) => s.trim()).filter(Boolean);
-    if (ids.length === 0) return;
+    if (!hasRestored || placeIdsLoaded || (!placeIdsParam && !savedRouteIdParam)) return;
+
     setPlaceIdsLoaded(true);
     setIsLoading(true);
-    setError(null);
-    Promise.all(ids.map((id) => fetch(`/api/places/${id}`).then((r) => (r.ok ? r.json() : null))))
-      .then((results) => {
-        const places = results
-          .filter(Boolean)
-          .map((p: unknown) => placeToRecommendation(p as PlaceLike));
-        if (places.length > 0) {
+    resetPlannerFlow(
+      setPreferences,
+      setRecommendations,
+      setSelectedPlaces,
+      setStopRecommendations,
+      setSelectedStop,
+      setError
+    );
+
+    const loadDirectRoute = async () => {
+      try {
+        if (savedRouteIdParam) {
+          const response = await fetch(`/api/profile/routes/${savedRouteIdParam}`);
+          const data = (response.ok ? await response.json() : {}) as SavedRoutePayload;
+          const places = Array.isArray(data.places)
+            ? data.places.map((place: unknown) => placeToRecommendation(place as PlaceLike))
+            : [];
+
+          if (places.length === 0) {
+            throw new Error("Failed to load route");
+          }
+
           setSelectedPlaces(places);
           setStage("route");
+          return;
         }
-      })
-      .catch(() => setError("Failed to load places"))
-      .finally(() => setIsLoading(false));
-  }, [hasRestored, placeIdsLoaded, searchParams]);
+
+        const ids = placeIdsParam.split(",").map((s) => s.trim()).filter(Boolean);
+        if (ids.length === 0) {
+          throw new Error("Failed to load places");
+        }
+
+        const results = await Promise.all(
+          ids.map((id) => fetch(`/api/places/${id}`).then((r) => (r.ok ? r.json() : null)))
+        );
+        const places = results
+          .filter(Boolean)
+          .map((place: unknown) => placeToRecommendation(place as PlaceLike));
+
+        if (places.length === 0) {
+          throw new Error("Failed to load places");
+        }
+
+        setSelectedPlaces(places);
+        setStage("route");
+      } catch (loadError) {
+        setError(
+          loadError instanceof Error ? loadError.message : "Failed to load route"
+        );
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    void loadDirectRoute();
+  }, [hasRestored, placeIdsLoaded, placeIdsParam, savedRouteIdParam]);
 
   useEffect(() => {
     if (!hasRestored) return;
@@ -148,6 +221,11 @@ export default function PlannerPage() {
   };
 
   const handleBackFromRoute = () => {
+    if (isDirectPlaceRoute) {
+      router.back();
+      return;
+    }
+
     if (needsStopStep && selectedStop) {
       setStage("stop");
     } else {
@@ -157,13 +235,39 @@ export default function PlannerPage() {
 
   const handleStartOver = () => {
     setStage("survey");
-    setPreferences(null);
-    setRecommendations([]);
-    setSelectedPlaces([]);
-    setStopRecommendations([]);
-    setSelectedStop(null);
-    setError(null);
+    resetPlannerFlow(
+      setPreferences,
+      setRecommendations,
+      setSelectedPlaces,
+      setStopRecommendations,
+      setSelectedStop,
+      setError
+    );
     clearPlannerState();
+  };
+
+  const handleSaveRoute = async ({
+    placeIds,
+    transportMode,
+  }: {
+    placeIds: string[];
+    transportMode: string | null;
+  }) => {
+    const response = await fetch("/api/profile/routes", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        placeIds,
+        transportMode,
+      }),
+    });
+
+    const data = await response.json().catch(() => ({}));
+    if (!response.ok) {
+      throw new Error(data.error || "Failed to save route");
+    }
   };
 
   if (isLoading) {
@@ -247,7 +351,7 @@ export default function PlannerPage() {
         <RouteBuilder
           places={placesForRoute}
           onBack={handleBackFromRoute}
-          onSave={handleStartOver}
+          onSave={handleSaveRoute}
           minutesPerPlace={preferences?.timePerPlace as number | undefined}
           timeOfDay={preferences?.timeOfDay as string[] | undefined}
           routeStop={treatStopAsPlace ? null : selectedStop}

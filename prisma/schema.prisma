@@ -55,11 +55,12 @@ model User {
   username  String?
   createdAt DateTime @default(now())
 
-  places     Place[]
-  folders    Folder[]
-  following  Follow[]        @relation("Following")
-  followers  Follow[]        @relation("Followers")
-  feedbacks  PlaceFeedback[]
+  places       Place[]
+  folders      Folder[]
+  savedRoutes  SavedRoute[]
+  following    Follow[]        @relation("Following")
+  followers    Follow[]        @relation("Followers")
+  feedbacks    PlaceFeedback[]
 
   @@map("users")
 }
@@ -125,11 +126,41 @@ model Place {
   createdBy       String?
   createdAt       DateTime      @default(now())
 
-  user      User?           @relation(fields: [createdBy], references: [id], onDelete: SetNull)
-  savedIn   SavedPlace[]
-  feedbacks PlaceFeedback[]
+  user             User?             @relation(fields: [createdBy], references: [id], onDelete: SetNull)
+  savedIn          SavedPlace[]
+  savedRouteItems  SavedRoutePlace[]
+  feedbacks        PlaceFeedback[]
 
   @@map("places")
+}
+
+model SavedRoute {
+  id            String            @id @default(uuid())
+  userId        String
+  name          String
+  transportMode String?
+  createdAt     DateTime          @default(now())
+  updatedAt     DateTime          @updatedAt
+
+  user   User             @relation(fields: [userId], references: [id], onDelete: Cascade)
+  places SavedRoutePlace[]
+
+  @@index([userId, createdAt])
+  @@map("saved_routes")
+}
+
+model SavedRoutePlace {
+  id           String     @id @default(uuid())
+  savedRouteId String
+  placeId      String
+  position     Int
+
+  savedRoute SavedRoute @relation(fields: [savedRouteId], references: [id], onDelete: Cascade)
+  place      Place      @relation(fields: [placeId], references: [id], onDelete: Cascade)
+
+  @@unique([savedRouteId, position])
+  @@index([savedRouteId, position])
+  @@map("saved_route_places")
 }
 
 model PlaceFeedback {

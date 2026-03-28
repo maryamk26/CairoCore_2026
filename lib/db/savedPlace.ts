@@ -55,3 +55,12 @@ export async function removePlaceFromFolder(userId: string, folderId: string, pl
   return { folderId, placeId };
 }
 
+export async function removePlaceFromAllUserBoards(userId: string, placeId: string) {
+  return prisma.savedPlace.deleteMany({
+    where: {
+      placeId,
+      folder: { userId },
+    },
+  });
+}
+

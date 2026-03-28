@@ -4,8 +4,9 @@ interface RouteBuilderActionsProps {
   hasUserLocation: boolean;
   placesCount: number;
   onYallaClick: () => void;
-  onSave: () => void;
+  onSave: () => void | Promise<void>;
   onBack: () => void;
+  saving?: boolean;
 }
 
 export default function RouteBuilderActions({
@@ -14,6 +15,7 @@ export default function RouteBuilderActions({
   onYallaClick,
   onSave,
   onBack,
+  saving = false,
 }: RouteBuilderActionsProps) {
   return (
     <div className="space-y-3">
@@ -28,10 +30,10 @@ export default function RouteBuilderActions({
       )}
       <button
         onClick={onSave}
-        disabled={placesCount < 1}
+        disabled={placesCount < 1 || saving}
         className="w-full px-6 py-3 bg-[#d4af37] text-[#3a3428] rounded-lg font-cinzel font-bold hover:bg-[#e5bf47] transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
       >
-        {placesCount === 1 ? "Save Location" : "Save Route"}
+        {saving ? "Saving..." : "Save Route"}
       </button>
       <button
         onClick={onBack}

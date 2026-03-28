@@ -2,7 +2,7 @@
 
 import { RefObject } from "react";
 
-const TAGS = ["Pyramids", "Museums", "Mosques", "Markets", "Cafes"];
+const TAGS = ["Pyramid", "Museum", "Mosque", "Mall", "Cafe"];
 
 interface PopularSearchesProps {
   visible: boolean;

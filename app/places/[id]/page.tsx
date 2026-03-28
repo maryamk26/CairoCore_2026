@@ -42,10 +42,19 @@ export default function PlaceProfilePage({ params }: { params: Promise<{ id: str
     const from = searchParams.get("from");
     const boardId = searchParams.get("boardId");
     const boardName = searchParams.get("boardName");
+    const searchQ = searchParams.get("q");
+
     if (from === "board" && boardId) {
-      return boardName ? `/profile/boards/${boardId}?name=${encodeURIComponent(boardName)}` : `/profile/boards/${boardId}`;
+      return boardName
+        ? `/profile/boards/${boardId}?name=${encodeURIComponent(boardName)}`
+        : `/profile/boards/${boardId}`;
     }
     if (from === "profile" || from === "created") return "/profile";
+    if (from === "search") {
+      return searchQ?.trim()
+        ? `/search?q=${encodeURIComponent(searchQ.trim())}`
+        : "/search";
+    }
     return "/";
   }, [searchParams]);
 

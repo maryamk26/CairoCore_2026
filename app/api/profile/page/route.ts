@@ -1,7 +1,8 @@
 import { NextResponse } from "next/server";
 import { getSessionUser } from "@/lib/supabase/server";
 import { ensureProfile, listCreatedPlacesByUserId } from "@/lib/db/user";
-import { getFoldersByUserId } from "@/lib/db/folder";
+import { folderPreviewImages, getFoldersByUserId } from "@/lib/db/folder";
+import { listSavedRoutesByUserId } from "@/lib/db/savedRoute";
 export async function GET() {
   try {
     const user = await getSessionUser();
@@ -13,9 +14,10 @@ export async function GET() {
 
     const profile = await ensureProfile(userId, user.email);
 
-    const [placesRows, foldersRows] = await Promise.all([
+    const [placesRows, foldersRows, routesRows] = await Promise.all([
       listCreatedPlacesByUserId(userId),
       getFoldersByUserId(userId),
+      listSavedRoutesByUserId(userId),
     ]);
 
     return NextResponse.json({
@@ -26,6 +28,16 @@ export async function GET() {
         name: f.name,
         pinCount: f._count.savedPlaces,
         createdAt: f.createdAt,
+        previewImages: folderPreviewImages(f),
+      })),
+      routes: routesRows.map((route) => ({
+        id: route.id,
+        name: route.name,
+        createdAt: route.createdAt,
+        transportMode: route.transportMode,
+        stopCount: route.stopCount,
+        previewImage: route.previewImage,
+        placeNames: route.placeNames,
       })),
     });
   } catch (err) {

@@ -5,9 +5,15 @@ import { ProfileData } from "./types";
 
 interface ProfileHeaderProps {
   profile: ProfileData;
+  followerCount: number;
   isOwnProfile?: boolean;
   onFollowersClick?: () => void;
   onFollowingClick?: () => void;
+  viewerFollows?: boolean | null;
+  onFollow?: () => void | Promise<void>;
+  onUnfollow?: () => void | Promise<void>;
+  followBusy?: boolean;
+  onShareProfile?: () => void | Promise<void>;
 }
 
 function ShareIcon() {
@@ -28,56 +34,90 @@ function PencilIcon() {
 
 export default function ProfileHeader({
   profile,
+  followerCount,
   isOwnProfile = false,
   onFollowersClick,
   onFollowingClick,
+  viewerFollows,
+  onFollow,
+  onUnfollow,
+  followBusy = false,
+  onShareProfile,
 }: ProfileHeaderProps) {
+  const showFollowActions = !isOwnProfile && viewerFollows !== undefined;
+
   return (
     <div className="flex flex-col items-center text-center">
-      <div className="relative w-24 h-24 rounded-full overflow-hidden bg-gray-200 shrink-0 mb-4 flex items-center justify-center">
+      <div className="relative mb-4 flex h-24 w-24 shrink-0 items-center justify-center overflow-hidden rounded-full bg-gray-200">
         <span className="text-3xl font-bold text-[#5d4e37]/70">
           {profile.name.charAt(0).toUpperCase()}
         </span>
       </div>
 
-      <h1 className="text-2xl font-bold text-[#5d4e37] mb-1 font-cinzel">
+      <h1 className="mb-1 font-cinzel text-2xl font-bold text-[#5d4e37]">
         {profile.name}
       </h1>
 
-      <p className="text-[#5d4e37]/80 text-sm mb-3">
-        {profile.username}
-      </p>
+      <p className="mb-3 text-sm text-[#5d4e37]/80">{profile.username}</p>
 
       <div className="mb-4 flex items-center gap-3 text-sm text-[#5d4e37]/70">
         <button
           type="button"
           onClick={onFollowersClick}
-          className="hover:text-[#5d4e37] transition-colors"
+          className="transition-colors hover:text-[#5d4e37]"
         >
-          {profile.followerCount} followers
+          {followerCount} followers
         </button>
         <span>·</span>
         <button
           type="button"
           onClick={onFollowingClick}
-          className="hover:text-[#5d4e37] transition-colors"
+          className="transition-colors hover:text-[#5d4e37]"
         >
           {profile.followingCount} following
         </button>
       </div>
 
-      <div className="flex items-center gap-3">
+      <div className="flex flex-wrap items-center justify-center gap-2">
+        {showFollowActions &&
+          (viewerFollows ? (
+            <>
+              <span className="inline-flex items-center rounded-full border border-[#8b6f47]/40 bg-[#faf3ea] px-4 py-2 font-cinzel text-sm font-medium text-[#5d4e37]">
+                Followed
+              </span>
+              <button
+                type="button"
+                disabled={followBusy}
+                onClick={() => void onUnfollow?.()}
+                className="inline-flex items-center rounded-full border border-[#5d4e37]/25 px-4 py-2 font-cinzel text-sm font-medium text-[#5d4e37] transition-colors hover:bg-[#5d4e37]/10 disabled:cursor-not-allowed disabled:opacity-50"
+              >
+                Unfollow
+              </button>
+            </>
+          ) : (
+            <button
+              type="button"
+              disabled={followBusy}
+              onClick={() => void onFollow?.()}
+              className="inline-flex items-center rounded-full bg-[#5d4e37] px-5 py-2 font-cinzel text-sm font-medium text-white transition-colors hover:bg-[#8b6f47] disabled:cursor-not-allowed disabled:opacity-50"
+            >
+              Follow
+            </button>
+          ))}
+
         <button
           type="button"
-          className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#5d4e37]/10 text-[#5d4e37] hover:bg-[#5d4e37]/20 transition-colors text-sm font-medium font-cinzel"
+          onClick={() => void onShareProfile?.()}
+          className="inline-flex items-center gap-2 rounded-full bg-[#5d4e37]/10 px-4 py-2 font-cinzel text-sm font-medium text-[#5d4e37] transition-colors hover:bg-[#5d4e37]/20"
         >
           <ShareIcon />
           Share profile
         </button>
+
         {isOwnProfile && (
           <Link
             href="/profile/edit"
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#5d4e37]/10 text-[#5d4e37] hover:bg-[#5d4e37]/20 transition-colors text-sm font-medium font-cinzel"
+            className="inline-flex items-center gap-2 rounded-full bg-[#5d4e37]/10 px-4 py-2 font-cinzel text-sm font-medium text-[#5d4e37] transition-colors hover:bg-[#5d4e37]/20"
           >
             <PencilIcon />
             Edit profile

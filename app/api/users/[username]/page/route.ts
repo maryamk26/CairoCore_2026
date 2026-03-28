@@ -1,5 +1,11 @@
 import { NextResponse } from "next/server";
-import { getProfileByUsername, listCreatedPlacesByUserId } from "@/lib/db/user";
+import {
+  decodeUsernamePathSegment,
+  getProfileByUsername,
+  isUserFollowing,
+  listCreatedPlacesByUserId,
+} from "@/lib/db/user";
+import { getSessionUser } from "@/lib/supabase/server";
 
 export async function GET(
   _request: Request,
@@ -7,7 +13,7 @@ export async function GET(
 ) {
   try {
     const { username } = await params;
-    const profile = await getProfileByUsername(username);
+    const profile = await getProfileByUsername(decodeUsernamePathSegment(username));
 
     if (!profile) {
       return NextResponse.json({ error: "Profile not found" }, { status: 404 });
@@ -15,9 +21,19 @@ export async function GET(
 
     const places = await listCreatedPlacesByUserId(profile.id);
 
+    const sessionUser = await getSessionUser();
+    const isViewerOwner = !!(sessionUser && sessionUser.id === profile.id);
+
+    let viewerFollows: boolean | null = null;
+    if (sessionUser && !isViewerOwner) {
+      viewerFollows = await isUserFollowing(sessionUser.id, profile.id);
+    }
+
     return NextResponse.json({
       profile,
       places,
+      viewerFollows,
+      isViewerOwner,
     });
   } catch (err) {
     console.error("Public profile page fetch failed:", err);

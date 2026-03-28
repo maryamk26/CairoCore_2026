@@ -52,8 +52,8 @@ function FloatingAddButtonContent() {
             </span>
             <span className="font-cinzel font-medium">Create a place</span>
           </Link>
-          <button
-            type="button"
+          <Link
+            href="/create/route"
             className="flex w-full items-center gap-3 px-4 py-3 border-t border-gray-100 hover:bg-gray-50 text-gray-900 text-left"
             onClick={() => setOpen(false)}
           >
@@ -63,7 +63,7 @@ function FloatingAddButtonContent() {
               </svg>
             </span>
             <span className="font-cinzel font-medium">Build a route</span>
-          </button>
+          </Link>
         </div>
       )}
       <button

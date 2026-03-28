@@ -8,53 +8,65 @@ type Folder = {
   pinCount: number;
 };
 
-interface SaveToBoardProps {
-  placeId: string;
+function boardInitials(name: string) {
+  return name
+    .split(" ")
+    .map((w) => w[0])
+    .join("")
+    .slice(0, 2)
+    .toUpperCase();
 }
 
-export default function SaveToBoard({ placeId }: SaveToBoardProps) {
+export default function SaveToBoard({ placeId }: { placeId: string }) {
   const [open, setOpen] = useState(false);
   const [folders, setFolders] = useState<Folder[]>([]);
   const [loading, setLoading] = useState(false);
   const [search, setSearch] = useState("");
   const [newName, setNewName] = useState("");
   const [saving, setSaving] = useState(false);
+  const [unsaving, setUnsaving] = useState(false);
   const [savedFolderIds, setSavedFolderIds] = useState<string[]>([]);
   const [showCreateModal, setShowCreateModal] = useState(false);
 
   useEffect(() => {
-    if (!open) return;
-
     let cancelled = false;
+    const q = `/api/profile/saved?placeId=${encodeURIComponent(placeId)}`;
+    fetch(q)
+      .then((res) => (res.ok ? res.json() : null))
+      .then((data) => {
+        if (!cancelled && data) setSavedFolderIds(data.folderIds ?? []);
+      })
+      .catch(() => {});
+    return () => {
+      cancelled = true;
+    };
+  }, [placeId]);
 
-    async function load() {
-      setLoading(true);
-      try {
-        const [foldersRes, savedRes] = await Promise.all([
-          fetch("/api/profile/folders"),
-          fetch(`/api/profile/saved?placeId=${encodeURIComponent(placeId)}`),
-        ]);
+  useEffect(() => {
+    if (!open) return;
+    let cancelled = false;
+    setLoading(true);
+    const q = `/api/profile/saved?placeId=${encodeURIComponent(placeId)}`;
 
+    Promise.all([fetch("/api/profile/folders"), fetch(q)])
+      .then(async ([foldersRes, savedRes]) => {
         if (foldersRes.status === 401 || savedRes.status === 401) {
           window.location.href = "/auth";
           return;
         }
-
+        if (cancelled) return;
         if (foldersRes.ok) {
-          const data = await foldersRes.json();
-          if (!cancelled) setFolders(data.folders ?? []);
+          const d = await foldersRes.json();
+          setFolders(d.folders ?? []);
         }
-
         if (savedRes.ok) {
-          const data = await savedRes.json();
-          if (!cancelled) setSavedFolderIds(data.folderIds ?? []);
+          const d = await savedRes.json();
+          setSavedFolderIds(d.folderIds ?? []);
         }
-      } finally {
+      })
+      .finally(() => {
         if (!cancelled) setLoading(false);
-      }
-    }
-
-    load();
+      });
 
     return () => {
       cancelled = true;
@@ -66,6 +78,32 @@ export default function SaveToBoard({ placeId }: SaveToBoardProps) {
     if (!term) return folders;
     return folders.filter((f) => f.name.toLowerCase().includes(term));
   }, [folders, search]);
+
+  async function handleUnsave() {
+    if (unsaving || savedFolderIds.length === 0) return;
+    setUnsaving(true);
+    try {
+      const res = await fetch("/api/profile/saved", {
+        method: "DELETE",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ placeId, removeAll: true }),
+      });
+      if (res.status === 401) {
+        window.location.href = "/auth";
+        return;
+      }
+      if (!res.ok) {
+        const data = await res.json().catch(() => ({}));
+        throw new Error(data.error || "Could not remove from boards");
+      }
+      setSavedFolderIds([]);
+      setOpen(false);
+    } catch (e) {
+      alert(e instanceof Error ? e.message : "Could not unsave");
+    } finally {
+      setUnsaving(false);
+    }
+  }
 
   async function handleSaveToFolder(folderId: string) {
     if (saving) return;
@@ -82,15 +120,14 @@ export default function SaveToBoard({ placeId }: SaveToBoardProps) {
       }
       if (!res.ok) {
         const data = await res.json().catch(() => ({}));
-        throw new Error(data.error || "Failed to save place");
+        throw new Error(data.error || "Could not save");
       }
       setSavedFolderIds((prev) =>
         prev.includes(folderId) ? prev : [...prev, folderId]
       );
       setOpen(false);
-    } catch (err) {
-      console.error(err);
-      alert(err instanceof Error ? err.message : "Failed to save place");
+    } catch (e) {
+      alert(e instanceof Error ? e.message : "Could not save");
     } finally {
       setSaving(false);
     }
@@ -99,7 +136,6 @@ export default function SaveToBoard({ placeId }: SaveToBoardProps) {
   async function handleCreateBoard() {
     const name = newName.trim();
     if (!name || saving) return;
-
     setSaving(true);
     try {
       const res = await fetch("/api/profile/folders", {
@@ -113,7 +149,7 @@ export default function SaveToBoard({ placeId }: SaveToBoardProps) {
       }
       if (!res.ok) {
         const data = await res.json().catch(() => ({}));
-        throw new Error(data.error || "Failed to create board");
+        throw new Error(data.error || "Could not create board");
       }
       const data = await res.json();
       const folder = data.folder as Folder | undefined;
@@ -123,117 +159,120 @@ export default function SaveToBoard({ placeId }: SaveToBoardProps) {
       }
       setNewName("");
       setShowCreateModal(false);
-    } catch (err) {
-      console.error(err);
-      alert(err instanceof Error ? err.message : "Failed to create board");
+    } catch (e) {
+      alert(e instanceof Error ? e.message : "Could not create board");
     } finally {
       setSaving(false);
     }
   }
 
-  const buttonLabel = savedFolderIds.length > 0 ? "Saved" : "Save";
+  const savedSomewhere = savedFolderIds.length > 0;
 
   return (
-    <div className="relative inline-block text-left z-40">
-      <button
-        type="button"
-        onClick={() => setOpen((prev) => !prev)}
-        className="inline-flex items-center justify-center px-6 py-3 rounded-full bg-[#8b6f47] text-white text-sm md:text-base font-cinzel shadow-lg hover:bg-[#a68454] transition-colors"
-      >
-        <span>{buttonLabel}</span>
-      </button>
+    <div className="z-40 inline-flex flex-wrap items-center gap-2 text-left">
+      <div className="relative">
+        <button
+          type="button"
+          onClick={() => setOpen((v) => !v)}
+          className="inline-flex items-center justify-center rounded-full bg-[#8b6f47] px-6 py-3 font-cinzel text-sm text-white shadow-lg transition-colors hover:bg-[#a68454] md:text-base"
+        >
+          {savedSomewhere ? "Saved" : "Save"}
+        </button>
 
-      {open && (
-        <div className="absolute right-0 mt-2 w-72 rounded-2xl bg-white shadow-xl border border-gray-200 flex flex-col">
-          <div className="p-3 border-b border-gray-100">
-            <input
-              type="text"
-              value={search}
-              onChange={(e) => setSearch(e.target.value)}
-              placeholder="Search boards"
-              className="w-full px-3 py-2 rounded-full border border-gray-300 text-sm focus:outline-none focus:ring-2 focus:ring-gray-900/60"
-            />
-          </div>
+        {open && (
+          <div className="absolute right-0 z-50 mt-2 flex w-72 flex-col rounded-2xl border border-gray-200 bg-white shadow-xl">
+            <div className="border-b border-gray-100 p-3">
+              <input
+                type="text"
+                value={search}
+                onChange={(e) => setSearch(e.target.value)}
+                placeholder="Search boards"
+                className="w-full rounded-full border border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-gray-900/60"
+              />
+            </div>
 
-          <div className="max-h-72 overflow-y-auto">
-            {loading ? (
-              <div className="px-4 py-6 text-center text-sm text-gray-500">
-                Loading boards...
-              </div>
-            ) : folders.length === 0 ? (
-              <div className="px-4 py-6 text-center text-gray-500 text-sm">
-                You have no boards yet.
-              </div>
-            ) : (
-              visibleFolders.map((folder) => {
-                const isSaved = savedFolderIds.includes(folder.id);
-                return (
-                  <button
-                    key={folder.id}
-                    type="button"
-                    onClick={() => handleSaveToFolder(folder.id)}
-                    className="w-full flex items-center gap-3 px-3 py-2 hover:bg-gray-100 text-left"
-                  >
-                    <div className="h-10 w-10 rounded-lg bg-gray-200 flex items-center justify-center text-xs text-gray-500">
-                      {folder.name
-                        .split(" ")
-                        .map((w) => w[0])
-                        .join("")
-                        .slice(0, 2)
-                        .toUpperCase()}
-                    </div>
-                    <div className="flex-1">
-                      <div className="flex items-center justify-between">
-                        <span className="text-sm font-medium text-gray-900">
-                          {folder.name}
-                        </span>
-                        {isSaved && (
-                          <span className="text-xs text-green-600 font-semibold">
-                            Saved
-                          </span>
-                        )}
+            <div className="max-h-72 overflow-y-auto">
+              {loading ? (
+                <div className="px-4 py-6 text-center text-sm text-gray-500">
+                  Loading boards...
+                </div>
+              ) : folders.length === 0 ? (
+                <div className="px-4 py-6 text-center text-sm text-gray-500">
+                  You have no boards yet.
+                </div>
+              ) : (
+                visibleFolders.map((folder) => {
+                  const inFolder = savedFolderIds.includes(folder.id);
+                  return (
+                    <button
+                      key={folder.id}
+                      type="button"
+                      onClick={() => handleSaveToFolder(folder.id)}
+                      className="flex w-full items-center gap-3 px-3 py-2 text-left hover:bg-gray-100"
+                    >
+                      <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-gray-200 text-xs text-gray-500">
+                        {boardInitials(folder.name)}
                       </div>
-                      <p className="text-xs text-gray-500">
-                        {folder.pinCount} {folder.pinCount === 1 ? "Pin" : "Pins"}
-                      </p>
-                    </div>
-                  </button>
-                );
-              })
-            )}
-          </div>
+                      <div className="min-w-0 flex-1">
+                        <div className="flex items-center justify-between gap-2">
+                          <span className="text-sm font-medium text-gray-900">
+                            {folder.name}
+                          </span>
+                          {inFolder && (
+                            <span className="shrink-0 text-xs font-semibold text-green-600">
+                              Saved
+                            </span>
+                          )}
+                        </div>
+                        <p className="text-xs text-gray-500">
+                          {folder.pinCount}{" "}
+                          {folder.pinCount === 1 ? "Pin" : "Pins"}
+                        </p>
+                      </div>
+                    </button>
+                  );
+                })
+              )}
+            </div>
 
-          <button
-            type="button"
-            onClick={() => {
-              setShowCreateModal(true);
-              setOpen(false);
-            }}
-            className="mt-1 w-full flex items-center gap-3 px-4 py-3 border-t border-gray-200 bg-white hover:bg-gray-50 text-sm rounded-b-2xl"
-          >
-            <span className="flex h-8 w-8 items-center justify-center rounded-full bg-[#8b6f47] text-white text-xl">
-              +
-            </span>
-            <span className="font-medium text-gray-900">Create board</span>
-          </button>
-        </div>
+            <button
+              type="button"
+              onClick={() => {
+                setShowCreateModal(true);
+                setOpen(false);
+              }}
+              className="mt-1 flex w-full items-center gap-3 rounded-b-2xl border-t border-gray-200 bg-white px-4 py-3 text-sm hover:bg-gray-50"
+            >
+              <span className="flex h-8 w-8 items-center justify-center rounded-full bg-[#8b6f47] text-xl text-white">
+                +
+              </span>
+              <span className="font-medium text-gray-900">Create board</span>
+            </button>
+          </div>
+        )}
+      </div>
+
+      {savedSomewhere && (
+        <button
+          type="button"
+          onClick={handleUnsave}
+          disabled={unsaving}
+          className="inline-flex items-center justify-center rounded-full border border-white/40 bg-white/10 px-6 py-3 font-cinzel text-sm text-white shadow-lg backdrop-blur-sm transition-colors hover:bg-white/20 disabled:cursor-not-allowed disabled:opacity-50 md:text-base"
+        >
+          {unsaving ? "…" : "Unsave"}
+        </button>
       )}
 
       {showCreateModal && (
         <div className="fixed inset-0 z-30 flex items-center justify-center bg-black/60 backdrop-blur-sm">
-          <div className="bg-white rounded-3xl shadow-2xl w-full max-w-lg mx-4 relative">
+          <div className="relative mx-4 w-full max-w-lg rounded-3xl bg-white shadow-2xl">
             <button
               type="button"
               onClick={() => setShowCreateModal(false)}
-              className="absolute top-4 right-4 text-gray-500 hover:text-gray-700"
+              className="absolute right-4 top-4 text-gray-500 hover:text-gray-700"
               aria-label="Close"
             >
-              <svg
-                className="w-6 h-6"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
+              <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
@@ -243,19 +282,19 @@ export default function SaveToBoard({ placeId }: SaveToBoardProps) {
               </svg>
             </button>
 
-            <div className="p-6 md:p-8 space-y-6">
-              <h2 className="font-cinzel text-2xl md:text-3xl font-bold text-gray-900">
+            <div className="space-y-6 p-6 md:p-8">
+              <h2 className="font-cinzel text-2xl font-bold text-gray-900 md:text-3xl">
                 Create a board
               </h2>
 
-              <div className="w-40 h-32 rounded-2xl overflow-hidden bg-gray-100 grid grid-cols-2 grid-rows-2 gap-1">
-                <div className="col-span-2 row-span-2 bg-[#8b6f47]/60 flex items-center justify-center text-white text-xs font-cinzel text-center px-2">
+              <div className="grid h-32 w-40 grid-cols-2 grid-rows-2 gap-1 overflow-hidden rounded-2xl bg-gray-100">
+                <div className="col-span-2 row-span-2 flex items-center justify-center bg-[#8b6f47]/60 px-2 text-center font-cinzel text-xs text-white">
                   Your saved places will appear here
                 </div>
               </div>
 
               <div className="space-y-1">
-                <label className="block text-xs font-semibold text-gray-700 uppercase tracking-wide">
+                <label className="block text-xs font-semibold uppercase tracking-wide text-gray-700">
                   Board name
                 </label>
                 <input
@@ -263,7 +302,7 @@ export default function SaveToBoard({ placeId }: SaveToBoardProps) {
                   value={newName}
                   onChange={(e) => setNewName(e.target.value)}
                   placeholder="Name your board"
-                  className="w-full px-4 py-2.5 rounded-xl border border-gray-300 text-sm focus:outline-none focus:ring-2 focus:ring-[#8b6f47]"
+                  className="w-full rounded-xl border border-gray-300 px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-[#8b6f47]"
                   autoFocus
                 />
               </div>
@@ -272,7 +311,7 @@ export default function SaveToBoard({ placeId }: SaveToBoardProps) {
                 type="button"
                 onClick={handleCreateBoard}
                 disabled={!newName.trim() || saving}
-                className="w-full mt-2 px-4 py-3 rounded-full text-sm font-semibold font-cinzel tracking-wide disabled:opacity-60 disabled:cursor-not-allowed bg-[#8b6f47] text-white hover:bg-[#a68454] transition-colors"
+                className="mt-2 w-full rounded-full bg-[#8b6f47] px-4 py-3 text-sm font-semibold font-cinzel tracking-wide text-white transition-colors hover:bg-[#a68454] disabled:cursor-not-allowed disabled:opacity-60"
               >
                 {saving ? "Creating..." : "Create"}
               </button>
@@ -283,4 +322,3 @@ export default function SaveToBoard({ placeId }: SaveToBoardProps) {
     </div>
   );
 }
-

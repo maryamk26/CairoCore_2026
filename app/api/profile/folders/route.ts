@@ -1,6 +1,10 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getSessionUser } from "@/lib/supabase/server";
-import { getFoldersByUserId, createFolder } from "@/lib/db/folder";
+import {
+  createFolder,
+  folderPreviewImages,
+  getFoldersByUserId,
+} from "@/lib/db/folder";
 
 export async function GET() {
   try {
@@ -17,6 +21,7 @@ export async function GET() {
         name: f.name,
         pinCount: f._count.savedPlaces,
         createdAt: f.createdAt,
+        previewImages: folderPreviewImages(f),
       })),
     });
   } catch (err) {
@@ -54,6 +59,7 @@ export async function POST(request: NextRequest) {
           name: folder.name,
           pinCount: 0,
           createdAt: folder.createdAt,
+          previewImages: [],
         },
       },
       { status: 201 }

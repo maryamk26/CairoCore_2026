@@ -9,10 +9,137 @@ export interface FolderItem {
   name: string;
   pinCount: number;
   createdAt: string;
+  previewImages?: (string | null)[];
+}
+
+export interface SavedRouteItem {
+  id: string;
+  name: string;
+  stopCount: number;
+  createdAt: string;
+  transportMode: string | null;
+  previewImage: string | null;
+  placeNames: string[];
+}
+
+function BoardCard({
+  folder,
+  onClick,
+}: {
+  folder: FolderItem;
+  onClick: () => void;
+}) {
+  const slots = folder.previewImages ?? [];
+  const hasPins = folder.pinCount > 0;
+
+  const gridClass =
+    slots.length <= 1
+      ? "grid-cols-1 grid-rows-1"
+      : slots.length === 2
+        ? "grid-cols-2 grid-rows-1"
+        : "grid-cols-2 grid-rows-2";
+
+  return (
+    <div
+      className="group cursor-pointer overflow-hidden rounded-2xl border border-gray-200 bg-gray-100 transition-colors hover:border-gray-300"
+      onClick={onClick}
+    >
+      <div className="relative aspect-[3/4] bg-gray-200">
+        {hasPins && slots.length > 0 ? (
+          <div className={`absolute inset-0 grid gap-0.5 p-1 ${gridClass}`}>
+            {slots.map((url, i) => (
+              <div
+                key={i}
+                className="min-h-0 overflow-hidden rounded-md bg-gray-300"
+              >
+                {url ? (
+                  <img
+                    src={url}
+                    alt=""
+                    className="h-full w-full object-cover"
+                    loading="lazy"
+                  />
+                ) : null}
+              </div>
+            ))}
+          </div>
+        ) : hasPins ? (
+          <div className="absolute inset-0 flex flex-wrap gap-0.5 p-1">
+            {Array.from({ length: Math.min(folder.pinCount, 4) }).map((_, i) => (
+              <div
+                key={i}
+                className="min-h-[45%] min-w-[45%] flex-1 rounded-md bg-gray-300"
+              />
+            ))}
+          </div>
+        ) : (
+          <div className="absolute inset-0 grid grid-cols-2 grid-rows-2 gap-0.5 p-1">
+            {[1, 2, 3, 4].map((i) => (
+              <div key={i} className="rounded-md bg-gray-300" />
+            ))}
+          </div>
+        )}
+      </div>
+      <div className="p-3">
+        <h3 className="truncate font-semibold text-[#5d4e37]">
+          {folder.name}
+        </h3>
+        <p className="mt-0.5 text-xs text-[#5d4e37]/70">
+          {folder.pinCount} {folder.pinCount === 1 ? "Pin" : "Pins"} · {formatRelativeDate(folder.createdAt)}
+        </p>
+      </div>
+    </div>
+  );
+}
+
+function SavedRouteCard({
+  route,
+  onClick,
+}: {
+  route: SavedRouteItem;
+  onClick: () => void;
+}) {
+  return (
+    <div
+      className="cursor-pointer overflow-hidden rounded-3xl border border-gray-200 bg-white shadow-sm transition-colors hover:border-gray-300"
+      onClick={onClick}
+    >
+      <div className="aspect-[16/9] bg-gray-200">
+        {route.previewImage ? (
+          <img
+            src={route.previewImage}
+            alt={route.name}
+            className="h-full w-full object-cover"
+          />
+        ) : (
+          <div
+            className="h-full w-full bg-cover bg-center"
+            style={{ backgroundImage: "url(/images/backgrounds/home1.jpg)" }}
+          />
+        )}
+      </div>
+      <div className="p-4">
+        <h3 className="truncate font-semibold text-[#5d4e37]">
+          {route.name}
+        </h3>
+        <p className="mt-1 text-xs text-[#5d4e37]/70">
+          {route.stopCount} stop{route.stopCount === 1 ? "" : "s"} · {formatRelativeDate(route.createdAt)}
+          {route.transportMode ? ` · ${route.transportMode}` : ""}
+        </p>
+        {route.placeNames.length > 0 && (
+          <p className="mt-2 text-xs text-[#5d4e37]/75">
+            {route.placeNames.join(" · ")}
+            {route.stopCount > route.placeNames.length ? "..." : ""}
+          </p>
+        )}
+      </div>
+    </div>
+  );
 }
 
 interface SavedGridProps {
   folders: FolderItem[];
+  routes: SavedRouteItem[];
   onFolderCreated?: () => void;
   isOwnProfile?: boolean;
   ownerLabel?: string;
@@ -20,6 +147,7 @@ interface SavedGridProps {
 
 export default function SavedGrid({
   folders,
+  routes,
   onFolderCreated,
   isOwnProfile = false,
   ownerLabel = "Your",
@@ -101,51 +229,21 @@ export default function SavedGrid({
         ) : null}
       </div>
 
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
-        {folders.map((folder) => (
-          <div
-            key={folder.id}
-            className="rounded-2xl overflow-hidden bg-gray-100 border border-gray-200 hover:border-gray-300 transition-colors cursor-pointer group"
-            onClick={() =>
-              router.push(
-                `/profile/boards/${folder.id}?name=${encodeURIComponent(folder.name)}`
-              )
-            }
-          >
-            <div className="aspect-[3/4] relative bg-gray-200">
-              {folder.pinCount > 0 ? (
-                <div className="absolute inset-0 flex flex-wrap gap-0.5 p-1">
-                  {Array.from({ length: Math.min(folder.pinCount, 4) }).map((_, i) => (
-                    <div
-                      key={i}
-                      className="flex-1 min-w-[45%] min-h-[45%] rounded-md bg-gray-300"
-                      style={{
-                        backgroundImage: "url(/images/backgrounds/home1.jpg)",
-                        backgroundSize: "cover",
-                        backgroundPosition: "center",
-                      }}
-                    />
-                  ))}
-                </div>
-              ) : (
-                <div className="absolute inset-0 grid grid-cols-2 grid-rows-2 gap-0.5 p-1">
-                  {[1, 2, 3, 4].map((i) => (
-                    <div key={i} className="rounded-md bg-gray-300" />
-                  ))}
-                </div>
-              )}
-            </div>
-            <div className="p-3">
-              <h3 className="font-semibold text-[#5d4e37] truncate">
-                {folder.name}
-              </h3>
-              <p className="text-xs text-[#5d4e37]/70 mt-0.5">
-                {folder.pinCount} {folder.pinCount === 1 ? "Pin" : "Pins"} · {formatRelativeDate(folder.createdAt)}
-              </p>
-            </div>
-          </div>
-        ))}
-      </div>
+      {folders.length > 0 && (
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+          {folders.map((folder) => (
+            <BoardCard
+              key={folder.id}
+              folder={folder}
+              onClick={() =>
+                router.push(
+                  `/profile/boards/${folder.id}?name=${encodeURIComponent(folder.name)}`
+                )
+              }
+            />
+          ))}
+        </div>
+      )}
 
       {folders.length === 0 && !isCreating && (
         <div className="text-center py-16 text-[#5d4e37]/80">
@@ -166,6 +264,33 @@ export default function SavedGrid({
               Create board
             </button>
           )}
+        </div>
+      )}
+
+      <div className="mt-12 mb-4">
+        <h2 className="text-sm font-medium text-[#5d4e37]">
+          {ownerLabel} routes
+        </h2>
+      </div>
+
+      {routes.length > 0 ? (
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+          {routes.map((route) => (
+            <SavedRouteCard
+              key={route.id}
+              route={route}
+              onClick={() => router.push(`/profile/routes/${route.id}`)}
+            />
+          ))}
+        </div>
+      ) : (
+        <div className="text-center py-12 text-[#5d4e37]/80">
+          <p className="font-medium">No saved routes yet</p>
+          <p className="text-sm mt-1">
+            {isOwnProfile
+              ? "Routes you save from the planner will appear here."
+              : "This user has not saved any routes yet."}
+          </p>
         </div>
       )}
     </div>

@@ -1,6 +1,7 @@
 "use client";
 
 import dynamic from "next/dynamic";
+import { useState } from "react";
 import type { PlaceRecommendation } from "@/utils/planner/recommendation";
 import type { RouteStopWhen } from "@/utils/planner/routeBuilderHelpers";
 import { useRouteBuilderState } from "./hooks/useRouteBuilderState";
@@ -17,7 +18,10 @@ const NavigationMode = dynamic(() => import("./NavigationMode"), { ssr: false })
 interface RouteBuilderProps {
   places: PlaceRecommendation[];
   onBack: () => void;
-  onSave?: () => void;
+  onSave?: (route: {
+    placeIds: string[];
+    transportMode: string | null;
+  }) => void | Promise<void>;
   minutesPerPlace?: number;
   timeOfDay?: string[];
   routeStop?: PlaceRecommendation | null;
@@ -33,6 +37,7 @@ export default function RouteBuilder({
   routeStop = null,
   routeStopWhen = "middle",
 }: RouteBuilderProps) {
+  const [saving, setSaving] = useState(false);
   const {
     userLocation,
     setUserLocation,
@@ -63,9 +68,21 @@ export default function RouteBuilder({
     routeStopWhen,
   });
 
-  const handleSave = () => {
-    onSave?.();
-    alert("Route saved.");
+  const handleSave = async () => {
+    if (!onSave || saving || placesWithStop.length === 0) return;
+
+    try {
+      setSaving(true);
+      await onSave({
+        placeIds: placesWithStop.map((place) => place.id),
+        transportMode: transportMode || null,
+      });
+      alert("Route saved.");
+    } catch (error) {
+      alert(error instanceof Error ? error.message : "Failed to save route.");
+    } finally {
+      setSaving(false);
+    }
   };
 
   if (isNavigationMode && userLocation) {
@@ -141,6 +158,7 @@ export default function RouteBuilder({
                 onYallaClick={() => userLocation && setIsNavigationMode(true)}
                 onSave={handleSave}
                 onBack={onBack}
+                saving={saving}
               />
             </div>
           </div>

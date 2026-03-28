@@ -1,3 +1,4 @@
+import { Prisma } from "@prisma/client";
 import { prisma } from "@/lib/prisma";
 
 type BasicUserRecord = {
@@ -43,6 +44,14 @@ type SerializedProfilePlace = {
 
 function normalizeUsername(value: string) {
   return value.trim().replace(/^@+/, "").toLowerCase();
+}
+
+export function decodeUsernamePathSegment(segment: string) {
+  try {
+    return decodeURIComponent(segment);
+  } catch {
+    return segment;
+  }
 }
 
 function getDisplayName(user: BasicUserRecord) {
@@ -256,6 +265,41 @@ export async function getFollowLists(userId: string) {
       .map((row) => serializeProfileListItem(row.following))
       .sort(alphabetical),
   };
+}
+
+export async function isUserFollowing(viewerId: string, targetUserId: string) {
+  if (viewerId === targetUserId) return false;
+  const row = await prisma.follow.findFirst({
+    where: { followerId: viewerId, followingId: targetUserId },
+    select: { followerId: true },
+  });
+  return !!row;
+}
+
+export async function followUser(viewerId: string, targetUserId: string) {
+  if (viewerId === targetUserId) {
+    throw new Error("SELF_FOLLOW");
+  }
+  try {
+    await prisma.follow.create({
+      data: { followerId: viewerId, followingId: targetUserId },
+    });
+    return { created: true as const };
+  } catch (error) {
+    if (
+      error instanceof Prisma.PrismaClientKnownRequestError &&
+      error.code === "P2002"
+    ) {
+      return { created: false as const, alreadyFollowing: true as const };
+    }
+    throw error;
+  }
+}
+
+export async function unfollowUser(viewerId: string, targetUserId: string) {
+  return prisma.follow.deleteMany({
+    where: { followerId: viewerId, followingId: targetUserId },
+  });
 }
 
 export async function searchProfiles(query: string, limit = 10) {

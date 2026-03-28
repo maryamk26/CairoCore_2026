@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 import { createClient } from "@/lib/supabase/client";
 import { useAuth } from "@/lib/hooks/useAuth";
 import { type PlaceItem } from "./CreatedGrid";
-import { type FolderItem } from "./SavedGrid";
+import { type FolderItem, type SavedRouteItem } from "./SavedGrid";
 import ProfileView from "./ProfileView";
 import { type ProfileData } from "./types";
 
@@ -17,6 +17,7 @@ export default function ProfileContent() {
   const [profile, setProfile] = useState<ProfileData | null>(null);
   const [places, setPlaces] = useState<PlaceItem[]>([]);
   const [folders, setFolders] = useState<FolderItem[]>([]);
+  const [routes, setRoutes] = useState<SavedRouteItem[]>([]);
   const [loading, setLoading] = useState(true);
   const [fetchError, setFetchError] = useState<string | null>(null);
 
@@ -66,6 +67,7 @@ export default function ProfileContent() {
         });
         setPlaces(data.places ?? []);
         setFolders(data.folders ?? []);
+        setRoutes(data.routes ?? []);
       })
       .catch((err) => {
         if (cancelled) return;
@@ -137,6 +139,7 @@ export default function ProfileContent() {
       profile={profile}
       places={places}
       folders={folders}
+      routes={routes}
       isOwnProfile
       followsEndpoint="/api/profile/follows"
       onFolderCreated={fetchFolders}

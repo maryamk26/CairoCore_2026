@@ -12,6 +12,8 @@ interface PublicProfileContentProps {
 export default function PublicProfileContent({ username }: PublicProfileContentProps) {
   const [profile, setProfile] = useState<ProfileData | null>(null);
   const [places, setPlaces] = useState<PlaceItem[]>([]);
+  const [viewerFollows, setViewerFollows] = useState<boolean | null>(null);
+  const [isViewerOwner, setIsViewerOwner] = useState(false);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
@@ -22,7 +24,9 @@ export default function PublicProfileContent({ username }: PublicProfileContentP
       try {
         setLoading(true);
         setError(null);
-        const res = await fetch(`/api/users/${encodeURIComponent(username)}/page`);
+        const res = await fetch(`/api/users/${encodeURIComponent(username)}/page`, {
+          credentials: "include",
+        });
         const data = await res.json().catch(() => ({}));
 
         if (cancelled) return;
@@ -36,6 +40,11 @@ export default function PublicProfileContent({ username }: PublicProfileContentP
 
         setProfile(data.profile);
         setPlaces(data.places ?? []);
+        const owner = !!data.isViewerOwner;
+        setIsViewerOwner(owner);
+        setViewerFollows(
+          owner ? null : typeof data.viewerFollows === "boolean" ? data.viewerFollows : null
+        );
       } catch {
         if (cancelled) return;
         setError("Could not load profile.");
@@ -70,9 +79,15 @@ export default function PublicProfileContent({ username }: PublicProfileContentP
       profile={profile}
       places={places}
       folders={[]}
-      isOwnProfile={false}
-      followsEndpoint={`/api/users/${encodeURIComponent(profile.usernameRaw)}/follows`}
+      routes={[]}
+      isOwnProfile={isViewerOwner}
+      followsEndpoint={
+        isViewerOwner
+          ? "/api/profile/follows"
+          : `/api/users/${encodeURIComponent(profile.usernameRaw)}/follows`
+      }
       showSavedTab={false}
+      viewerFollows={isViewerOwner ? undefined : viewerFollows}
     />
   );
 }

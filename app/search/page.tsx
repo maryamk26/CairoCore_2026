@@ -1,13 +1,15 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
-import { useRouter } from "next/navigation";
+import { Suspense, useEffect, useRef, useState } from "react";
+import { useRouter, useSearchParams } from "next/navigation";
 import SearchHero from "@/components/search/SearchHero";
 import SearchSuggestions from "@/components/search/SearchSuggestions";
 import PopularSearches from "@/components/search/PopularSearches";
 import type { SearchType, Suggestion } from "@/components/search/types";
 
-export default function SearchPage() {
+function SearchContent() {
+  const router = useRouter();
+  const searchParams = useSearchParams();
   const [searchQuery, setSearchQuery] = useState("");
   const [searchType, setSearchType] = useState<SearchType>("places");
   const [showSuggestions, setShowSuggestions] = useState(false);
@@ -15,9 +17,13 @@ export default function SearchPage() {
   const [people, setPeople] = useState<Suggestion[]>([]);
   const [placesLoading, setPlacesLoading] = useState(true);
   const [peopleLoading, setPeopleLoading] = useState(false);
-  const router = useRouter();
   const searchInputRef = useRef<HTMLInputElement>(null);
   const suggestionsRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const q = searchParams.get("q");
+    if (q !== null) setSearchQuery(q);
+  }, [searchParams]);
 
   useEffect(() => {
     let cancelled = false;
@@ -33,7 +39,9 @@ export default function SearchPage() {
       .finally(() => {
         if (!cancelled) setPlacesLoading(false);
       });
-    return () => { cancelled = true; };
+    return () => {
+      cancelled = true;
+    };
   }, []);
 
   useEffect(() => {
@@ -108,12 +116,16 @@ export default function SearchPage() {
   }, []);
 
   const handleSuggestionClick = (suggestion: Suggestion) => {
-    setSearchQuery(suggestion.title);
     setShowSuggestions(false);
-    if (suggestion.type === "place") router.push(`/places/${suggestion.id}`);
-    if (suggestion.type === "person") {
-      router.push(`/users/${suggestion.subtitle.replace(/^@/, "")}`);
+    if (suggestion.type === "place") {
+      const qs = new URLSearchParams({ from: "search" });
+      const q = searchQuery.trim();
+      if (q) qs.set("q", q);
+      router.push(`/places/${suggestion.id}?${qs.toString()}`);
+      return;
     }
+    setSearchQuery(suggestion.title);
+    router.push(`/users/${suggestion.subtitle.replace(/^@/, "")}`);
   };
 
   const handleSearchTypeChange = (type: SearchType) => {
@@ -129,7 +141,7 @@ export default function SearchPage() {
   };
 
   return (
-    <div className="relative min-h-screen flex flex-col overflow-hidden">
+    <div className="relative flex min-h-screen flex-col overflow-hidden">
       <div className="absolute inset-0 z-0">
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
@@ -141,8 +153,8 @@ export default function SearchPage() {
         <div className="absolute inset-0 bg-gradient-to-br from-[#5d4e37]/40 via-[#8b6f47]/30 to-[#5d4e37]/40" />
       </div>
 
-      <div className="relative z-10 flex-1 flex flex-col items-center justify-center px-4 pt-24 pb-16 md:pt-32 md:pb-24">
-        <div className="w-full max-w-3xl relative">
+      <div className="relative z-10 flex flex-1 flex-col items-center justify-center px-4 pb-16 pt-24 md:pt-32 md:pb-24">
+        <div className="relative w-full max-w-3xl">
           <SearchHero
             searchType={searchType}
             onSearchTypeChange={handleSearchTypeChange}
@@ -175,5 +187,19 @@ export default function SearchPage() {
         </div>
       </div>
     </div>
+  );
+}
+
+export default function SearchPage() {
+  return (
+    <Suspense
+      fallback={
+        <div className="flex min-h-screen items-center justify-center bg-[#5d4e37]">
+          <p className="font-cinzel text-white">Loading...</p>
+        </div>
+      }
+    >
+      <SearchContent />
+    </Suspense>
   );
 }
