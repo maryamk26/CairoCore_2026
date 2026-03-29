@@ -2,7 +2,6 @@
 
 import { useState, useEffect, useCallback } from "react";
 import { useRouter } from "next/navigation";
-import { createClient } from "@/lib/supabase/client";
 import { useAuth } from "@/lib/hooks/useAuth";
 import { type PlaceItem } from "./CreatedGrid";
 import { type FolderItem, type SavedRouteItem } from "./SavedGrid";
@@ -13,7 +12,7 @@ const PROFILE_FETCH_TIMEOUT_MS = 10000;
 
 export default function ProfileContent() {
   const router = useRouter();
-  const { user, isLoading: authLoading } = useAuth();
+  const { user, isLoading: authLoading, signOut } = useAuth();
   const [profile, setProfile] = useState<ProfileData | null>(null);
   const [places, setPlaces] = useState<PlaceItem[]>([]);
   const [folders, setFolders] = useState<FolderItem[]>([]);
@@ -22,9 +21,9 @@ export default function ProfileContent() {
   const [fetchError, setFetchError] = useState<string | null>(null);
 
   const clearSessionAndRedirect = useCallback(async () => {
-    await createClient().auth.signOut();
+    await signOut();
     router.replace("/auth");
-  }, [router]);
+  }, [router, signOut]);
 
   const fetchFolders = useCallback(async () => {
     const res = await fetch("/api/profile/folders");

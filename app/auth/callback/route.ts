@@ -1,5 +1,6 @@
 import { createServerClient } from "@supabase/ssr";
 import { upsertUser } from "@/lib/db/user";
+import { getSupabasePublishableKey, getSupabaseUrl } from "@/lib/supabase/env";
 import { NextRequest, NextResponse } from "next/server";
 
 export async function GET(request: NextRequest) {
@@ -7,8 +8,8 @@ export async function GET(request: NextRequest) {
   const code = searchParams.get("code");
   const next = searchParams.get("next") ?? searchParams.get("redirect") ?? "/";
 
-  const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
-  const key = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+  const url = getSupabaseUrl();
+  const key = getSupabasePublishableKey();
   if (!url || !key) {
     return NextResponse.redirect(`${origin}/auth/auth-code-error`);
   }

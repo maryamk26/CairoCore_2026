@@ -1,6 +1,5 @@
 import { useState, useEffect, useMemo, useRef, useCallback } from "react";
 import type { PlaceRecommendation } from "@/utils/planner/recommendation";
-import { optimizeRouteFromLocation } from "@/utils/algorithms/routeOptimization";
 import { getPreferredWindow } from "@/utils/planner/routeConstants";
 import { fetchOsrmRoute } from "@/utils/planner/osrm";
 import {
@@ -87,16 +86,38 @@ export function useRouteBuilderState({
       : null;
     if (lastKey === startKey) return;
     lastStartRef.current = { lat: userLocation.lat, lng: userLocation.lng };
-    const withLoc = orderedPlaces.map((p) => ({
-      id: p.id,
-      lat: p.latitude,
-      lng: p.longitude,
-    }));
-    const result = optimizeRouteFromLocation(withLoc, {
-      lat: userLocation.lat,
-      lng: userLocation.lng,
-    });
-    setOrderedPlaces(result.order.map((i) => orderedPlaces[i]));
+
+    const snapshot = orderedPlaces;
+    const ac = new AbortController();
+
+    void (async () => {
+      try {
+        const res = await fetch("/api/planner/optimize", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            userLocation: { lat: userLocation.lat, lng: userLocation.lng },
+            stops: snapshot.map((p) => ({
+              id: p.id,
+              lat: p.latitude,
+              lng: p.longitude,
+            })),
+          }),
+          signal: ac.signal,
+        });
+        if (!res.ok || ac.signal.aborted) return;
+        const data = (await res.json()) as { order?: number[] };
+        if (
+          !Array.isArray(data.order) ||
+          data.order.length !== snapshot.length ||
+          ac.signal.aborted
+        )
+          return;
+        setOrderedPlaces(data.order.map((i) => snapshot[i]));
+      } catch {}
+    })();
+
+    return () => ac.abort();
   }, [userLocation, orderedPlaces]);
 
   useEffect(() => {

@@ -2,7 +2,6 @@
 
 import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
-import { createClient } from "@/lib/supabase/client";
 import { useRouter } from "next/navigation";
 import { useAuth } from "@/lib/hooks/useAuth";
 
@@ -10,8 +9,7 @@ export default function UserButton() {
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
   const router = useRouter();
-  const { user } = useAuth();
-  const supabase = createClient();
+  const { user, signOut } = useAuth();
 
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
@@ -27,17 +25,22 @@ export default function UserButton() {
   }, []);
 
   const handleSignOut = async () => {
-    await supabase.auth.signOut();
-    router.push("/");
     setIsOpen(false);
+    await signOut();
+    router.push("/");
+    router.refresh();
   };
 
-  const userInitials = user?.user_metadata?.first_name?.[0]?.toUpperCase() ||
-                       user?.email?.[0]?.toUpperCase() ||
-                       "U";
-  const userName = user?.user_metadata?.first_name ||
-                   user?.email?.split("@")[0] ||
-                   "User";
+  const firstName = user?.user_metadata?.first_name;
+  const firstInitial =
+    typeof firstName === "string" && firstName.length > 0
+      ? firstName[0]!.toUpperCase()
+      : user?.email?.[0]?.toUpperCase() ?? "U";
+  const userInitials = firstInitial;
+  const userName =
+    (typeof firstName === "string" && firstName) ||
+    user?.email?.split("@")[0] ||
+    "User";
 
   return (
     <div className="relative" ref={dropdownRef}>

@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { createClient } from "@/lib/supabase/client";
 import Link from "next/link";
 
 export default function ClearSessionPage() {
@@ -9,8 +8,7 @@ export default function ClearSessionPage() {
 
   useEffect(() => {
     const run = async () => {
-      const supabase = createClient();
-      await supabase.auth.signOut();
+      await fetch("/api/auth/sign-out", { method: "POST", credentials: "same-origin" });
 
       if (typeof document !== "undefined") {
         document.cookie.split(";").forEach((c) => {
@@ -23,7 +21,7 @@ export default function ClearSessionPage() {
 
       setDone(true);
     };
-    run();
+    void run();
   }, []);
 
   return (
@@ -31,9 +29,7 @@ export default function ClearSessionPage() {
       <div className="max-w-md text-center">
         {done ? (
           <>
-            <h1 className="text-xl font-bold text-gray-900 mb-2">
-              Session cleared
-            </h1>
+            <h1 className="text-xl font-bold text-gray-900 mb-2">Session cleared</h1>
             <p className="text-gray-600 mb-6">
               You’re signed out and cookies were cleared. Use the link below to go home and sign in again.
             </p>

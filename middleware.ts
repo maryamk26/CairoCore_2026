@@ -12,7 +12,7 @@ const publicRoutes = [
   "/users",
   "/clear-session",
   "/api/webhooks",
-  "/api/auth/session",
+  "/api/auth",
   "/api/places",
   "/api/users",
   "/auth/callback",
