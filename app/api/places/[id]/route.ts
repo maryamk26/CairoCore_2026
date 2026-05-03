@@ -1,7 +1,10 @@
 import { NextRequest, NextResponse } from "next/server";
+import { revalidateTag } from "next/cache";
 import { prisma } from "@/lib/prisma";
 import { createClient } from "@/lib/supabase/server";
 import { updatePlace } from "@/lib/db/place";
+import { CACHE_TAGS, placeTag } from "@/lib/cache/tags";
+import { getPlaceDetailById } from "@/lib/places/detail";
 import type { PlaceVibe } from "@prisma/client";
 import {
   PLACE_TYPE_VALUES,
@@ -18,51 +21,16 @@ function parseNum(val: unknown): number | null {
 }
 
 export async function GET(
-  request: NextRequest,
+  _request: NextRequest,
   { params }: { params: Promise<{ id: string }> }
 ) {
   try {
     const { id } = await params;
-    const place = await prisma.place.findUnique({ where: { id } });
-
+    const place = await getPlaceDetailById(id);
     if (!place) {
       return NextResponse.json({ error: "Place not found" }, { status: 404 });
     }
-
-    const vibeArr = place.vibes?.length ? place.vibes : place.vibe ? [place.vibe] : [];
-    let workingHours: unknown = place.openingHours ?? null;
-    if (typeof place.openingHours === "string" && place.openingHours.trim().startsWith("{")) {
-      try {
-        workingHours = JSON.parse(place.openingHours) as Record<string, { open: string; close: string } | "closed">;
-      } catch {
-        workingHours = place.openingHours;
-      }
-    }
-
-    return NextResponse.json({
-      id: place.id,
-      type: place.type,
-      title: place.name,
-      description: place.description ?? "",
-      images: place.images ?? [],
-      location: {
-        address: place.address ?? "",
-        lat: place.latitude,
-        lng: place.longitude,
-      },
-      city: place.city ?? null,
-      workingHours,
-      entryFees: place.entranceFee,
-      cameraFees: place.cameraFee,
-      vibe: vibeArr,
-      tags: place.tags ?? [],
-      createdBy: place.createdBy ?? null,
-      petsFriendly: place.petsFriendly ?? false,
-      kidsFriendly: place.kidsFriendly ?? true,
-      elderlyFriendly: place.elderlyFriendly ?? null,
-      bestTimeToVisit: place.bestVisitTime ? { timeOfDay: [place.bestVisitTime] } : null,
-      category: place.category ?? "other",
-    });
+    return NextResponse.json(place);
   } catch (error) {
     console.error("Place fetch error:", error);
     return NextResponse.json({ error: "Failed to fetch place" }, { status: 500 });
@@ -128,6 +96,9 @@ export async function PATCH(
       return NextResponse.json({ error: "Place not found or you cannot edit it" }, { status: 404 });
     }
 
+    revalidateTag(CACHE_TAGS.placesList, "max");
+    revalidateTag(placeTag(id), "max");
+
     return NextResponse.json({
       place: {
         id: updated.id,
@@ -169,6 +140,8 @@ export async function DELETE(
     }
 
     await prisma.place.delete({ where: { id } });
+    revalidateTag(CACHE_TAGS.placesList, "max");
+    revalidateTag(placeTag(id), "max");
     return NextResponse.json({ ok: true });
   } catch (err) {
     console.error("Delete place failed:", err);

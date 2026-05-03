@@ -9,6 +9,7 @@ type PlaceSummary = {
   title: string;
   subtitle: string;
   category: string;
+  image?: string | null;
 };
 
 export default function MarketingHome() {
@@ -78,10 +79,18 @@ export default function MarketingHome() {
                     className="group overflow-hidden rounded-lg bg-[#5d4e37] hover:bg-[#8b6f47] transition-all duration-300"
                   >
                     <div className="aspect-[3/4] relative overflow-hidden bg-[#8b6f47]/50">
-                      <div
-                        className="w-full h-full bg-cover bg-center group-hover:scale-110 transition-transform duration-500"
-                        style={{ backgroundImage: "url(/images/backgrounds/home1.jpg)" }}
-                      />
+                      {place.image ? (
+                        <img
+                          src={place.image}
+                          alt=""
+                          className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
+                        />
+                      ) : (
+                        <div
+                          className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
+                          style={{ backgroundImage: "url(/images/backgrounds/home1.jpg)" }}
+                        />
+                      )}
                       <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
                       <div className="absolute bottom-0 left-0 right-0 p-4">
                         <div className="flex items-center gap-2 mb-1">

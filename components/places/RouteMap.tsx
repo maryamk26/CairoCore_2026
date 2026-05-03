@@ -79,27 +79,32 @@ function MapBoundsUpdater({ places }: { places: Place[] }) {
   return null;
 }
 
-async function fetchRoute(places: Place[]): Promise<L.LatLng[][] | null> {
+async function fetchRoute(places: Place[]): Promise<L.LatLngExpression[][] | null> {
   if (places.length < 2) return null;
 
   try {
-    const coordinates = places.map((place) => `${place.lng},${place.lat}`).join(";");
-    const url = `https://router.project-osrm.org/route/v1/driving/${coordinates}?overview=full&geometries=geojson`;
-
-    const response = await fetch(url);
+    const [start, ...rest] = places;
+    const response = await fetch("/api/routing/osrm", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        start: { lat: start.lat, lng: start.lng },
+        places: rest.map((place) => ({
+          latitude: place.lat,
+          longitude: place.lng,
+        })),
+        transportMode: "car",
+      }),
+    });
     if (!response.ok) {
-      throw new Error(`OSRM API error: ${response.status}`);
+      throw new Error(`Routing API error: ${response.status}`);
     }
 
-    const data = await response.json();
-
-    if (data.code === "Ok" && data.routes && data.routes.length > 0) {
-      const geometry = data.routes[0].geometry.coordinates;
-      const routePoints = geometry.map(([lng, lat]: [number, number]) =>
-        [lat, lng] as [number, number]
-      );
-      return [routePoints];
-    }
+    const data = (await response.json()) as {
+      result?: { routeCoordinates?: [number, number][] };
+    };
+    const routePoints = data.result?.routeCoordinates;
+    if (Array.isArray(routePoints) && routePoints.length > 0) return [routePoints];
 
     return null;
   } catch {
@@ -108,7 +113,7 @@ async function fetchRoute(places: Place[]): Promise<L.LatLng[][] | null> {
 }
 
 export default function RouteMap({ places, height = "500px" }: RouteMapProps) {
-  const [routeCoordinates, setRouteCoordinates] = useState<L.LatLng[][] | null>(null);
+  const [routeCoordinates, setRouteCoordinates] = useState<L.LatLngExpression[][] | null>(null);
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {

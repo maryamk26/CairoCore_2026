@@ -11,16 +11,16 @@ function dbPlaceToInput(place: {
   latitude: number;
   longitude: number;
   address: string | null;
-  openingHours: string | null;
   entranceFee: number | null;
   cameraFee: number | null;
   vibe: string | null;
+  vibes: string[];
   images: string[];
   kidsFriendly: boolean | null;
-  elderlyFriendly: boolean | null;
   petsFriendly: boolean | null;
 }) {
-  const vibeArr = place.vibe ? [place.vibe] : [];
+  const vibeArr =
+    place.vibes?.length > 0 ? [...place.vibes] : place.vibe ? [place.vibe] : [];
   return {
     id: place.id,
     name: place.name,
@@ -63,13 +63,12 @@ export async function POST(request: NextRequest) {
         latitude: true,
         longitude: true,
         address: true,
-        openingHours: true,
         entranceFee: true,
         cameraFee: true,
         vibe: true,
+        vibes: true,
         images: true,
         kidsFriendly: true,
-        elderlyFriendly: true,
         petsFriendly: true,
       },
     });

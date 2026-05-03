@@ -2,7 +2,6 @@
   "name": "cairocore",
   "version": "1.0.0",
   "description": "A website for discovering and sharing historical places, museums, hidden gems, and famous spots in Cairo, Egypt.",
-  "main": "index.js",
   "scripts": {
     "dev": "cross-env NODE_OPTIONS=--max-http-header-size=524288 next dev",
     "dev:webpack": "cross-env NODE_OPTIONS=--max-http-header-size=524288 next dev --webpack",

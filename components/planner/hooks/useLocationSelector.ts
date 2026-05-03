@@ -17,10 +17,6 @@ export interface SearchResult {
 
 export type LocationSelectorMode = "browser" | "search" | "saved";
 
-const NOMINATIM_URL =
-  "https://nominatim.openstreetmap.org/search?" +
-  "countrycodes=eg&viewbox=29.5,29.5,32.5,31.5&bounded=1&limit=5&format=json&addressdetails=1";
-
 export function useLocationSelector(
   onLocationSelect: (location: {
     lat: number;
@@ -61,28 +57,10 @@ export function useLocationSelector(
   const searchLocations = useCallback(async (query: string) => {
     setIsSearching(true);
     try {
-      const response = await fetch(
-        `${NOMINATIM_URL}&q=${encodeURIComponent(query)}`,
-        { headers: { "User-Agent": "CairoCore/1.0" } }
-      );
+      const response = await fetch(`/api/geocode?q=${encodeURIComponent(query)}`);
       if (response.ok) {
         const data = await response.json();
-        setSearchResults(
-          data.map(
-            (item: {
-              place_id: number;
-              lon: string;
-              lat: string;
-              display_name: string;
-              name?: string;
-            }) => ({
-              id: item.place_id.toString(),
-              place_name: item.display_name,
-              center: [parseFloat(item.lon), parseFloat(item.lat)],
-              text: item.name || item.display_name.split(",")[0],
-            })
-          )
-        );
+        setSearchResults(Array.isArray(data.results) ? data.results : []);
       } else {
         setSearchResults([]);
       }

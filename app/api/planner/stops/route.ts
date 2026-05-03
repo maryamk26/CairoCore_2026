@@ -13,11 +13,13 @@ function toRecommendationShape(place: {
   entranceFee: number | null;
   cameraFee: number | null;
   vibe: string | null;
+  vibes: string[];
   images: string[];
   kidsFriendly: boolean | null;
   petsFriendly: boolean | null;
 }) {
-  const vibeArr = place.vibe ? [place.vibe] : [];
+  const vibeArr =
+    place.vibes?.length > 0 ? [...place.vibes] : place.vibe ? [place.vibe] : [];
   return {
     id: place.id,
     title: place.name,
@@ -63,6 +65,7 @@ export async function GET(request: NextRequest) {
         entranceFee: true,
         cameraFee: true,
         vibe: true,
+        vibes: true,
         images: true,
         kidsFriendly: true,
         petsFriendly: true,

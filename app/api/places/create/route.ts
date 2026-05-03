@@ -1,7 +1,9 @@
 import { NextRequest, NextResponse } from "next/server";
+import { revalidateTag } from "next/cache";
 import { createClient } from "@/lib/supabase/server";
 import { upsertUser } from "@/lib/db/user";
 import { createPlace } from "@/lib/db/place";
+import { CACHE_TAGS, placeTag } from "@/lib/cache/tags";
 import { PlaceCategory, PlaceVibe } from "@prisma/client";
 
 function validCoord(value: unknown, min: number, max: number): value is number {
@@ -78,6 +80,9 @@ export async function POST(request: NextRequest) {
       },
       user.id
     );
+
+    revalidateTag(CACHE_TAGS.placesList, "max");
+    revalidateTag(placeTag(place.id), "max");
 
     return NextResponse.json({ place }, { status: 201 });
   } catch (err) {

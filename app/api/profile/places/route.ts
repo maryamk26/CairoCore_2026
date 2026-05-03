@@ -1,7 +1,9 @@
 import { NextResponse } from "next/server";
+import { revalidateTag } from "next/cache";
 import { createClient } from "@/lib/supabase/server";
 import { prisma } from "@/lib/prisma";
 import { createPlace } from "@/lib/db/place";
+import { CACHE_TAGS, placeTag } from "@/lib/cache/tags";
 import {
   PLACE_TYPE_VALUES,
   PLACE_CATEGORY_VALUES,
@@ -131,6 +133,9 @@ export async function POST(request: Request) {
       },
       user.id
     );
+
+    revalidateTag(CACHE_TAGS.placesList, "max");
+    revalidateTag(placeTag(place.id), "max");
 
     return NextResponse.json({
       place: {
