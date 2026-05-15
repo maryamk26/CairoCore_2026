@@ -2,7 +2,7 @@
 
 Website for discovering places in cairo (museums, markets, cafés, etc). Feed, search, place pages, save to boards, route planner with a small survey.
 
-next.js + prisma/postgres + supabase + leaflet. folder structure is in ARCHITECTURE.md if you need it.
+next.js + prisma/postgres + supabase + leaflet. routes in `app/`, ui in `components/`, server stuff in `lib/` + `utils/`.
 
 ## setup
 
