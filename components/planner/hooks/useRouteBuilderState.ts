@@ -1,4 +1,5 @@
 import { useState, useEffect, useMemo, useRef, useCallback } from "react";
+import type { RouteMapPlace } from "@/components/planner/routeMapPlace";
 import type { PlaceRecommendation } from "@/utils/planner/recommendation";
 import { getPreferredWindow } from "@/utils/planner/routeConstants";
 import { fetchOsrmRoute } from "@/utils/planner/osrm";
@@ -27,15 +28,6 @@ export interface TripStats {
   totalTime: number;
 }
 
-export interface MapPlace {
-  id: string;
-  title: string;
-  lat: number;
-  lng: number;
-  address?: string;
-  category?: string;
-}
-
 export function useRouteBuilderState({
   places,
   minutesPerPlaceProp,
@@ -62,9 +54,7 @@ export function useRouteBuilderState({
 
   const placesWithStop = useMemo(
     () =>
-      routeStop
-        ? insertStopIntoRoute(orderedPlaces, routeStop, routeStopWhen)
-        : orderedPlaces,
+      routeStop ? insertStopIntoRoute(orderedPlaces, routeStop, routeStopWhen) : orderedPlaces,
     [orderedPlaces, routeStop, routeStopWhen]
   );
 
@@ -162,13 +152,7 @@ export function useRouteBuilderState({
   }, [userLocation, transportMode, placesWithStop]);
 
   const fallbackStats = useMemo(
-    () =>
-      calculateTripStats(
-        userLocation,
-        placesWithStop,
-        transportMode,
-        minutesPerPlace
-      ),
+    () => calculateTripStats(userLocation, placesWithStop, transportMode, minutesPerPlace),
     [userLocation, placesWithStop, transportMode, minutesPerPlace]
   );
 
@@ -183,20 +167,13 @@ export function useRouteBuilderState({
     return fallbackStats;
   }, [liveRoute, transportMode, fallbackStats, visitTimeMinutes]);
 
-  const canCalculateWholeTrip = !!(
-    userLocation &&
-    transportMode &&
-    placesWithStop.length > 0
-  );
+  const canCalculateWholeTrip = !!(userLocation && transportMode && placesWithStop.length > 0);
   const wholeTripMinutes = canCalculateWholeTrip ? tripStats.totalTime : 0;
   const fromLiveMap = !!(liveRoute && liveRoute.forMode === transportMode);
   const preferredWindow = getPreferredWindow(timeOfDay);
   const tripExceedsPreferredTime =
     preferredWindow != null && wholeTripMinutes > preferredWindow.minutes;
-  const totalCostEgp = placesWithStop.reduce(
-    (sum, p) => sum + (p.entryFees || 0),
-    0
-  );
+  const totalCostEgp = placesWithStop.reduce((sum, p) => sum + (p.entryFees || 0), 0);
 
   const movePlace = useCallback(
     (displayIndex: number, direction: "up" | "down") => {
@@ -208,8 +185,7 @@ export function useRouteBuilderState({
       );
       if (mainIndex === null) return;
       const newPlaces = [...orderedPlaces];
-      const newDisplayIndex =
-        direction === "up" ? displayIndex - 1 : displayIndex + 1;
+      const newDisplayIndex = direction === "up" ? displayIndex - 1 : displayIndex + 1;
       if (newDisplayIndex === stopDisplayIndex) return;
       const newMainIndex = displayIndexToMainIndex(
         newDisplayIndex,
@@ -217,12 +193,7 @@ export function useRouteBuilderState({
         stopDisplayIndex,
         routeStopWhen
       );
-      if (
-        newMainIndex === null ||
-        newMainIndex < 0 ||
-        newMainIndex >= newPlaces.length
-      )
-        return;
+      if (newMainIndex === null || newMainIndex < 0 || newMainIndex >= newPlaces.length) return;
       if (mainIndex < 0 || mainIndex >= newPlaces.length) return;
       [newPlaces[mainIndex], newPlaces[newMainIndex]] = [
         newPlaces[newMainIndex],
@@ -230,12 +201,7 @@ export function useRouteBuilderState({
       ];
       setOrderedPlaces(newPlaces);
     },
-    [
-      orderedPlaces,
-      routeStop,
-      stopDisplayIndex,
-      routeStopWhen,
-    ]
+    [orderedPlaces, routeStop, stopDisplayIndex, routeStopWhen]
   );
 
   const removePlace = useCallback(
@@ -253,8 +219,7 @@ export function useRouteBuilderState({
   );
 
   const requestLocation = useCallback(() => {
-    if (typeof navigator === "undefined" || !("geolocation" in navigator))
-      return;
+    if (typeof navigator === "undefined" || !("geolocation" in navigator)) return;
     setIsLoadingLocation(true);
     navigator.geolocation.getCurrentPosition(
       (position) => {
@@ -273,8 +238,8 @@ export function useRouteBuilderState({
     );
   }, []);
 
-  const mapPlaces = useMemo((): MapPlace[] => {
-    const toMapPlace = (p: PlaceRecommendation): MapPlace => ({
+  const mapPlaces = useMemo((): RouteMapPlace[] => {
+    const toMapPlace = (p: PlaceRecommendation): RouteMapPlace => ({
       id: p.id,
       title: p.title,
       lat: p.latitude,

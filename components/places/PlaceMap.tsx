@@ -2,7 +2,6 @@
 
 import { useEffect } from "react";
 import { MapContainer, TileLayer, Marker, Popup, useMap } from "react-leaflet";
-import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 import { setLeafletDefaultIcon } from "@/lib/map/leafletDefaults";
 
@@ -33,7 +32,7 @@ export default function PlaceMap({
   title,
   address,
   height = "400px",
-  zoom = 15
+  zoom = 15,
 }: PlaceMapProps) {
   if (typeof window === "undefined") {
     return (
@@ -70,5 +69,3 @@ export default function PlaceMap({
     </div>
   );
 }
-
-

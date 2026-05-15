@@ -50,8 +50,7 @@ export async function POST(request: NextRequest) {
 
     const transportMode = body.transportMode ?? "";
     const coordinates = points.map((p) => `${p.lng},${p.lat}`).join(";");
-    const profileForRequest: "car" | "foot" =
-      transportMode === "walk" ? "foot" : "car";
+    const profileForRequest: "car" | "foot" = transportMode === "walk" ? "foot" : "car";
 
     const data = await fetchOsrmByProfile(coordinates, profileForRequest);
     if (!data?.routes?.[0] || data.code !== "Ok") {
@@ -62,9 +61,9 @@ export async function POST(request: NextRequest) {
         }
         const distanceKm = carData.routes[0].distance / 1000;
         const durationMinutes = Math.round((distanceKm / SPEED_KMH.walk) * 60);
-        const routeCoordinates = (
-          carData.routes[0].geometry?.coordinates ?? []
-        ).map(([lng, lat]) => [lat, lng] as [number, number]);
+        const routeCoordinates = (carData.routes[0].geometry?.coordinates ?? []).map(
+          ([lng, lat]) => [lat, lng] as [number, number]
+        );
         return NextResponse.json({
           result: {
             distanceKm,

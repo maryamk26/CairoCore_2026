@@ -14,7 +14,9 @@ export default function PopularSearches({ visible, onTagClick, inputRef }: Popul
   return (
     <div
       className={`mt-8 text-center transition-opacity duration-300 ${
-        visible ? "opacity-0 invisible pointer-events-none" : "opacity-100 visible pointer-events-auto"
+        visible
+          ? "opacity-0 invisible pointer-events-none"
+          : "opacity-100 visible pointer-events-auto"
       }`}
     >
       <p className="font-cinzel text-white text-base md:text-lg lg:text-xl mb-4 font-semibold">

@@ -12,10 +12,7 @@ export interface OptimizedRoute {
   estimatedTime: number;
 }
 
-export function nearestNeighborRoute(
-  places: PlaceWithLocation[],
-  startIndex: number = 0
-): OptimizedRoute {
+function nearestNeighborRoute(places: PlaceWithLocation[], startIndex: number = 0): OptimizedRoute {
   if (places.length <= 1) {
     return {
       order: [0],

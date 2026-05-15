@@ -37,10 +37,7 @@ export async function POST(request: NextRequest) {
     });
 
     if (signInError) {
-      return NextResponse.json(
-        { error: "Current password is incorrect" },
-        { status: 400 }
-      );
+      return NextResponse.json({ error: "Current password is incorrect" }, { status: 400 });
     }
 
     const { error: updateError } = await supabase.auth.updateUser({
@@ -82,9 +79,6 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ ok: true });
   } catch (err) {
     console.error("Password update failed:", err);
-    return NextResponse.json(
-      { error: "Failed to update password" },
-      { status: 500 }
-    );
+    return NextResponse.json({ error: "Failed to update password" }, { status: 500 });
   }
 }

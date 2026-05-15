@@ -67,9 +67,13 @@ export default function EditProfilePage() {
         setForm(state);
       })
       .catch(() => setError("Failed to load profile"))
-      .finally(() => { if (!cancelled) setLoading(false); });
+      .finally(() => {
+        if (!cancelled) setLoading(false);
+      });
 
-    return () => { cancelled = true; };
+    return () => {
+      cancelled = true;
+    };
   }, [user, authLoading, router]);
 
   const handleReset = () => {
@@ -102,8 +106,10 @@ export default function EditProfilePage() {
 
       if (form.newPassword || form.confirmPassword) {
         if (!form.currentPassword) throw new Error("Enter your current password to change it");
-        if (form.newPassword !== form.confirmPassword) throw new Error("New passwords do not match");
-        if (form.newPassword.length < 6) throw new Error("New password must be at least 6 characters");
+        if (form.newPassword !== form.confirmPassword)
+          throw new Error("New passwords do not match");
+        if (form.newPassword.length < 6)
+          throw new Error("New password must be at least 6 characters");
 
         const pwRes = await fetch("/api/profile/password", {
           method: "POST",
@@ -153,21 +159,14 @@ export default function EditProfilePage() {
           ← Back to profile
         </Link>
 
-        <h1
-          className="text-2xl font-bold text-[#5d4e37] mb-1 font-cinzel"
-        >
-          Edit profile
-        </h1>
+        <h1 className="text-2xl font-bold text-[#5d4e37] mb-1 font-cinzel">Edit profile</h1>
         <p className="text-[#5d4e37]/80 text-sm mb-8">
-          Keep your personal details private. Information you add here is visible to anyone who can view your profile.
+          Keep your personal details private. Information you add here is visible to anyone who can
+          view your profile.
         </p>
 
         <form onSubmit={handleSubmit} className="space-y-6">
-          {error && (
-            <div className="p-3 rounded-lg bg-red-50 text-red-700 text-sm">
-              {error}
-            </div>
-          )}
+          {error && <div className="p-3 rounded-lg bg-red-50 text-red-700 text-sm">{error}</div>}
 
           <div className="flex flex-col gap-1">
             <label htmlFor="firstName" className="text-sm font-medium text-[#5d4e37]">
@@ -203,7 +202,9 @@ export default function EditProfilePage() {
               id="username"
               type="text"
               value={form.username}
-              onChange={(e) => setForm((p) => ({ ...p, username: e.target.value.replace(/^@/, "") }))}
+              onChange={(e) =>
+                setForm((p) => ({ ...p, username: e.target.value.replace(/^@/, "") }))
+              }
               placeholder={(user?.email || "").split("@")[0] || "Username"}
               className="w-full px-3 py-2 border border-[#5d4e37]/30 rounded-lg text-[#5d4e37] placeholder:text-[#5d4e37]/50 focus:ring-2 focus:ring-[#8b6f47] focus:border-[#8b6f47]"
             />
@@ -221,7 +222,8 @@ export default function EditProfilePage() {
             ) : (
               <>
                 <p className="text-xs text-[#5d4e37]/70">
-                  After changing your password, we will send an email to your account address to confirm the change.
+                  After changing your password, we will send an email to your account address to
+                  confirm the change.
                 </p>
                 <div className="flex flex-col gap-1">
                   <label htmlFor="currentPassword" className="text-sm font-medium text-[#5d4e37]">

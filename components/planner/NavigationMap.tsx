@@ -20,9 +20,10 @@ const userLocationIcon = L.divIcon({
   iconAnchor: [10, 10],
 });
 
-const destinationIcon = (color: string = "#ef4444") => L.divIcon({
-  className: "custom-destination-marker",
-  html: `<div style="
+const destinationIcon = (color: string = "#ef4444") =>
+  L.divIcon({
+    className: "custom-destination-marker",
+    html: `<div style="
     background-color: ${color};
     width: 24px;
     height: 24px;
@@ -36,9 +37,9 @@ const destinationIcon = (color: string = "#ef4444") => L.divIcon({
     font-weight: bold;
     font-size: 12px;
   ">📍</div>`,
-  iconSize: [24, 24],
-  iconAnchor: [12, 12],
-});
+    iconSize: [24, 24],
+    iconAnchor: [12, 12],
+  });
 
 interface NavigationStep {
   distance: number;
@@ -69,7 +70,13 @@ function MapFollower({ userLocation }: { userLocation: [number, number] }) {
   return null;
 }
 
-export default function NavigationMap({ userLocation, steps, currentStep, places, routeGeometry = [] }: NavigationMapProps) {
+export default function NavigationMap({
+  userLocation,
+  steps,
+  currentStep,
+  places,
+  routeGeometry = [],
+}: NavigationMapProps) {
   if (typeof window === "undefined") {
     return (
       <div className="w-full h-full bg-gray-900 flex items-center justify-center">
@@ -80,9 +87,20 @@ export default function NavigationMap({ userLocation, steps, currentStep, places
 
   const hasRoadGeometry = routeGeometry.length > 1;
   const stepCount = Math.max(steps.length, 1);
-  const splitIdx = hasRoadGeometry ? Math.min(Math.floor((currentStep / stepCount) * routeGeometry.length), routeGeometry.length - 1) : 0;
-  const completedRoute = hasRoadGeometry ? routeGeometry.slice(0, splitIdx + 1) : steps.map((s) => [s.location[0], s.location[1]] as [number, number]).slice(0, currentStep + 1);
-  const remainingRoute = hasRoadGeometry ? routeGeometry.slice(splitIdx) : steps.map((s) => [s.location[0], s.location[1]] as [number, number]).slice(currentStep);
+  const splitIdx = hasRoadGeometry
+    ? Math.min(
+        Math.floor((currentStep / stepCount) * routeGeometry.length),
+        routeGeometry.length - 1
+      )
+    : 0;
+  const completedRoute = hasRoadGeometry
+    ? routeGeometry.slice(0, splitIdx + 1)
+    : steps
+        .map((s) => [s.location[0], s.location[1]] as [number, number])
+        .slice(0, currentStep + 1);
+  const remainingRoute = hasRoadGeometry
+    ? routeGeometry.slice(splitIdx)
+    : steps.map((s) => [s.location[0], s.location[1]] as [number, number]).slice(currentStep);
 
   return (
     <div className="w-full h-full min-h-screen" style={{ height: "100vh" }}>
@@ -98,28 +116,18 @@ export default function NavigationMap({ userLocation, steps, currentStep, places
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
         {completedRoute.length > 1 && (
-          <Polyline
-            positions={completedRoute}
-            color="#9ca3af"
-            weight={6}
-            opacity={0.6}
-          />
+          <Polyline positions={completedRoute} color="#9ca3af" weight={6} opacity={0.6} />
         )}
         {remainingRoute.length > 1 && (
-          <Polyline
-            positions={remainingRoute}
-            color="#3b82f6"
-            weight={6}
-            opacity={0.9}
-          />
+          <Polyline positions={remainingRoute} color="#3b82f6" weight={6} opacity={0.9} />
         )}
         <Marker position={userLocation} icon={userLocationIcon} />
         <Circle
           center={userLocation}
           radius={20}
           pathOptions={{
-            color: '#3b82f6',
-            fillColor: '#3b82f6',
+            color: "#3b82f6",
+            fillColor: "#3b82f6",
             fillOpacity: 0.1,
             weight: 1,
           }}
@@ -136,4 +144,3 @@ export default function NavigationMap({ userLocation, steps, currentStep, places
     </div>
   );
 }
-

@@ -48,11 +48,34 @@ enum PlaceVibe {
   shopping
 }
 
+enum UserRole {
+  USER
+  ADMIN
+}
+
+enum ModerationTargetType {
+  PLACE
+  FEEDBACK
+  USER
+}
+
+enum ModerationActionType {
+  SOFT_DELETE_CONTENT
+  BAN_USER
+  AUTO_BAN_AT_STRIKE_LIMIT
+  RESTORE_CONTENT
+}
+
 model User {
   id        String   @id
   email     String   @unique
   name      String?
   username  String?
+  role      UserRole @default(USER)
+  isBanned  Boolean  @default(false) @map("is_banned")
+  bannedAt  DateTime? @map("banned_at")
+  banReason String?  @map("ban_reason") @db.Text
+  deletedAt DateTime? @map("deleted_at")
   createdAt DateTime @default(now())
 
   places       Place[]
@@ -61,7 +84,10 @@ model User {
   following    Follow[]        @relation("Following")
   followers    Follow[]        @relation("Followers")
   feedbacks    PlaceFeedback[]
+  moderationActions ModerationAction[] @relation("ModerationAdmin")
+  moderatedContent  ModerationAction[] @relation("ModerationOwner")
 
+  @@index([createdAt])
   @@map("users")
 }
 
@@ -124,14 +150,30 @@ model Place {
   elderlyFriendly Boolean?
   petsFriendly    Boolean?
   createdBy       String?
+  deletedAt       DateTime?     @map("deleted_at")
+  deletedByAdminId String?      @map("deleted_by_admin_id")
+  deleteReason    String?       @map("delete_reason") @db.Text
   createdAt       DateTime      @default(now())
 
   user             User?             @relation(fields: [createdBy], references: [id], onDelete: SetNull)
   savedIn          SavedPlace[]
   savedRouteItems  SavedRoutePlace[]
   feedbacks        PlaceFeedback[]
+  embedding        PlaceEmbedding?
 
+  @@index([createdAt])
   @@map("places")
+}
+
+/// Vector row for semantic search (pgvector). Dimension must match `AI_PLANNER_EMBEDDING_DIMENSIONS` / LM Studio embedding model.
+model PlaceEmbedding {
+  placeId    String                      @id @map("place_id")
+  place      Place                       @relation(fields: [placeId], references: [id], onDelete: Cascade)
+  embedding  Unsupported("vector(768)")
+  sourceText String                      @map("source_text") @db.Text
+  updatedAt  DateTime                    @default(now()) @updatedAt @map("updated_at")
+
+  @@map("place_embeddings")
 }
 
 model SavedRoute {
@@ -169,6 +211,9 @@ model PlaceFeedback {
   placeId   String
   rating    Int?
   content   String?  @db.Text
+  deletedAt DateTime? @map("deleted_at")
+  deletedByAdminId String? @map("deleted_by_admin_id")
+  deleteReason String? @map("delete_reason") @db.Text
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
@@ -178,5 +223,25 @@ model PlaceFeedback {
   @@unique([userId, placeId])
   @@index([placeId, createdAt])
   @@index([userId, createdAt])
+  @@index([createdAt])
   @@map("place_feedback")
+}
+
+model ModerationAction {
+  id          String               @id @default(uuid())
+  adminId     String               @map("admin_id")
+  targetType  ModerationTargetType @map("target_type")
+  targetId    String               @map("target_id")
+  ownerUserId String?              @map("owner_user_id")
+  actionType  ModerationActionType @map("action_type")
+  reason      String               @db.Text
+  snapshot    Json?
+  createdAt   DateTime             @default(now()) @map("created_at")
+
+  admin User  @relation("ModerationAdmin", fields: [adminId], references: [id], onDelete: Cascade)
+  owner User? @relation("ModerationOwner", fields: [ownerUserId], references: [id], onDelete: SetNull)
+
+  @@index([ownerUserId, createdAt])
+  @@index([targetType, createdAt])
+  @@map("moderation_actions")
 }

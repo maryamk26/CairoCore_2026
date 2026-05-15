@@ -27,9 +27,7 @@ export default function CreatedGrid({
   return (
     <div className="pt-6">
       <div className="flex items-center justify-between mb-4">
-        <h2 className="text-sm font-medium text-[#5d4e37]">
-          {ownerLabel} places
-        </h2>
+        <h2 className="text-sm font-medium text-[#5d4e37]">{ownerLabel} places</h2>
         {isOwnProfile && (
           <Link
             href="/create/place"

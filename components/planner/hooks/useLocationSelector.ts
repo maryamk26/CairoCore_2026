@@ -113,7 +113,7 @@ export function useLocationSelector(
           setSavedLocations((prev) => [data.location, ...prev]);
         }
       } catch {
-        // ignore
+        return;
       }
     },
     []
@@ -124,10 +124,9 @@ export function useLocationSelector(
       const res = await fetch(`/api/user/locations?id=${locationId}`, {
         method: "DELETE",
       });
-      if (res.ok)
-        setSavedLocations((prev) => prev.filter((loc) => loc.id !== locationId));
+      if (res.ok) setSavedLocations((prev) => prev.filter((loc) => loc.id !== locationId));
     } catch {
-      // ignore
+      return;
     }
   }, []);
 

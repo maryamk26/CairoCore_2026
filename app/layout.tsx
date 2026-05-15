@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Cinzel } from "next/font/google";
 import Header from "@/components/layout/Header";
 import FloatingAddButton from "@/components/layout/FloatingAddButton";
@@ -13,7 +13,16 @@ const cinzel = Cinzel({
 
 export const metadata: Metadata = {
   title: "CairoCore - Discover Cairo's Hidden Gems",
-  description: "A platform for discovering and sharing historical places, museums, hidden gems, and famous spots in Cairo, Egypt.",
+  description:
+    "A platform for discovering and sharing historical places, museums, hidden gems, and famous spots in Cairo, Egypt.",
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  minimumScale: 1,
+  maximumScale: 1,
+  userScalable: false,
 };
 
 export default function RootLayout({

@@ -11,7 +11,7 @@ export type PlaceFeedbackItem = {
   };
 };
 
-export type PlaceFeedbackSummary = {
+type PlaceFeedbackSummary = {
   count: number;
   averageRating: number | null;
 };

@@ -63,7 +63,9 @@ export default function PlaceFormMoreOptions({
       {moreOpen && (
         <div className="p-4 space-y-4 bg-white border-t border-gray-200">
           <div>
-            <label className={`block text-sm font-medium mb-2 ${labelCls}`}>Working hours (per day)</label>
+            <label className={`block text-sm font-medium mb-2 ${labelCls}`}>
+              Working hours (per day)
+            </label>
             <div className="space-y-3">
               {DAYS.map((day) => {
                 const val = workingHours[day];
@@ -78,7 +80,12 @@ export default function PlaceFormMoreOptions({
                         onChange={(e) =>
                           onWorkingHoursChange({
                             ...workingHours,
-                            [day]: e.target.checked ? "closed" : { start: TIME_OPTIONS[0], end: TIME_OPTIONS[TIME_OPTIONS.length - 1] },
+                            [day]: e.target.checked
+                              ? "closed"
+                              : {
+                                  start: TIME_OPTIONS[0],
+                                  end: TIME_OPTIONS[TIME_OPTIONS.length - 1],
+                                },
                           })
                         }
                       />
@@ -93,32 +100,49 @@ export default function PlaceFormMoreOptions({
                               ...workingHours,
                               [day]:
                                 typeof workingHours[day] === "object"
-                                  ? { ...(workingHours[day] as { start: string; end: string }), start: e.target.value }
-                                  : { start: e.target.value, end: TIME_OPTIONS[TIME_OPTIONS.length - 1] },
+                                  ? {
+                                      ...(workingHours[day] as { start: string; end: string }),
+                                      start: e.target.value,
+                                    }
+                                  : {
+                                      start: e.target.value,
+                                      end: TIME_OPTIONS[TIME_OPTIONS.length - 1],
+                                    },
                             })
                           }
                           className="px-2 py-1.5 rounded-lg border border-gray-300 text-sm"
                         >
                           {TIME_OPTIONS.map((t) => (
-                            <option key={t} value={t}>{t}</option>
+                            <option key={t} value={t}>
+                              {t}
+                            </option>
                           ))}
                         </select>
                         <span className="text-sm text-gray-500">to</span>
                         <select
-                          value={typeof val === "object" ? val.end : TIME_OPTIONS[TIME_OPTIONS.length - 1]}
+                          value={
+                            typeof val === "object"
+                              ? val.end
+                              : TIME_OPTIONS[TIME_OPTIONS.length - 1]
+                          }
                           onChange={(e) =>
                             onWorkingHoursChange({
                               ...workingHours,
                               [day]:
                                 typeof workingHours[day] === "object"
-                                  ? { ...(workingHours[day] as { start: string; end: string }), end: e.target.value }
+                                  ? {
+                                      ...(workingHours[day] as { start: string; end: string }),
+                                      end: e.target.value,
+                                    }
                                   : { start: TIME_OPTIONS[0], end: e.target.value },
                             })
                           }
                           className="px-2 py-1.5 rounded-lg border border-gray-300 text-sm"
                         >
                           {TIME_OPTIONS.map((t) => (
-                            <option key={t} value={t}>{t}</option>
+                            <option key={t} value={t}>
+                              {t}
+                            </option>
                           ))}
                         </select>
                       </>
@@ -130,7 +154,9 @@ export default function PlaceFormMoreOptions({
           </div>
           <div className="grid grid-cols-2 gap-3">
             <div>
-              <label className={`block text-sm font-medium mb-1 ${labelCls}`}>Entrance fee (EGP)</label>
+              <label className={`block text-sm font-medium mb-1 ${labelCls}`}>
+                Entrance fee (EGP)
+              </label>
               <input
                 type="number"
                 min={0}
@@ -142,7 +168,9 @@ export default function PlaceFormMoreOptions({
               />
             </div>
             <div>
-              <label className={`block text-sm font-medium mb-1 ${labelCls}`}>Camera fee (EGP)</label>
+              <label className={`block text-sm font-medium mb-1 ${labelCls}`}>
+                Camera fee (EGP)
+              </label>
               <input
                 type="number"
                 min={0}
@@ -155,7 +183,9 @@ export default function PlaceFormMoreOptions({
             </div>
           </div>
           <div>
-            <label className={`block text-sm font-medium mb-1 ${labelCls}`}>Best time to visit</label>
+            <label className={`block text-sm font-medium mb-1 ${labelCls}`}>
+              Best time to visit
+            </label>
             <input
               type="text"
               value={bestVisitTime}

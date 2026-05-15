@@ -89,10 +89,7 @@ function isSchemaNotReadyError(error: unknown) {
   );
 }
 
-function getOrderedPlaces(
-  placeIds: string[],
-  places: { id: string; name: string }[]
-) {
+function getOrderedPlaces(placeIds: string[], places: { id: string; name: string }[]) {
   const placeMap = new Map(places.map((place) => [place.id, place]));
   return placeIds.flatMap((id) => {
     const place = placeMap.get(id);

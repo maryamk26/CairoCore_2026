@@ -31,7 +31,9 @@ export default function PlaceDetailSidebar({
         <div className="space-y-4">
           <div>
             <p className="font-cinzel text-white/70 text-sm mb-2">Location</p>
-            <p className="font-cinzel text-white text-sm leading-relaxed">{location.address || "—"}</p>
+            <p className="font-cinzel text-white text-sm leading-relaxed">
+              {location.address || "—"}
+            </p>
             <p className="font-cinzel text-white/60 text-xs font-mono mt-2">
               {location.lat.toFixed(4)}°, {location.lng.toFixed(4)}°
             </p>

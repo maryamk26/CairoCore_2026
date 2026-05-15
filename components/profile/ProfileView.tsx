@@ -129,8 +129,7 @@ export default function ProfileView({
       const res = await fetch(followApiPath, {
         method: "POST",
         credentials: "include",
-        headers:
-          action === "unfollow" ? { "Content-Type": "application/json" } : undefined,
+        headers: action === "unfollow" ? { "Content-Type": "application/json" } : undefined,
         body: action === "unfollow" ? JSON.stringify({ action: "unfollow" }) : undefined,
       });
       if (res.status === 401) {
@@ -143,8 +142,7 @@ export default function ProfileView({
           data.error || (action === "unfollow" ? "Failed to unfollow" : "Failed to follow")
         );
       }
-      const delta =
-        typeof data.followerCountDelta === "number" ? data.followerCountDelta : 0;
+      const delta = typeof data.followerCountDelta === "number" ? data.followerCountDelta : 0;
       setViewerFollows(action === "unfollow" ? false : true);
       setFollowerCount((c) => c + delta);
       setHasLoadedFollows(false);
@@ -164,7 +162,9 @@ export default function ProfileView({
   const handleShareProfile = async () => {
     const ok = await copyProfileUrl(profile.usernameRaw);
     setShareToast(
-      ok ? "Profile link copied — you can paste it anywhere." : "Could not copy the link. Try again."
+      ok
+        ? "Profile link copied — you can paste it anywhere."
+        : "Could not copy the link. Try again."
     );
   };
 
@@ -200,7 +200,7 @@ export default function ProfileView({
             isOwnProfile={isOwnProfile}
             onFollowersClick={() => openFollowModal("followers")}
             onFollowingClick={() => openFollowModal("following")}
-            viewerFollows={isOwnProfile ? undefined : viewerFollows ?? null}
+            viewerFollows={isOwnProfile ? undefined : (viewerFollows ?? null)}
             onFollow={() => void submitFollowChange("follow")}
             onUnfollow={() => void submitFollowChange("unfollow")}
             followBusy={followBusy}

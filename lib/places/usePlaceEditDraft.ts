@@ -44,27 +44,20 @@ function setDraft(id: string, draft: DraftState): void {
   } catch {}
 }
 
-export function clearDraft(id: string): void {
+function clearDraft(id: string): void {
   try {
     sessionStorage.removeItem(DRAFT_KEY(id));
   } catch {}
 }
 
-export function parseWorkingHours(wh: unknown): WorkingHoursState {
-  const defaultState: WorkingHoursState = Object.fromEntries(
-    DAYS.map((d) => [d, "closed"])
-  );
+function parseWorkingHours(wh: unknown): WorkingHoursState {
+  const defaultState: WorkingHoursState = Object.fromEntries(DAYS.map((d) => [d, "closed"]));
   if (!wh || typeof wh !== "object") return defaultState;
   const o = wh as Record<string, { open: string; close: string } | "closed">;
   DAYS.forEach((day) => {
     const v = o[day];
     if (v === "closed") defaultState[day] = "closed";
-    else if (
-      v &&
-      typeof v === "object" &&
-      "open" in v &&
-      "close" in v
-    )
+    else if (v && typeof v === "object" && "open" in v && "close" in v)
       defaultState[day] = { start: v.open, end: v.close };
   });
   return defaultState;
@@ -85,9 +78,7 @@ export function usePlaceEditDraft(placeId: string) {
   const [category, setCategory] = useState("");
   const [address, setAddress] = useState("");
   const [city, setCity] = useState("");
-  const [workingHours, setWorkingHours] = useState<WorkingHoursState>(
-    initialWorkingHours
-  );
+  const [workingHours, setWorkingHours] = useState<WorkingHoursState>(initialWorkingHours);
   const [entranceFee, setEntranceFee] = useState("");
   const [cameraFee, setCameraFee] = useState("");
   const [vibes, setVibes] = useState<string[]>([]);
@@ -133,11 +124,7 @@ export function usePlaceEditDraft(placeId: string) {
           data.kidsFriendly === true ? true : data.kidsFriendly === false ? false : null
         );
         setElderlyFriendly(
-          data.elderlyFriendly === true
-            ? true
-            : data.elderlyFriendly === false
-              ? false
-              : null
+          data.elderlyFriendly === true ? true : data.elderlyFriendly === false ? false : null
         );
         setPetsFriendly(
           data.petsFriendly === true ? true : data.petsFriendly === false ? false : null
@@ -232,12 +219,7 @@ export function usePlaceEditDraft(placeId: string) {
       setError("");
       const lat = latitude.trim() ? parseFloat(latitude) : null;
       const lng = longitude.trim() ? parseFloat(longitude) : null;
-      if (
-        lat === null ||
-        lng === null ||
-        !Number.isFinite(lat) ||
-        !Number.isFinite(lng)
-      ) {
+      if (lat === null || lng === null || !Number.isFinite(lat) || !Number.isFinite(lng)) {
         setError("Latitude and longitude are required.");
         return;
       }
@@ -245,15 +227,11 @@ export function usePlaceEditDraft(placeId: string) {
         setError("Title is required.");
         return;
       }
-      const openingHoursObj: Record<
-        string,
-        { open: string; close: string } | "closed"
-      > = {};
+      const openingHoursObj: Record<string, { open: string; close: string } | "closed"> = {};
       DAYS.forEach((day) => {
         const v = workingHours[day];
         if (v === "closed") openingHoursObj[day] = "closed";
-        else if (v && typeof v === "object")
-          openingHoursObj[day] = { open: v.start, close: v.end };
+        else if (v && typeof v === "object") openingHoursObj[day] = { open: v.start, close: v.end };
       });
       setSubmitting(true);
       try {
@@ -282,14 +260,11 @@ export function usePlaceEditDraft(placeId: string) {
           }),
         });
         const data = await res.json().catch(() => ({}));
-        if (!res.ok)
-          throw new Error(data.details || data.error || "Failed to update place");
+        if (!res.ok) throw new Error(data.details || data.error || "Failed to update place");
         clearDraft(placeId);
         router.push(`/places/${placeId}?from=profile`);
       } catch (err) {
-        setError(
-          err instanceof Error ? err.message : "Something went wrong"
-        );
+        setError(err instanceof Error ? err.message : "Something went wrong");
       } finally {
         setSubmitting(false);
       }

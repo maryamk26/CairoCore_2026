@@ -66,7 +66,8 @@ export default function CreatePlacePage() {
         if (v === "closed") openingHoursObj[day] = "closed";
         else if (v && typeof v === "object") openingHoursObj[day] = { open: v.start, close: v.end };
       });
-      const openingHoursJson = Object.keys(openingHoursObj).length > 0 ? JSON.stringify(openingHoursObj) : null;
+      const openingHoursJson =
+        Object.keys(openingHoursObj).length > 0 ? JSON.stringify(openingHoursObj) : null;
       setSubmitting(true);
       try {
         const res = await fetch("/api/profile/places", {
@@ -134,8 +135,13 @@ export default function CreatePlacePage() {
   if (authTimedOut && !user) {
     return (
       <div className="min-h-screen flex flex-col items-center justify-center bg-[#fafafa] gap-4 px-4">
-        <p className="text-[#5d4e37] text-center">Taking longer than usual. Please sign in to continue.</p>
-        <Link href="/auth" className="px-6 py-3 rounded-full bg-[#8b6f47] text-white font-cinzel font-medium hover:bg-[#5d4e37]">
+        <p className="text-[#5d4e37] text-center">
+          Taking longer than usual. Please sign in to continue.
+        </p>
+        <Link
+          href="/auth"
+          className="px-6 py-3 rounded-full bg-[#8b6f47] text-white font-cinzel font-medium hover:bg-[#5d4e37]"
+        >
           Sign in
         </Link>
       </div>
@@ -147,7 +153,10 @@ export default function CreatePlacePage() {
     <div className="min-h-screen bg-[#fafafa]">
       <div className="max-w-5xl mx-auto px-4 pt-24 pb-12">
         <div className="mb-6">
-          <Link href="/profile" className="inline-flex items-center gap-1 text-gray-700 hover:text-gray-900">
+          <Link
+            href="/profile"
+            className="inline-flex items-center gap-1 text-gray-700 hover:text-gray-900"
+          >
             <span className="text-xl">←</span>
             <span className="font-cinzel text-sm">Back</span>
           </Link>

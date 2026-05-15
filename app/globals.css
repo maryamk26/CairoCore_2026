@@ -12,13 +12,22 @@
 }
 
 html {
+  font-size: 16px;
+  overflow-y: scroll;
   scroll-behavior: smooth;
+  scrollbar-gutter: stable;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  touch-action: manipulation;
 }
 
 body {
   color: var(--earth-charcoal);
   background: var(--earth-cream);
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell",
+    sans-serif;
+  touch-action: manipulation;
 }
 
 @layer utilities {
@@ -70,12 +79,15 @@ body {
   }
 }
 
-a, button {
-  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+a,
+button {
+  transition-property: color, background-color, border-color, text-decoration-color, opacity;
+  transition-duration: 0.25s;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 a {
-  transition-property: color, opacity, transform;
+  transition-property: color, opacity;
 }
 
 main {
@@ -83,9 +95,20 @@ main {
   min-height: 100%;
 }
 
-* {
-  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform;
+*,
+*::before,
+*::after {
+  transition-property:
+    color, background-color, border-color, text-decoration-color, fill, stroke, opacity;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 200ms;
 }
 
+input:not([type="checkbox"]):not([type="radio"]):not([type="range"]):not([type="hidden"]):not(
+    [type="file"]
+  ):not([type="button"]):not([type="submit"]):not([type="reset"]),
+select,
+textarea {
+  font-size: max(16px, 1rem) !important;
+  line-height: 1.25;
+}

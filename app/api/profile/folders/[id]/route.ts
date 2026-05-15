@@ -2,10 +2,7 @@ import { NextResponse } from "next/server";
 import { createClient } from "@/lib/supabase/server";
 import { deleteFolder } from "@/lib/db/folder";
 
-export async function DELETE(
-  _request: Request,
-  { params }: { params: Promise<{ id: string }> }
-) {
+export async function DELETE(_request: Request, { params }: { params: Promise<{ id: string }> }) {
   try {
     const supabase = await createClient();
     const {
@@ -25,9 +22,6 @@ export async function DELETE(
     return NextResponse.json({ ok: true });
   } catch (err) {
     console.error("Delete folder failed:", err);
-    return NextResponse.json(
-      { error: "Failed to delete board" },
-      { status: 500 }
-    );
+    return NextResponse.json({ error: "Failed to delete board" }, { status: 500 });
   }
 }

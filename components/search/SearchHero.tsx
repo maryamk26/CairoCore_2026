@@ -65,9 +65,7 @@ export default function SearchHero({
             value={searchQuery}
             onChange={onSearchQueryChange}
             onFocus={onInputFocus}
-            placeholder={
-              searchType === "places" ? "Search places in Cairo..." : "Search people..."
-            }
+            placeholder={searchType === "places" ? "Search places in Cairo..." : "Search people..."}
             className="flex-1 bg-transparent outline-none text-[#3a3428] placeholder:text-[#8b6f47]/60 font-cinzel text-base md:text-lg"
           />
           <span className="ml-4 p-2 text-[#5d4e37]" aria-hidden="true">

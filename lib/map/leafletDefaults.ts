@@ -1,10 +1,11 @@
 import L from "leaflet";
 
-const iconRetinaUrl = "https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/images/marker-icon-2x.png";
+const iconRetinaUrl =
+  "https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/images/marker-icon-2x.png";
 const iconUrl = "https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/images/marker-icon.png";
 const shadowUrl = "https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/images/marker-shadow.png";
 
-export const defaultMarkerIcon = L.icon({
+const defaultMarkerIcon = L.icon({
   iconUrl,
   iconRetinaUrl,
   shadowUrl,

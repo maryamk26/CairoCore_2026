@@ -40,7 +40,8 @@ export default function RouteBuilderSummary({
       {!userLocation && !isLoadingLocation && (
         <div className="mb-4 p-3 bg-[#d4af37]/20 border border-[#d4af37] rounded-lg">
           <p className="font-cinzel text-white text-sm mb-2">
-            Set your starting point and choose how you get around (above) to see travel time and total trip duration.
+            Set your starting point and choose how you get around (above) to see travel time and
+            total trip duration.
           </p>
           <button
             onClick={onRequestLocation}
@@ -61,13 +62,19 @@ export default function RouteBuilderSummary({
         <div className="mb-4 rounded-lg border-2 border-amber-400 bg-amber-500/20 p-4 flex items-start gap-3">
           <span className="text-amber-200 shrink-0 mt-0.5" aria-hidden>
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+              />
             </svg>
           </span>
           <div className="font-cinzel text-amber-100 text-sm">
             <p className="font-semibold mb-1">Trip longer than your preferred time</p>
             <p>
-              Your trip (~{Math.floor(wholeTripMinutes / 60)}h {wholeTripMinutes % 60}m) is longer than your {preferredWindowLabel} window. Check opening hours before you go.
+              Your trip (~{Math.floor(wholeTripMinutes / 60)}h {wholeTripMinutes % 60}m) is longer
+              than your {preferredWindowLabel} window. Check opening hours before you go.
             </p>
           </div>
         </div>
@@ -81,7 +88,9 @@ export default function RouteBuilderSummary({
               {loadingRoute ? (
                 <span className="font-cinzel text-white/70 text-sm">Loading route…</span>
               ) : (
-                <span className="font-cinzel text-white font-semibold">{tripStats.totalDistance} km</span>
+                <span className="font-cinzel text-white font-semibold">
+                  {tripStats.totalDistance} km
+                </span>
               )}
             </div>
             <div className="flex justify-between">
@@ -95,7 +104,9 @@ export default function RouteBuilderSummary({
               )}
             </div>
             <p className="font-cinzel text-white/50 text-xs">
-              {fromLiveMap ? "From live route (OSRM)." : "Estimate (straight-line × road factor); live route unavailable."}
+              {fromLiveMap
+                ? "From live route (OSRM)."
+                : "Estimate (straight-line × road factor); live route unavailable."}
             </p>
             <div className="flex justify-between">
               <span className="font-cinzel text-white/70">Time at places</span>
@@ -113,7 +124,9 @@ export default function RouteBuilderSummary({
         {placesCount > 0 && (
           <div className="flex flex-col gap-0.5">
             <div className="flex justify-between items-center">
-              <span className="font-cinzel text-white/70">Whole trip (travel + time at places)</span>
+              <span className="font-cinzel text-white/70">
+                Whole trip (travel + time at places)
+              </span>
               {canCalculateWholeTrip && Number.isFinite(wholeTripMinutes) ? (
                 <span className="font-cinzel text-white font-semibold">
                   ~{Math.floor(wholeTripMinutes / 60)}h {wholeTripMinutes % 60}m

@@ -54,11 +54,7 @@ export async function createPlace(data: CreatePlaceInput, createdById: string) {
   });
 }
 
-export async function updatePlace(
-  placeId: string,
-  data: UpdatePlaceInput,
-  userId: string
-) {
+export async function updatePlace(placeId: string, data: UpdatePlaceInput, userId: string) {
   const place = await prisma.place.findUnique({ where: { id: placeId } });
   if (!place || place.createdBy !== userId) return null;
   const updateData: Parameters<typeof prisma.place.update>[0]["data"] = {

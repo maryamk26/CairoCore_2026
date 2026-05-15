@@ -8,9 +8,6 @@ export async function GET(request: NextRequest) {
     return NextResponse.json({ users });
   } catch (err) {
     console.error("User search failed:", err);
-    return NextResponse.json(
-      { error: "Failed to search users" },
-      { status: 500 }
-    );
+    return NextResponse.json({ error: "Failed to search users" }, { status: 500 });
   }
 }

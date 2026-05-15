@@ -13,10 +13,7 @@ export async function GET() {
     return NextResponse.json({ routes });
   } catch (err) {
     console.error("Saved routes fetch failed:", err);
-    return NextResponse.json(
-      { error: "Failed to fetch saved routes" },
-      { status: 500 }
-    );
+    return NextResponse.json({ error: "Failed to fetch saved routes" }, { status: 500 });
   }
 }
 
@@ -31,8 +28,7 @@ export async function POST(request: NextRequest) {
     const placeIds = Array.isArray(body.placeIds)
       ? body.placeIds.filter((id: unknown): id is string => typeof id === "string")
       : [];
-    const transportMode =
-      typeof body.transportMode === "string" ? body.transportMode : null;
+    const transportMode = typeof body.transportMode === "string" ? body.transportMode : null;
 
     const route = await createSavedRoute(user.id, placeIds, transportMode);
     return NextResponse.json(
@@ -48,11 +44,9 @@ export async function POST(request: NextRequest) {
       { status: 201 }
     );
   } catch (err) {
-    const message =
-      err instanceof Error ? err.message : "Failed to save route";
+    const message = err instanceof Error ? err.message : "Failed to save route";
     const status =
-      message === "At least one place is required" ||
-      message === "No valid places were provided"
+      message === "At least one place is required" || message === "No valid places were provided"
         ? 400
         : 500;
 

@@ -26,7 +26,11 @@ export function getStopDisplayIndex(
   orderedPlacesLength: number,
   routeStopWhen: RouteStopWhen
 ): number {
-  return routeStopWhen === "beginning" ? 0 : routeStopWhen === "middle" ? Math.floor(orderedPlacesLength / 2) : orderedPlacesLength;
+  return routeStopWhen === "beginning"
+    ? 0
+    : routeStopWhen === "middle"
+      ? Math.floor(orderedPlacesLength / 2)
+      : orderedPlacesLength;
 }
 
 export function displayIndexToMainIndex(

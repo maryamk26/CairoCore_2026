@@ -126,8 +126,7 @@ function compareChronologicalFeedEntries(a: FeedSortEntry, b: FeedSortEntry) {
 }
 
 function compareSocialFeedEntries(a: FeedSortEntry, b: FeedSortEntry) {
-  const priorityDiff =
-    SOCIAL_FEED_TYPE_PRIORITY[a.type] - SOCIAL_FEED_TYPE_PRIORITY[b.type];
+  const priorityDiff = SOCIAL_FEED_TYPE_PRIORITY[a.type] - SOCIAL_FEED_TYPE_PRIORITY[b.type];
   if (priorityDiff !== 0) return priorityDiff;
 
   const timeDiff = getFeedTimestamp(b.createdAt) - getFeedTimestamp(a.createdAt);
@@ -137,8 +136,7 @@ function compareSocialFeedEntries(a: FeedSortEntry, b: FeedSortEntry) {
 }
 
 function sortFeedItems(items: FeedItem[], mode: "social" | "chronological" = "chronological") {
-  const comparator =
-    mode === "social" ? compareSocialFeedEntries : compareChronologicalFeedEntries;
+  const comparator = mode === "social" ? compareSocialFeedEntries : compareChronologicalFeedEntries;
 
   return [...items].sort((a, b) => {
     return comparator(a, b);
@@ -152,8 +150,7 @@ function applyCursor(
 ) {
   if (!cursor) return items;
 
-  const comparator =
-    mode === "social" ? compareSocialFeedEntries : compareChronologicalFeedEntries;
+  const comparator = mode === "social" ? compareSocialFeedEntries : compareChronologicalFeedEntries;
 
   return items.filter((item) => comparator(item, cursor) > 0);
 }
@@ -167,7 +164,11 @@ async function getFollowingIds(userId: string) {
   return rows.map((row) => row.followingId);
 }
 
-async function getSocialFeedItems(followingIds: string[], limit: number, cursor: CursorParts | null) {
+async function getSocialFeedItems(
+  followingIds: string[],
+  limit: number,
+  cursor: CursorParts | null
+) {
   if (followingIds.length === 0) return [];
 
   const fetchTake = Math.max(limit * FETCH_BUFFER_MULTIPLIER, DEFAULT_FEED_LIMIT * 2);
@@ -386,10 +387,7 @@ async function getSuggestedPlaceItems(limit: number, cursor: CursorParts | null)
     actor: row.user ? serializeActor(row.user) : null,
     place: serializePlace(row),
     metadata: {
-      reason:
-        row._count.feedbacks > 0
-          ? "Popular with the community"
-          : "Suggested for you",
+      reason: row._count.feedbacks > 0 ? "Popular with the community" : "Suggested for you",
     },
   }));
 
@@ -410,9 +408,7 @@ export async function getFeedForUser(
 
   const socialItems = await getSocialFeedItems(followingIds, limit + 1, cursor);
   const useSuggested = !cursor && socialItems.length === 0;
-  const sourceItems = useSuggested
-    ? await getSuggestedPlaceItems(limit + 1, cursor)
-    : socialItems;
+  const sourceItems = useSuggested ? await getSuggestedPlaceItems(limit + 1, cursor) : socialItems;
 
   const pageItems = sourceItems.slice(0, limit);
   const overflowItem = sourceItems[limit] ?? null;

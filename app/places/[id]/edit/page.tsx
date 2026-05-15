@@ -5,11 +5,7 @@ import { use } from "react";
 import { usePlaceEditDraft } from "@/lib/places/usePlaceEditDraft";
 import PlaceFormFields from "@/components/places/PlaceFormFields";
 
-export default function EditPlacePage({
-  params,
-}: {
-  params: Promise<{ id: string }>;
-}) {
+export default function EditPlacePage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = use(params);
   const {
     authLoading,
@@ -84,26 +80,17 @@ export default function EditPlacePage({
             <span className="font-cinzel text-sm">Back to place</span>
           </Link>
         </div>
-        <h1 className="text-2xl font-cinzel font-bold text-[#5d4e37] mb-8">
-          Edit place
-        </h1>
+        <h1 className="text-2xl font-cinzel font-bold text-[#5d4e37] mb-8">Edit place</h1>
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-8">
           <div className="lg:col-span-2">
-            <label className="block text-sm font-medium text-[#5d4e37] mb-2">
-              Images
-            </label>
+            <label className="block text-sm font-medium text-[#5d4e37] mb-2">Images</label>
             <div className="rounded-2xl border-2 border-dashed border-gray-300 bg-gray-100 min-h-[200px] p-4 flex flex-wrap gap-2">
               {images.map((src, i) => (
-                <div
-                  key={i}
-                  className="relative w-20 h-20 rounded-lg overflow-hidden bg-gray-200"
-                >
+                <div key={i} className="relative w-20 h-20 rounded-lg overflow-hidden bg-gray-200">
                   <img src={src} alt="" className="w-full h-full object-cover" />
                 </div>
               ))}
-              <p className="text-xs text-gray-500 w-full">
-                Images are saved when you submit.
-              </p>
+              <p className="text-xs text-gray-500 w-full">Images are saved when you submit.</p>
             </div>
           </div>
           <div className="lg:col-span-3">
@@ -184,10 +171,7 @@ export default function EditPlacePage({
           </div>
         </div>
         {submitting && (
-          <div
-            className="fixed inset-0 bg-black/20 z-40 pointer-events-none"
-            aria-hidden="true"
-          />
+          <div className="fixed inset-0 bg-black/20 z-40 pointer-events-none" aria-hidden="true" />
         )}
       </div>
     </div>

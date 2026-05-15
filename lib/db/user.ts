@@ -1,5 +1,6 @@
 import { Prisma } from "@prisma/client";
 import { prisma } from "@/lib/prisma";
+import { ADMIN_PRIMARY_EMAIL, isAdminEmail, normalizeAdminEmail } from "@/lib/auth/adminPolicy";
 
 type BasicUserRecord = {
   id: string;
@@ -44,6 +45,30 @@ type SerializedProfilePlace = {
 
 function normalizeUsername(value: string) {
   return value.trim().replace(/^@+/, "").toLowerCase();
+}
+
+function normalizeEmail(value: string) {
+  return normalizeAdminEmail(value);
+}
+
+function resolveRoleForEmail(email: string) {
+  return isAdminEmail(email) ? "ADMIN" : "USER";
+}
+
+async function enforceSingleAdminPolicy() {
+  await prisma.$transaction([
+    prisma.user.updateMany({
+      where: {
+        role: "ADMIN",
+        NOT: { email: ADMIN_PRIMARY_EMAIL },
+      },
+      data: { role: "USER" },
+    }),
+    prisma.user.updateMany({
+      where: { email: ADMIN_PRIMARY_EMAIL },
+      data: { role: "ADMIN" },
+    }),
+  ]);
 }
 
 export function decodeUsernamePathSegment(segment: string) {
@@ -94,22 +119,26 @@ export async function upsertUser(
   email: string,
   data?: { name?: string; username?: string }
 ) {
-  const trimmedEmail = email.trim();
+  const trimmedEmail = normalizeEmail(email);
+  const role = resolveRoleForEmail(trimmedEmail);
   const existingByEmail = await prisma.user.findUnique({
     where: { email: trimmedEmail },
   });
 
   if (existingByEmail) {
     if (existingByEmail.id === supabaseId) {
-      return prisma.user.update({
+      const updated = await prisma.user.update({
         where: { id: supabaseId },
         data: {
+          role,
           ...(data && {
             name: data.name ?? undefined,
             username: data.username ?? undefined,
           }),
         },
       });
+      await enforceSingleAdminPolicy();
+      return updated;
     }
     const oldId = existingByEmail.id;
     await prisma.$transaction([
@@ -119,26 +148,34 @@ export async function upsertUser(
           email: `${trimmedEmail}.reconnect`,
           name: existingByEmail.name,
           username: existingByEmail.username,
+          role,
         },
       }),
       prisma.place.updateMany({ where: { createdBy: oldId }, data: { createdBy: supabaseId } }),
       prisma.folder.updateMany({ where: { userId: oldId }, data: { userId: supabaseId } }),
       prisma.follow.updateMany({ where: { followerId: oldId }, data: { followerId: supabaseId } }),
-      prisma.follow.updateMany({ where: { followingId: oldId }, data: { followingId: supabaseId } }),
+      prisma.follow.updateMany({
+        where: { followingId: oldId },
+        data: { followingId: supabaseId },
+      }),
       prisma.user.delete({ where: { id: oldId } }),
       prisma.user.update({ where: { id: supabaseId }, data: { email: trimmedEmail } }),
     ]);
+    await enforceSingleAdminPolicy();
     return prisma.user.findUniqueOrThrow({ where: { id: supabaseId } });
   }
 
-  return prisma.user.create({
+  const created = await prisma.user.create({
     data: {
       id: supabaseId,
       email: trimmedEmail,
+      role,
       name: data?.name ?? null,
       username: data?.username ?? null,
     },
   });
+  await enforceSingleAdminPolicy();
+  return created;
 }
 
 export type UpdateProfileData = {
@@ -286,10 +323,7 @@ export async function followUser(viewerId: string, targetUserId: string) {
     });
     return { created: true as const };
   } catch (error) {
-    if (
-      error instanceof Prisma.PrismaClientKnownRequestError &&
-      error.code === "P2002"
-    ) {
+    if (error instanceof Prisma.PrismaClientKnownRequestError && error.code === "P2002") {
       return { created: false as const, alreadyFollowing: true as const };
     }
     throw error;

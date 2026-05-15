@@ -46,7 +46,7 @@ export default function BoardPage({ params }: { params: Promise<{ id: string }> 
           setBoard({
             id: data.board.id,
             name: nameFromUrl ?? data.board.name,
-            pinCount: data.board.pinCount ?? (data.places?.length ?? 0),
+            pinCount: data.board.pinCount ?? data.places?.length ?? 0,
           });
           setPlaces(data.places ?? []);
         }
@@ -60,7 +60,9 @@ export default function BoardPage({ params }: { params: Promise<{ id: string }> 
         if (!cancelled) setLoading(false);
       }
     })();
-    return () => { cancelled = true; };
+    return () => {
+      cancelled = true;
+    };
   }, [id, nameFromUrl, refreshKey]);
 
   const toggleSelect = (placeId: string) => {

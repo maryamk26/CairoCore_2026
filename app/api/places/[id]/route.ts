@@ -4,7 +4,9 @@ import { prisma } from "@/lib/prisma";
 import { createClient } from "@/lib/supabase/server";
 import { updatePlace } from "@/lib/db/place";
 import { CACHE_TAGS, placeTag } from "@/lib/cache/tags";
+import { shouldAutoEmbedPlaceOnWrite } from "@/lib/ai/config";
 import { getPlaceDetailById } from "@/lib/places/detail";
+import { schedulePlaceEmbeddingRefresh } from "@/lib/places/embedPlaceBackground";
 import type { PlaceVibe } from "@prisma/client";
 import {
   PLACE_TYPE_VALUES,
@@ -20,10 +22,7 @@ function parseNum(val: unknown): number | null {
   return Number.isFinite(n) ? n : null;
 }
 
-export async function GET(
-  _request: NextRequest,
-  { params }: { params: Promise<{ id: string }> }
-) {
+export async function GET(_request: NextRequest, { params }: { params: Promise<{ id: string }> }) {
   try {
     const { id } = await params;
     const place = await getPlaceDetailById(id);
@@ -37,10 +36,7 @@ export async function GET(
   }
 }
 
-export async function PATCH(
-  request: NextRequest,
-  { params }: { params: Promise<{ id: string }> }
-) {
+export async function PATCH(request: NextRequest, { params }: { params: Promise<{ id: string }> }) {
   try {
     const supabase = await createClient();
     const {
@@ -56,38 +52,78 @@ export async function PATCH(
     const body = await request.json();
 
     const type = body.type && PLACE_TYPE_VALUES.includes(body.type) ? body.type : undefined;
-    const category = body.category !== undefined && body.category !== null && PLACE_CATEGORY_VALUES.includes(body.category) ? body.category : body.category === null ? null : undefined;
+    const category =
+      body.category !== undefined &&
+      body.category !== null &&
+      PLACE_CATEGORY_VALUES.includes(body.category)
+        ? body.category
+        : body.category === null
+          ? null
+          : undefined;
     const cityRaw = typeof body.city === "string" ? body.city.trim() : body.city;
-    const city = cityRaw === null || cityRaw === "" ? null : ALLOWED_CITIES.includes(cityRaw as (typeof ALLOWED_CITIES)[number]) ? cityRaw : undefined;
+    const city =
+      cityRaw === null || cityRaw === ""
+        ? null
+        : ALLOWED_CITIES.includes(cityRaw as (typeof ALLOWED_CITIES)[number])
+          ? cityRaw
+          : undefined;
     if (cityRaw && city === undefined) {
       return NextResponse.json(
         { error: "City must be one of: Cairo, Giza, Sheikh Zayed City" },
         { status: 400 }
       );
     }
-    const vibes = Array.isArray(body.vibes) ? body.vibes.filter((v: unknown): v is PlaceVibe => typeof v === "string" && PLACE_VIBE_VALUES.includes(v as PlaceVibe)) : undefined;
-    const tags = Array.isArray(body.tags) ? body.tags.filter((t: unknown) => typeof t === "string" && PLACE_TAG_VALUES.includes(t)) : undefined;
+    const vibes = Array.isArray(body.vibes)
+      ? body.vibes.filter(
+          (v: unknown): v is PlaceVibe =>
+            typeof v === "string" && PLACE_VIBE_VALUES.includes(v as PlaceVibe)
+        )
+      : undefined;
+    const tags = Array.isArray(body.tags)
+      ? body.tags.filter((t: unknown) => typeof t === "string" && PLACE_TAG_VALUES.includes(t))
+      : undefined;
 
     const updated = await updatePlace(
       id,
       {
         ...(typeof body.name === "string" && { name: body.name.trim() }),
-        ...(typeof body.description === "string" && { description: body.description.trim() || null }),
+        ...(typeof body.description === "string" && {
+          description: body.description.trim() || null,
+        }),
         ...(type && { type }),
         ...(category !== undefined && { category }),
         ...(typeof body.address === "string" && { address: body.address.trim() || null }),
         ...(city !== undefined && { city }),
-        ...(typeof body.openingHours === "string" && { openingHours: body.openingHours.trim() || null }),
+        ...(typeof body.openingHours === "string" && {
+          openingHours: body.openingHours.trim() || null,
+        }),
         ...(body.entranceFee !== undefined && { entranceFee: parseNum(body.entranceFee) }),
         ...(body.cameraFee !== undefined && { cameraFee: parseNum(body.cameraFee) }),
         ...(vibes !== undefined && { vibes }),
         ...(tags !== undefined && { tags }),
-        ...(typeof body.bestVisitTime === "string" && { bestVisitTime: body.bestVisitTime.trim() || null }),
-        ...(Array.isArray(body.images) && { images: body.images.filter((u: unknown) => typeof u === "string") }),
-        ...(body.kidsFriendly !== undefined && { kidsFriendly: body.kidsFriendly === true ? true : body.kidsFriendly === false ? false : null }),
-        ...(body.elderlyFriendly !== undefined && { elderlyFriendly: body.elderlyFriendly === true ? true : body.elderlyFriendly === false ? false : null }),
-        ...(body.petsFriendly !== undefined && { petsFriendly: body.petsFriendly === true ? true : body.petsFriendly === false ? false : null }),
-        ...(body.latitude !== undefined && body.longitude !== undefined && { latitude: parseNum(body.latitude) ?? undefined, longitude: parseNum(body.longitude) ?? undefined }),
+        ...(typeof body.bestVisitTime === "string" && {
+          bestVisitTime: body.bestVisitTime.trim() || null,
+        }),
+        ...(Array.isArray(body.images) && {
+          images: body.images.filter((u: unknown) => typeof u === "string"),
+        }),
+        ...(body.kidsFriendly !== undefined && {
+          kidsFriendly:
+            body.kidsFriendly === true ? true : body.kidsFriendly === false ? false : null,
+        }),
+        ...(body.elderlyFriendly !== undefined && {
+          elderlyFriendly:
+            body.elderlyFriendly === true ? true : body.elderlyFriendly === false ? false : null,
+        }),
+        ...(body.petsFriendly !== undefined && {
+          petsFriendly:
+            body.petsFriendly === true ? true : body.petsFriendly === false ? false : null,
+        }),
+        ...(body.latitude !== undefined &&
+          body.longitude !== undefined && {
+            latitude: parseNum(body.latitude) ?? undefined,
+            longitude: parseNum(body.longitude) ?? undefined,
+          }),
       },
       user.id
     );
@@ -98,6 +134,10 @@ export async function PATCH(
 
     revalidateTag(CACHE_TAGS.placesList, "max");
     revalidateTag(placeTag(id), "max");
+
+    if (shouldAutoEmbedPlaceOnWrite()) {
+      schedulePlaceEmbeddingRefresh(id);
+    }
 
     return NextResponse.json({
       place: {
@@ -136,7 +176,10 @@ export async function DELETE(
       return NextResponse.json({ error: "Place not found" }, { status: 404 });
     }
     if (place.createdBy !== user.id) {
-      return NextResponse.json({ error: "You can only delete places you created" }, { status: 403 });
+      return NextResponse.json(
+        { error: "You can only delete places you created" },
+        { status: 403 }
+      );
     }
 
     await prisma.place.delete({ where: { id } });
@@ -145,9 +188,6 @@ export async function DELETE(
     return NextResponse.json({ ok: true });
   } catch (err) {
     console.error("Delete place failed:", err);
-    return NextResponse.json(
-      { error: "Failed to delete place" },
-      { status: 500 }
-    );
+    return NextResponse.json({ error: "Failed to delete place" }, { status: 500 });
   }
 }

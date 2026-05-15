@@ -1,6 +1,6 @@
 import type { SurveyAnswers } from "./survey";
 
-export interface QuestionOption {
+interface QuestionOption {
   value: string;
   label: string;
   icon?: string;

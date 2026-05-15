@@ -1,1 +1,1 @@
-export { useAuth, type AuthUser } from "@/components/providers/AuthProvider";
+export { useAuth } from "@/components/providers/AuthProvider";

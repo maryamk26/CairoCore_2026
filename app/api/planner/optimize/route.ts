@@ -34,10 +34,7 @@ export async function POST(request: NextRequest) {
     const lat = Number(body.userLocation.lat);
     const lng = Number(body.userLocation.lng);
     if (!okLat(lat) || !okLng(lng)) {
-      return NextResponse.json(
-        { error: "Invalid userLocation coordinates" },
-        { status: 400 }
-      );
+      return NextResponse.json({ error: "Invalid userLocation coordinates" }, { status: 400 });
     }
 
     const rawStops = body.stops;
@@ -45,10 +42,7 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: "At least one stop is required" }, { status: 400 });
     }
     if (rawStops.length > MAX_STOPS) {
-      return NextResponse.json(
-        { error: `At most ${MAX_STOPS} stops allowed` },
-        { status: 400 }
-      );
+      return NextResponse.json({ error: `At most ${MAX_STOPS} stops allowed` }, { status: 400 });
     }
 
     const stops: { id: string; lat: number; lng: number }[] = [];

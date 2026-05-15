@@ -39,7 +39,9 @@ export default function PlaceDetailContent({
         <div className="mb-6 space-y-4">
           <div className="bg-[#8b6f47]/30 rounded-lg p-4">
             <p className="font-cinzel text-white font-semibold text-lg mb-2">Address</p>
-            <p className="font-cinzel text-white/90 text-base leading-relaxed">{location.address || "—"}</p>
+            <p className="font-cinzel text-white/90 text-base leading-relaxed">
+              {location.address || "—"}
+            </p>
           </div>
           <div className="bg-[#8b6f47]/30 rounded-lg p-4">
             <p className="font-cinzel text-white/70 text-sm font-mono">
@@ -74,7 +76,9 @@ export default function PlaceDetailContent({
       )}
 
       <div className="bg-[#5d4e37] rounded-lg p-6 md:p-8">
-        <h2 className="font-cinzel text-2xl md:text-3xl font-bold text-white mb-6">Reviews & Memories</h2>
+        <h2 className="font-cinzel text-2xl md:text-3xl font-bold text-white mb-6">
+          Reviews & Memories
+        </h2>
         <PlaceFeedbackSection placeId={placeId} />
       </div>
     </div>

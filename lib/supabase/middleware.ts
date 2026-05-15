@@ -1,5 +1,7 @@
 import { createServerClient } from "@supabase/ssr";
 import { NextResponse, type NextRequest } from "next/server";
+import { normalizeAdminEmail } from "@/lib/auth/adminPolicy";
+import { getUserIdAndEmailFromAccessToken } from "@/lib/auth/sessionAccessToken";
 import { getSupabasePublishableKey, getSupabaseUrl } from "@/lib/supabase/env";
 
 export async function updateSession(request: NextRequest) {
@@ -29,8 +31,11 @@ export async function updateSession(request: NextRequest) {
   const {
     data: { session },
   } = await supabase.auth.getSession();
-  const userId = session?.user?.id ?? "";
+  const parsed = getUserIdAndEmailFromAccessToken(session?.access_token);
+  const userId = parsed?.userId ?? "";
+  const userEmail = parsed ? normalizeAdminEmail(parsed.email) : "";
   response.headers.set("x-user-id", userId);
+  response.headers.set("x-user-email", userEmail);
 
   return response;
 }

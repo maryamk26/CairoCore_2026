@@ -10,7 +10,7 @@ export const ROAD_FACTOR: Record<string, number> = {
   motorcycle: 1.3,
 };
 
-export const TIME_OF_DAY_BOUNDS: Record<string, { start: number; end: number; label: string }> = {
+const TIME_OF_DAY_BOUNDS: Record<string, { start: number; end: number; label: string }> = {
   morning: { start: 6 * 60, end: 12 * 60, label: "Morning (6am–12pm)" },
   afternoon: { start: 12 * 60, end: 18 * 60, label: "Afternoon (12pm–6pm)" },
   evening: { start: 18 * 60, end: 22 * 60, label: "Evening (6pm–10pm)" },

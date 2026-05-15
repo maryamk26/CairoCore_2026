@@ -4,7 +4,7 @@ import Link from "next/link";
 import { getCategoryIcon } from "@/components/icons/categoryIcons";
 import SaveToBoard from "./SaveToBoard";
 
-export type PlaceDetailHeroPlace = {
+type PlaceDetailHeroPlace = {
   id: string;
   title: string;
   images: string[];
@@ -50,8 +50,18 @@ export default function PlaceDetailHero({
                 className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/30 backdrop-blur-sm rounded-full p-3 transition-all"
                 aria-label="Previous image"
               >
-                <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                <svg
+                  className="w-6 h-6 text-white"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M15 19l-7-7 7-7"
+                  />
                 </svg>
               </button>
               <button
@@ -59,8 +69,18 @@ export default function PlaceDetailHero({
                 className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/30 backdrop-blur-sm rounded-full p-3 transition-all"
                 aria-label="Next image"
               >
-                <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                <svg
+                  className="w-6 h-6 text-white"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M9 5l7 7-7 7"
+                  />
                 </svg>
               </button>
             </>
@@ -69,7 +89,9 @@ export default function PlaceDetailHero({
             <div className="flex items-start justify-between gap-4">
               <div className="flex items-center gap-3 mb-2">
                 <PlaceIcon size={32} className="text-amber-300 shrink-0" />
-                <h1 className="font-cinzel text-4xl md:text-6xl font-bold text-white">{place.title}</h1>
+                <h1 className="font-cinzel text-4xl md:text-6xl font-bold text-white">
+                  {place.title}
+                </h1>
               </div>
               <div className="mt-1 flex items-center gap-2 flex-wrap">
                 <Link

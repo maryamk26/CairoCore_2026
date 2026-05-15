@@ -71,7 +71,8 @@ export default function PlannerPage() {
       if (saved.preferences != null) setPreferences(saved.preferences);
       if (Array.isArray(saved.recommendations)) setRecommendations(saved.recommendations);
       if (Array.isArray(saved.selectedPlaces)) setSelectedPlaces(saved.selectedPlaces);
-      if (Array.isArray(saved.stopRecommendations)) setStopRecommendations(saved.stopRecommendations);
+      if (Array.isArray(saved.stopRecommendations))
+        setStopRecommendations(saved.stopRecommendations);
       if (saved.selectedStop != null) setSelectedStop(saved.selectedStop);
     }
     setHasRestored(true);
@@ -109,7 +110,10 @@ export default function PlannerPage() {
           return;
         }
 
-        const ids = placeIdsParam.split(",").map((s) => s.trim()).filter(Boolean);
+        const ids = placeIdsParam
+          .split(",")
+          .map((s) => s.trim())
+          .filter(Boolean);
         if (ids.length === 0) {
           throw new Error("Failed to load places");
         }
@@ -128,9 +132,7 @@ export default function PlannerPage() {
         setSelectedPlaces(places);
         setStage("route");
       } catch (loadError) {
-        setError(
-          loadError instanceof Error ? loadError.message : "Failed to load route"
-        );
+        setError(loadError instanceof Error ? loadError.message : "Failed to load route");
       } finally {
         setIsLoading(false);
       }
@@ -149,7 +151,15 @@ export default function PlannerPage() {
       stopRecommendations,
       selectedStop,
     });
-  }, [hasRestored, stage, preferences, recommendations, selectedPlaces, stopRecommendations, selectedStop]);
+  }, [
+    hasRestored,
+    stage,
+    preferences,
+    recommendations,
+    selectedPlaces,
+    stopRecommendations,
+    selectedStop,
+  ]);
 
   const routeStopType = preferences?.routeStopType as string | undefined;
   const needsStopStep = routeStopType === "coffee_shop" || routeStopType === "restaurant";
@@ -197,9 +207,17 @@ export default function PlannerPage() {
       setIsLoading(true);
       setError(null);
       try {
-        const res = await fetch(
-          `/api/planner/stops?type=${encodeURIComponent(routeStopType)}`
-        );
+        const res =
+          preferences != null
+            ? await fetch("/api/planner/stops", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                  type: routeStopType,
+                  preferences,
+                }),
+              })
+            : await fetch(`/api/planner/stops?type=${encodeURIComponent(routeStopType)}`);
         const data = res.ok ? await res.json() : {};
         setStopRecommendations(Array.isArray(data.recommendations) ? data.recommendations : []);
         setSelectedStop(null);
@@ -275,9 +293,7 @@ export default function PlannerPage() {
       <div className="min-h-screen bg-[#3a3428] flex items-center justify-center">
         <div className="text-center">
           <div className="inline-block animate-spin rounded-full h-16 w-16 border-t-4 border-b-4 border-[#d4af37] mb-4"></div>
-          <p className="font-cinzel text-white text-xl">
-            Finding the perfect places for you...
-          </p>
+          <p className="font-cinzel text-white text-xl">Finding the perfect places for you...</p>
         </div>
       </div>
     );
@@ -288,16 +304,24 @@ export default function PlannerPage() {
       <div className="min-h-screen bg-[#3a3428] flex items-center justify-center px-4">
         <div className="max-w-md w-full bg-[#5d4e37] rounded-lg p-8 text-center">
           <div className="text-red-400 mb-4">
-            <svg className="w-16 h-16 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            <svg
+              className="w-16 h-16 mx-auto"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+              />
             </svg>
           </div>
           <h2 className="font-cinzel text-2xl font-bold text-white mb-4">
             Oops! Something went wrong
           </h2>
-          <p className="font-cinzel text-white/70 mb-6">
-            {error}
-          </p>
+          <p className="font-cinzel text-white/70 mb-6">{error}</p>
           <button
             onClick={handleStartOver}
             className="px-6 py-3 bg-[#d4af37] text-[#3a3428] rounded-lg font-cinzel font-bold hover:bg-[#e5bf47] transition-colors"
@@ -311,7 +335,12 @@ export default function PlannerPage() {
 
   switch (stage) {
     case "survey":
-      return <AccordionSurvey onComplete={handleSurveyComplete} initialAnswers={preferences ?? undefined} />;
+      return (
+        <AccordionSurvey
+          onComplete={handleSurveyComplete}
+          initialAnswers={preferences ?? undefined}
+        />
+      );
 
     case "selection":
       return (
@@ -338,11 +367,14 @@ export default function PlannerPage() {
       );
 
     case "route": {
-      const routeStopWhen = preferences?.routeStopWhen as "beginning" | "middle" | "end" | "doesnt_matter" | undefined;
+      const routeStopWhen = preferences?.routeStopWhen as
+        | "beginning"
+        | "middle"
+        | "end"
+        | "doesnt_matter"
+        | undefined;
       const treatStopAsPlace = routeStopWhen === "doesnt_matter" && selectedStop;
-      const placesForRoute = treatStopAsPlace
-        ? [...selectedPlaces, selectedStop]
-        : selectedPlaces;
+      const placesForRoute = treatStopAsPlace ? [...selectedPlaces, selectedStop] : selectedPlaces;
       const fixedPositionWhen =
         routeStopWhen === "beginning" || routeStopWhen === "middle" || routeStopWhen === "end"
           ? routeStopWhen

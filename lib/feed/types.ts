@@ -1,4 +1,4 @@
-export type FeedMode = "social" | "suggested";
+type FeedMode = "social" | "suggested";
 
 export type FeedActor = {
   id: string;

@@ -1,13 +1,6 @@
 "use client";
 
-import {
-  createContext,
-  useCallback,
-  useContext,
-  useEffect,
-  useState,
-  type ReactNode,
-} from "react";
+import { createContext, useCallback, useContext, useEffect, useState, type ReactNode } from "react";
 
 export type AuthUser = {
   id: string;
@@ -87,22 +80,6 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     window.addEventListener("focus", onFocus);
     return () => window.removeEventListener("focus", onFocus);
   }, [refreshSession]);
-
-  useEffect(() => {
-    if (!user) return;
-    let cancelled = false;
-    fetch("/api/auth/session", { credentials: "same-origin" })
-      .then((r) => r.json())
-      .then((data: { authenticated?: boolean }) => {
-        if (cancelled || data.authenticated !== false) return;
-        void fetch("/api/auth/sign-out", { method: "POST", credentials: "same-origin" });
-        setUser(null);
-      })
-      .catch(() => {});
-    return () => {
-      cancelled = true;
-    };
-  }, [user?.id]);
 
   return (
     <AuthContext.Provider

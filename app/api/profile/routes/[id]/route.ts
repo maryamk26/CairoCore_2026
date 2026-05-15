@@ -2,10 +2,7 @@ import { NextResponse } from "next/server";
 import { getSessionUser } from "@/lib/supabase/server";
 import { getSavedRouteById } from "@/lib/db/savedRoute";
 
-export async function GET(
-  _request: Request,
-  { params }: { params: Promise<{ id: string }> }
-) {
+export async function GET(_request: Request, { params }: { params: Promise<{ id: string }> }) {
   try {
     const user = await getSessionUser();
     if (!user) {
@@ -30,9 +27,6 @@ export async function GET(
     });
   } catch (err) {
     console.error("Saved route fetch failed:", err);
-    return NextResponse.json(
-      { error: "Failed to fetch saved route" },
-      { status: 500 }
-    );
+    return NextResponse.json({ error: "Failed to fetch saved route" }, { status: 500 });
   }
 }

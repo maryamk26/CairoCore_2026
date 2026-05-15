@@ -15,7 +15,9 @@ export default function PlaceDeleteConfirmModal({
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4">
       <div className="bg-[#3a3428] rounded-2xl p-6 max-w-sm w-full border border-[#5d4e37]">
         <h3 className="font-cinzel text-xl font-bold text-white mb-2">Delete this place?</h3>
-        <p className="text-white/80 text-sm mb-6">This cannot be undone. The place will be removed permanently.</p>
+        <p className="text-white/80 text-sm mb-6">
+          This cannot be undone. The place will be removed permanently.
+        </p>
         <div className="flex gap-3">
           <button
             type="button"

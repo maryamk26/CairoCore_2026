@@ -11,7 +11,9 @@
     "db:generate": "prisma generate",
     "db:push": "prisma db push",
     "db:migrate": "prisma migrate dev",
-    "db:studio": "prisma studio"
+    "db:studio": "prisma studio",
+    "embed:places": "tsx scripts/embed-places.ts",
+    "format": "prettier --write \"**/*.{ts,tsx,js,jsx,json,css,md}\""
   },
   "repository": {
     "type": "git",
@@ -34,8 +36,6 @@
     "@types/react": "^19.2.7",
     "@types/react-dom": "^19.2.3",
     "autoprefixer": "^10.4.23",
-    "eslint": "^9.39.2",
-    "eslint-config-next": "^16.1.1",
     "leaflet": "^1.9.4",
     "lucide-react": "^0.577.0",
     "next": "^16.1.1",
@@ -48,7 +48,12 @@
     "typescript": "^5.9.3"
   },
   "devDependencies": {
+    "@next/env": "^16.1.1",
     "cross-env": "^10.1.0",
+    "eslint": "^9.39.2",
+    "eslint-config-next": "^16.1.1",
+    "postcss-load-config": "^6.0.1",
+    "prettier": "^3.5.3",
     "prisma": "^6.0.0",
     "tsx": "^4.21.0"
   }

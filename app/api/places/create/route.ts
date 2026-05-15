@@ -3,7 +3,9 @@ import { revalidateTag } from "next/cache";
 import { createClient } from "@/lib/supabase/server";
 import { upsertUser } from "@/lib/db/user";
 import { createPlace } from "@/lib/db/place";
+import { shouldAutoEmbedPlaceOnWrite } from "@/lib/ai/config";
 import { CACHE_TAGS, placeTag } from "@/lib/cache/tags";
+import { schedulePlaceEmbeddingRefresh } from "@/lib/places/embedPlaceBackground";
 import { PlaceCategory, PlaceVibe } from "@prisma/client";
 
 function validCoord(value: unknown, min: number, max: number): value is number {
@@ -23,7 +25,10 @@ function asVibe(v: unknown): PlaceVibe | null {
 export async function POST(request: NextRequest) {
   try {
     const supabase = await createClient();
-    const { data: { user }, error } = await supabase.auth.getUser();
+    const {
+      data: { user },
+      error,
+    } = await supabase.auth.getUser();
 
     if (error || !user) {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
@@ -54,10 +59,10 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: "Valid latitude and longitude required" }, { status: 400 });
     }
 
-    const num = (v: unknown) =>
-      typeof v === "number" && Number.isFinite(v) ? v : null;
+    const num = (v: unknown) => (typeof v === "number" && Number.isFinite(v) ? v : null);
     const str = (v: unknown) => (v != null ? String(v).trim() || null : null);
-    const arr = (v: unknown) => (Array.isArray(v) ? v.filter((x) => typeof x === "string") : undefined);
+    const arr = (v: unknown) =>
+      Array.isArray(v) ? v.filter((x) => typeof x === "string") : undefined;
 
     const place = await createPlace(
       {
@@ -74,15 +79,22 @@ export async function POST(request: NextRequest) {
         vibe: asVibe(body.vibe),
         bestVisitTime: str(body.bestVisitTime),
         images: arr(body.images),
-        kidsFriendly: body.kidsFriendly === true ? true : body.kidsFriendly === false ? false : null,
-        elderlyFriendly: body.elderlyFriendly === true ? true : body.elderlyFriendly === false ? false : null,
-        petsFriendly: body.petsFriendly === true ? true : body.petsFriendly === false ? false : null,
+        kidsFriendly:
+          body.kidsFriendly === true ? true : body.kidsFriendly === false ? false : null,
+        elderlyFriendly:
+          body.elderlyFriendly === true ? true : body.elderlyFriendly === false ? false : null,
+        petsFriendly:
+          body.petsFriendly === true ? true : body.petsFriendly === false ? false : null,
       },
       user.id
     );
 
     revalidateTag(CACHE_TAGS.placesList, "max");
     revalidateTag(placeTag(place.id), "max");
+
+    if (shouldAutoEmbedPlaceOnWrite()) {
+      schedulePlaceEmbeddingRefresh(place.id);
+    }
 
     return NextResponse.json({ place }, { status: 201 });
   } catch (err) {

@@ -91,16 +91,24 @@ export default function PlaceFormBasicFields(props: PlaceFormBasicFieldsProps) {
         <label className={`block text-sm font-medium mb-1 ${labelCls}`}>Type</label>
         <select value={type} onChange={(e) => onTypeChange(e.target.value)} className={inputCls}>
           {PLACE_TYPES.map((t) => (
-            <option key={t.value} value={t.value}>{t.label}</option>
+            <option key={t.value} value={t.value}>
+              {t.label}
+            </option>
           ))}
         </select>
       </div>
       <div>
         <label className={`block text-sm font-medium mb-1 ${labelCls}`}>Category</label>
-        <select value={category} onChange={(e) => onCategoryChange(e.target.value)} className={inputCls}>
+        <select
+          value={category}
+          onChange={(e) => onCategoryChange(e.target.value)}
+          className={inputCls}
+        >
           <option value="">Choose a category</option>
           {PLACE_CATEGORIES.map((c) => (
-            <option key={c.value} value={c.value}>{c.label}</option>
+            <option key={c.value} value={c.value}>
+              {c.label}
+            </option>
           ))}
         </select>
       </div>
@@ -110,7 +118,10 @@ export default function PlaceFormBasicFields(props: PlaceFormBasicFieldsProps) {
         </label>
         <div className="flex flex-wrap gap-2 p-3 rounded-xl border border-gray-300 bg-white min-h-[52px]">
           {PLACE_TAGS.map((t) => (
-            <label key={t.value} className="inline-flex items-center gap-1.5 text-sm cursor-pointer text-gray-700">
+            <label
+              key={t.value}
+              className="inline-flex items-center gap-1.5 text-sm cursor-pointer text-gray-700"
+            >
               <input
                 type="checkbox"
                 checked={tags.includes(t.value)}
@@ -128,7 +139,10 @@ export default function PlaceFormBasicFields(props: PlaceFormBasicFieldsProps) {
         </label>
         <div className="flex flex-wrap gap-2 p-3 rounded-xl border border-gray-300 bg-white min-h-[52px]">
           {PLACE_VIBES.map((v) => (
-            <label key={v.value} className="inline-flex items-center gap-1.5 text-sm cursor-pointer text-gray-700">
+            <label
+              key={v.value}
+              className="inline-flex items-center gap-1.5 text-sm cursor-pointer text-gray-700"
+            >
               <input
                 type="checkbox"
                 checked={vibes.includes(v.value)}
@@ -154,7 +168,9 @@ export default function PlaceFormBasicFields(props: PlaceFormBasicFieldsProps) {
         <label className={`block text-sm font-medium mb-1 ${labelCls}`}>City</label>
         <select value={city} onChange={(e) => onCityChange(e.target.value)} className={inputCls}>
           {CITIES.map((c) => (
-            <option key={c.value || "empty"} value={c.value}>{c.label}</option>
+            <option key={c.value || "empty"} value={c.value}>
+              {c.label}
+            </option>
           ))}
         </select>
       </div>

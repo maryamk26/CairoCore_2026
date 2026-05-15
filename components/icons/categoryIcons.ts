@@ -17,7 +17,7 @@ import {
   Compass,
 } from "lucide-react";
 
-export const categoryIcons = {
+const categoryIcons = {
   museum: Landmark,
   historical_site: Landmark,
   pyramids: Pyramid,

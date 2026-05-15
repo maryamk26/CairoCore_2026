@@ -9,10 +9,7 @@ import {
   upsertPlaceFeedback,
 } from "@/lib/db/feedback";
 
-export async function GET(
-  _request: NextRequest,
-  { params }: { params: Promise<{ id: string }> }
-) {
+export async function GET(_request: NextRequest, { params }: { params: Promise<{ id: string }> }) {
   try {
     const { id } = await params;
     const place = await prisma.place.findUnique({
@@ -46,17 +43,11 @@ export async function GET(
     });
   } catch (err) {
     console.error("Place feedback fetch failed:", err);
-    return NextResponse.json(
-      { error: "Failed to fetch feedback" },
-      { status: 500 }
-    );
+    return NextResponse.json({ error: "Failed to fetch feedback" }, { status: 500 });
   }
 }
 
-export async function POST(
-  request: NextRequest,
-  { params }: { params: Promise<{ id: string }> }
-) {
+export async function POST(request: NextRequest, { params }: { params: Promise<{ id: string }> }) {
   try {
     const supabase = await createClient();
     const {
@@ -80,9 +71,7 @@ export async function POST(
 
     const body = await request.json().catch(() => ({}));
     const rating =
-      typeof body.rating === "number" && Number.isInteger(body.rating)
-        ? body.rating
-        : null;
+      typeof body.rating === "number" && Number.isInteger(body.rating) ? body.rating : null;
     const content = typeof body.content === "string" ? body.content : null;
 
     const feedback = await upsertPlaceFeedback(id, user.id, { rating, content });
@@ -104,10 +93,8 @@ export async function POST(
       summary,
     });
   } catch (err) {
-    const message =
-      err instanceof Error ? err.message : "Failed to submit feedback";
-    const status =
-      message === "Feedback must include a rating or written comment." ? 400 : 500;
+    const message = err instanceof Error ? err.message : "Failed to submit feedback";
+    const status = message === "Feedback must include a rating or written comment." ? 400 : 500;
 
     if (status === 500) {
       console.error("Place feedback save failed:", err);

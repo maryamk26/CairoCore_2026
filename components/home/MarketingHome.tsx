@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import { getCategoryIcon } from "@/components/icons/categoryIcons";
+import FixedPhotoBackdrop from "@/components/layout/FixedPhotoBackdrop";
 
 type PlaceSummary = {
   id: string;
@@ -31,16 +32,12 @@ export default function MarketingHome() {
 
   return (
     <div className="min-h-screen">
-      <section
-        className="relative min-h-screen flex items-center"
-        style={{
-          backgroundImage: "url(/images/backgrounds/home1.jpg)",
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          backgroundRepeat: "no-repeat",
-        }}
-      >
-        <div className="absolute inset-0 bg-black/60 z-0"></div>
+      <section className="relative flex min-h-screen items-center overflow-x-hidden">
+        <FixedPhotoBackdrop
+          attach="contained"
+          src="/images/backgrounds/home1.jpg"
+          overlayClassName="bg-black/60"
+        />
         <div className="relative z-10 container mx-auto px-4 py-24">
           <div className="max-w-2xl">
             <p className="text-white text-xl md:text-4xl font-cinzel mb-3">IT&apos;S TIME TO</p>
@@ -48,8 +45,8 @@ export default function MarketingHome() {
               VISIT CAIRO
             </h1>
             <p className="text-white text-sm md:text-xl leading-relaxed mb-8 font-cinzel max-w-xl">
-              Crave new adventures, mystical experiences and stunning places? You need to visit Cairo. We make sure that
-              you&apos;ll get an experience you&apos;ll never forget.
+              Crave new adventures, mystical experiences and stunning places? You need to visit
+              Cairo. We make sure that you&apos;ll get an experience you&apos;ll never forget.
             </p>
           </div>
         </div>
@@ -61,7 +58,9 @@ export default function MarketingHome() {
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <p className="font-cinzel text-white/80 text-lg mb-2">and get unforgettable emotions</p>
-            <h2 className="font-cinzel text-4xl md:text-5xl lg:text-6xl font-bold text-white">POPULAR PLACES</h2>
+            <h2 className="font-cinzel text-4xl md:text-5xl lg:text-6xl font-bold text-white">
+              POPULAR PLACES
+            </h2>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -95,9 +94,13 @@ export default function MarketingHome() {
                       <div className="absolute bottom-0 left-0 right-0 p-4">
                         <div className="flex items-center gap-2 mb-1">
                           <PlaceIcon size={20} className="text-amber-300 shrink-0" />
-                          <h3 className="font-cinzel text-white text-xl font-bold">{place.title}</h3>
+                          <h3 className="font-cinzel text-white text-xl font-bold">
+                            {place.title}
+                          </h3>
                         </div>
-                        <p className="font-cinzel text-white/90 text-sm line-clamp-2">{place.subtitle}</p>
+                        <p className="font-cinzel text-white/90 text-sm line-clamp-2">
+                          {place.subtitle}
+                        </p>
                       </div>
                     </div>
                   </Link>
@@ -111,16 +114,14 @@ export default function MarketingHome() {
 
       <section
         id="about"
-        className="relative min-h-[600px] flex items-center scroll-mt-20"
-        style={{
-          backgroundImage: "url(/images/backgrounds/aboutbg.jpg)",
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          backgroundRepeat: "no-repeat",
-        }}
+        className="relative flex min-h-[600px] items-center scroll-mt-20 overflow-x-hidden"
       >
-        <div className="absolute inset-0 bg-black/70 z-0"></div>
-        <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-[#3a3428] via-[#3a3428]/50 to-transparent z-10 pointer-events-none"></div>
+        <FixedPhotoBackdrop
+          attach="contained"
+          src="/images/backgrounds/aboutbg.jpg"
+          overlayClassName="bg-black/70"
+        />
+        <div className="pointer-events-none absolute top-0 left-0 right-0 z-10 h-32 bg-gradient-to-b from-[#3a3428] via-[#3a3428]/50 to-transparent"></div>
         <div className="relative z-10 container mx-auto px-4 py-16">
           <div className="max-w-2xl">
             <p className="text-white text-xl md:text-4xl font-cinzel mb-3">Know more about</p>
@@ -137,8 +138,8 @@ export default function MarketingHome() {
             <p className="font-cinzel text-white/80 text-sm md:text-xl leading-relaxed max-w-xl">
               Cairo hits different — we help you feel it.
               <br />
-              Your smart guide to exploring Cairo your way: hidden gems, iconic spots, food, vibes, and routes built just
-              for you.
+              Your smart guide to exploring Cairo your way: hidden gems, iconic spots, food, vibes,
+              and routes built just for you.
               <br />
               Less confusion. More adventure. Zero boring plans.
             </p>
@@ -148,13 +149,17 @@ export default function MarketingHome() {
 
       <div
         className={`fixed inset-0 z-50 flex items-center justify-center p-4 transition-all duration-300 ${
-          showModal ? "bg-black/50 backdrop-blur-sm" : "bg-black/0 backdrop-blur-0 pointer-events-none"
+          showModal
+            ? "bg-black/50 backdrop-blur-sm"
+            : "bg-black/0 backdrop-blur-0 pointer-events-none"
         }`}
         onClick={() => setShowModal(false)}
       >
         <div
           className={`bg-[#3d2f1f] backdrop-blur-md rounded-2xl shadow-xl border border-[#5d4e37]/50 p-8 md:p-12 max-w-2xl w-full max-h-[90vh] overflow-y-auto relative transition-all duration-300 ${
-            showModal ? "opacity-100 scale-100 translate-y-0" : "opacity-0 scale-95 -translate-y-4 pointer-events-none"
+            showModal
+              ? "opacity-100 scale-100 translate-y-0"
+              : "opacity-0 scale-95 -translate-y-4 pointer-events-none"
           }`}
           onClick={(e) => e.stopPropagation()}
         >
@@ -165,19 +170,29 @@ export default function MarketingHome() {
             aria-label="Close"
           >
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M6 18L18 6M6 6l12 12"
+              />
             </svg>
           </button>
           <div className="mt-4">
-            <h2 className="font-cinzel text-3xl md:text-4xl font-bold text-white mb-6">What We Do</h2>
+            <h2 className="font-cinzel text-3xl md:text-4xl font-bold text-white mb-6">
+              What We Do
+            </h2>
 
             <div className="space-y-6">
               <div>
-                <h3 className="font-cinzel text-xl font-semibold text-white mb-3">Your Ultimate Cairo Guide</h3>
+                <h3 className="font-cinzel text-xl font-semibold text-white mb-3">
+                  Your Ultimate Cairo Guide
+                </h3>
                 <p className="text-white/90 leading-relaxed font-cinzel text-lg">
-                  Think of us as your bestie who knows all the hidden gems in Cairo. We&apos;re a bunch of Cairo enthusiasts
-                  who got tired of missing out on the coolest spots in the city. From that insta-worthy cafe you&apos;ve been
-                  searching for to ancient places that&apos;ll literally blow your mind.
+                  Think of us as your bestie who knows all the hidden gems in Cairo. We&apos;re a
+                  bunch of Cairo enthusiasts who got tired of missing out on the coolest spots in
+                  the city. From that insta-worthy cafe you&apos;ve been searching for to ancient
+                  places that&apos;ll literally blow your mind.
                 </p>
               </div>
 
@@ -186,14 +201,16 @@ export default function MarketingHome() {
                   Making Cairo Exploration Effortless
                 </h3>
                 <p className="text-white/90 leading-relaxed font-cinzel text-lg mb-4">
-                  We&apos;re making Cairo exploration absolutely effortless and way more fun. We&apos;ve got all the deets on
-                  places you need to check out - photos that&apos;ll make you want to book a trip right now, honest reviews
-                  from real people, and all the insider tips you won&apos;t find anywhere else.
+                  We&apos;re making Cairo exploration absolutely effortless and way more fun.
+                  We&apos;ve got all the deets on places you need to check out - photos that&apos;ll
+                  make you want to book a trip right now, honest reviews from real people, and all
+                  the insider tips you won&apos;t find anywhere else.
                 </p>
                 <p className="text-white/90 leading-relaxed font-cinzel text-lg">
-                  Want to share that amazing spot you discovered? Go for it. Planning the perfect day out? We got you
-                  covered. Looking to connect with other explorers who are just as obsessed with Cairo as you are? You&apos;ve
-                  come to the right place. Let&apos;s explore this city together.
+                  Want to share that amazing spot you discovered? Go for it. Planning the perfect
+                  day out? We got you covered. Looking to connect with other explorers who are just
+                  as obsessed with Cairo as you are? You&apos;ve come to the right place. Let&apos;s
+                  explore this city together.
                 </p>
               </div>
             </div>

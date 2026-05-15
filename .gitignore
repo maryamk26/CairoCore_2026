@@ -19,6 +19,9 @@
 # misc
 .DS_Store
 *.pem
+*.deb
+*.rpm
+*.dmg
 
 # debug
 npm-debug.log*
@@ -36,4 +39,5 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-.clerk/
+/public
+/docs

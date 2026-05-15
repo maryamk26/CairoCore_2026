@@ -37,9 +37,6 @@ export async function GET(
     });
   } catch (err) {
     console.error("Public profile page fetch failed:", err);
-    return NextResponse.json(
-      { error: "Failed to load profile" },
-      { status: 500 }
-    );
+    return NextResponse.json({ error: "Failed to load profile" }, { status: 500 });
   }
 }

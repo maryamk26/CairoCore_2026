@@ -24,11 +24,7 @@ type RoutePlace = {
   position: number;
 };
 
-export default function SavedRoutePage({
-  params,
-}: {
-  params: Promise<{ id: string }>;
-}) {
+export default function SavedRoutePage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = use(params);
   const router = useRouter();
   const [route, setRoute] = useState<RouteMeta | null>(null);
@@ -85,9 +81,7 @@ export default function SavedRoutePage({
   if (!route) {
     return (
       <div className="min-h-screen flex flex-col items-center justify-center gap-4 bg-[#fafafa] px-4">
-        <p className="text-center text-[#5d4e37]">
-          {error || "Route not found."}
-        </p>
+        <p className="text-center text-[#5d4e37]">{error || "Route not found."}</p>
         <Link
           href="/profile"
           className="rounded-full bg-[#8b6f47] px-4 py-2 text-sm font-medium text-white hover:bg-[#5d4e37]"
@@ -114,12 +108,8 @@ export default function SavedRoutePage({
         <div className="mb-8 rounded-3xl border border-[#e6ddd2] bg-white p-6 shadow-sm">
           <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
             <div>
-              <p className="text-sm text-[#8b6f47]">
-                Saved {formatRelativeDate(route.createdAt)}
-              </p>
-              <h1 className="mt-2 font-cinzel text-3xl font-bold text-[#2f2b25]">
-                {route.name}
-              </h1>
+              <p className="text-sm text-[#8b6f47]">Saved {formatRelativeDate(route.createdAt)}</p>
+              <h1 className="mt-2 font-cinzel text-3xl font-bold text-[#2f2b25]">{route.name}</h1>
               <p className="mt-2 text-sm text-[#5d4e37]/80">
                 {route.stopCount} stop{route.stopCount === 1 ? "" : "s"}
                 {route.transportMode ? ` · ${route.transportMode}` : ""}

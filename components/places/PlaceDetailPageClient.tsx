@@ -1,7 +1,6 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import PlaceDetailHero from "@/components/places/PlaceDetailHero";
 import PlaceDetailContent from "@/components/places/PlaceDetailContent";
@@ -36,9 +35,7 @@ export default function PlaceDetailPageClient({ place }: Props) {
     }
     if (from === "profile" || from === "created") return "/profile";
     if (from === "search") {
-      return searchQ?.trim()
-        ? `/search?q=${encodeURIComponent(searchQ.trim())}`
-        : "/search";
+      return searchQ?.trim() ? `/search?q=${encodeURIComponent(searchQ.trim())}` : "/search";
     }
     return "/";
   }, [searchParams]);
@@ -68,17 +65,12 @@ export default function PlaceDetailPageClient({ place }: Props) {
 
   const prevImage = () => {
     if (place.images.length === 0) return;
-    setCurrentImageIndex(
-      (prev) => (prev - 1 + place.images.length) % place.images.length
-    );
+    setCurrentImageIndex((prev) => (prev - 1 + place.images.length) % place.images.length);
   };
 
-  const workingHoursStr =
-    typeof place.workingHours === "string" ? place.workingHours : null;
+  const workingHoursStr = typeof place.workingHours === "string" ? place.workingHours : null;
   const workingHoursObj =
-    place.workingHours && typeof place.workingHours === "object"
-      ? place.workingHours
-      : null;
+    place.workingHours && typeof place.workingHours === "object" ? place.workingHours : null;
 
   return (
     <div className="min-h-screen bg-[#3a3428]">

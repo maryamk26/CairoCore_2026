@@ -120,7 +120,10 @@ export default function SignUpForm() {
         </div>
 
         <div>
-          <label htmlFor="email" className="block text-sm font-cinzel font-medium text-[#5d4e37] mb-2">
+          <label
+            htmlFor="email"
+            className="block text-sm font-cinzel font-medium text-[#5d4e37] mb-2"
+          >
             Email
           </label>
           <input
@@ -135,7 +138,10 @@ export default function SignUpForm() {
         </div>
 
         <div>
-          <label htmlFor="password" className="block text-sm font-cinzel font-medium text-[#5d4e37] mb-2">
+          <label
+            htmlFor="password"
+            className="block text-sm font-cinzel font-medium text-[#5d4e37] mb-2"
+          >
             Password
           </label>
           <input
@@ -147,7 +153,9 @@ export default function SignUpForm() {
             className="w-full px-4 py-3 rounded-full border border-white/50 bg-white/20 backdrop-blur-sm text-[#3a3428] font-cinzel focus:outline-none focus:ring-2 focus:ring-white/50 focus:border-white/70 transition-all"
             placeholder="Create a password"
           />
-          <p className="mt-2 text-xs text-[#8b6f47] font-cinzel">Must be at least 8 characters long</p>
+          <p className="mt-2 text-xs text-[#8b6f47] font-cinzel">
+            Must be at least 8 characters long
+          </p>
         </div>
 
         {error && (

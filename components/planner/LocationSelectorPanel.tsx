@@ -40,23 +40,20 @@ export default function LocationSelectorPanel({
   onDeleteLocation,
 }: LocationSelectorPanelProps) {
   const tabCls = (m: "browser" | "search" | "saved") =>
-    mode === m
-      ? "bg-[#d4af37] text-[#3a3428]"
-      : "bg-[#5d4e37] text-white hover:bg-[#6d5e47]";
+    mode === m ? "bg-[#d4af37] text-[#3a3428]" : "bg-[#5d4e37] text-white hover:bg-[#6d5e47]";
 
   return (
     <div className="bg-[#8b6f47] rounded-lg p-4 space-y-4">
       <div className="flex items-center justify-between">
-        <h4 className="font-cinzel text-white font-bold text-sm">
-          Select Starting Location
-        </h4>
-        <button
-          onClick={onClose}
-          className="text-white/70 hover:text-white"
-          aria-label="Close"
-        >
+        <h4 className="font-cinzel text-white font-bold text-sm">Select Starting Location</h4>
+        <button onClick={onClose} className="text-white/70 hover:text-white" aria-label="Close">
           <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M6 18L18 6M6 6l12 12"
+            />
           </svg>
         </button>
       </div>
@@ -123,9 +120,7 @@ export default function LocationSelectorPanel({
           </label>
           <div className="max-h-[300px] overflow-y-auto space-y-2">
             {isSearching && (
-              <p className="font-cinzel text-white/70 text-xs text-center py-4">
-                Searching...
-              </p>
+              <p className="font-cinzel text-white/70 text-xs text-center py-4">Searching...</p>
             )}
             {!isSearching && searchQuery.length > 0 && searchQuery.length < 3 && (
               <p className="font-cinzel text-white/70 text-xs text-center py-4">
@@ -143,9 +138,7 @@ export default function LocationSelectorPanel({
                 onClick={() => onSearchResultSelect(result)}
                 className="w-full p-3 bg-[#5d4e37] hover:bg-[#6d5e47] rounded text-left transition-colors"
               >
-                <p className="font-cinzel text-white font-semibold text-sm mb-1">
-                  {result.text}
-                </p>
+                <p className="font-cinzel text-white font-semibold text-sm mb-1">{result.text}</p>
                 <p className="font-cinzel text-white/60 text-xs">{result.place_name}</p>
               </button>
             ))}
@@ -173,13 +166,9 @@ export default function LocationSelectorPanel({
                   onClick={() => onSavedLocationSelect(location)}
                   className="flex-1 text-left hover:opacity-80 transition-opacity"
                 >
-                  <p className="font-cinzel text-white font-semibold text-sm">
-                    {location.title}
-                  </p>
+                  <p className="font-cinzel text-white font-semibold text-sm">{location.title}</p>
                   {location.address && (
-                    <p className="font-cinzel text-white/60 text-xs mt-1">
-                      {location.address}
-                    </p>
+                    <p className="font-cinzel text-white/60 text-xs mt-1">{location.address}</p>
                   )}
                   <p className="font-cinzel text-white/50 text-xs mt-1">
                     {location.latitude.toFixed(4)}, {location.longitude.toFixed(4)}
@@ -191,7 +180,12 @@ export default function LocationSelectorPanel({
                   aria-label="Delete location"
                 >
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M6 18L18 6M6 6l12 12"
+                    />
                   </svg>
                 </button>
               </div>

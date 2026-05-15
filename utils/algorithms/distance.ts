@@ -25,35 +25,7 @@ function toRadians(degrees: number): number {
   return degrees * (Math.PI / 180);
 }
 
-export function calculateTravelTime(
-  distance: number,
-  averageSpeed: number = 30
-): number {
-  const timeInHours = distance / averageSpeed;
-  return Math.round(timeInHours * 60);
-}
-
-export function calculateDistanceMatrix(points: Coordinates[]): number[][] {
-  const matrix: number[][] = [];
-
-  for (let i = 0; i < points.length; i++) {
-    matrix[i] = [];
-    for (let j = 0; j < points.length; j++) {
-      if (i === j) {
-        matrix[i][j] = 0;
-      } else {
-        matrix[i][j] = calculateDistance(points[i], points[j]);
-      }
-    }
-  }
-
-  return matrix;
-}
-
-export function findNearestPoint(
-  origin: Coordinates,
-  points: Coordinates[]
-): number {
+export function findNearestPoint(origin: Coordinates, points: Coordinates[]): number {
   let minDistance = Infinity;
   let nearestIndex = 0;
 

@@ -28,10 +28,7 @@ export async function GET() {
       return NextResponse.json({ error: err.message }, { status: 404 });
     }
     console.error("Profile fetch failed:", err);
-    return NextResponse.json(
-      { error: "Failed to fetch profile" },
-      { status: 500 }
-    );
+    return NextResponse.json({ error: "Failed to fetch profile" }, { status: 500 });
   }
 }
 
@@ -54,9 +51,6 @@ export async function PATCH(request: NextRequest) {
     return NextResponse.json({ ok: true });
   } catch (err) {
     console.error("Profile update failed:", err);
-    return NextResponse.json(
-      { error: "Failed to update profile" },
-      { status: 500 }
-    );
+    return NextResponse.json({ error: "Failed to update profile" }, { status: 500 });
   }
 }

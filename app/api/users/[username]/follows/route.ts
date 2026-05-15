@@ -17,9 +17,6 @@ export async function GET(
     return NextResponse.json(lists);
   } catch (err) {
     console.error("Public follow lists fetch failed:", err);
-    return NextResponse.json(
-      { error: "Failed to fetch follow lists" },
-      { status: 500 }
-    );
+    return NextResponse.json({ error: "Failed to fetch follow lists" }, { status: 500 });
   }
 }

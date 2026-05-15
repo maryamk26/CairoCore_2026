@@ -60,7 +60,13 @@ async function fetchORS(
 
   const coords = feature.geometry.coordinates as [number, number][];
   const segments = feature.properties.segments as {
-    steps: { instruction?: string; type?: number; distance: number; duration: number; way_points: [number, number] }[];
+    steps: {
+      instruction?: string;
+      type?: number;
+      distance: number;
+      duration: number;
+      way_points: [number, number];
+    }[];
   }[];
 
   const steps: RoutingStep[] = [];
@@ -80,8 +86,10 @@ async function fetchORS(
 
   const summary = feature.properties.summary as { distance: number; duration: number } | undefined;
   const legs: RouteLeg[] = segments.map((seg) => {
-    const d = (seg as { distance?: number }).distance ?? seg.steps.reduce((s, st) => s + st.distance, 0);
-    const t = (seg as { duration?: number }).duration ?? seg.steps.reduce((s, st) => s + st.duration, 0);
+    const d =
+      (seg as { distance?: number }).distance ?? seg.steps.reduce((s, st) => s + st.distance, 0);
+    const t =
+      (seg as { duration?: number }).duration ?? seg.steps.reduce((s, st) => s + st.duration, 0);
     return { distance: d, duration: t };
   });
   return {
@@ -102,25 +110,16 @@ export async function POST(request: NextRequest) {
     };
 
     if (!Array.isArray(coordinates) || coordinates.length < 2) {
-      return NextResponse.json(
-        { error: "At least two coordinates required" },
-        { status: 400 }
-      );
+      return NextResponse.json({ error: "At least two coordinates required" }, { status: 400 });
     }
 
     const result = await fetchORS(coordinates, profile);
     if (!result) {
-      return NextResponse.json(
-        { error: "Routing failed" },
-        { status: 502 }
-      );
+      return NextResponse.json({ error: "Routing failed" }, { status: 502 });
     }
 
     return NextResponse.json(result);
   } catch {
-    return NextResponse.json(
-      { error: "Routing request failed" },
-      { status: 500 }
-    );
+    return NextResponse.json({ error: "Routing request failed" }, { status: 500 });
   }
 }

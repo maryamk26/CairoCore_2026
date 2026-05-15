@@ -51,7 +51,7 @@ const WEIGHTS = {
   timeOfDay: 5,
 };
 
-export function calculatePlaceMatch(
+function calculatePlaceMatch(
   place: PlaceForRecommendation,
   preferences: SurveyAnswers
 ): { score: number; reasons: string[] } {
@@ -108,7 +108,10 @@ export function calculatePlaceMatch(
     companionScore -= 5;
   }
   if (companions.includes("elderly")) companionScore += 3;
-  if ((companions.includes("romantic") || companions.includes("partner")) && placeVibe.includes("romantic")) {
+  if (
+    (companions.includes("romantic") || companions.includes("partner")) &&
+    placeVibe.includes("romantic")
+  ) {
     companionScore += 5;
     reasons.push("Perfect for couples");
   }
@@ -119,6 +122,30 @@ export function calculatePlaceMatch(
 
   score = Math.max(0, Math.min(100, score));
   return { score, reasons };
+}
+
+export function formatPlaceRecommendation(
+  place: PlaceForRecommendation,
+  preferences: SurveyAnswers
+): PlaceRecommendation {
+  const { score, reasons } = calculatePlaceMatch(place, preferences);
+  return {
+    id: place.id,
+    title: place.title ?? place.name ?? "",
+    description: place.description ?? "",
+    images: place.images ?? [],
+    latitude: place.latitude,
+    longitude: place.longitude,
+    address: place.address ?? "",
+    vibe: normalizeVibe(place),
+    entryFees: place.entryFees ?? place.entranceFee ?? null,
+    cameraFees: place.cameraFees ?? place.cameraFee ?? null,
+    petsFriendly: place.petsFriendly === true,
+    kidsFriendly: place.kidsFriendly !== false,
+    matchScore: score,
+    matchReasons: reasons,
+    ...(place.category && { category: place.category }),
+  };
 }
 
 const TOP_PLACES_LIMIT = 24;
@@ -160,4 +187,3 @@ export function getTopRecommendations(
       ...(place.category && { category: place.category }),
     }));
 }
-

@@ -46,4 +46,3 @@ export async function deleteFolder(folderId: string, userId: string) {
   await prisma.folder.delete({ where: { id: folderId } });
   return { id: folderId };
 }
-

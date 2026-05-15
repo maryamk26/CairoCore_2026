@@ -75,7 +75,10 @@ export default function FollowListModal({
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 px-4" onClick={onClose}>
+    <div
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 px-4"
+      onClick={onClose}
+    >
       <div
         className="w-full max-w-xl rounded-[28px] bg-[#faf7f2] shadow-2xl"
         onClick={(event) => event.stopPropagation()}

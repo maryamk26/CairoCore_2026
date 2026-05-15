@@ -11,11 +11,7 @@ function formatDate(dateString: string) {
   });
 }
 
-export default function FeedbackList({
-  feedback,
-}: {
-  feedback: PlaceFeedbackItem[];
-}) {
+export default function FeedbackList({ feedback }: { feedback: PlaceFeedbackItem[] }) {
   if (feedback.length === 0) {
     return (
       <div className="rounded-2xl border border-white/10 bg-white/5 px-5 py-6 text-white/75">

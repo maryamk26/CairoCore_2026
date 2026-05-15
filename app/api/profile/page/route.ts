@@ -48,9 +48,6 @@ export async function GET() {
       return NextResponse.json({ error: err.message }, { status: 404 });
     }
     console.error("Profile page fetch failed:", err);
-    return NextResponse.json(
-      { error: "Failed to load profile" },
-      { status: 500 }
-    );
+    return NextResponse.json({ error: "Failed to load profile" }, { status: 500 });
   }
 }

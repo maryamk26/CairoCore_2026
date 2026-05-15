@@ -31,7 +31,8 @@ export default function ClearSessionPage() {
           <>
             <h1 className="text-xl font-bold text-gray-900 mb-2">Session cleared</h1>
             <p className="text-gray-600 mb-6">
-              You’re signed out and cookies were cleared. Use the link below to go home and sign in again.
+              You’re signed out and cookies were cleared. Use the link below to go home and sign in
+              again.
             </p>
             <Link
               href="/"

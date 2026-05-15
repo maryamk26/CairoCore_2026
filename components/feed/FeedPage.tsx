@@ -34,7 +34,7 @@ export default function FeedPage() {
         throw new Error(data.error || "Failed to load feed");
       }
 
-      setItems((prev) => (append ? [...prev, ...(data.items ?? [])] : data.items ?? []));
+      setItems((prev) => (append ? [...prev, ...(data.items ?? [])] : (data.items ?? [])));
       setNextCursor(data.nextCursor ?? null);
       setHasMore(Boolean(data.hasMore && data.nextCursor));
     } catch (err) {

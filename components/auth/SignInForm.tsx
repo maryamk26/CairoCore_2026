@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { useSearchParams } from "next/navigation";
+import { isAdminEmail, normalizeAdminEmail } from "@/lib/auth/adminPolicy";
 
 export default function SignInForm() {
   const [email, setEmail] = useState("");
@@ -15,6 +16,8 @@ export default function SignInForm() {
     e.preventDefault();
     setIsLoading(true);
     setError("");
+
+    const adminHome = isAdminEmail(normalizeAdminEmail(email.trim())) ? "/admin" : redirectTo;
 
     try {
       const res = await fetch("/api/auth/sign-in", {
@@ -30,7 +33,7 @@ export default function SignInForm() {
         return;
       }
 
-      window.location.href = redirectTo;
+      window.location.href = adminHome;
     } catch (err: unknown) {
       const msg = err instanceof Error ? err.message : String(err);
       if (/fetch|network/i.test(msg)) setError("Could not reach the server.");
@@ -69,7 +72,10 @@ export default function SignInForm() {
     <div className="space-y-6 pb-0">
       <form onSubmit={handleSubmit} className="space-y-6">
         <div>
-          <label htmlFor="email" className="block text-sm font-cinzel font-medium text-[#5d4e37] mb-2">
+          <label
+            htmlFor="email"
+            className="block text-sm font-cinzel font-medium text-[#5d4e37] mb-2"
+          >
             Email
           </label>
           <input
@@ -84,7 +90,10 @@ export default function SignInForm() {
         </div>
 
         <div>
-          <label htmlFor="password" className="block text-sm font-cinzel font-medium text-[#5d4e37] mb-2">
+          <label
+            htmlFor="password"
+            className="block text-sm font-cinzel font-medium text-[#5d4e37] mb-2"
+          >
             Password
           </label>
           <input

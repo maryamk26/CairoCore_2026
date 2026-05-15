@@ -62,7 +62,9 @@ export default function FeedCard({ item }: { item: FeedItem }) {
                 {activityName}
               </Link>
             ) : (
-              <p className="truncate font-cinzel text-base font-semibold text-[#2f2b25]">{activityName}</p>
+              <p className="truncate font-cinzel text-base font-semibold text-[#2f2b25]">
+                {activityName}
+              </p>
             )}
             <p className="truncate text-sm text-[#7b7268]">
               {activityLabel} · {item.place.name}
@@ -70,7 +72,9 @@ export default function FeedCard({ item }: { item: FeedItem }) {
           </div>
         </div>
         <div className="text-right">
-          <p className="whitespace-nowrap text-xs text-[#7b7268]">{formatRelativeDate(item.createdAt)}</p>
+          <p className="whitespace-nowrap text-xs text-[#7b7268]">
+            {formatRelativeDate(item.createdAt)}
+          </p>
         </div>
       </div>
 
@@ -102,9 +106,16 @@ export default function FeedCard({ item }: { item: FeedItem }) {
             </div>
             <div className="flex items-center gap-2">
               <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-4l-4 4v-4z" />
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-4l-4 4v-4z"
+                />
               </svg>
-              <span>{reviewCount} {reviewCount === 1 ? "review" : "reviews"}</span>
+              <span>
+                {reviewCount} {reviewCount === 1 ? "review" : "reviews"}
+              </span>
             </div>
           </div>
           <Link
@@ -118,7 +129,9 @@ export default function FeedCard({ item }: { item: FeedItem }) {
         <div className="pt-4">
           <p className="text-sm leading-relaxed text-[#3f382f]">
             <span className="font-semibold text-[#2f2b25]">{creatorName}</span>{" "}
-            <span className="text-[#6d6357]">{item.place.description ?? "No caption available for this place yet."}</span>
+            <span className="text-[#6d6357]">
+              {item.place.description ?? "No caption available for this place yet."}
+            </span>
           </p>
           {item.type === "place_feedback" && item.metadata.content && (
             <p className="mt-3 rounded-2xl bg-[#f7f2ea] px-4 py-3 text-sm text-[#5d4e37]">

@@ -15,8 +15,7 @@ function toSuggestion(place: PlaceSuggestionRecord): Suggestion {
   return {
     id: place.id,
     title: place.name,
-    subtitle:
-      place.description?.slice(0, 80) ?? place.address ?? (place.category ?? ""),
+    subtitle: place.description?.slice(0, 80) ?? place.address ?? place.category ?? "",
     type: "place",
     category: place.category ?? "other",
   };
@@ -43,9 +42,7 @@ const getAllPlaceSuggestionsCached = unstable_cache(
   }
 );
 
-export async function getPlaceSuggestions(
-  q?: string | null
-): Promise<Suggestion[]> {
+export async function getPlaceSuggestions(q?: string | null): Promise<Suggestion[]> {
   const query = q?.trim();
   if (!query) return getAllPlaceSuggestionsCached();
 

@@ -22,9 +22,7 @@ export default function ProfileSwitch<T extends string>({
           type="button"
           onClick={() => onSwitch(tab.id)}
           className={`relative pb-3 text-base font-semibold transition-colors duration-200 ${
-            activeTab === tab.id
-              ? "text-[#5d4e37]"
-              : "text-[#5d4e37]/60 hover:text-[#5d4e37]"
+            activeTab === tab.id ? "text-[#5d4e37]" : "text-[#5d4e37]/60 hover:text-[#5d4e37]"
           }`}
         >
           {tab.label}

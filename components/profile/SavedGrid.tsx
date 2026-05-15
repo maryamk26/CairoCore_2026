@@ -22,13 +22,7 @@ export interface SavedRouteItem {
   placeNames: string[];
 }
 
-function BoardCard({
-  folder,
-  onClick,
-}: {
-  folder: FolderItem;
-  onClick: () => void;
-}) {
+function BoardCard({ folder, onClick }: { folder: FolderItem; onClick: () => void }) {
   const slots = folder.previewImages ?? [];
   const hasPins = folder.pinCount > 0;
 
@@ -48,17 +42,9 @@ function BoardCard({
         {hasPins && slots.length > 0 ? (
           <div className={`absolute inset-0 grid gap-0.5 p-1 ${gridClass}`}>
             {slots.map((url, i) => (
-              <div
-                key={i}
-                className="min-h-0 overflow-hidden rounded-md bg-gray-300"
-              >
+              <div key={i} className="min-h-0 overflow-hidden rounded-md bg-gray-300">
                 {url ? (
-                  <img
-                    src={url}
-                    alt=""
-                    className="h-full w-full object-cover"
-                    loading="lazy"
-                  />
+                  <img src={url} alt="" className="h-full w-full object-cover" loading="lazy" />
                 ) : null}
               </div>
             ))}
@@ -66,10 +52,7 @@ function BoardCard({
         ) : hasPins ? (
           <div className="absolute inset-0 flex flex-wrap gap-0.5 p-1">
             {Array.from({ length: Math.min(folder.pinCount, 4) }).map((_, i) => (
-              <div
-                key={i}
-                className="min-h-[45%] min-w-[45%] flex-1 rounded-md bg-gray-300"
-              />
+              <div key={i} className="min-h-[45%] min-w-[45%] flex-1 rounded-md bg-gray-300" />
             ))}
           </div>
         ) : (
@@ -81,24 +64,17 @@ function BoardCard({
         )}
       </div>
       <div className="p-3">
-        <h3 className="truncate font-semibold text-[#5d4e37]">
-          {folder.name}
-        </h3>
+        <h3 className="truncate font-semibold text-[#5d4e37]">{folder.name}</h3>
         <p className="mt-0.5 text-xs text-[#5d4e37]/70">
-          {folder.pinCount} {folder.pinCount === 1 ? "Pin" : "Pins"} · {formatRelativeDate(folder.createdAt)}
+          {folder.pinCount} {folder.pinCount === 1 ? "Pin" : "Pins"} ·{" "}
+          {formatRelativeDate(folder.createdAt)}
         </p>
       </div>
     </div>
   );
 }
 
-function SavedRouteCard({
-  route,
-  onClick,
-}: {
-  route: SavedRouteItem;
-  onClick: () => void;
-}) {
+function SavedRouteCard({ route, onClick }: { route: SavedRouteItem; onClick: () => void }) {
   return (
     <div
       className="cursor-pointer overflow-hidden rounded-3xl border border-gray-200 bg-white shadow-sm transition-colors hover:border-gray-300"
@@ -106,11 +82,7 @@ function SavedRouteCard({
     >
       <div className="aspect-[16/9] bg-gray-200">
         {route.previewImage ? (
-          <img
-            src={route.previewImage}
-            alt={route.name}
-            className="h-full w-full object-cover"
-          />
+          <img src={route.previewImage} alt={route.name} className="h-full w-full object-cover" />
         ) : (
           <div
             className="h-full w-full bg-cover bg-center"
@@ -119,11 +91,10 @@ function SavedRouteCard({
         )}
       </div>
       <div className="p-4">
-        <h3 className="truncate font-semibold text-[#5d4e37]">
-          {route.name}
-        </h3>
+        <h3 className="truncate font-semibold text-[#5d4e37]">{route.name}</h3>
         <p className="mt-1 text-xs text-[#5d4e37]/70">
-          {route.stopCount} stop{route.stopCount === 1 ? "" : "s"} · {formatRelativeDate(route.createdAt)}
+          {route.stopCount} stop{route.stopCount === 1 ? "" : "s"} ·{" "}
+          {formatRelativeDate(route.createdAt)}
           {route.transportMode ? ` · ${route.transportMode}` : ""}
         </p>
         {route.placeNames.length > 0 && (
@@ -188,9 +159,7 @@ export default function SavedGrid({
   return (
     <div className="pt-6">
       <div className="flex items-center justify-between mb-4">
-        <h2 className="text-sm font-medium text-[#5d4e37]">
-          {ownerLabel} boards
-        </h2>
+        <h2 className="text-sm font-medium text-[#5d4e37]">{ownerLabel} boards</h2>
         {isOwnProfile && !isCreating && folders.length > 0 ? (
           <button
             type="button"
@@ -220,7 +189,10 @@ export default function SavedGrid({
             </button>
             <button
               type="button"
-              onClick={() => { setIsCreating(false); setNewName(""); }}
+              onClick={() => {
+                setIsCreating(false);
+                setNewName("");
+              }}
               className="text-sm text-[#5d4e37]/80 hover:text-[#5d4e37]"
             >
               Cancel
@@ -236,9 +208,7 @@ export default function SavedGrid({
               key={folder.id}
               folder={folder}
               onClick={() =>
-                router.push(
-                  `/profile/boards/${folder.id}?name=${encodeURIComponent(folder.name)}`
-                )
+                router.push(`/profile/boards/${folder.id}?name=${encodeURIComponent(folder.name)}`)
               }
             />
           ))}
@@ -247,9 +217,7 @@ export default function SavedGrid({
 
       {folders.length === 0 && !isCreating && (
         <div className="text-center py-16 text-[#5d4e37]/80">
-          <p className="font-medium">
-            No boards yet
-          </p>
+          <p className="font-medium">No boards yet</p>
           <p className="text-sm mt-1">
             {isOwnProfile
               ? "Create a board to save places you like."
@@ -268,9 +236,7 @@ export default function SavedGrid({
       )}
 
       <div className="mt-12 mb-4">
-        <h2 className="text-sm font-medium text-[#5d4e37]">
-          {ownerLabel} routes
-        </h2>
+        <h2 className="text-sm font-medium text-[#5d4e37]">{ownerLabel} routes</h2>
       </div>
 
       {routes.length > 0 ? (

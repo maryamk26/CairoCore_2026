@@ -19,7 +19,12 @@ interface ProfileHeaderProps {
 function ShareIcon() {
   return (
     <svg className="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" />
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth={2}
+        d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"
+      />
     </svg>
   );
 }
@@ -27,7 +32,12 @@ function ShareIcon() {
 function PencilIcon() {
   return (
     <svg className="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth={2}
+        d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"
+      />
     </svg>
   );
 }
@@ -54,9 +64,7 @@ export default function ProfileHeader({
         </span>
       </div>
 
-      <h1 className="mb-1 font-cinzel text-2xl font-bold text-[#5d4e37]">
-        {profile.name}
-      </h1>
+      <h1 className="mb-1 font-cinzel text-2xl font-bold text-[#5d4e37]">{profile.name}</h1>
 
       <p className="mb-3 text-sm text-[#5d4e37]/80">{profile.username}</p>
 

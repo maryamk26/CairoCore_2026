@@ -30,10 +30,7 @@ export async function POST(request: Request) {
     });
 
     if (error || !data.url) {
-      return NextResponse.json(
-        { error: error?.message || "OAuth failed" },
-        { status: 400 }
-      );
+      return NextResponse.json({ error: error?.message || "OAuth failed" }, { status: 400 });
     }
     return NextResponse.json({ url: data.url });
   } catch {

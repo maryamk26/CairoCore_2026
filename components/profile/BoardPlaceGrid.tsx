@@ -56,7 +56,9 @@ export default function BoardPlaceGrid({
               onClick={() => onToggleSelect(place.id)}
               disabled={isRemoving}
               className={`group rounded-2xl overflow-hidden bg-gray-100 border-2 transition-colors text-left ${
-                isSelected ? "border-[#8b6f47] ring-2 ring-[#8b6f47]/50" : "border-gray-200 hover:border-gray-300"
+                isSelected
+                  ? "border-[#8b6f47] ring-2 ring-[#8b6f47]/50"
+                  : "border-gray-200 hover:border-gray-300"
               } ${isRemoving ? "opacity-50" : ""}`}
             >
               <div className="aspect-[3/4] relative bg-gray-200 overflow-hidden">
@@ -80,8 +82,18 @@ export default function BoardPlaceGrid({
                     }`}
                   >
                     {isSelected && (
-                      <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                      <svg
+                        className="w-4 h-4 text-white"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M5 13l4 4L19 7"
+                        />
                       </svg>
                     )}
                   </span>

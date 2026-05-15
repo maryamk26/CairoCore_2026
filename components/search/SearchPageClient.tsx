@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
+import FixedPhotoBackdrop from "@/components/layout/FixedPhotoBackdrop";
 import SearchHero from "@/components/search/SearchHero";
 import SearchSuggestions from "@/components/search/SearchSuggestions";
 import PopularSearches from "@/components/search/PopularSearches";
@@ -126,17 +127,11 @@ export default function SearchPageClient({ initialPlaces }: Props) {
   };
 
   return (
-    <div className="relative flex min-h-screen flex-col overflow-hidden">
-      <div className="absolute inset-0 z-0">
-        <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{
-            backgroundImage: "url('/images/backgrounds/searchbg.jpg')",
-            backgroundColor: "#5d4e37",
-          }}
-        />
-        <div className="absolute inset-0 bg-gradient-to-br from-[#5d4e37]/40 via-[#8b6f47]/30 to-[#5d4e37]/40" />
-      </div>
+    <div className="relative flex min-h-screen flex-col">
+      <FixedPhotoBackdrop
+        src="/images/backgrounds/searchbg.jpg"
+        overlayClassName="bg-gradient-to-br from-[#5d4e37]/40 via-[#8b6f47]/30 to-[#5d4e37]/40"
+      />
 
       <div className="relative z-10 flex flex-1 flex-col items-center justify-center px-4 pb-16 pt-24 md:pt-32 md:pb-24">
         <div className="relative w-full max-w-3xl">

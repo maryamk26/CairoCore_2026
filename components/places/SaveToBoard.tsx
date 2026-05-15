@@ -122,9 +122,7 @@ export default function SaveToBoard({ placeId }: { placeId: string }) {
         const data = await res.json().catch(() => ({}));
         throw new Error(data.error || "Could not save");
       }
-      setSavedFolderIds((prev) =>
-        prev.includes(folderId) ? prev : [...prev, folderId]
-      );
+      setSavedFolderIds((prev) => (prev.includes(folderId) ? prev : [...prev, folderId]));
       setOpen(false);
     } catch (e) {
       alert(e instanceof Error ? e.message : "Could not save");
@@ -193,9 +191,7 @@ export default function SaveToBoard({ placeId }: { placeId: string }) {
 
             <div className="max-h-72 overflow-y-auto">
               {loading ? (
-                <div className="px-4 py-6 text-center text-sm text-gray-500">
-                  Loading boards...
-                </div>
+                <div className="px-4 py-6 text-center text-sm text-gray-500">Loading boards...</div>
               ) : folders.length === 0 ? (
                 <div className="px-4 py-6 text-center text-sm text-gray-500">
                   You have no boards yet.
@@ -215,9 +211,7 @@ export default function SaveToBoard({ placeId }: { placeId: string }) {
                       </div>
                       <div className="min-w-0 flex-1">
                         <div className="flex items-center justify-between gap-2">
-                          <span className="text-sm font-medium text-gray-900">
-                            {folder.name}
-                          </span>
+                          <span className="text-sm font-medium text-gray-900">{folder.name}</span>
                           {inFolder && (
                             <span className="shrink-0 text-xs font-semibold text-green-600">
                               Saved
@@ -225,8 +219,7 @@ export default function SaveToBoard({ placeId }: { placeId: string }) {
                           )}
                         </div>
                         <p className="text-xs text-gray-500">
-                          {folder.pinCount}{" "}
-                          {folder.pinCount === 1 ? "Pin" : "Pins"}
+                          {folder.pinCount} {folder.pinCount === 1 ? "Pin" : "Pins"}
                         </p>
                       </div>
                     </button>

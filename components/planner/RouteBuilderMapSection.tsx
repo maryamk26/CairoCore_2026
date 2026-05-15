@@ -2,6 +2,8 @@
 
 import dynamic from "next/dynamic";
 
+import type { RouteMapPlace } from "@/components/planner/routeMapPlace";
+
 const RouteMap = dynamic(() => import("@/components/places/RouteMap"), {
   ssr: false,
   loading: () => (
@@ -11,17 +13,8 @@ const RouteMap = dynamic(() => import("@/components/places/RouteMap"), {
   ),
 });
 
-export type MapPlace = {
-  id: string;
-  title: string;
-  lat: number;
-  lng: number;
-  address?: string;
-  category?: string;
-};
-
 interface RouteBuilderMapSectionProps {
-  places: MapPlace[];
+  places: RouteMapPlace[];
 }
 
 export default function RouteBuilderMapSection({ places }: RouteBuilderMapSectionProps) {

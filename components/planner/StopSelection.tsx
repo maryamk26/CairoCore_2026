@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { PlaceRecommendation } from "@/utils/planner/recommendation";
 import Image from "next/image";
+import FixedPhotoBackdrop from "@/components/layout/FixedPhotoBackdrop";
 import { getCategoryIcon } from "@/components/icons/categoryIcons";
 
 const INITIAL_VISIBLE = 6;
@@ -39,34 +40,21 @@ export default function StopSelection({
 
   return (
     <div className="min-h-screen relative">
-      <div className="absolute inset-0 z-0">
-        <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{
-            backgroundImage: "url(/images/backgrounds/survey.jpg)",
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-            backgroundRepeat: "no-repeat",
-            backgroundColor: "#5d4e37",
-          }}
-        />
-        <div className="absolute inset-0 bg-gradient-to-br from-[#5d4e37]/40 via-[#8b6f47]/30 to-[#5d4e37]/40" />
-      </div>
+      <FixedPhotoBackdrop
+        src="/images/backgrounds/survey.jpg"
+        overlayClassName="bg-gradient-to-br from-[#5d4e37]/40 via-[#8b6f47]/30 to-[#5d4e37]/40"
+      />
 
       <div className="relative z-10 px-4 pt-32 pb-8">
         <div className="container mx-auto max-w-7xl">
           <div className="mb-8 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
             <div>
-              <h1
-                className="font-cinzel text-4xl md:text-5xl font-bold text-white mb-4"
-              >
+              <h1 className="font-cinzel text-4xl md:text-5xl font-bold text-white mb-4">
                 {title}
               </h1>
-              <p
-                className="font-cinzel text-white/80 text-lg"
-              >
-                Choose one stop to add to your route. We&apos;ll place it at the
-                right moment based on your preference.
+              <p className="font-cinzel text-white/80 text-lg">
+                Choose one stop to add to your route. We&apos;ll place it at the right moment based
+                on your preference.
               </p>
             </div>
             <button
@@ -80,18 +68,12 @@ export default function StopSelection({
 
           {selectedStop && (
             <div className="bg-[#d4af37] text-[#3a3428] rounded-lg p-4 mb-6 flex items-center justify-between">
-              <span
-                className="font-cinzel font-semibold"
-              >
-                Selected: {selectedStop.title}
-              </span>
+              <span className="font-cinzel font-semibold">Selected: {selectedStop.title}</span>
             </div>
           )}
 
           {recommendations.length === 0 && (
-            <p
-              className="font-cinzel text-white/80 mb-6"
-            >
+            <p className="font-cinzel text-white/80 mb-6">
               No {title.toLowerCase()} in the dataset yet. You can continue without a stop.
             </p>
           )}
@@ -104,9 +86,7 @@ export default function StopSelection({
                 <div
                   key={place.id}
                   className={`bg-[#5d4e37] rounded-lg overflow-hidden shadow-lg transition-all cursor-pointer ${
-                    selected
-                      ? "ring-4 ring-[#d4af37]"
-                      : "hover:ring-2 hover:ring-white/30"
+                    selected ? "ring-4 ring-[#d4af37]" : "hover:ring-2 hover:ring-white/30"
                   }`}
                   onClick={() => handleCardClick(place)}
                 >
@@ -164,23 +144,16 @@ export default function StopSelection({
                   <div className="p-5">
                     <div className="flex items-center gap-2 mb-2">
                       <PlaceIcon size={20} className="text-[#d4af37] shrink-0" />
-                      <h3 className="font-cinzel text-xl font-bold text-white">
-                        {place.title}
-                      </h3>
+                      <h3 className="font-cinzel text-xl font-bold text-white">{place.title}</h3>
                     </div>
-                    <p
-                      className="font-cinzel text-white/70 text-sm mb-3 line-clamp-2"
-                    >
+                    <p className="font-cinzel text-white/70 text-sm mb-3 line-clamp-2">
                       {place.description}
                     </p>
 
                     {place.matchReasons && place.matchReasons.length > 0 && (
                       <div className="mb-3 space-y-1">
                         {place.matchReasons.slice(0, 2).map((reason, index) => (
-                          <div
-                            key={index}
-                            className="flex items-center gap-2"
-                          >
+                          <div key={index} className="flex items-center gap-2">
                             <svg
                               className="w-4 h-4 text-[#d4af37] flex-shrink-0"
                               fill="currentColor"
@@ -192,11 +165,7 @@ export default function StopSelection({
                                 clipRule="evenodd"
                               />
                             </svg>
-                            <span
-                              className="font-cinzel text-white/80 text-xs"
-                            >
-                              {reason}
-                            </span>
+                            <span className="font-cinzel text-white/80 text-xs">{reason}</span>
                           </div>
                         ))}
                       </div>
@@ -217,25 +186,13 @@ export default function StopSelection({
 
                     <div className="flex items-center justify-between text-white/70 text-sm">
                       {place.entryFees !== null && place.entryFees > 0 ? (
-                        <span
-                          className="font-cinzel"
-                        >
-                          {place.entryFees} EGP
-                        </span>
+                        <span className="font-cinzel">{place.entryFees} EGP</span>
                       ) : (
-                        <span
-                          className="font-cinzel text-[#d4af37]"
-                        >
-                          Free entry
-                        </span>
+                        <span className="font-cinzel text-[#d4af37]">Free entry</span>
                       )}
                       <div className="flex gap-2">
-                        {place.kidsFriendly && (
-                          <span title="Kid-friendly">👶</span>
-                        )}
-                        {place.petsFriendly && (
-                          <span title="Pet-friendly">🐕</span>
-                        )}
+                        {place.kidsFriendly && <span title="Kid-friendly">👶</span>}
+                        {place.petsFriendly && <span title="Pet-friendly">🐕</span>}
                       </div>
                     </div>
                   </div>

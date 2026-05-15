@@ -17,9 +17,6 @@ export async function GET(request: NextRequest) {
     return NextResponse.json(feed);
   } catch (err) {
     console.error("Feed fetch failed:", err);
-    return NextResponse.json(
-      { error: "Failed to fetch feed" },
-      { status: 500 }
-    );
+    return NextResponse.json({ error: "Failed to fetch feed" }, { status: 500 });
   }
 }

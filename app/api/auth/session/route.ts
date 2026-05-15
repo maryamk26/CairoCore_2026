@@ -20,6 +20,9 @@ export async function GET() {
       },
     });
   } catch {
-    return NextResponse.json({ authenticated: false }, { status: 500 });
+    return NextResponse.json(
+      { authenticated: false, user: null, error: "session_unavailable" },
+      { status: 503 }
+    );
   }
 }

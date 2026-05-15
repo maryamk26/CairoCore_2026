@@ -51,7 +51,6 @@ function createNumberedIcon(number: number, color: string = "#3388ff") {
   });
 }
 
-
 interface Place {
   id: string;
   title: string;
@@ -71,7 +70,9 @@ function MapBoundsUpdater({ places }: { places: Place[] }) {
 
   useEffect(() => {
     if (places.length > 0) {
-      const bounds = L.latLngBounds(places.map((place) => [place.lat, place.lng] as [number, number]));
+      const bounds = L.latLngBounds(
+        places.map((place) => [place.lat, place.lng] as [number, number])
+      );
       map.fitBounds(bounds, { padding: [50, 50] });
     }
   }, [places, map]);
@@ -119,7 +120,7 @@ export default function RouteMap({ places, height = "500px" }: RouteMapProps) {
   useEffect(() => {
     if (places.length >= 2) {
       setIsLoading(true);
-      fetchRoute(places).then(route => {
+      fetchRoute(places).then((route) => {
         setRouteCoordinates(route);
         setIsLoading(false);
       });
@@ -171,23 +172,16 @@ export default function RouteMap({ places, height = "500px" }: RouteMapProps) {
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
-        {routeCoordinates && routeCoordinates.map((route, index) => (
-          <Polyline
-            key={index}
-            positions={route}
-            color="#3b82f6"
-            weight={4}
-            opacity={0.7}
-          />
-        ))}
+        {routeCoordinates &&
+          routeCoordinates.map((route, index) => (
+            <Polyline key={index} positions={route} color="#3b82f6" weight={4} opacity={0.7} />
+          ))}
         {places.map((place, index) => {
           const isStart = index === 0;
           const isLastRouteStop = index === places.length - 1;
           const routeNumber = index;
           const color = isStart ? "#22c55e" : isLastRouteStop ? "#ef4444" : "#3b82f6";
-          const icon = isStart
-            ? createLocationDotIcon()
-            : createNumberedIcon(routeNumber, color);
+          const icon = isStart ? createLocationDotIcon() : createNumberedIcon(routeNumber, color);
 
           const CategoryIcon = getCategoryIcon(place.category ?? "other");
           return (
@@ -198,12 +192,12 @@ export default function RouteMap({ places, height = "500px" }: RouteMapProps) {
                   {isStart ? (
                     <>Starting point — {place.title}</>
                   ) : (
-                    <>{routeNumber}. {place.title}</>
+                    <>
+                      {routeNumber}. {place.title}
+                    </>
                   )}
                 </div>
-                {place.address && (
-                  <div className="text-xs text-gray-600">{place.address}</div>
-                )}
+                {place.address && <div className="text-xs text-gray-600">{place.address}</div>}
               </Popup>
             </Marker>
           );

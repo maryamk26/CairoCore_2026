@@ -34,10 +34,7 @@ export async function POST(
     }
 
     if (profile.id === user.id) {
-      return NextResponse.json(
-        { error: "You cannot follow yourself" },
-        { status: 400 }
-      );
+      return NextResponse.json({ error: "You cannot follow yourself" }, { status: 400 });
     }
 
     const result = await followUser(user.id, profile.id);
@@ -49,10 +46,7 @@ export async function POST(
     });
   } catch (err) {
     if (err instanceof Error && err.message === "SELF_FOLLOW") {
-      return NextResponse.json(
-        { error: "You cannot follow yourself" },
-        { status: 400 }
-      );
+      return NextResponse.json({ error: "You cannot follow yourself" }, { status: 400 });
     }
     console.error("Follow failed:", err);
     return NextResponse.json({ error: "Failed to follow" }, { status: 500 });

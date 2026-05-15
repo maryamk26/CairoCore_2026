@@ -119,9 +119,7 @@ export default function ProfileContent() {
   if (fetchError || !profile) {
     return (
       <div className="min-h-screen flex flex-col items-center justify-center bg-[#fafafa] gap-4 px-4">
-        <p className="text-[#5d4e37] text-center">
-          {fetchError ?? "Could not load profile."}
-        </p>
+        <p className="text-[#5d4e37] text-center">{fetchError ?? "Could not load profile."}</p>
         <button
           type="button"
           onClick={fetchProfile}

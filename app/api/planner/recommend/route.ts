@@ -1,45 +1,12 @@
 import { NextRequest, NextResponse } from "next/server";
-import { prisma } from "@/lib/prisma";
-import { getTopRecommendations } from "@/utils/planner/recommendation";
 import { PlaceType } from "@prisma/client";
 
-function dbPlaceToInput(place: {
-  id: string;
-  name: string;
-  description: string | null;
-  category: string | null;
-  latitude: number;
-  longitude: number;
-  address: string | null;
-  entranceFee: number | null;
-  cameraFee: number | null;
-  vibe: string | null;
-  vibes: string[];
-  images: string[];
-  kidsFriendly: boolean | null;
-  petsFriendly: boolean | null;
-}) {
-  const vibeArr =
-    place.vibes?.length > 0 ? [...place.vibes] : place.vibe ? [place.vibe] : [];
-  return {
-    id: place.id,
-    name: place.name,
-    title: place.name,
-    description: place.description ?? "",
-    latitude: place.latitude,
-    longitude: place.longitude,
-    address: place.address ?? "",
-    entranceFee: place.entranceFee,
-    cameraFee: place.cameraFee,
-    vibe: vibeArr,
-    category: place.category ?? undefined,
-    images: place.images ?? [],
-    entryFees: place.entranceFee,
-    cameraFees: place.cameraFee,
-    petsFriendly: place.petsFriendly ?? false,
-    kidsFriendly: place.kidsFriendly ?? true,
-  };
-}
+import {
+  mapPlannerPlaceRowToInput,
+  PLANNER_PLACE_SELECT,
+} from "@/lib/planner/mapDbPlaceForRecommendation";
+import { tryHybridSurveyRecommendations } from "@/lib/planner/tryHybridSurveyRecommendations";
+import { prisma } from "@/lib/prisma";
 
 export async function POST(request: NextRequest) {
   try {
@@ -47,34 +14,24 @@ export async function POST(request: NextRequest) {
     const { preferences } = body;
 
     if (!preferences) {
-      return NextResponse.json(
-        { error: "Preferences are required" },
-        { status: 400 }
-      );
+      return NextResponse.json({ error: "Preferences are required" }, { status: 400 });
     }
 
     const allPlaces = await prisma.place.findMany({
       where: { type: PlaceType.place_to_visit },
-      select: {
-        id: true,
-        name: true,
-        description: true,
-        category: true,
-        latitude: true,
-        longitude: true,
-        address: true,
-        entranceFee: true,
-        cameraFee: true,
-        vibe: true,
-        vibes: true,
-        images: true,
-        kidsFriendly: true,
-        petsFriendly: true,
-      },
+      select: PLANNER_PLACE_SELECT,
     });
 
-    const inputPlaces = allPlaces.map(dbPlaceToInput);
-    const recommendations = getTopRecommendations(inputPlaces, preferences, 24);
+    const inputPlaces = allPlaces.map(mapPlannerPlaceRowToInput);
+    const finalLimit = 24;
+
+    const { recommendations } = await tryHybridSurveyRecommendations({
+      route: "recommend",
+      inputPlaces,
+      preferences,
+      placeType: PlaceType.place_to_visit,
+      finalLimit,
+    });
 
     return NextResponse.json({
       success: true,
@@ -84,9 +41,6 @@ export async function POST(request: NextRequest) {
     });
   } catch (error) {
     console.error("Error getting recommendations:", error);
-    return NextResponse.json(
-      { error: "Failed to get recommendations" },
-      { status: 500 }
-    );
+    return NextResponse.json({ error: "Failed to get recommendations" }, { status: 500 });
   }
 }

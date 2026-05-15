@@ -11,6 +11,7 @@ import RouteBuilderStartingPoint from "./RouteBuilderStartingPoint";
 import RouteBuilderTransport from "./RouteBuilderTransport";
 import RouteBuilderSummary from "./RouteBuilderSummary";
 import RouteBuilderPlaceList from "./RouteBuilderPlaceList";
+import FixedPhotoBackdrop from "@/components/layout/FixedPhotoBackdrop";
 import RouteBuilderActions from "./RouteBuilderActions";
 
 const NavigationMode = dynamic(() => import("./NavigationMode"), { ssr: false });
@@ -18,10 +19,7 @@ const NavigationMode = dynamic(() => import("./NavigationMode"), { ssr: false })
 interface RouteBuilderProps {
   places: PlaceRecommendation[];
   onBack: () => void;
-  onSave?: (route: {
-    placeIds: string[];
-    transportMode: string | null;
-  }) => void | Promise<void>;
+  onSave?: (route: { placeIds: string[]; transportMode: string | null }) => void | Promise<void>;
   minutesPerPlace?: number;
   timeOfDay?: string[];
   routeStop?: PlaceRecommendation | null;
@@ -97,23 +95,14 @@ export default function RouteBuilder({
 
   return (
     <div className="min-h-screen relative">
-      <div className="absolute inset-0 z-0">
-        <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{
-            backgroundImage: "url(/images/backgrounds/survey.jpg)",
-            backgroundColor: "#5d4e37",
-          }}
-        />
-        <div className="absolute inset-0 bg-gradient-to-br from-[#5d4e37]/40 via-[#8b6f47]/30 to-[#5d4e37]/40" />
-      </div>
+      <FixedPhotoBackdrop
+        src="/images/backgrounds/survey.jpg"
+        overlayClassName="bg-gradient-to-br from-[#5d4e37]/40 via-[#8b6f47]/30 to-[#5d4e37]/40"
+      />
 
       <div className="relative z-10">
         <div className="container mx-auto px-4 pt-32 pb-8">
-          <RouteBuilderHeader
-            onBack={onBack}
-            isSinglePlace={placesWithStop.length === 1}
-          />
+          <RouteBuilderHeader onBack={onBack} isSinglePlace={placesWithStop.length === 1} />
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             <div className="lg:col-span-2">

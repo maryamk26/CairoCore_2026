@@ -10,10 +10,7 @@ export type PlaceDetailData = {
   images: string[];
   location: { address: string; lat: number; lng: number };
   city: string | null;
-  workingHours:
-    | string
-    | Record<string, { open: string; close: string } | "closed">
-    | null;
+  workingHours: string | Record<string, { open: string; close: string } | "closed"> | null;
   entryFees: number | null;
   cameraFees: number | null;
   vibe: string[];
@@ -26,26 +23,16 @@ export type PlaceDetailData = {
   category: string;
 };
 
-export async function getPlaceDetailById(
-  id: string
-): Promise<PlaceDetailData | null> {
+export async function getPlaceDetailById(id: string): Promise<PlaceDetailData | null> {
   const getCached = unstable_cache(
     async () => {
       const place = await prisma.place.findUnique({ where: { id } });
       if (!place) return null;
 
-      const vibeArr = place.vibes?.length
-        ? place.vibes
-        : place.vibe
-          ? [place.vibe]
-          : [];
-      let workingHours: PlaceDetailData["workingHours"] =
-        place.openingHours ?? null;
+      const vibeArr = place.vibes?.length ? place.vibes : place.vibe ? [place.vibe] : [];
+      let workingHours: PlaceDetailData["workingHours"] = place.openingHours ?? null;
 
-      if (
-        typeof place.openingHours === "string" &&
-        place.openingHours.trim().startsWith("{")
-      ) {
+      if (typeof place.openingHours === "string" && place.openingHours.trim().startsWith("{")) {
         try {
           workingHours = JSON.parse(place.openingHours) as Record<
             string,
@@ -77,9 +64,7 @@ export async function getPlaceDetailById(
         petsFriendly: place.petsFriendly ?? false,
         kidsFriendly: place.kidsFriendly ?? true,
         elderlyFriendly: place.elderlyFriendly ?? null,
-        bestTimeToVisit: place.bestVisitTime
-          ? { timeOfDay: [place.bestVisitTime] }
-          : null,
+        bestTimeToVisit: place.bestVisitTime ? { timeOfDay: [place.bestVisitTime] } : null,
         category: place.category ?? "other",
       } satisfies PlaceDetailData;
     },

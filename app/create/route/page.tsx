@@ -135,14 +135,12 @@ export default function CreateRoutePage() {
       })
       .then((data) => {
         if (cancelled) return;
-        const nextFolders: FolderSummary[] = Array.isArray(data.folders)
-          ? data.folders
-          : [];
+        const nextFolders: FolderSummary[] = Array.isArray(data.folders) ? data.folders : [];
         setFolders(nextFolders);
         setSelectedBoardId((current) =>
           current && nextFolders.some((folder) => folder.id === current)
             ? current
-            : nextFolders[0]?.id ?? null
+            : (nextFolders[0]?.id ?? null)
         );
       })
       .catch(() => {
@@ -287,12 +285,10 @@ export default function CreateRoutePage() {
 
         <div className="mb-8 flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
           <div>
-            <h1 className="font-cinzel text-3xl font-bold text-gray-900">
-              Create route
-            </h1>
+            <h1 className="font-cinzel text-3xl font-bold text-gray-900">Create route</h1>
             <p className="mt-2 max-w-2xl text-sm text-[#5d4e37]/80">
-              Pick places from your saved boards or search for any place in Cairo,
-              then build your route using the same planner flow and ordering logic.
+              Pick places from your saved boards or search for any place in Cairo, then build your
+              route using the same planner flow and ordering logic.
             </p>
           </div>
           <button
@@ -308,9 +304,7 @@ export default function CreateRoutePage() {
         <div className="mb-8 rounded-3xl border border-[#e6ddd2] bg-white p-5 shadow-sm">
           <div className="mb-4 flex items-center justify-between gap-4">
             <div>
-              <h2 className="font-cinzel text-xl font-semibold text-[#2f2b25]">
-                Selected places
-              </h2>
+              <h2 className="font-cinzel text-xl font-semibold text-[#2f2b25]">Selected places</h2>
               <p className="text-sm text-[#5d4e37]/75">
                 {selectedPlaces.length === 0
                   ? "Choose at least one place to continue."
@@ -354,22 +348,15 @@ export default function CreateRoutePage() {
         <div className="grid gap-6 lg:grid-cols-2">
           <section className="rounded-3xl border border-[#e6ddd2] bg-white p-5 shadow-sm">
             <div className="mb-4">
-              <h2 className="font-cinzel text-xl font-semibold text-[#2f2b25]">
-                From your boards
-              </h2>
-              <p className="text-sm text-[#5d4e37]/75">
-                Add places you already saved.
-              </p>
+              <h2 className="font-cinzel text-xl font-semibold text-[#2f2b25]">From your boards</h2>
+              <p className="text-sm text-[#5d4e37]/75">Add places you already saved.</p>
             </div>
 
             {foldersLoading ? (
-              <div className="py-10 text-center text-sm text-[#5d4e37]/75">
-                Loading boards...
-              </div>
+              <div className="py-10 text-center text-sm text-[#5d4e37]/75">Loading boards...</div>
             ) : folders.length === 0 ? (
               <div className="rounded-2xl border border-dashed border-[#d7c7b4] bg-[#faf7f2] px-4 py-8 text-center text-sm text-[#5d4e37]/75">
-                You do not have any boards yet. You can still search and build a
-                route manually.
+                You do not have any boards yet. You can still search and build a route manually.
               </div>
             ) : (
               <>
@@ -418,9 +405,7 @@ export default function CreateRoutePage() {
                           }`}
                         >
                           <div className="min-w-0">
-                            <p className="font-medium text-[#2f2b25]">
-                              {place.name}
-                            </p>
+                            <p className="font-medium text-[#2f2b25]">{place.name}</p>
                             <p className="mt-1 text-sm text-[#5d4e37]/75">
                               {place.description?.trim() ||
                                 place.address?.trim() ||
@@ -442,9 +427,7 @@ export default function CreateRoutePage() {
 
           <section className="rounded-3xl border border-[#e6ddd2] bg-white p-5 shadow-sm">
             <div className="mb-4">
-              <h2 className="font-cinzel text-xl font-semibold text-[#2f2b25]">
-                Search places
-              </h2>
+              <h2 className="font-cinzel text-xl font-semibold text-[#2f2b25]">Search places</h2>
               <p className="text-sm text-[#5d4e37]/75">
                 Search any place and add it to this route.
               </p>
@@ -463,9 +446,7 @@ export default function CreateRoutePage() {
                 Start typing to find places.
               </div>
             ) : searchLoading ? (
-              <div className="py-10 text-center text-sm text-[#5d4e37]/75">
-                Searching places...
-              </div>
+              <div className="py-10 text-center text-sm text-[#5d4e37]/75">Searching places...</div>
             ) : searchResults.length === 0 ? (
               <div className="rounded-2xl border border-dashed border-[#d7c7b4] bg-[#faf7f2] px-4 py-8 text-center text-sm text-[#5d4e37]/75">
                 No places found for "{searchQuery.trim()}".
@@ -487,12 +468,8 @@ export default function CreateRoutePage() {
                       }`}
                     >
                       <div className="min-w-0">
-                        <p className="font-medium text-[#2f2b25]">
-                          {place.title}
-                        </p>
-                        <p className="mt-1 text-sm text-[#5d4e37]/75">
-                          {place.subtitle}
-                        </p>
+                        <p className="font-medium text-[#2f2b25]">{place.title}</p>
+                        <p className="mt-1 text-sm text-[#5d4e37]/75">{place.subtitle}</p>
                       </div>
                       <span className="shrink-0 rounded-full bg-[#f4ede3] px-3 py-1 text-xs font-medium text-[#5d4e37]">
                         {selected ? "Added" : "Add"}

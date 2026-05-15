@@ -49,10 +49,7 @@ export async function POST(request: NextRequest) {
     const placeId = typeof body.placeId === "string" ? body.placeId.trim() : "";
 
     if (!folderId || !placeId) {
-      return NextResponse.json(
-        { error: "folderId and placeId are required" },
-        { status: 400 }
-      );
+      return NextResponse.json({ error: "folderId and placeId are required" }, { status: 400 });
     }
 
     const saved = await savePlaceToFolder(user.id, folderId, placeId);

@@ -2,13 +2,7 @@
 
 import Link from "next/link";
 
-function StarButton({
-  filled,
-  onClick,
-}: {
-  filled: boolean;
-  onClick: () => void;
-}) {
+function StarButton({ filled, onClick }: { filled: boolean; onClick: () => void }) {
   return (
     <button type="button" onClick={onClick} className="text-[#c28b31]">
       <svg
