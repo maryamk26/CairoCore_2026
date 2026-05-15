@@ -1,4 +1,4 @@
--- Requires pgvector: CREATE EXTENSION IF NOT EXISTS vector; (see docs/planner-ai-upgrade-technical-phases.md Phase 0)
+-- Requires pgvector: CREATE EXTENSION IF NOT EXISTS vector; (see scripts/sql/enable-pgvector.sql)
 -- Embedding width 768 matches EmbeddingGemma in LM Studio / AI_PLANNER_EMBEDDING_DIMENSIONS.
 CREATE EXTENSION IF NOT EXISTS vector;
 
