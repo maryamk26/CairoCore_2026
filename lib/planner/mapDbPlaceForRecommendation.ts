@@ -1,3 +1,5 @@
+import type { PlaceRecommendation } from "@/utils/planner/recommendation";
+
 export const PLANNER_PLACE_SELECT = {
   id: true,
   name: true,
@@ -6,6 +8,7 @@ export const PLANNER_PLACE_SELECT = {
   latitude: true,
   longitude: true,
   address: true,
+  bestVisitTime: true,
   entranceFee: true,
   cameraFee: true,
   vibe: true,
@@ -23,6 +26,7 @@ export type PlannerPlaceRow = {
   latitude: number;
   longitude: number;
   address: string | null;
+  bestVisitTime: string | null;
   entranceFee: number | null;
   cameraFee: number | null;
   vibe: string | null;
@@ -32,24 +36,26 @@ export type PlannerPlaceRow = {
   petsFriendly: boolean | null;
 };
 
-export function mapPlannerPlaceRowToInput(place: PlannerPlaceRow) {
+export function mapPlannerRowToRecommendation(
+  place: PlannerPlaceRow,
+  matchReasons: string[] = []
+): PlaceRecommendation {
   const vibeArr = place.vibes?.length > 0 ? [...place.vibes] : place.vibe ? [place.vibe] : [];
   return {
     id: place.id,
-    name: place.name,
     title: place.name,
     description: place.description ?? "",
+    images: place.images ?? [],
     latitude: place.latitude,
     longitude: place.longitude,
     address: place.address ?? "",
-    entranceFee: place.entranceFee,
-    cameraFee: place.cameraFee,
     vibe: vibeArr,
-    category: place.category ?? undefined,
-    images: place.images ?? [],
     entryFees: place.entranceFee,
     cameraFees: place.cameraFee,
     petsFriendly: place.petsFriendly ?? false,
     kidsFriendly: place.kidsFriendly ?? true,
+    matchScore: 0,
+    matchReasons,
+    ...(place.category && { category: place.category }),
   };
 }

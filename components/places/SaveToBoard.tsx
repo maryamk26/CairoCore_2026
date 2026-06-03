@@ -27,6 +27,7 @@ export default function SaveToBoard({ placeId }: { placeId: string }) {
   const [unsaving, setUnsaving] = useState(false);
   const [savedFolderIds, setSavedFolderIds] = useState<string[]>([]);
   const [showCreateModal, setShowCreateModal] = useState(false);
+  const [loadError, setLoadError] = useState<string | null>(null);
 
   useEffect(() => {
     let cancelled = false;
@@ -46,23 +47,31 @@ export default function SaveToBoard({ placeId }: { placeId: string }) {
     if (!open) return;
     let cancelled = false;
     setLoading(true);
+    setLoadError(null);
     const q = `/api/profile/saved?placeId=${encodeURIComponent(placeId)}`;
 
     Promise.all([fetch("/api/profile/folders"), fetch(q)])
       .then(async ([foldersRes, savedRes]) => {
         if (foldersRes.status === 401 || savedRes.status === 401) {
-          window.location.href = "/auth";
+          window.location.href = `/auth?redirect=${encodeURIComponent(window.location.pathname)}`;
           return;
         }
         if (cancelled) return;
+
         if (foldersRes.ok) {
           const d = await foldersRes.json();
           setFolders(d.folders ?? []);
+        } else {
+          setLoadError("Could not load your boards. Please try again.");
         }
+
         if (savedRes.ok) {
           const d = await savedRes.json();
           setSavedFolderIds(d.folderIds ?? []);
         }
+      })
+      .catch(() => {
+        if (!cancelled) setLoadError("Could not load your boards. Please try again.");
       })
       .finally(() => {
         if (!cancelled) setLoading(false);
@@ -192,6 +201,8 @@ export default function SaveToBoard({ placeId }: { placeId: string }) {
             <div className="max-h-72 overflow-y-auto">
               {loading ? (
                 <div className="px-4 py-6 text-center text-sm text-gray-500">Loading boards...</div>
+              ) : loadError ? (
+                <div className="px-4 py-6 text-center text-sm text-red-600">{loadError}</div>
               ) : folders.length === 0 ? (
                 <div className="px-4 py-6 text-center text-sm text-gray-500">
                   You have no boards yet.

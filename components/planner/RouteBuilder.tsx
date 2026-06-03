@@ -88,6 +88,7 @@ export default function RouteBuilder({
       <NavigationMode
         startLocation={userLocation}
         places={placesWithStop}
+        transportMode={transportMode || "car"}
         onExit={() => setIsNavigationMode(false)}
       />
     );
@@ -106,7 +107,7 @@ export default function RouteBuilder({
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             <div className="lg:col-span-2">
-              <RouteBuilderMapSection places={mapPlaces} />
+              <RouteBuilderMapSection places={mapPlaces} transportMode={transportMode} />
             </div>
 
             <div className="space-y-6">

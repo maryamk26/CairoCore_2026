@@ -7,11 +7,9 @@ const publicRoutes = [
   "/sign-in",
   "/sign-up",
   "/auth",
-  "/about",
   "/search",
   "/places",
   "/users",
-  "/clear-session",
   "/api/webhooks",
   "/api/auth",
   "/api/places",
@@ -29,8 +27,7 @@ function isAdminShellPath(pathname: string): boolean {
     pathname.startsWith("/api/") ||
     pathname.startsWith("/auth") ||
     pathname.startsWith("/sign-in") ||
-    pathname.startsWith("/sign-up") ||
-    pathname === "/clear-session"
+    pathname.startsWith("/sign-up")
   );
 }
 
@@ -86,6 +83,6 @@ export async function middleware(request: NextRequest) {
 
 export const config = {
   matcher: [
-    "/((?!_next/static|_next/image|favicon.ico|clear-session|.*\\.(?:svg|png|jpg|jpeg|gif|webp)$).*)",
+    "/((?!_next/static|_next/image|favicon.ico|.*\\.(?:svg|png|jpg|jpeg|gif|webp)$).*)",
   ],
 };

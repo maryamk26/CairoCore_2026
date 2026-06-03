@@ -6,4 +6,5 @@ export type Suggestion = {
   subtitle: string;
   type: "place" | "person";
   category?: string;
+  image?: string | null;
 };

@@ -1,8 +1,8 @@
 import { useState, useEffect, useMemo, useRef, useCallback } from "react";
-import type { RouteMapPlace } from "@/components/planner/routeMapPlace";
+import type { RouteMapPlace } from "@/utils/planner/routeMapPlace";
 import type { PlaceRecommendation } from "@/utils/planner/recommendation";
 import { getPreferredWindow } from "@/utils/planner/routeConstants";
-import { fetchOsrmRoute } from "@/utils/planner/osrm";
+import { fetchOrsRouteGeometry } from "@/utils/planner/fetchOrsRoute";
 import {
   type UserLocation,
   type RouteStopWhen,
@@ -134,7 +134,11 @@ export function useRouteBuilderState({
     const modeRequested = transportMode;
     setLoadingRoute(true);
     setLiveRoute(null);
-    fetchOsrmRoute(userLocation, placesWithStop, transportMode)
+    fetchOrsRouteGeometry({
+      start: userLocation,
+      stops: placesWithStop,
+      transportMode,
+    })
       .then((result) => {
         if (!cancelled && result)
           setLiveRoute({

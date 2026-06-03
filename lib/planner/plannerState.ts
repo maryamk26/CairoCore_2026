@@ -1,25 +1,47 @@
-import type { SurveyAnswers } from "@/lib/planner/survey";
+import type { PlannerChatMessage, TripProfile } from "@/lib/planner/tripProfile";
 import type { PlaceRecommendation } from "@/utils/planner/recommendation";
 
-export type PlannerStage = "survey" | "selection" | "stop" | "route";
+export type PlannerStage = "chat" | "route";
 
 export interface PlannerState {
   stage: PlannerStage;
-  preferences: SurveyAnswers | null;
+  messages: PlannerChatMessage[];
+  tripProfile: TripProfile | null;
   recommendations: PlaceRecommendation[];
   selectedPlaces: PlaceRecommendation[];
-  stopRecommendations: PlaceRecommendation[];
-  selectedStop: PlaceRecommendation | null;
 }
 
 const STORAGE_KEY = "planner-state";
+const STORAGE_VERSION = 2;
 
 export function loadState(): Partial<PlannerState> {
   if (typeof window === "undefined") return {};
   try {
     const raw = sessionStorage.getItem(STORAGE_KEY);
     if (!raw) return {};
-    return JSON.parse(raw) as Partial<PlannerState>;
+    const parsed = JSON.parse(raw) as
+      | { v?: unknown; state?: unknown }
+      | Partial<PlannerState>;
+
+    if (
+      parsed &&
+      typeof parsed === "object" &&
+      "v" in parsed &&
+      "state" in parsed &&
+      typeof (parsed as any).v === "number"
+    ) {
+      if ((parsed as any).v !== STORAGE_VERSION) {
+        sessionStorage.removeItem(STORAGE_KEY);
+        return {};
+      }
+      const st = (parsed as any).state as Partial<PlannerState>;
+      if (st?.stage && st.stage !== "chat" && st.stage !== "route") st.stage = "chat";
+      return st;
+    }
+
+    const state = parsed as Partial<PlannerState>;
+    if (state.stage && state.stage !== "chat" && state.stage !== "route") state.stage = "chat";
+    return state;
   } catch {
     return {};
   }
@@ -28,7 +50,7 @@ export function loadState(): Partial<PlannerState> {
 export function saveState(state: PlannerState): void {
   if (typeof window === "undefined") return;
   try {
-    sessionStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+    sessionStorage.setItem(STORAGE_KEY, JSON.stringify({ v: STORAGE_VERSION, state }));
   } catch {}
 }
 

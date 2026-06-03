@@ -2,7 +2,7 @@
 
 import dynamic from "next/dynamic";
 
-import type { RouteMapPlace } from "@/components/planner/routeMapPlace";
+import type { RouteMapPlace } from "@/utils/planner/routeMapPlace";
 
 const RouteMap = dynamic(() => import("@/components/places/RouteMap"), {
   ssr: false,
@@ -15,13 +15,19 @@ const RouteMap = dynamic(() => import("@/components/places/RouteMap"), {
 
 interface RouteBuilderMapSectionProps {
   places: RouteMapPlace[];
+  transportMode?: string;
 }
 
-export default function RouteBuilderMapSection({ places }: RouteBuilderMapSectionProps) {
+export default function RouteBuilderMapSection({
+  places,
+  transportMode: transportModeProp,
+}: RouteBuilderMapSectionProps) {
+  const transportMode =
+    transportModeProp && transportModeProp.trim() !== "" ? transportModeProp : "car";
   if (places.length === 0) return null;
   return (
     <div className="bg-[#5d4e37] rounded-lg p-6">
-      <RouteMap places={places} height="600px" />
+      <RouteMap places={places} height="600px" transportMode={transportMode} />
     </div>
   );
 }

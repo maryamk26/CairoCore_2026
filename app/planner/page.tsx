@@ -1,10 +1,8 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import type { Dispatch, SetStateAction } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
-import AccordionSurvey from "@/components/planner/AccordionSurvey";
-import { SurveyAnswers } from "@/lib/planner/survey";
+import PlannerChat from "@/components/planner/PlannerChat";
 import {
   loadState as loadPlannerState,
   saveState as savePlannerState,
@@ -13,9 +11,12 @@ import {
   type PlannerStage,
   type PlaceLike,
 } from "@/lib/planner/plannerState";
-import PlaceSelection from "@/components/planner/PlaceSelection";
+import {
+  WELCOME_MESSAGE,
+  type PlannerChatMessage,
+  type TripProfile,
+} from "@/lib/planner/tripProfile";
 import RouteBuilder from "@/components/planner/RouteBuilder";
-import StopSelection from "@/components/planner/StopSelection";
 import { PlaceRecommendation } from "@/utils/planner/recommendation";
 
 type SavedRoutePayload = {
@@ -26,18 +27,16 @@ type SavedRoutePayload = {
 };
 
 function resetPlannerFlow(
-  setPreferences: Dispatch<SetStateAction<SurveyAnswers | null>>,
-  setRecommendations: Dispatch<SetStateAction<PlaceRecommendation[]>>,
-  setSelectedPlaces: Dispatch<SetStateAction<PlaceRecommendation[]>>,
-  setStopRecommendations: Dispatch<SetStateAction<PlaceRecommendation[]>>,
-  setSelectedStop: Dispatch<SetStateAction<PlaceRecommendation | null>>,
-  setError: Dispatch<SetStateAction<string | null>>
+  setMessages: (v: PlannerChatMessage[]) => void,
+  setTripProfile: (v: TripProfile | null) => void,
+  setRecommendations: (v: PlaceRecommendation[]) => void,
+  setSelectedPlaces: (v: PlaceRecommendation[]) => void,
+  setError: (v: string | null) => void
 ) {
-  setPreferences(null);
+  setMessages([WELCOME_MESSAGE]);
+  setTripProfile(null);
   setRecommendations([]);
   setSelectedPlaces([]);
-  setStopRecommendations([]);
-  setSelectedStop(null);
   setError(null);
 }
 
@@ -47,12 +46,11 @@ export default function PlannerPage() {
   const placeIdsParam = searchParams.get("placeIds")?.trim() ?? "";
   const savedRouteIdParam = searchParams.get("savedRouteId")?.trim() ?? "";
   const isDirectPlaceRoute = placeIdsParam.length > 0 || savedRouteIdParam.length > 0;
-  const [stage, setStage] = useState<PlannerStage>("survey");
-  const [preferences, setPreferences] = useState<SurveyAnswers | null>(null);
+  const [stage, setStage] = useState<PlannerStage>("chat");
+  const [messages, setMessages] = useState<PlannerChatMessage[]>([WELCOME_MESSAGE]);
+  const [tripProfile, setTripProfile] = useState<TripProfile | null>(null);
   const [recommendations, setRecommendations] = useState<PlaceRecommendation[]>([]);
   const [selectedPlaces, setSelectedPlaces] = useState<PlaceRecommendation[]>([]);
-  const [stopRecommendations, setStopRecommendations] = useState<PlaceRecommendation[]>([]);
-  const [selectedStop, setSelectedStop] = useState<PlaceRecommendation | null>(null);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [hasRestored, setHasRestored] = useState(false);
@@ -66,15 +64,15 @@ export default function PlannerPage() {
     }
 
     const saved = loadPlannerState();
-    if (saved.stage && saved.stage !== "survey") {
+    if (saved.stage && saved.stage !== "chat") {
       setStage(saved.stage);
-      if (saved.preferences != null) setPreferences(saved.preferences);
-      if (Array.isArray(saved.recommendations)) setRecommendations(saved.recommendations);
-      if (Array.isArray(saved.selectedPlaces)) setSelectedPlaces(saved.selectedPlaces);
-      if (Array.isArray(saved.stopRecommendations))
-        setStopRecommendations(saved.stopRecommendations);
-      if (saved.selectedStop != null) setSelectedStop(saved.selectedStop);
     }
+    if (Array.isArray(saved.messages) && saved.messages.length > 0) {
+      setMessages(saved.messages);
+    }
+    if (saved.tripProfile != null) setTripProfile(saved.tripProfile);
+    if (Array.isArray(saved.recommendations)) setRecommendations(saved.recommendations);
+    if (Array.isArray(saved.selectedPlaces)) setSelectedPlaces(saved.selectedPlaces);
     setHasRestored(true);
   }, [isDirectPlaceRoute]);
 
@@ -84,11 +82,10 @@ export default function PlannerPage() {
     setPlaceIdsLoaded(true);
     setIsLoading(true);
     resetPlannerFlow(
-      setPreferences,
+      setMessages,
+      setTripProfile,
       setRecommendations,
       setSelectedPlaces,
-      setStopRecommendations,
-      setSelectedStop,
       setError
     );
 
@@ -145,53 +142,32 @@ export default function PlannerPage() {
     if (!hasRestored) return;
     savePlannerState({
       stage,
-      preferences,
+      messages,
+      tripProfile,
       recommendations,
       selectedPlaces,
-      stopRecommendations,
-      selectedStop,
     });
   }, [
     hasRestored,
     stage,
-    preferences,
+    messages,
+    tripProfile,
     recommendations,
     selectedPlaces,
-    stopRecommendations,
-    selectedStop,
   ]);
 
-  const routeStopType = preferences?.routeStopType as string | undefined;
-  const needsStopStep = routeStopType === "coffee_shop" || routeStopType === "restaurant";
-  const stopPageTitle = routeStopType === "coffee_shop" ? "Coffee shops" : "Restaurants";
-
-  const handleSurveyComplete = async (answers: SurveyAnswers) => {
-    setPreferences(answers);
-    setIsLoading(true);
-    setError(null);
-
-    try {
-      const response = await fetch("/api/planner/recommend", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ preferences: answers }),
-      });
-
-      if (!response.ok) {
-        throw new Error("Failed to get recommendations");
-      }
-
-      const data = await response.json();
-      setRecommendations(data.recommendations);
-      setStage("selection");
-    } catch {
-      setError("Failed to get recommendations. Please try again.");
-    } finally {
-      setIsLoading(false);
-    }
-  };
+  const handleChatStateChange = useCallback(
+    (state: {
+      messages: PlannerChatMessage[];
+      tripProfile: TripProfile | null;
+      recommendations?: PlaceRecommendation[];
+    }) => {
+      setMessages(state.messages);
+      setTripProfile(state.tripProfile);
+      if (state.recommendations) setRecommendations(state.recommendations);
+    },
+    []
+  );
 
   const handleTogglePlace = (place: PlaceRecommendation) => {
     if (selectedPlaces.some((p) => p.id === place.id)) {
@@ -201,64 +177,21 @@ export default function PlannerPage() {
     }
   };
 
-  const handleContinueToRoute = async () => {
-    if (selectedPlaces.length < 1) return;
-    if (needsStopStep) {
-      setIsLoading(true);
-      setError(null);
-      try {
-        const res =
-          preferences != null
-            ? await fetch("/api/planner/stops", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({
-                  type: routeStopType,
-                  preferences,
-                }),
-              })
-            : await fetch(`/api/planner/stops?type=${encodeURIComponent(routeStopType)}`);
-        const data = res.ok ? await res.json() : {};
-        setStopRecommendations(Array.isArray(data.recommendations) ? data.recommendations : []);
-        setSelectedStop(null);
-        setStage("stop");
-      } catch {
-        setStopRecommendations([]);
-        setSelectedStop(null);
-        setStage("stop");
-      } finally {
-        setIsLoading(false);
-      }
-    } else {
-      setStage("route");
-    }
-  };
-
-  const handleContinueFromStop = () => {
-    setStage("route");
-  };
-
   const handleBackFromRoute = () => {
     if (isDirectPlaceRoute) {
       router.back();
       return;
     }
-
-    if (needsStopStep && selectedStop) {
-      setStage("stop");
-    } else {
-      setStage("selection");
-    }
+    setStage("chat");
   };
 
   const handleStartOver = () => {
-    setStage("survey");
+    setStage("chat");
     resetPlannerFlow(
-      setPreferences,
+      setMessages,
+      setTripProfile,
       setRecommendations,
       setSelectedPlaces,
-      setStopRecommendations,
-      setSelectedStop,
       setError
     );
     clearPlannerState();
@@ -293,7 +226,7 @@ export default function PlannerPage() {
       <div className="min-h-screen bg-[#3a3428] flex items-center justify-center">
         <div className="text-center">
           <div className="inline-block animate-spin rounded-full h-16 w-16 border-t-4 border-b-4 border-[#d4af37] mb-4"></div>
-          <p className="font-cinzel text-white text-xl">Finding the perfect places for you...</p>
+          <p className="font-cinzel text-white text-xl">Loading your route...</p>
         </div>
       </div>
     );
@@ -334,60 +267,31 @@ export default function PlannerPage() {
   }
 
   switch (stage) {
-    case "survey":
+    case "chat":
       return (
-        <AccordionSurvey
-          onComplete={handleSurveyComplete}
-          initialAnswers={preferences ?? undefined}
-        />
-      );
-
-    case "selection":
-      return (
-        <PlaceSelection
-          recommendations={recommendations}
+        <PlannerChat
+          initialMessages={messages}
+          initialTripProfile={tripProfile}
           selectedPlaces={selectedPlaces}
           onTogglePlace={handleTogglePlace}
-          onContinue={handleContinueToRoute}
-          onBackToSurvey={() => setStage("survey")}
-          budget={preferences?.budget as string | undefined}
-        />
-      );
-
-    case "stop":
-      return (
-        <StopSelection
-          title={stopPageTitle}
-          recommendations={stopRecommendations}
-          selectedStop={selectedStop}
-          onSelectStop={setSelectedStop}
-          onContinue={handleContinueFromStop}
-          onBack={() => setStage("selection")}
+          onBuildRoute={() => setStage("route")}
+          onStartOver={handleStartOver}
+          onStateChange={handleChatStateChange}
         />
       );
 
     case "route": {
-      const routeStopWhen = preferences?.routeStopWhen as
-        | "beginning"
-        | "middle"
-        | "end"
-        | "doesnt_matter"
-        | undefined;
-      const treatStopAsPlace = routeStopWhen === "doesnt_matter" && selectedStop;
-      const placesForRoute = treatStopAsPlace ? [...selectedPlaces, selectedStop] : selectedPlaces;
-      const fixedPositionWhen =
-        routeStopWhen === "beginning" || routeStopWhen === "middle" || routeStopWhen === "end"
-          ? routeStopWhen
-          : "middle";
+      const minutesPerPlace = tripProfile?.pace?.minutesPerPlace;
+      const timeOfDay = tripProfile?.visitTimes;
       return (
         <RouteBuilder
-          places={placesForRoute}
+          places={selectedPlaces}
           onBack={handleBackFromRoute}
           onSave={handleSaveRoute}
-          minutesPerPlace={preferences?.timePerPlace as number | undefined}
-          timeOfDay={preferences?.timeOfDay as string[] | undefined}
-          routeStop={treatStopAsPlace ? null : selectedStop}
-          routeStopWhen={treatStopAsPlace ? undefined : fixedPositionWhen}
+          minutesPerPlace={minutesPerPlace}
+          timeOfDay={timeOfDay}
+          routeStop={null}
+          routeStopWhen={undefined}
         />
       );
     }

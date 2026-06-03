@@ -165,7 +165,6 @@ model Place {
   @@map("places")
 }
 
-/// Vector row for semantic search (pgvector). Dimension must match `AI_PLANNER_EMBEDDING_DIMENSIONS` / LM Studio embedding model.
 model PlaceEmbedding {
   placeId    String                      @id @map("place_id")
   place      Place                       @relation(fields: [placeId], references: [id], onDelete: Cascade)

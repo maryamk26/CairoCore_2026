@@ -1,6 +1,6 @@
 import { Prisma } from "@prisma/client";
 import { prisma } from "@/lib/prisma";
-import { ADMIN_PRIMARY_EMAIL, isAdminEmail, normalizeAdminEmail } from "@/lib/auth/adminPolicy";
+import { getAdminEmail, isAdminEmail, normalizeAdminEmail } from "@/lib/auth/adminPolicy";
 
 type BasicUserRecord = {
   id: string;
@@ -56,16 +56,19 @@ function resolveRoleForEmail(email: string) {
 }
 
 async function enforceSingleAdminPolicy() {
+  const adminEmail = getAdminEmail();
+  if (!adminEmail) return;
+
   await prisma.$transaction([
     prisma.user.updateMany({
       where: {
         role: "ADMIN",
-        NOT: { email: ADMIN_PRIMARY_EMAIL },
+        NOT: { email: adminEmail },
       },
       data: { role: "USER" },
     }),
     prisma.user.updateMany({
-      where: { email: ADMIN_PRIMARY_EMAIL },
+      where: { email: adminEmail },
       data: { role: "ADMIN" },
     }),
   ]);

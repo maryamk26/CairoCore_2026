@@ -1,11 +1,12 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { MapContainer, TileLayer, Marker, Popup, Polyline, useMap } from "react-leaflet";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 import { getCategoryIcon } from "@/components/icons/categoryIcons";
 import { setLeafletDefaultIcon } from "@/lib/map/leafletDefaults";
+import { fetchOrsRouteGeometry } from "@/utils/planner/fetchOrsRoute";
 
 setLeafletDefaultIcon();
 
@@ -63,71 +64,92 @@ interface Place {
 interface RouteMapProps {
   places: Place[];
   height?: string;
+  transportMode?: string;
 }
 
-function MapBoundsUpdater({ places }: { places: Place[] }) {
+function placesRouteKey(places: Place[]): string {
+  return places.map((p) => `${p.id}:${p.lat.toFixed(5)},${p.lng.toFixed(5)}`).join("|");
+}
+
+function MapBoundsUpdater({
+  places,
+  routeLine,
+}: {
+  places: Place[];
+  routeLine: [number, number][] | null;
+}) {
   const map = useMap();
 
   useEffect(() => {
-    if (places.length > 0) {
-      const bounds = L.latLngBounds(
-        places.map((place) => [place.lat, place.lng] as [number, number])
-      );
-      map.fitBounds(bounds, { padding: [50, 50] });
+    const latLngs: [number, number][] = places
+      .filter((p) => Number.isFinite(p.lat) && Number.isFinite(p.lng))
+      .map((p) => [p.lat, p.lng]);
+
+    if (routeLine) {
+      for (const [lat, lng] of routeLine) {
+        if (Number.isFinite(lat) && Number.isFinite(lng)) latLngs.push([lat, lng]);
+      }
     }
-  }, [places, map]);
+
+    if (latLngs.length > 0) {
+      map.fitBounds(L.latLngBounds(latLngs), { padding: [50, 50] });
+      map.invalidateSize();
+    }
+  }, [places, routeLine, map]);
 
   return null;
 }
 
-async function fetchRoute(places: Place[]): Promise<L.LatLngExpression[][] | null> {
-  if (places.length < 2) return null;
-
-  try {
-    const [start, ...rest] = places;
-    const response = await fetch("/api/routing/osrm", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        start: { lat: start.lat, lng: start.lng },
-        places: rest.map((place) => ({
-          latitude: place.lat,
-          longitude: place.lng,
-        })),
-        transportMode: "car",
-      }),
-    });
-    if (!response.ok) {
-      throw new Error(`Routing API error: ${response.status}`);
-    }
-
-    const data = (await response.json()) as {
-      result?: { routeCoordinates?: [number, number][] };
-    };
-    const routePoints = data.result?.routeCoordinates;
-    if (Array.isArray(routePoints) && routePoints.length > 0) return [routePoints];
-
-    return null;
-  } catch {
-    return null;
-  }
-}
-
-export default function RouteMap({ places, height = "500px" }: RouteMapProps) {
-  const [routeCoordinates, setRouteCoordinates] = useState<L.LatLngExpression[][] | null>(null);
+export default function RouteMap({
+  places,
+  height = "500px",
+  transportMode = "car",
+}: RouteMapProps) {
+  const [routeLine, setRouteLine] = useState<[number, number][] | null>(null);
   const [isLoading, setIsLoading] = useState(false);
+  const [routePartial, setRoutePartial] = useState(false);
+  const [routeError, setRouteError] = useState(false);
+
+  const placesKey = useMemo(() => placesRouteKey(places), [places]);
+  const mode = transportMode?.trim() || "car";
 
   useEffect(() => {
-    if (places.length >= 2) {
-      setIsLoading(true);
-      fetchRoute(places).then((route) => {
-        setRouteCoordinates(route);
-        setIsLoading(false);
-      });
-    } else {
-      setRouteCoordinates(null);
+    if (places.length < 2) {
+      setRouteLine(null);
+      setRoutePartial(false);
+      setRouteError(false);
+      setIsLoading(false);
+      return;
     }
-  }, [places]);
+
+    const [start, ...rest] = places;
+    let cancelled = false;
+    setIsLoading(true);
+    setRouteError(false);
+    setRoutePartial(false);
+    setRouteLine(null);
+
+    fetchOrsRouteGeometry({
+      start: { lat: start.lat, lng: start.lng },
+      stops: rest.map((p) => ({ latitude: p.lat, longitude: p.lng })),
+      transportMode: mode,
+    }).then((result) => {
+      if (cancelled) return;
+      if (result?.routeCoordinates?.length) {
+        setRouteLine(result.routeCoordinates);
+        setRoutePartial(false);
+        setRouteError(false);
+      } else {
+        setRouteLine(null);
+        setRouteError(true);
+      }
+      setIsLoading(false);
+    });
+
+    return () => {
+      cancelled = true;
+    };
+  }, [placesKey, mode]);
 
   if (typeof window === "undefined") {
     return (
@@ -161,6 +183,20 @@ export default function RouteMap({ places, height = "500px" }: RouteMapProps) {
           <p className="text-sm text-gray-700">Loading route...</p>
         </div>
       )}
+      {!isLoading && routePartial && (
+        <div className="absolute top-4 left-1/2 -translate-x-1/2 z-[1000] bg-white px-4 py-2 rounded-lg shadow-lg max-w-[90%]">
+          <p className="text-sm text-gray-700 text-center">
+            Part of this route could not be calculated on roads — showing the best path available.
+          </p>
+        </div>
+      )}
+      {!isLoading && routeError && (
+        <div className="absolute top-4 left-1/2 -translate-x-1/2 z-[1000] bg-white px-4 py-2 rounded-lg shadow-lg max-w-[90%]">
+          <p className="text-sm text-gray-700 text-center">
+            Could not load directions. Check your connection and try again.
+          </p>
+        </div>
+      )}
       <MapContainer
         center={[centerLat, centerLng]}
         zoom={13}
@@ -172,16 +208,21 @@ export default function RouteMap({ places, height = "500px" }: RouteMapProps) {
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
-        {routeCoordinates &&
-          routeCoordinates.map((route, index) => (
-            <Polyline key={index} positions={route} color="#3b82f6" weight={4} opacity={0.7} />
-          ))}
+        {routeLine && routeLine.length > 1 && (
+          <Polyline
+            key={`route-${placesKey}-${mode}`}
+            positions={routeLine}
+            pathOptions={{ color: "#3b82f6", weight: 5, opacity: 0.9 }}
+          />
+        )}
         {places.map((place, index) => {
           const isStart = index === 0;
           const isLastRouteStop = index === places.length - 1;
-          const routeNumber = index;
+          const stopLabel = isStart ? 0 : index;
           const color = isStart ? "#22c55e" : isLastRouteStop ? "#ef4444" : "#3b82f6";
-          const icon = isStart ? createLocationDotIcon() : createNumberedIcon(routeNumber, color);
+          const icon = isStart
+            ? createLocationDotIcon()
+            : createNumberedIcon(stopLabel, color);
 
           const CategoryIcon = getCategoryIcon(place.category ?? "other");
           return (
@@ -193,7 +234,7 @@ export default function RouteMap({ places, height = "500px" }: RouteMapProps) {
                     <>Starting point — {place.title}</>
                   ) : (
                     <>
-                      {routeNumber}. {place.title}
+                      {stopLabel}. {place.title}
                     </>
                   )}
                 </div>
@@ -202,7 +243,7 @@ export default function RouteMap({ places, height = "500px" }: RouteMapProps) {
             </Marker>
           );
         })}
-        <MapBoundsUpdater places={places} />
+        <MapBoundsUpdater places={places} routeLine={routeLine} />
       </MapContainer>
     </div>
   );

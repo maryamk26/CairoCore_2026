@@ -105,8 +105,8 @@ export default function RouteBuilderSummary({
             </div>
             <p className="font-cinzel text-white/50 text-xs">
               {fromLiveMap
-                ? "From live route (OSRM)."
-                : "Estimate (straight-line × road factor); live route unavailable."}
+                ? "From live route (OpenRouteService)."
+                : "Estimate (straight-line); live routing unavailable."}
             </p>
             <div className="flex justify-between">
               <span className="font-cinzel text-white/70">Time at places</span>

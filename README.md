@@ -1,62 +1,41 @@
 # CairoCore
 
-Website for discovering places in cairo (museums, markets, cafés, etc). Feed, search, place pages, save to boards, route planner with a small survey.
+CairoCore is a web application for discovering places in Cairo and planning day trips. It helps residents and visitors find museums, historical sites, parks, cafés, restaurants, and other venues, save them to personal boards, and turn a selection into a mapped route with directions.
 
-next.js + prisma/postgres + supabase + leaflet. routes in `app/`, ui in `components/`, server stuff in `lib/` + `utils/`.
+Undergraduate project — Cairo-focused place discovery combined with an AI-assisted trip planner.
 
-## setup
+## Features
 
-```bash
-git clone https://github.com/maryamk26/CairoCore.git
-cd CairoCore
-npm install
-```
+**Discovery** — Browse a home feed, search the catalogue, and open rich place pages (photos, map, fees, hours, vibes, kid/pet-friendly flags, feedback).
 
-copy `.env.example` → `.env.local`
+**Social & profiles** — Authentication via Supabase. User profiles, boards, saved routes, follows, and user-submitted place listings.
 
-fill in `DATABASE_URL`, `SUPABASE_URL`, `SUPABASE_PUBLISHABLE_KEY`, `SUPABASE_SECRET_KEY`. shadow db url too if migrate asks for it.
+**Trip planner** — Conversational assistant collects trip preferences, retrieves matching places via vector search, ranks them, and lets the user pick stops. Supports optional café/restaurant stops, route reordering, a custom start point, and navigation (OpenRouteService). Planner intelligence runs through LM Studio (chat + embeddings).
 
-```bash
-npm run db:generate
-npm run db:migrate
-```
+**Administration** — Admin panel for moderating users, places, and feedback.
 
-(`db:push` ok if migrate is being annoying locally)
+## Tech stack
 
-supabase dashboard: add `http://localhost:3000` and redirect `http://localhost:3000/auth/callback`
+Next.js, React, Tailwind CSS, Leaflet, PostgreSQL, Prisma, pgvector, Supabase, OpenRouteService, LM Studio.
 
-```bash
-npm run dev
-```
+## Architecture
 
-go to localhost:3000, auth is `/auth`
+The codebase follows a standard Next.js App Router layout: UI in `components/`, server logic in `lib/`, and shared types/helpers in `utils/`.
 
-planner works without any ai — leave `AI_PLANNER_ENABLED=false` in env. survey + recommendations still run, just not the vector/llm part.
+| Layer | Role |
+|-------|------|
+| `app/` | Routes (pages) and REST handlers under `app/api/` |
+| `components/` | React UI grouped by feature (`feed`, `places`, `planner`, `profile`, `admin`, `layout`) |
+| `lib/` | Server-side domain code — not imported by client components for heavy logic |
+| `utils/` | Shared types and pure helpers used on both client and server (e.g. planner types, routing math) |
+| `prisma/` | Database schema and migrations |
+| `public/` | Static assets and place images |
+| `scripts/` | Maintenance utilities (e.g. embedding places for search) |
 
-`OPENROUTESERVICE_API_KEY` is optional (directions). works without it via osrm fallback.
+**API surface** — Handlers are grouped by domain: `places`, `planner`, `profile`, `routing`, `auth`, `feed`, `users`, `admin`.
 
-`/admin` — only my admin email in `lib/auth/adminPolicy.ts` gets in, sign in with that to test moderation.
+**Planner pipeline** — `lib/planner/` holds trip profile parsing, candidate retrieval, scoring, and the assistant turn orchestrator. The chat UI in `components/planner/` only renders state and calls `/api/planner/assistant`.
 
-`npm run build` / `npm run start` for prod-ish check.
+**Data access** — `lib/db/` wraps Prisma queries; `lib/places/` covers search, embeddings, and place detail mapping.
 
-## ai planner (only if you want to test that part)
-
-not required for the rest of the app.
-
-turn on `AI_PLANNER_ENABLED=true`, lm studio running with an embedding model loaded, set `LM_STUDIO_BASE_URL` + `LM_STUDIO_EMBEDDING_MODEL` in env (see .env.example).
-
-postgres needs pgvector once:
-
-```sql
-CREATE EXTENSION IF NOT EXISTS vector;
-```
-
-then `npm run embed:places` after you have places in the db. chat rerank needs `LM_STUDIO_CHAT_MODEL` too but you can skip that.
-
-if lm studio isn't on it just uses the normal rule sorting anyway.
-
-## grading / demo
-
-no automated tests in the repo.
-
-usually i check: feed → search → open a place → sign in → profile/saved boards → create place → planner survey + map → admin if needed.
+Configuration is described in `.env.example`.

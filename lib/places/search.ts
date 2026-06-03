@@ -9,7 +9,14 @@ type PlaceSuggestionRecord = {
   description: string | null;
   category: string | null;
   address: string | null;
+  images: string[];
 };
+
+function firstPlaceImage(images: string[] | null | undefined): string | null {
+  if (!images?.length) return null;
+  const url = images.find((u) => typeof u === "string" && u.trim());
+  return url ?? null;
+}
 
 function toSuggestion(place: PlaceSuggestionRecord): Suggestion {
   return {
@@ -18,6 +25,7 @@ function toSuggestion(place: PlaceSuggestionRecord): Suggestion {
     subtitle: place.description?.slice(0, 80) ?? place.address ?? place.category ?? "",
     type: "place",
     category: place.category ?? "other",
+    image: firstPlaceImage(place.images),
   };
 }
 
@@ -30,12 +38,13 @@ const getAllPlaceSuggestionsCached = unstable_cache(
         description: true,
         category: true,
         address: true,
+        images: true,
       },
       orderBy: { name: "asc" },
     });
     return places.map(toSuggestion);
   },
-  ["places-search-all"],
+  ["places-search-all-v2"],
   {
     revalidate: 300,
     tags: [CACHE_TAGS.placesList],
@@ -59,6 +68,7 @@ export async function getPlaceSuggestions(q?: string | null): Promise<Suggestion
       description: true,
       category: true,
       address: true,
+      images: true,
     },
     orderBy: { name: "asc" },
     take: 50,

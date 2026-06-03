@@ -10,7 +10,6 @@ const HIDDEN_PATH_PREFIXES = [
   "/sign-in",
   "/sign-up",
   "/auth",
-  "/about",
   "/search",
   "/planner",
   "/create",

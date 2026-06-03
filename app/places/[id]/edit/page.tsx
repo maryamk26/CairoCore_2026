@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { use } from "react";
-import { usePlaceEditDraft } from "@/lib/places/usePlaceEditDraft";
+import { usePlaceEditDraft } from "@/components/places/hooks/usePlaceEditDraft";
 import PlaceFormFields from "@/components/places/PlaceFormFields";
 
 export default function EditPlacePage({ params }: { params: Promise<{ id: string }> }) {

@@ -1,3 +1,10 @@
+/** Maps route-builder transport chips to OpenRouteService profile names (POST /api/routing). */
+export function transportModeToOrsProfile(transportMode: string): string {
+  if (transportMode === "walk") return "walking";
+  if (transportMode === "motorcycle") return "motorcycle";
+  return "driving";
+}
+
 export const SPEED_KMH: Record<string, number> = {
   walk: 5,
   car: 60,

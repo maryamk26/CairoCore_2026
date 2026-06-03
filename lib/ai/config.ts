@@ -5,11 +5,9 @@ export type AiPlannerConfig = {
   lmStudioChatModel: string;
   timeoutMs: number;
   chatTimeoutMs: number;
-  ruleTopK: number;
   vectorTopK: number;
   embeddingDimensions: number;
   autoEmbedOnPlaceWrite: boolean;
-  stopsHybridHeadLimit: number;
 };
 
 function envString(key: string, fallback: string): string {
@@ -54,11 +52,9 @@ export function getAiPlannerConfig(): AiPlannerConfig {
     lmStudioChatModel: envString("LM_STUDIO_CHAT_MODEL", ""),
     timeoutMs: envInt("AI_PLANNER_TIMEOUT_MS", 8000, 1000, 120_000),
     chatTimeoutMs: envInt("AI_PLANNER_CHAT_TIMEOUT_MS", 120_000, 5000, 600_000),
-    ruleTopK: envInt("AI_PLANNER_RULE_TOP_K", 40, 5, 200),
     vectorTopK: envInt("AI_PLANNER_VECTOR_TOP_K", 40, 5, 200),
     embeddingDimensions: envInt("AI_PLANNER_EMBEDDING_DIMENSIONS", 768, 32, 4096),
     autoEmbedOnPlaceWrite: envBoolDefaultTrue("AI_PLANNER_AUTO_EMBED_ON_WRITE"),
-    stopsHybridHeadLimit: envInt("AI_PLANNER_STOPS_HEAD_LIMIT", 48, 12, 200),
   };
 }
 
@@ -66,7 +62,7 @@ export function isAiPlannerEnabled(): boolean {
   return getAiPlannerConfig().enabled;
 }
 
-export function isPlannerChatRerankEnabled(): boolean {
+export function isPlannerLlmEnabled(): boolean {
   const c = getAiPlannerConfig();
   return c.enabled && c.lmStudioChatModel.trim() !== "";
 }
@@ -75,3 +71,10 @@ export function shouldAutoEmbedPlaceOnWrite(): boolean {
   const c = getAiPlannerConfig();
   return c.enabled && c.autoEmbedOnPlaceWrite;
 }
+
+export function isPlannerAiConfigured(): boolean {
+  return isAiPlannerEnabled() && isPlannerLlmEnabled();
+}
+
+export const PLANNER_AI_REQUIRED_MESSAGE =
+  "Planner requires local AI: set AI_PLANNER_ENABLED=true, run LM Studio, and set LM_STUDIO_CHAT_MODEL in .env.local";

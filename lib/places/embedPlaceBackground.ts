@@ -5,8 +5,6 @@ export function schedulePlaceEmbeddingRefresh(placeId: string): void {
     .then((r) => {
       if (r.errors.length > 0) {
         console.warn(`[embed] place ${placeId}: ${r.errors.map((e) => e.message).join("; ")}`);
-      } else if (r.updated > 0) {
-        console.info(`[embed] refreshed embedding for place ${placeId}`);
       }
     })
     .catch((e) => {

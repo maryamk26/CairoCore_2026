@@ -3,9 +3,8 @@
 import { useState, useEffect, useRef } from "react";
 import type { PlaceRecommendation } from "@/utils/planner/recommendation";
 import { orsTypeToManeuver, haversineDistanceKm } from "@/utils/planner/navigationHelpers";
+import { transportModeToOrsProfile } from "@/utils/planner/routeConstants";
 import NavigationModeOverlay from "./NavigationModeOverlay";
-
-type TransportMode = "driving" | "walking" | "cycling";
 
 interface NavigationStep {
   distance: number;
@@ -18,13 +17,17 @@ interface NavigationStep {
 interface NavigationModeProps {
   startLocation: { lat: number; lng: number; title?: string };
   places: PlaceRecommendation[];
+  transportMode?: string;
   onExit: () => void;
 }
 
-const DEFAULT_TRANSPORT: TransportMode = "driving";
-
-export default function NavigationMode({ startLocation, places, onExit }: NavigationModeProps) {
-  const [transportMode] = useState<TransportMode | null>(DEFAULT_TRANSPORT);
+export default function NavigationMode({
+  startLocation,
+  places,
+  transportMode: transportModeProp = "car",
+  onExit,
+}: NavigationModeProps) {
+  const orsProfile = transportModeToOrsProfile(transportModeProp);
   const [isLoadingRoute, setIsLoadingRoute] = useState(true);
   const [currentStep, setCurrentStep] = useState(0);
   const [currentDestinationIndex, setCurrentDestinationIndex] = useState(0);
@@ -35,7 +38,7 @@ export default function NavigationMode({ startLocation, places, onExit }: Naviga
   const [rideStartTime, setRideStartTime] = useState<Date | null>(null);
   const watchIdRef = useRef<number | null>(null);
 
-  const fetchNavigationRoute = async (mode: TransportMode) => {
+  const fetchNavigationRoute = async () => {
     setIsLoadingRoute(true);
     try {
       const allPoints = [
@@ -45,7 +48,7 @@ export default function NavigationMode({ startLocation, places, onExit }: Naviga
       const res = await fetch("/api/routing", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ coordinates: allPoints, profile: mode }),
+        body: JSON.stringify({ coordinates: allPoints, profile: orsProfile }),
       });
       if (!res.ok) {
         const err = await res.json().catch(() => ({}));
@@ -82,8 +85,9 @@ export default function NavigationMode({ startLocation, places, onExit }: Naviga
   };
 
   useEffect(() => {
-    fetchNavigationRoute(DEFAULT_TRANSPORT);
-  }, []);
+    fetchNavigationRoute();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [orsProfile, startLocation.lat, startLocation.lng, places.length]);
 
   const startLocationTracking = () => {
     if ("geolocation" in navigator) {
@@ -149,7 +153,7 @@ export default function NavigationMode({ startLocation, places, onExit }: Naviga
     );
   }
 
-  if (transportMode && steps.length > 0) {
+  if (steps.length > 0) {
     return (
       <NavigationModeOverlay
         startLocation={startLocation}

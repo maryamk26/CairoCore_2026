@@ -52,15 +52,13 @@ export default function NavigationModeOverlay({
 }: NavigationModeOverlayProps) {
   const currentPlace = places[currentDestinationIndex];
   const currentStepData = steps[currentStep];
-  const cumulativeToStop = legs
-    .slice(0, currentDestinationIndex + 1)
-    .reduce(
-      (acc, leg) => ({
-        distance: acc.distance + leg.distance,
-        duration: acc.duration + leg.duration,
-      }),
-      { distance: 0, duration: 0 }
-    );
+  const cumulativeToStop = legs.slice(0, currentDestinationIndex + 1).reduce(
+    (acc, leg) => ({
+      distance: acc.distance + leg.distance,
+      duration: acc.duration + leg.duration,
+    }),
+    { distance: 0, duration: 0 }
+  );
   const eta =
     rideStartTime && isRiding
       ? new Date(rideStartTime.getTime() + cumulativeToStop.duration * 1000)
