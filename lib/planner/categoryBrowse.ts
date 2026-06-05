@@ -65,6 +65,15 @@ export function isCategoryBrowseComplete(profile: TripProfile): boolean {
   return browse.activeIndex >= browse.queue.length - 1;
 }
 
+export function completeCategoryBrowse(profile: TripProfile): TripProfile {
+  const browse = profile.categoryBrowse;
+  if (!browse || browse.queue.length < 2) return profile;
+  return {
+    ...profile,
+    categoryBrowse: { ...browse, activeIndex: browse.queue.length - 1 },
+  };
+}
+
 export function getPendingBrowseCategory(profile: TripProfile): string | undefined {
   const browse = profile.categoryBrowse;
   if (!browse || browse.queue.length < 2) return undefined;

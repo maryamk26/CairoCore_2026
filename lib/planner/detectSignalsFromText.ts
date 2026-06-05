@@ -1,4 +1,4 @@
-import { sanitizePlaceCategories } from "@/lib/planner/tripProfile";
+import { sanitizePlaceCategories, VIBE_VALUES } from "@/lib/planner/tripProfile";
 import type { Companion, TripProfile, VisitTime } from "@/lib/planner/tripProfile";
 import { parseBudgetTiersFromText } from "@/lib/planner/parseBudgetFromText";
 import { parseMinutesPerPlaceFromText } from "@/lib/planner/parseMinutesPerPlace";
@@ -31,6 +31,24 @@ export function companionsMentionedInText(text: string): Companion[] {
   }
   if (/\b(friend|friends|buddy|buddies|group)\b/.test(lower)) companions.add("group");
   return [...companions];
+}
+
+const THEME_CHIP_VIBES: Record<string, string[]> = {
+  "romantic evening": ["romantic"],
+  "historical tour": ["historical", "cultural"],
+};
+
+export function vibesMentionedInText(text: string): string[] {
+  const lower = text.toLowerCase().trim();
+  const themed = THEME_CHIP_VIBES[lower];
+  if (themed?.length) return [...themed];
+
+  const vibes = new Set<string>();
+  for (const vibe of VIBE_VALUES) {
+    const re = new RegExp(`\\b${vibe.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}\\b`, "i");
+    if (re.test(lower)) vibes.add(vibe);
+  }
+  return [...vibes];
 }
 
 export function mainCategoriesFromUserText(text: string): string[] {
@@ -74,6 +92,9 @@ export function detectSignalsFromText(text: string): Partial<TripProfile> {
 
   const categories = mainCategoriesFromUserText(text);
   if (categories.length > 0) partial.categories = categories;
+
+  const vibes = vibesMentionedInText(text);
+  if (vibes.length > 0) partial.vibes = vibes;
 
   return partial;
 }

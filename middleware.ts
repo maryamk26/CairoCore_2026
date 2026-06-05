@@ -10,7 +10,6 @@ const publicRoutes = [
   "/search",
   "/places",
   "/users",
-  "/api/webhooks",
   "/api/auth",
   "/api/places",
   "/api/users",

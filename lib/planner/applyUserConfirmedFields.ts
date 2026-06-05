@@ -3,6 +3,7 @@ import {
   collectUserMessageText,
   companionsMentionedInText,
   mainCategoriesFromUserText,
+  vibesMentionedInText,
 } from "@/lib/planner/detectSignalsFromText";
 import {
   budgetTiersFromQuickReplyChip,
@@ -14,6 +15,7 @@ import {
 } from "@/lib/planner/parseMinutesPerPlace";
 import {
   COMPANION_VALUES,
+  VIBE_VALUES,
   VISIT_TIME_VALUES,
   type BudgetPerPlace,
   type Companion,
@@ -77,6 +79,16 @@ function readCompanions(text: string): Companion[] | undefined {
   return list.length > 0 ? list : undefined;
 }
 
+function readVibes(text: string): string[] | undefined {
+  const key = text.trim().toLowerCase();
+  for (const vibe of VIBE_VALUES) {
+    if (key === vibe) return [vibe];
+    if (key === vibe[0]!.toUpperCase() + vibe.slice(1)) return [vibe];
+  }
+  const vibes = vibesMentionedInText(text);
+  return vibes.length > 0 ? vibes : undefined;
+}
+
 export function applyUserConfirmedFields(
   profile: TripProfile,
   messages: PlannerChatMessage[],
@@ -103,12 +115,14 @@ export function applyUserConfirmedFields(
   if (companions?.length) out.companions = companions;
   else delete out.companions;
 
+  const vibes = lastUserMessageValue(messages, latestUserMessage, readVibes);
+  if (vibes?.length) out.vibes = vibes;
+  else delete out.vibes;
+
   const thread = collectUserMessageText(messages, latestUserMessage);
   const userCategories = mainCategoriesFromUserText(thread);
-  if (userCategories.length > 0) {
-    const merged = [...new Set([...(out.categories ?? []), ...userCategories])];
-    out.categories = merged;
-  }
+  if (userCategories.length > 0) out.categories = userCategories;
+  else delete out.categories;
 
   return out;
 }

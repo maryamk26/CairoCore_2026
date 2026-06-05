@@ -119,9 +119,21 @@ export async function curateAssistantRecommendationsWithLmStudio(options: {
   let parsed: unknown;
   try {
     parsed = parseJsonFromModelContent(raw);
-  } catch {
-    raw = await call(false);
-    parsed = parseJsonFromModelContent(raw);
+  } catch (firstParseErr) {
+    try {
+      raw = await call(false);
+      parsed = parseJsonFromModelContent(raw);
+    } catch {
+      console.warn(
+        "[planner-assistant] curator JSON parse failed; using candidate order fallback:",
+        firstParseErr
+      );
+      return candidates.slice(0, 24).map((r, i) => ({
+        ...r,
+        matchScore: defaultScoreForIndex(i),
+        matchReasons: ["Matches your trip profile"],
+      }));
+    }
   }
 
   const ranked = (parsed as CuratePayload).ranked;

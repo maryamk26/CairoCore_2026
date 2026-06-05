@@ -215,15 +215,7 @@ export function getMissingCriticalFields(profile: TripProfile): string[] {
   if (!profile.summary.trim()) missing.push("summary");
   if (!profile.budgetPerPlace?.length) missing.push("budgetPerPlace");
   if (!profile.companions?.length) missing.push("companions");
-  const effectiveStop = resolveEffectiveWantsStop(profile);
-  const mainCats = getMainVisitCategories(profile);
-  const hasPlaceIntent =
-    Boolean(mainCats?.length) ||
-    (profile.vibes?.length ?? 0) > 0 ||
-    (profile.categories?.length ?? 0) > 0 ||
-    effectiveStop === "cafe" ||
-    effectiveStop === "restaurant";
-  if (!hasPlaceIntent) missing.push("vibes");
+  if (!(profile.vibes?.length)) missing.push("vibes");
   if (!profile.visitTimes?.length) missing.push("visitTimes");
   const mins = profile.pace?.minutesPerPlace;
   if (typeof mins !== "number" || !Number.isFinite(mins) || mins < 15 || mins > 480) {

@@ -138,11 +138,11 @@ model Place {
   longitude       Float
   address         String?
   city            String?
-  openingHours    String?       // JSON: per-day { "monday": { "start": "9:00 AM", "end": "5:00 PM" } | "closed" }
+  openingHours    String?
   entranceFee     Float?
   cameraFee       Float?
   vibe            PlaceVibe?
-  vibes           String[]     @default([])  // multiple vibes
+  vibes           String[]     @default([])
   tags            String[]      @default([])
   bestVisitTime   String?
   images          String[]      @default([])

@@ -12,9 +12,8 @@ import {
   buildCategoryBrowseQuickReplies,
   categoryBrowseChipLabel,
   categoryDisplayLabel,
-  getPendingBrowseCategory,
+  completeCategoryBrowse,
   initCategoryBrowse,
-  isCategoryBrowseComplete,
   isShowMoreSameCategoryMessage,
   placeMatchesBrowseCategory,
   profileForCategoryBrowseStep,
@@ -105,6 +104,10 @@ function isStopListingRequest(message: string): boolean {
   const t = message.trim().toLowerCase().replace(/^["']+|["']+$/g, "");
   if (/^show (coffee shops?|cafes?|cafés?|restaurants?)\b/.test(t)) return true;
   if (/^(coffee shop|restaurant) stop\b/.test(t)) return true;
+  if (/\b(no extra stop|skip (the )?stop)\b/.test(t)) return false;
+  if (/\b(coffee shop|café|cafe|restaurant)\b/.test(t) && /\b(stop|add|show)\b/.test(t)) {
+    return true;
+  }
   return false;
 }
 
@@ -211,32 +214,23 @@ export async function runPlannerAssistantTurn(
   }
 
   const wantsStopType = resolveUserFoodStopType(profile, conversationText);
-  const browseComplete = isCategoryBrowseComplete(profile);
   const wantsStopListing =
     (wantsStopType === "cafe" || wantsStopType === "restaurant") && isStopListingRequest(trimmed);
 
-  if (profile.confidence === "ready" && wantsStopListing && !browseComplete && categoryBrowse) {
-    const pending = getPendingBrowseCategory(profile);
-    return {
-      assistantMessage: pending
-        ? `Let's look at ${categoryDisplayLabel(pending).toLowerCase()} first — then we can add your ${wantsStopType === "cafe" ? "coffee shop" : "restaurant"} stop.`
-        : "Let's finish browsing your place types first, then we can add a stop.",
-      tripProfile: profile,
-      phase: "recommendations",
-      quickReplies: buildCategoryBrowseQuickReplies(categoryBrowse, { includeShowMore: true }),
-    };
-  }
-
-  if (profile.confidence === "ready" && browseComplete && wantsStopListing) {
+  if (profile.confidence === "ready" && wantsStopListing) {
     const stopType = stopTypeFromListingRequest(trimmed, profile);
     if (stopType === "cafe" || stopType === "restaurant") {
       const recs = await stopRecommendationsForProfile(profile, stopType, RECOMMENDATIONS_MAX);
       const isCafe = stopType === "cafe";
+      const stopProfile = completeCategoryBrowse({
+        ...profile,
+        wantsStop: { type: stopType, when: profile.wantsStop?.when ?? "middle" },
+      });
       return {
         assistantMessage: isCafe
           ? "Here are coffee shops you can add as a stop."
           : "Here are restaurants you can add as a stop.",
-        tripProfile: profile,
+        tripProfile: stopProfile,
         phase: "recommendations",
         recommendations: recs,
       };
@@ -263,6 +257,7 @@ export async function runPlannerAssistantTurn(
     !browseActive || categoryBrowse!.activeIndex >= categoryBrowse!.queue.length - 1;
 
   if (ready) {
+    const allowFoodInRecs = wantsStopType === "cafe" || wantsStopType === "restaurant";
     try {
       const baseRetrievalProfile = profileForMainPlaceRetrieval(profile);
       const retrievalProfile = activeBrowseCategory
@@ -273,12 +268,20 @@ export async function runPlannerAssistantTurn(
         excludePlaceIds: request.excludePlaceIds,
         candidateLimit: 120,
       });
-      recommendations = await curateAssistantRecommendationsWithLmStudio({
-        retrievalText,
-        candidates,
-      });
 
-      const allowFoodInRecs = wantsStopType === "cafe" || wantsStopType === "restaurant";
+      try {
+        recommendations = await curateAssistantRecommendationsWithLmStudio({
+          retrievalText,
+          candidates,
+        });
+      } catch (curateErr) {
+        console.warn(
+          "[planner-assistant] curation failed; using heuristic ranking:",
+          curateErr
+        );
+        recommendations = rankCandidatesForTrip(candidates, profile);
+      }
+
       recommendations = finalizeMainRecommendations(
         recommendations ?? [],
         candidates,
@@ -291,7 +294,6 @@ export async function runPlannerAssistantTurn(
           .filter((r) => placeMatchesBrowseCategory(r, activeBrowseCategory))
           .slice(0, RECOMMENDATIONS_MAX);
       }
-
     } catch (err) {
       console.warn("[planner-assistant] recommendations failed; skipping:", err);
       recommendations = undefined;

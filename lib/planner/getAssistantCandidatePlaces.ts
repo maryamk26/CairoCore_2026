@@ -68,7 +68,7 @@ function applyHardFilters(rows: PlannerPlaceRow[], profile: TripProfile): Planne
   if (desiredTimes.length > 0) {
     out = out.filter((p) => {
       const t = p.bestVisitTime ? String(p.bestVisitTime).toLowerCase() : "";
-      if (!t) return true; // unknown is acceptable
+      if (!t) return true;
       return desiredTimes.some((x) => t.includes(x));
     });
   }
